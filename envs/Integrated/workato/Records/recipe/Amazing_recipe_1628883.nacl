@@ -6,6 +6,7 @@ workato.recipe Amazing_recipe_1628883@su {
   trigger_application = "salesforce"
   action_applications = [
     "netsuite",
+    "salesforce",
   ]
   applications = [
     "salesforce",
