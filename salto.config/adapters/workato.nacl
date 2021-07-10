@@ -16,7 +16,7 @@ workato {
         "Oren's Sandbox",
       ]
       netsuite = [
-        "Oren's Netsuite",
+        "Oren's NetSuite",
       ]
     }
   }

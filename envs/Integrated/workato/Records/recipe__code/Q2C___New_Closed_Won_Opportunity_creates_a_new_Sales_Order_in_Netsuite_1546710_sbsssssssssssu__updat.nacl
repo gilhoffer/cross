@@ -67,7 +67,7 @@ workato.recipe__code Q2C___New_Closed_Won_Opportunity_creates_a_new_Sales_Order_
         netsuite_object = "Customer"
       }
       input = {
-        netsuite_object = "Customer"
+        netsuite_object = netsuite.Customer
         companyName = "#{_('data.salesforce.updated_custom_object.get_custom_object(AccountId>id, sobject_name: Account).Name')}"
         limit = "25"
         search_settings = {
@@ -123,7 +123,7 @@ workato.recipe__code Q2C___New_Closed_Won_Opportunity_creates_a_new_Sales_Order_
             netsuite_object = "Inventory Item"
           }
           input = {
-            netsuite_object = "InventoryItem"
+            netsuite_object = netsuite.InventoryItem
             displayName = "#{_('data.salesforce.search_sobjects1.Product2.first.Name')}"
             limit = "25"
             search_settings = {
@@ -174,7 +174,7 @@ workato.recipe__code Q2C___New_Closed_Won_Opportunity_creates_a_new_Sales_Order_
                 netsuite_object = "Inventory Item"
               }
               input = {
-                netsuite_object = "InventoryItem"
+                netsuite_object = netsuite.InventoryItem
                 displayName = "#{_('data.salesforce.search_sobjects1.Product2.first.Name')}"
                 storeDisplayName = "#{_('data.salesforce.search_sobjects1.Product2.first.Name')}"
                 external_id = "#{_('data.salesforce.search_sobjects1.Product2.first.Id')}"
@@ -243,7 +243,7 @@ workato.recipe__code Q2C___New_Closed_Won_Opportunity_creates_a_new_Sales_Order_
         netsuite_object = "Sales Order"
       }
       input = {
-        netsuite_object = "SalesOrder"
+        netsuite_object = netsuite.SalesOrder
         externalId = "#{_('data.salesforce.updated_custom_object.Id')}"
       }
       visible_config_fields = [
@@ -284,7 +284,7 @@ workato.recipe__code Q2C___New_Closed_Won_Opportunity_creates_a_new_Sales_Order_
             isTaxable = true
           }
           input = {
-            netsuite_object = "SalesOrder"
+            netsuite_object = netsuite.SalesOrder
             isTaxable = "false"
             entity = "=_('data.netsuite.search_object_v2.Customers.first.internal_id')"
             itemList = {
@@ -388,6 +388,117 @@ workato.recipe__code Q2C___New_Closed_Won_Opportunity_creates_a_new_Sales_Order_
     workato.recipe.instance.Q2C___New_Closed_Won_Opportunity_creates_a_new_Sales_Order_in_Netsuite_1546710@sbsssssssssssu,
   ]
   _generated_dependencies = [
+    {
+      reference = netsuite.Customer
+      occurrences = [
+        {
+          location = workato.recipe__code.instance.Q2C___New_Closed_Won_Opportunity_creates_a_new_Sales_Order_in_Netsuite_1546710_sbsssssssssssu__updated_custom_object@uuuuuuuuuuuuuumuuuu.block.1
+          direction = "output"
+        },
+      ]
+    },
+    {
+      reference = netsuite.Customer.field.companyName
+      occurrences = [
+        {
+          location = workato.recipe__code.instance.Q2C___New_Closed_Won_Opportunity_creates_a_new_Sales_Order_in_Netsuite_1546710_sbsssssssssssu__updated_custom_object@uuuuuuuuuuuuuumuuuu.block.1
+          direction = "output"
+        },
+      ]
+    },
+    {
+      reference = netsuite.InventoryItem
+      occurrences = [
+        {
+          location = workato.recipe__code.instance.Q2C___New_Closed_Won_Opportunity_creates_a_new_Sales_Order_in_Netsuite_1546710_sbsssssssssssu__updated_custom_object@uuuuuuuuuuuuuumuuuu.block.2.block.1
+          direction = "output"
+        },
+        {
+          location = workato.recipe__code.instance.Q2C___New_Closed_Won_Opportunity_creates_a_new_Sales_Order_in_Netsuite_1546710_sbsssssssssssu__updated_custom_object@uuuuuuuuuuuuuumuuuu.block.2.block.2.block.0
+          direction = "output"
+        },
+      ]
+    },
+    {
+      reference = netsuite.InventoryItem.field.displayName
+      occurrences = [
+        {
+          location = workato.recipe__code.instance.Q2C___New_Closed_Won_Opportunity_creates_a_new_Sales_Order_in_Netsuite_1546710_sbsssssssssssu__updated_custom_object@uuuuuuuuuuuuuumuuuu.block.2.block.1
+          direction = "output"
+        },
+        {
+          location = workato.recipe__code.instance.Q2C___New_Closed_Won_Opportunity_creates_a_new_Sales_Order_in_Netsuite_1546710_sbsssssssssssu__updated_custom_object@uuuuuuuuuuuuuumuuuu.block.2.block.2.block.0
+          direction = "output"
+        },
+      ]
+    },
+    {
+      reference = netsuite.InventoryItem.field.itemId
+      occurrences = [
+        {
+          location = workato.recipe__code.instance.Q2C___New_Closed_Won_Opportunity_creates_a_new_Sales_Order_in_Netsuite_1546710_sbsssssssssssu__updated_custom_object@uuuuuuuuuuuuuumuuuu.block.2.block.2.block.0
+          direction = "output"
+        },
+      ]
+    },
+    {
+      reference = netsuite.InventoryItem.field.storeDisplayName
+      occurrences = [
+        {
+          location = workato.recipe__code.instance.Q2C___New_Closed_Won_Opportunity_creates_a_new_Sales_Order_in_Netsuite_1546710_sbsssssssssssu__updated_custom_object@uuuuuuuuuuuuuumuuuu.block.2.block.2.block.0
+          direction = "output"
+        },
+      ]
+    },
+    {
+      reference = netsuite.SalesOrder
+      occurrences = [
+        {
+          location = workato.recipe__code.instance.Q2C___New_Closed_Won_Opportunity_creates_a_new_Sales_Order_in_Netsuite_1546710_sbsssssssssssu__updated_custom_object@uuuuuuuuuuuuuumuuuu.block.3
+          direction = "output"
+        },
+        {
+          location = workato.recipe__code.instance.Q2C___New_Closed_Won_Opportunity_creates_a_new_Sales_Order_in_Netsuite_1546710_sbsssssssssssu__updated_custom_object@uuuuuuuuuuuuuumuuuu.block.4.block.0
+          direction = "output"
+        },
+      ]
+    },
+    {
+      reference = netsuite.SalesOrder.field.entity
+      occurrences = [
+        {
+          location = workato.recipe__code.instance.Q2C___New_Closed_Won_Opportunity_creates_a_new_Sales_Order_in_Netsuite_1546710_sbsssssssssssu__updated_custom_object@uuuuuuuuuuuuuumuuuu.block.4.block.0
+          direction = "output"
+        },
+      ]
+    },
+    {
+      reference = netsuite.SalesOrder.field.externalId
+      occurrences = [
+        {
+          location = workato.recipe__code.instance.Q2C___New_Closed_Won_Opportunity_creates_a_new_Sales_Order_in_Netsuite_1546710_sbsssssssssssu__updated_custom_object@uuuuuuuuuuuuuumuuuu.block.3
+          direction = "output"
+        },
+      ]
+    },
+    {
+      reference = netsuite.SalesOrder.field.isTaxable
+      occurrences = [
+        {
+          location = workato.recipe__code.instance.Q2C___New_Closed_Won_Opportunity_creates_a_new_Sales_Order_in_Netsuite_1546710_sbsssssssssssu__updated_custom_object@uuuuuuuuuuuuuumuuuu.block.4.block.0
+          direction = "output"
+        },
+      ]
+    },
+    {
+      reference = netsuite.SalesOrder.field.itemList
+      occurrences = [
+        {
+          location = workato.recipe__code.instance.Q2C___New_Closed_Won_Opportunity_creates_a_new_Sales_Order_in_Netsuite_1546710_sbsssssssssssu__updated_custom_object@uuuuuuuuuuuuuumuuuu.block.4.block.0
+          direction = "output"
+        },
+      ]
+    },
     {
       reference = salesforce.Account.field.Name
       occurrences = [
