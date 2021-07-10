@@ -7,4 +7,6 @@ type workato.recipe__code__block__block__dynamicPickListSelection {
   }
   "List<workato.recipe__code__block__block__dynamicPickListSelection__field_list>" field_list {
   }
+  "List<workato.recipe__code__block__block__dynamicPickListSelection__custom_list>" custom_list {
+  }
 }

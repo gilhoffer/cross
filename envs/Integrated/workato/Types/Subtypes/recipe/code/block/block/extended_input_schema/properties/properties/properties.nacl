@@ -23,9 +23,9 @@ type workato.recipe__code__block__block__extended_input_schema__properties__prop
   }
   workato.recipe__code__block__block__extended_input_schema__properties__properties__properties__toggle_field toggle_field {
   }
-  workato.recipe__code__block__block__extended_input_schema__properties__properties__properties__render_input render_input {
+  unknown render_input {
   }
-  workato.recipe__code__block__block__extended_input_schema__properties__properties__properties__parse_output parse_output {
+  unknown parse_output {
   }
   string ns_custom_type {
   }
@@ -36,5 +36,7 @@ type workato.recipe__code__block__block__extended_input_schema__properties__prop
   boolean sticky {
   }
   string parent {
+  }
+  "List<List<string>>" pick_list {
   }
 }

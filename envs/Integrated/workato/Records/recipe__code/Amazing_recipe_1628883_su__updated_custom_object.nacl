@@ -1,0 +1,106 @@
+workato.recipe__code Amazing_recipe_1628883_su__updated_custom_object@uumuuuu {
+  number = 0
+  provider = "salesforce"
+  name = "updated_custom_object"
+  as = "a7101d32"
+  title = "New/updated Opportunity"
+  description = "New/updated <span class=\"provider\">Opportunity</span> in <span class=\"provider\">Salesforce</span>"
+  keyword = "trigger"
+  dynamicPickListSelection = {
+    sobject_name = salesforce.Opportunity
+  }
+  input = {
+    sobject_name = salesforce.Opportunity
+    since_offset = "-3600"
+  }
+  block = [
+    {
+      number = 1
+      keyword = "if"
+      input = {
+        type = "compound"
+        operand = "and"
+        conditions = [
+          {
+            operand = "greater_than"
+            lhs = "#{_('data.salesforce.a7101d32.Amount')}"
+            rhs = "66666"
+          },
+        ]
+      }
+      block = [
+        {
+          number = 2
+          provider = "netsuite"
+          name = "update_object"
+          as = "f0ea44be"
+          title = "Update Contact"
+          description = "Update <span class=\"provider\">Contact</span> in <span class=\"provider\">NetSuite</span>"
+          keyword = "action"
+          dynamicPickListSelection = {
+            netsuite_object = "Contact"
+            custom_list = [
+              netsuite.entitycustomfield.instance.custentity1,
+            ]
+          }
+          input = {
+            netsuite_object = netsuite.Contact
+            custom_list = "entityCustomField@custentity1"
+          }
+          uuid = "3c710826-98df-45ba-95a0-78a06c0d36c4"
+        },
+      ]
+      uuid = "21ace16b-b63d-4e20-8ff6-5b3646088eeb"
+    },
+    {
+      number = 3
+      keyword = "stop"
+      input = {
+        stop_with_error = "false"
+      }
+      uuid = "6d9ae4b3-6d4f-40e2-8c7d-e5c41b0778dd"
+    },
+  ]
+  uuid = "059dd75a-2c90-4ee3-b089-46fbd28fbe44"
+  _parent = [
+    workato.recipe.instance.Amazing_recipe_1628883@su,
+  ]
+  _generated_dependencies = [
+    {
+      reference = netsuite.Contact
+      occurrences = [
+        {
+          location = workato.recipe__code.instance.Amazing_recipe_1628883_su__updated_custom_object@uumuuuu.block.0.block.0
+          direction = "output"
+        },
+      ]
+    },
+    {
+      reference = netsuite.entitycustomfield.instance.custentity1
+      occurrences = [
+        {
+          location = workato.recipe__code.instance.Amazing_recipe_1628883_su__updated_custom_object@uumuuuu.block.0.block.0
+          direction = "output"
+        },
+      ]
+    },
+    {
+      reference = salesforce.Opportunity
+      occurrences = [
+        {
+          location = workato.recipe__code.instance.Amazing_recipe_1628883_su__updated_custom_object@uumuuuu
+          direction = "input"
+        },
+      ]
+    },
+    {
+      reference = salesforce.Opportunity.field.Amount
+      occurrences = [
+        {
+          location = workato.recipe__code.instance.Amazing_recipe_1628883_su__updated_custom_object@uumuuuu.block.0.input.conditions.0.lhs
+          direction = "input"
+        },
+      ]
+    },
+  ]
+}

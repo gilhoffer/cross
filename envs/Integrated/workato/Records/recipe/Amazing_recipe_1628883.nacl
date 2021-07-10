@@ -1,0 +1,35 @@
+workato.recipe Amazing_recipe_1628883@su {
+  id = 1628883
+  user_id = 212128
+  name = "Amazing recipe"
+  copy_count = 1
+  trigger_application = "salesforce"
+  action_applications = [
+    "netsuite",
+  ]
+  applications = [
+    "salesforce",
+    "netsuite",
+  ]
+  description = "When there is a trigger event, do action"
+  folder_id = workato.folder.instance.Gil_318283
+  running = false
+  lifetime_task_count = 0
+  config = [
+    {
+      keyword = "application"
+      name = "salesforce"
+      provider = "salesforce"
+      account_id = workato.connection.instance.Oren_s_Sandbox@ts
+      skip_validation = false
+    },
+    {
+      keyword = "application"
+      name = "netsuite"
+      provider = "netsuite"
+      account_id = workato.connection.instance.Oren_s_NetSuite@ts
+      skip_validation = false
+    },
+  ]
+  code = workato.recipe__code.instance.Amazing_recipe_1628883_su__updated_custom_object@uumuuuu
+}

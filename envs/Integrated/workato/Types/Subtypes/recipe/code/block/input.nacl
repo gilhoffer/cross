@@ -65,4 +65,6 @@ type workato.recipe__code__block__input {
   }
   string TargetObjectId {
   }
+  string stop_with_error {
+  }
 }
