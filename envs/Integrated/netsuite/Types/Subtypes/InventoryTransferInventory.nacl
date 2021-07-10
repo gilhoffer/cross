@@ -1,0 +1,26 @@
+type netsuite.InventoryTransferInventory {
+  annotations {
+    hidden_string source {
+    }
+  }
+  number line {
+  }
+  netsuite.RecordRef item {
+  }
+  string description {
+  }
+  netsuite.RecordRef units {
+  }
+  number quantityOnHand {
+  }
+  number adjustQtyBy {
+  }
+  string serialNumbers {
+  }
+  string fromBinNumbers {
+  }
+  string toBinNumbers {
+  }
+  netsuite.InventoryDetail inventoryDetail {
+  }
+}

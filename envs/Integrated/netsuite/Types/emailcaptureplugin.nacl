@@ -1,0 +1,58 @@
+type netsuite.emailcaptureplugin_libraries {
+  "List<netsuite.emailcaptureplugin_libraries_library>" library {
+  }
+}
+type netsuite.emailcaptureplugin_libraries_library {
+  string scriptfile {
+    _required = true
+  }
+}
+type netsuite.emailcaptureplugin {
+  serviceid scriptid {
+    _required = true
+    isAttribute = true
+    _restriction = {
+      regex = "^customscript[0-9a-z_]+"
+    }
+  }
+  string name {
+    _required = true
+    _restriction = {
+      max_length = 40
+    }
+  }
+  string scriptfile {
+    _required = true
+  }
+  string description {
+    _restriction = {
+      max_length = 999
+    }
+  }
+  boolean isinactive {
+  }
+  boolean notifyadmins {
+  }
+  string notifyemails {
+    _restriction = {
+      max_length = 999
+    }
+  }
+  string notifygroup {
+  }
+  boolean notifyowner {
+  }
+  boolean notifyuser {
+  }
+  netsuite.script_loglevel loglevel {
+  }
+  string runasrole {
+  }
+  netsuite.script_status status {
+  }
+  netsuite.emailcaptureplugin_libraries libraries {
+  }
+  string _lastfetchtime {
+    _hidden_value = true
+  }
+}

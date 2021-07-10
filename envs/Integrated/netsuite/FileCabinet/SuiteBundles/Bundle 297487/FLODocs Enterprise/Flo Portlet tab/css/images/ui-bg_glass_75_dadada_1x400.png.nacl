@@ -1,0 +1,12 @@
+netsuite.file SuiteBundles_Bundle_297487_FLODocs_Enterprise_Flo_Portlet_tab_css_images_ui_bg_glass_75_dadada_1x400_png@dsdsdssdddbuuuuv {
+  bundleable = false
+  isinactive = false
+  availablewithoutlogin = false
+  generateurltimestamp = false
+  hideinbundle = false
+  path = "/SuiteBundles/Bundle 297487/FLODocs Enterprise/Flo Portlet tab/css/images/ui-bg_glass_75_dadada_1x400.png"
+  content = file("netsuite/FileCabinet/SuiteBundles/Bundle 297487/FLODocs Enterprise/Flo Portlet tab/css/images/ui-bg_glass_75_dadada_1x400.png")
+  _parent = [
+    netsuite.folder.instance.SuiteBundles_Bundle_297487_FLODocs_Enterprise_Flo_Portlet_tab_css_images@dsdsdssdd,
+  ]
+}

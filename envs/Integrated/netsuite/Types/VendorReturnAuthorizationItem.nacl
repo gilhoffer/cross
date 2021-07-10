@@ -1,0 +1,66 @@
+type netsuite.VendorReturnAuthorizationItem {
+  annotations {
+    hidden_string source {
+    }
+  }
+  netsuite.RecordRef item {
+  }
+  string vendorName {
+  }
+  number line {
+  }
+  number orderLine {
+  }
+  number quantity {
+  }
+  netsuite.RecordRef units {
+  }
+  netsuite.InventoryDetail inventoryDetail {
+  }
+  netsuite.RecordRefList serialNumbersList {
+  }
+  string description {
+  }
+  string binNumbers {
+  }
+  string rate {
+  }
+  number amount {
+  }
+  netsuite.RecordRef taxCode {
+  }
+  number taxRate1 {
+  }
+  number taxRate2 {
+  }
+  number grossAmt {
+  }
+  number tax1Amt {
+  }
+  netsuite.Department department {
+  }
+  netsuite.Classification class {
+  }
+  netsuite.Location location {
+  }
+  netsuite.Customer customer {
+  }
+  boolean isBillable {
+  }
+  boolean isClosed {
+  }
+  netsuite.RecordRef amortizationSched {
+  }
+  boolean isDropShipment {
+  }
+  number taxAmount {
+  }
+  string taxDetailsReference {
+  }
+  string amortizStartDate {
+  }
+  string amortizationEndDate {
+  }
+  string amortizationResidual {
+  }
+}

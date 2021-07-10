@@ -1,0 +1,11 @@
+type netsuite.CustomerAddressbookList {
+  annotations {
+    hidden_string source {
+    }
+  }
+  "List<netsuite.CustomerAddressbook>" addressbook {
+  }
+  boolean replaceAll {
+    isAttribute = true
+  }
+}

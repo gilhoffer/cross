@@ -1,0 +1,11 @@
+type netsuite.CalendarEventResourceList {
+  annotations {
+    hidden_string source {
+    }
+  }
+  "List<netsuite.CalendarEventResource>" resource {
+  }
+  boolean replaceAll {
+    isAttribute = true
+  }
+}

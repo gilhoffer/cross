@@ -1,0 +1,25 @@
+type netsuite.JobCreditCards {
+  annotations {
+    hidden_string source {
+    }
+  }
+  string internalId {
+    _hidden_value = true
+  }
+  string ccNumber {
+  }
+  string ccExpireDate {
+  }
+  string ccName {
+  }
+  netsuite.PaymentMethod paymentMethod {
+  }
+  string ccMemo {
+  }
+  boolean ccDefault {
+  }
+  string debitCardIssueNo {
+  }
+  string validFrom {
+  }
+}

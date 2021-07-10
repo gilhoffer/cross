@@ -1,0 +1,1862 @@
+<html> <head> <title> </title>
+	 <meta http - equiv = "Content-Type"
+content = "text/html; charset=utf-8"/>
+
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<style>
+body,.details,#instructions,.contentrow,td{
+	font-size:12;
+}
+.processtitle {
+	font-size:32;
+        color: black;
+
+}
+
+.details, td
+{
+border: 1px solid black;
+padding: 15px;
+border-collapse:collapse;
+vertical-align: top;
+padding-top: 1px;
+}
+
+#instructions
+{
+border: 1px solid red;
+padding: 10px;
+margin: 10px;
+border-collapse:collapse;
+vertical-align: top;
+}
+
+.label
+{
+	font-weight:bold;
+	width:15%;
+	font-size:12;
+}
+
+.contentrow
+{
+	align="top";
+}
+
+.processimage
+{
+	align="center";
+}
+
+  @media print {
+    #diagram {page-break-before: always;}
+    }
+
+div.finalpage
+{ 
+  page-break-before: always;
+}
+
+.controlbuttons {
+	position:relative;
+	top:-25px;
+	right:5px;
+    padding: 5px 0 0 5px;
+    //width: 100%;
+    overflow: hidden;
+    color: orange;
+    float:right;
+    margin-bottom: 10px;
+    //margin-top: 10px;
+    //cursor: pointer;
+
+}
+
+.navbuttons {
+	position:relative;
+	left:5px;
+    padding: 5px 0 0 5px;
+    //width: 100%;
+    overflow: hidden;
+    float:left;
+    color: orange;
+    margin-bottom: 10px;
+    //margin-top: 10px;
+    //cursor: pointer;
+
+}
+
+.toolbutton{
+	color: orange;
+        //display:none;
+            margin-right: 5px;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    float: left;
+    cursor: pointer;
+}
+
+
+.homebutton,.processlist,.flobreadcrumbs{
+	color: orange;
+    display:none;
+    position:relative;
+    margin-right: 5px;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    float: left;
+    cursor: pointer;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+</style>
+<!--<link type = "CSS/css" rel = "stylesheet" href = "CSS/example.css"/> 
+<link type = "text/css" rel = "stylesheet" href = "css/contextmenu.css"/> -->
+
+
+
+<script type='text/javascript' src='/javascript/NLUtil.jsp__NS_VER=2015.2.0&locale=en_CA.nlqs'></script>
+<script type='text/javascript' src='/javascript/NLUtil.js?NS_VER=2015.2.0&minver=38'></script>
+<script type='text/javascript' src='/javascript/NLAPI.jsp?NS_VER=2015.2.0&locale=en_US'></script>
+
+
+
+
+<SCRIPT src = "lib/shifty.js"> </SCRIPT>
+<SCRIPT src="lib/raphael.js"></SCRIPT>
+<SCRIPT src="lib/jquery-1.8.1.min.js"></SCRIPT>
+<SCRIPT src = "lib/jquery-ui-1.8.23.custom.min.js"> </SCRIPT>
+	<SCRIPT src="lib/jquery.layout.js"></SCRIPT>
+	<SCRIPT src="lib/jquery.autoresize.js"></SCRIPT>
+<SCRIPT src = "lib/jquery-touch_punch.js"> </SCRIPT>
+	<!--<SCRIPT src="lib/jquery.contextmenu.js"></SCRIPT>-->
+		<SCRIPT src="lib/rgbcolor.js"></SCRIPT>
+	<SCRIPT src = "lib/canvg.js"> </SCRIPT>
+
+		<SCRIPT src="lib/Class.js"></SCRIPT>
+		<SCRIPT src="lib/json2.js"></SCRIPT>
+	<SCRIPT src = "src/draw2d.js"> </SCRIPT>
+
+<SCRIPT xsrc="https://system.na1.netsuite.com/core/media/media.nl?id=7630&c=TSTDRV1049933&h=1fe43cd9a30775be7a0a&_xt=.js "></SCRIPT>
+<SCRIPT src="FLOProcessShapes.js"></SCRIPT>
+<SCRIPT src="FLOProcessActions.js"></SCRIPT>
+    <script src="FLOEntryScripts.js"></script>
+
+
+<SCRIPT>
+
+	
+	// declare the namespace for this example
+	var example = {};
+
+	/**
+	 * 
+	 * The **GraphicalEditor** is responsible for layout and dialog handling.
+	 * 
+	 * @author Andreas Herz
+	 * @extends draw2d.ui.parts.GraphicalEditor
+	 */
+	example.Application = Class.extend(
+	{
+	    NAME : "example.Application", 
+
+	    /**
+	     * @constructor
+	     * 
+	     * @param {String} canvasId the id of the DOM element to use as paint container
+	     */
+	    init : function()
+	    {
+
+
+		     //this.view = new draw2d.Canvas("gfx_holder");
+             this.view = new FLOCanvas("gfx_holder");
+             this.view.installEditPolicy(new draw2d.policy.canvas.BoundingboxSelectionPolicy());
+			 this.view.installEditPolicy(new draw2d.policy.canvas.FadeoutDecorationPolicy());
+		     this.view.defaultRouterClassName = "draw2d.layout.connection.ManhattanConnectionRouter";
+	         this.view.defaultRouter = new draw2d.layout.connection.ManhattanConnectionRouter();
+	          //this.toolbar = new example.Toolbar("toolbar", this, this.view );
+	          //this.view.setScrollArea("#canvas");
+             
+
+
+		},
+
+		/**
+		 * Load the JSON data into the view/canvas
+		 */
+		/*load: function(jsonDocument){
+		    this.view.clear();
+
+		    // unmarshal the JSON document into the canvas
+		    // (load)
+		    var reader = new draw2d.io.json.Reader();
+		    reader.unmarshal(this.view, jsonDocument);
+
+		},*/
+
+		/*setDefaultRouterClassName: function(  defaultRouterClassName){
+		    this.defaultRouterClassName=  defaultRouterClassName;
+	        this.defaultRouter = eval("new "+this.defaultRouterClassName+"()");
+		},*/
+
+		createConnection : function(startPort,endPort){
+		   // var conn = new draw2d.Connection();
+                   //xalert("App:LabelConnection")
+                    var conn = new LabelConnection();
+		    //conn.setRouter(this.defaultRouter);
+		    conn.setTargetDecorator(new draw2d.decoration.connection.ArrowDecorator(8,8));
+		    conn.setStroke(2);
+                    
+                   
+		    return conn;
+		},
+
+
+	});
+</SCRIPT>
+
+
+<SCRIPT>
+
+
+function createDescTable()
+{
+	document.oncontextmenu = null;
+	//alert(pid)
+	//Default Instructions
+	owner="";
+	name="High Level Processes";
+	number="";
+	overview="This is a high level process diagram describing the overall layout of processes in the company.<ul><li>The top row represents the chain of value through the company.</li> The columns below each top row element represent the major subprocesses.</li><li>The bottom row represents the supporting and sandbox processes.</li></ul>"
+	firststep="The first step defines the beginning of the process or chain of value";
+	laststep="The last step defines the end.  It should be no more or less complex that the first step or any of the steps in the middle."
+	//description="<h2>How to use this document</h2>This overview of your processes uses FLO methodology documents to lay out the steps for successful process projects within a continuous improvement process.  As you become experienced, you will move through the steps more smoothly but the steps will remain the same. In order to accurately and clearly communicate the tasks, interdependencies and roles & responsibilities, the standard  FLO documents have been created:<ul><li><b>High Level Process Diagram</b> – depicts the complete process from end to end.  Each process that depicted in further detail is numbered for reference purposes.</li><li><b>Process Overview</b> – each numbered process has a process overview page that captures high level information such a summary, start and end conditions, controls, tools/ templates used and high level roles and responsibilities.</li><li><b>Process Flow Chart</b> – each numbered process has a flow diagram with \“swim lanes\”.  These \“swim lanes\” represent people’s roles and the flow chart enables people to quickly see the overall process.</li><li><b>Process Description</b> – each numbered process has a process description table.  The table provides additional details critical to the process</li></ul>"
+	description="";
+	
+	if(pid!=null && pid!="")
+	{
+         filters=[];
+         filters[0]=new nlobjSearchFilter("internalid",null,'is',pid);
+         processrecs=nlapiSearchRecord("customrecord_flo_process","customsearch_flo_process_viz",filters,null);
+         
+         if(processrecs!=null)
+         {processdata=processrecs[0]}
+         columns=processdata.getAllColumns();
+         owner=processdata.getText(columns[5]);
+		if(processdata.getValue(columns[11])==""){overview=""}else{overview=processdata.getValue(columns[11])}
+		if(processdata.getValue(columns[14])!=""){firststep="<b>"+processdata.getValue(columns[14])+"<br>"+processdata.getValue(columns[15])}
+		if(processdata.getValue(columns[16])!=""){laststep="<b>"+processdata.getValue(columns[16])+"<br>"+processdata.getValue(columns[17])}
+		if(processdata.getValue(columns[17])!=""){description=processdata.getValue(columns[17])}
+		name=processdata.getValue(columns[1]);
+		number=processdata.getValue(columns[2]);
+		parents=processdata.getValue(columns[10]);
+	//alert("looking up process fields:"+pid);	
+      /* fields=['name','owner','custrecord_flo_number','custrecord_flo_first_step','custrecord_flo_first_step_desc','custrecord_flo_process_overview','custrecord_flo_last_step','custrecord_flo_last_step_desc','custrecord_flo_process_description'];
+	    try
+	    {
+		processdata=nlapiLookupField("customrecord_flo_process",pid,fields)
+		}
+		catch(e)
+		{
+			processdata="";
+		}
+		if(processdata!="")
+		{
+		owner=processdata.owner;
+		if(processdata.custrecord_flo_process_overview==""){overview="Please enter an overview of the process that will help someone understand what it does."}else{overview=processdata.custrecord_flo_process_overview}
+		if(processdata.custrecord_flo_first_step!=""){firststep="<b>"+processdata.custrecord_flo_first_step+"<br>"+processdata.custrecord_flo_first_step_desc}
+		if(processdata.custrecord_flo_last_step!=""){laststep="<b>"+processdata.custrecord_flo_last_step+"<br>"+processdata.custrecord_flo_last_step_desc}
+		if(processdata.custrecord_flo_description!=""){description=processdata.custrecord_flo_description!=""}
+		name=processdata.name;
+		number=processdata.custrecord_flo_number;
+	}
+	try
+	{
+        //alert(pid)
+	processRec=parent.top.nlapiLoadRecord("customrecord_flo_process",pid);
+
+	if(processRec!=null)
+	{
+		owner=processRec.getFieldValue("owner");
+		if(processRec.getFieldValue("custrecord_flo_process_overview")==""){overview="Please enter an overview of the process that will help someone understand what it does."}else{overview=processRec.getFieldValue("custrecord_flo_process_overview")}
+		if(processRec.getFieldValue("custrecord_flo_first_step")!=""){firststep="<b>"+processRec.getFieldValue("custrecord_flo_first_step")+"<br>"+processRec.getFieldValue("custrecord_flo_first_step_desc")}
+		if(processRec.getFieldValue("custrecord_flo_last_step") !=""){laststep="<b>"+processRec.getFieldValue("custrecord_flo_last_step")+"<br>"+processRec.getFieldValue("custrecord_flo_last_step_desc")}
+		if(processRec.getFieldValue("custrecord_flo_description") !=""){description=processRec.getFieldValue("custrecord_flo_description")}
+		name=processRec.getFieldValue("name");
+		number=processRec.getFieldValue("custrecord_flo_number");
+	}
+            }
+    catch(e){alert(e.message)}*/
+	}
+	
+	//Insert data into table
+	//alert("linserting process fields:"+pid)
+	document.getElementById("ProcessOwner").innerHTML=owner;
+	document.getElementById("ProcessOverview").innerHTML=overview;
+	//document.getElementById("ProcessFirst").innerHTML=firststep;
+	//document.getElementById("ProcessLast").innerHTML=laststep;
+	document.getElementById("ProcessDesc").innerHTML=description;
+	
+	//Insert parents into table
+	if(parents!=null && parents!="")
+	{
+		parents=unescape(parents).split(",");
+		parenthtml="";
+		for(pp=0;parents[pp]!=null;pp++)
+		{
+			parenthtml+="<a id='STEP"+parents[pp]+"' href='"+window.location.href.split("pid=")[0]+"pid="+parents[pp]+"'>"+top.nlapiLookupField("customrecord_flo_process",parents[pp],"name")+"</a><br>"
+		}
+		document.getElementById("Parents").innerHTML=parenthtml;
+	}
+	
+	
+	$(".processname").text(name);
+	$(".processnumber").text(number);
+	//alert(steps.length)
+	custlist=[];//list of all customizations
+	partlist=[];//list of all participants
+
+    if(steps==null | steps=="")
+    {
+		//xalert("getting data for "+pid)
+		stepsdata=loadXMLDoc('/app/site/hosting/scriptlet.nl?script=customscript_flo_process_data&deploy=1&pid='+pid)
+		/*var stepsdata=xmlhttp.responseText;
+		//alert(stepsdata)
+		stepsdata=stepsdata.split("steps=")[1];
+		//xalert("StepsData:"+stepsdata)
+	    eval(xmlhttp.responseText);*/
+	    eval(stepsdata)
+    }
+    steps=tlp.concat(steps);
+
+	/*var fieldsParent = ["name","internalid","custrecord_flo_cust_type","custrecord_flo_cust_id","custrecord_flo_help","custrecord_flo_description","owner.firstname","owner.lastname","custrecord_flo_dls"];
+	var custdataParent=parent.top.nlapiLookupField("customrecord_flo_customization",pid,fieldsParent,false);
+	custlist.push(custdataParent);*/
+	
+	var custdetails=""
+
+	if(steps!=null)
+	{
+		for(s=0;steps[s]!=null;s++)
+		{
+			customizations=unescape(steps[s].custrecord_flo_fields+","+steps[s].custrecord_flo_forms+","+steps[s].custrecord_flo_controls+","+steps[s].custrecord_flo_process_scripts+","+steps[s].custrecord_flo_workflows+","+steps[s].custrecord_flo_process_searches+","+steps[s].custrecord_flo_other_cust+","+steps[s].custrecord_flo_reports);
+
+            
+			customizations=customizations.replace(/undefined/g,'');
+			customizations=customizations.replace(/[,]{2,100}/g,',');
+			customizations=customizations.replace(/^,/g,'');
+			customizations=customizations.replace(/,$/g,'');
+			if(customizations!="")
+			{
+				custids=customizations.split(",");
+				custdetails="";//holder for customization details
+				for(c=0;custids[c]!=null;c++)
+				{
+					
+					//alert("CUSTID:"+custids[c])
+					var fields = ["name","internalid","custrecord_flo_cust_type","custrecord_flo_cust_id","custrecord_flo_help","custrecord_flo_description","owner.firstname","owner.lastname","custrecord_flo_dls"];
+					custdata=parent.top.nlapiLookupField("customrecord_flo_customization",custids[c],fields,false);
+					custlist.push(custdata);
+					custdetails+="<a href='#CUST"+custdata.internalid+"'>"+custdata.name+"</a><br/>("+custdata.custrecord_flo_cust_id+")<br/><br/>";
+				}
+				customizations=custdetails;
+				
+			 }
+			
+			//Assemble participants data
+			participants=unescape(steps[s].custrecord_flo_process_participants).split(",");
+			for(p=0;participants[p]!=null;p++)
+			{
+			
+				participants[p]=participants[p].replace(/^ /,'');
+				if(partlist[participants[p]]==null)
+				{partlist[participants[p]]="<a href='#STEP"+steps[s].internalid+"'>"+steps[s].custrecord_flo_number+"-"+unescape(steps[s].name)+"</a>";}
+				else if(partlist[participants[p]].indexOf(steps[s].custrecord_flo_number+"-"+unescape(steps[s].name))<0)
+				{partlist[participants[p]]+="<br><a href='#STEP"+steps[s].internalid+"'>"+steps[s].custrecord_flo_number+"-"+unescape(steps[s].name)+"</a>";}
+			}
+
+                        overviewText="";
+                        overview=unescape(steps[s].custrecord_flo_process_overview);
+                        if(overview!=null && overview!="")
+                        {overviewText=overview+"<br><br>";}
+			
+			//alert(JSON.stringify(steps[s]));
+			if(steps[s].custrecord_flo_step_type==4 |steps[s].custrecord_flo_step_type==6 | steps[s].custrecord_flo_step_type==5 )
+			{
+				//Link to related processes
+				//row="<tr class='details' height='100'><td>"+steps[s].custrecord_flo_number+"</td><td><a id='"+steps[s].internalid+"' href='#' onclick='focusProcess("+steps[s].internalid+")'>"+unescape(steps[s].name)+"</a></td><td>"+overviewText+unescape(steps[s].custrecord_flo_process_description)+"</td><td>"+unescape(steps[s].custrecord_flo_process_participants)+"</td><td>"+unescape(steps[s].custrecord_flo_comments)+"</td><td>"+customizations+"</td></tr>";
+				row="<tr class='details' height='80'><td>"+steps[s].custrecord_flo_number+"</td><td><a id='STEP"+steps[s].internalid+"' href='"+window.location.href.split("pid=")[0]+"pid="+steps[s].internalid+"'>"+unescape(steps[s].name)+"</a></td><td>"+overviewText+unescape(steps[s].custrecord_flo_process_description)+"</td><td id='screenshots'></td><td>"+unescape(steps[s].custrecord_flo_process_participants)+"</td><td>"+unescape(steps[s].custrecord_flo_comments)+"</td><td>"+customizations+"</td></tr>";
+                     
+             }
+             else
+             {
+					row="<tr class='details' height='80'><td>"+steps[s].custrecord_flo_number+"</td><td><a id='STEP"+steps[s].internalid+"' href='#' style='text-decoration: none;color:#000000'>"+unescape(steps[s].name)+"</a></td><td name='description'>"+overviewText+unescape(steps[s].custrecord_flo_process_description)+"</td><td id='screenshots'></td><td>"+unescape(steps[s].custrecord_flo_process_participants)+"</td><td>"+unescape(steps[s].custrecord_flo_comments)+"</td><td>"+customizations+"</td></tr>";
+			 }
+			 row.replace(/undefined/ig,'');
+			 //Insert Screenshot links
+                         screenshots="";
+                         if(unescape(steps[s].custrecord_flo_screen_shot1)!="" &&unescape(steps[s].custrecord_flo_screen_shot1))
+                         {screenshots+='<a href="#" onclick="window.open(\'/core/media/previewmedia.nl?id='+unescape(steps[s].custrecord_flo_screen_shot1)+'\',\'screenshot\',\'width=840,height=620\')">Screen Shot 1</a>'}
+                         if(unescape(steps[s].custrecord_flo_screen_shot2)!="" &&unescape(steps[s].custrecord_flo_screen_shot2))
+                         {screenshots+='<br><a href="#" onclick="window.open(\'/core/media/previewmedia.nl?id='+unescape(steps[s].custrecord_flo_screen_shot2)+'\',\'screenshot\',\'width=840,height=620\')">Screen Shot 2</a>'}
+                         if(unescape(steps[s].custrecord_flo_screen_shot3)!="" && unescape(steps[s].custrecord_flo_screen_shot3))
+                         {screenshots+='<br><a href="#" onclick="window.open(\'/core/media/previewmedia.nl?id='+unescape(steps[s].custrecord_flo_screen_shot3)+'\',\'screenshot\',\'width=840,height=620\')">Screen Shot 3</a>'}
+
+                        if(screenshots!="")
+                        {
+							rowparts=row.split("id='screenshots'>");
+							row=rowparts[0]+">"+screenshots+rowparts[1];
+						}
+	
+		$("#processdesctable").append(row);
+		}
+		/*for(i=0;i<11;i++)
+		{
+			row="<tr class='details' height='100'><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
+			$("#processdesctable").append(row);
+		}*/
+	}
+	else
+	{alert("steps is null")}
+	
+	var custidsParent=top.nlapiLookupField("customrecord_flo_process",pid,"custrecord_flo_fields").split(',').concat(top.nlapiLookupField("customrecord_flo_process",pid,'custrecord_flo_forms').split(',')).concat(top.nlapiLookupField("customrecord_flo_process",pid,'custrecord_flo_controls').split(',')).concat(top.nlapiLookupField("customrecord_flo_process",pid,'custrecord_flo_process_scripts').split(',')).concat(top.nlapiLookupField("customrecord_flo_process",pid,'custrecord_flo_workflows').split(',')).concat(top.nlapiLookupField("customrecord_flo_process",pid,'custrecord_flo_process_searches').split(',')).concat(top.nlapiLookupField("customrecord_flo_process",pid,'custrecord_flo_other_cust').split(',')).concat(top.nlapiLookupField("customrecord_flo_process",pid,'custrecord_flo_reports').split(','));
+   custidsParent = custidsParent.filter(Boolean)
+	
+	for(cx=0;custidsParent[cx]!=null;cx++)
+	{
+					
+					//alert("CUSTID:"+custids[c])
+					var fields = ["name","internalid","custrecord_flo_cust_type","custrecord_flo_cust_id","custrecord_flo_help","custrecord_flo_description","owner.firstname","owner.lastname","custrecord_flo_dls"];
+					custdata=parent.top.nlapiLookupField("customrecord_flo_customization",custidsParent[cx],fields,false);
+					custlist.push(custdata);
+					custdetails+="<a href='#CUST"+custdata.internalid+"'>"+custdata.name+"</a><br/>("+custdata.custrecord_flo_cust_id+")<br/><br/>";
+	}
+	customizations+=custdetails;
+
+	templist=[];
+	for(part in partlist)
+	{
+		templist.push(part);
+	}
+	templist=templist.sort()
+	for(t=0;templist[t]!=null;t++)
+	{
+		name=unescape(templist[t]);
+		if(name==""){name="Unassigned"}
+		row="<tr class='details' height='80'><td>"+name+"</td><td>"+partlist[templist[t]]+"</td></tr>";
+		$("#processparttable").append(row);
+	}
+	/*for (p=0;p<3;p++)
+	{
+		row="<tr class='details' height='40'><td></td><td></td></tr>";
+		$("#processparttable").append(row);
+	}*/
+	
+	
+	//Add Customizations
+	custlist=custlist.sort()
+	//alert(JSON.stringify(custlist[0]))
+	for(c=0;custlist[c]!=null;c++)
+	{
+		
+		if(c==0 | (c>0 && custlist[c].custrecord_flo_cust_id!=custlist[c-1].custrecord_flo_cust_id))
+		{
+		custtext=JSON.stringify(custlist[c]);
+		ownername=custtext.split("firstname")[1].split('":"')[1].split('"')[0];
+		ownername+=" "+custtext.split("lastname")[1].split('":"')[1].split('"')[0];
+		row="<tr class='details'><td><a id='CUST"+custlist[c].internalid+"'href='/app/site/hosting/scriptlet.nl?script=customscript_flo_go_to_cust&deploy=1&cid="+custlist[c].internalid+"' target='"+custlist[c].name+"'>"+custlist[c].name+"</a></td><td>"+custlist[c].custrecord_flo_cust_id+"</td><td>"+custlist[c].custrecord_flo_description+"<br><br> "+custlist[c].custrecord_flo_help+"</td><td>"+ownername+"</td><td>"+getTypeName(custlist[c].custrecord_flo_cust_type)+"</td><td>"+custlist[c].custrecord_flo_dls+"</td></tr>";
+			$("#processcusttable").append(row);
+		}
+		try{
+			cells=document.getElementsByName("description");
+			scriptIdExp=new RegExp(custlist[c].custrecord_flo_cust_id,"ig");
+			nameExp=new RegExp(custlist[c].name,"ig");
+		}catch(e){
+			console.log('ERROR IN: '+e)
+		}
+		
+		
+		for(td=0;cells[td]!=null;td++)
+		{
+			cellHTML=cells[td].innerHTML;
+        	if(cellHTML.indexOf(custlist[c].custrecord_flo_cust_id)>=0)
+        	{
+	            //alert("match"+custlist[c].custrecord_flo_cust_id)
+				cellHTML=cellHTML.replace(scriptIdExp,"<a href='#CUST"+custlist[c].internalid+"'>"+custlist[c].custrecord_flo_cust_id+"</a>");
+				    //cells[td].innerHTML=cellHTML
+
+			}
+			if(cellHTML.indexOf(custlist[c].name)>=0)
+        	{
+	            //alert("match"+custlist[c].custrecord_flo_cust_id)
+			cellHTML=cellHTML.replace(nameExp,"<a href='#CUST"+custlist[c].internalid+"'>"+custlist[c].name+"</a>");
+				//cells[td].innerHTML=cellHTML;
+				cells[td].innerHTML=cellHTML.replace(nameExp,custlist[c].name)
+			}
+		}
+	}
+	
+	
+	
+		for (c=0;c<3;c++)
+		{
+			row="<tr class='details' height='40'><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
+			$("#processcusttable").append(row);
+		}
+		
+		//Create the display svg
+		 width=$(window).width();
+
+		if(pid!="")
+		{
+		 //Get Background Dimensions
+		 bg=canvas.getFigure(pid);
+
+		}
+		else
+		{
+			bg=background;
+		}
+		 slwidth=bg.getWidth();
+		 slheight=bg.getHeight();
+		 slwidth=width;
+		 //alert(canvas.getWidth()+"--"+slwidth)
+		 debugger
+	     //document.getElementById("svg_image").innerHTML=createImage(canvas.getWidth(),canvas.getHeight());
+	     document.getElementById("svg_image").innerHTML=createImage(slwidth,slheight);
+
+	     /*var writer = new draw2d.io.png.Writer();
+		writer.marshal(canvas, function(png){
+			alert(png)
+		    $("#png_image").attr("src",png);
+		});*/
+		 if(slwidth>=680&&slwidth<=780 && slheight>=450 && slheight<=550){
+		 	setTimeout(function(){
+		 		document.getElementById("svg_image").style.paddingLeft=200;
+		 	},1000);
+		 	document.getElementById("img"+pid).style.width=width-50;
+		    document.getElementById("svg_image").style.height=slheight+100;
+		    document.getElementById("svg"+pid).style.width=width-50;
+			document.getElementById("gfx_holder").style.display="none";
+		 }else{
+		 	document.getElementById("img"+pid).style.width=width-50;
+	        document.getElementById("svg_image").style.height=slheight+300;
+	        document.getElementById("svg"+pid).style.width=width-50;
+		    document.getElementById("gfx_holder").style.display="none";
+		 }
+	     
+		 if(slheight>800){
+		 	slheight=800;
+		 	document.getElementById("svg_image").style.height=slheight;
+		 }
+
+}
+
+function showInst()
+{
+	var instructions=document.getElementById("navinst");
+	if(instructions.style.display=="none")
+	{
+		document.getElementById("navcontrol").innerHTML="Hide Document Instructions";
+		instructions.style.display="inline";
+	}
+	else
+	{
+		document.getElementById("navcontrol").innerHTML="<span style='color:red'>How to Use This Document</span>";
+		instructions.style.display="none";
+	}
+}
+
+function openProcess(id)
+{
+	if(id==null && pid!=null)
+	{id=pid}
+	window.location.href=nlapiResolveURL("RECORD","customrecord_flo_process",pid);
+}
+
+
+function goToSwimLane(id)
+{
+	if(id==null && pid!=null)
+	{id=pid}
+	window.location.href="/app/site/hosting/scriptlet.nl?script=customscript_flo_enterprise_suitelet&deploy=4&pid="+id;
+}
+
+
+function getTypeName(number)
+{
+	//rectypes="Start,CRM Field,25,Entity Field,3,Item Field,26,Other Field,27,Item Option Field,28,Column Field,4,Body Field,5,List,1,Record,2,Item Number Field,29,Entry Form,6,Transaction Form,7,Saved Search,8,Custom Record Field,30,Standard Record,24,Standard Field,31,Suitelet,17,RESTlet,22,User Event,21,Scheduled,34,Portlet,18,Client,20,Bundle Installation,35,Workflow Action,19,Workflow,10,Mass Update,23,End";
+	var rectypes="Start,CRM Field,25,Entity Field,3,Item Field,26,Other Field,27,Item Option Field,28,Column Field,4,Body Field,5,List,1,Record,2,Item Number Field,29,Entry Form,6,Transaction Form,7,Saved Search,8,Mass Update,9,Custom Record Field,30,Standard Record,24,Standard Field,31,Suitelet,17,RESTlet,22,User Event,21,Scheduled,34,Portlet,18,Client,20,Bundle Installation,35,Workflow Action,19,Workflow,10,Mass Update Script,23,Plug-In Script,33,End";
+	
+	name=rectypes.split(","+number+",")[0];
+	name=name.substring(name.lastIndexOf(",")+1)
+	return name
+	
+}
+
+function loadXMLDoc(url)
+{
+//alert(url)
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+//xmlhttp.onreadystatechange=function(){  //xalert(xmlhttp.readyState+"=="+xmlhttp.status)}
+xmlhttp.open("GET",url,false);
+xmlhttp.send();
+reply=xmlhttp.responseText+"";
+xmlhttp=null;
+return reply
+}//end of loadXML function
+
+
+function calcShapeOrder(steps)
+{
+	 try{
+
+
+     //This function calculates the shapes to be added to a diagram
+     //set params
+     //blockwidth=150;//will be reset once the # of step positions is calculated
+     //blockheight=60;//will be reset based on above.
+     canvasheight=canvas.getHeight()*.8;
+     canvaswidth=canvas.getWidth()*.9;
+     firstshape=null;
+     lastshape=null;
+
+     //set edit policy
+     canvas.installEditPolicy(new draw2d.policy.canvas.BoundingboxSelectionPolicy());
+
+     //get lanes
+     ulanes="##";//unique participant names
+     mpcounter=0;//counts multi-participant steps
+     lanerel=[];//used to store lane relationships
+
+     laneerror=""; //unable to match lanes
+     //alert(steps.length)
+     //sort the steps by subitem number
+   
+     //steps.sort(function(a,b){return parseInt(a.custrecord_flo_number.substring(a.custrecord_flo_number.lastIndexOf(".")))-parseInt(b.custrecord_flo_number.substring(b.custrecord_flo_number.lastIndexOf(".")))})
+     for(s=0;steps[s]!=null;s++)
+     {
+
+
+	   //columns=steps[s].getAllColumns();
+	    
+	    steps[s].roles=unescape(steps[s].custrecord_flo_process_participants);
+	    if(steps[s].roles==""){steps[s].roles="Unassigned Role "+s}
+ 		var parts=steps[s].roles.split(",");
+        var indparts=[];//sorted steps
+        lastlane=""; //used to track the last lane
+        if(parts.length==1 && steps[s].custrecord_flo_step_type!=6 && steps[s].custrecord_flo_step_type!=8)
+        {indparts=parts}
+        else if(steps[s].custrecord_flo_step_type==6)
+        {indparts=[];}//skip lanes for supporting processes.
+        else
+        {
+	    	mpcounter++
+	    	//re-sort lanes to put existing relationships first
+        	for(ip=0;parts[ip]!=null;ip++)
+        	{
+	       		if(lanerel.indexOf(parts[ip])>=0)
+	       		{
+		      		indparts.unshift(parts[ip]);
+ 	       		}
+           		else
+           		{indparts.push(parts[ip])}
+           //alert("indparts"+indparts.join())
+	    	}
+        }
+        for(ip=0;indparts[ip]!=null;ip++)
+  		{
+	        if(steps[s].custrecord_flo_step_type==6){ip++}//skip supporting processes
+	        if(indparts[ip]==""){indparts[ip]="Unassigned Role "+ip;}
+			if(ulanes.indexOf("##"+indparts[ip]+"##")<0 )
+			{
+				ulanes+=indparts[ip]+"##";
+				
+			}
+			if(lanerel.indexOf(indparts[ip])<0)
+			{
+			if(lastlane=="")
+			{lanerel.push(indparts[ip])}
+			else if(lanerel.indexOf(lastlane)==lanerel.length-1)
+			{lanerel.push(indparts[ip])}
+			else if(mpcounter==1)
+			{lanerel.splice(lanerel.indexOf(lastlane),0,indparts[ip])}
+			else
+			{lanerel.splice(Math.max(lanerel.indexOf(lastlane)-1,0),0,indparts[ip])}
+			}
+			else
+			{
+
+				if(lastlane!="" && Math.abs(lanerel.indexOf(indparts[ip])-lanerel.indexOf(lastlane))!=1 && lastlane!=indparts[ip] && indparts.length!=1)
+				{
+					//check if it can be inserted
+					/*if(steps[s].roles.indexOf(",")>0)
+					{lanerel.splice(lanerel.indexOf(lastlane),0,indparts[ip])}
+					else
+					{*/
+					//alert(s+"--"+indparts.length+"Creating Error"+ lastlane+":"+indparts[ip])
+					laneerror+=lastlane+":"+indparts[ip];
+				//}
+				}
+			}
+			lastlane=indparts[ip];
+			//alert(lanerel.join())
+			//alert(laneerror)
+		}
+	   
+		 
+       
+     }
+     //alert(ulanes)
+     //alert(lanerel.join())
+     //alert(laneerror)
+     sortval1=0;
+     uarray=ulanes.split("##");
+     
+     
+     if(uarray.indexOf(lanerel[lanerel.length-1])<lanerel[0])
+     {lanerel=lanerel.reverse()}
+     
+
+     lanes=lanerel;
+     lanes.unshift("");
+     numlanes=lanes.length-1;
+     //write lanes
+     	for (i = 1; lanes[i]!=null && lanes[i]!=""; i++) {
+	        
+			label = rowLabel(canvas, lanes[i], (background.getWidth() * .1)/2-lanes[i].length/2, (background.getHeight() * .8)/numlanes * (i-0.5));
+			if(i<numlanes)
+			{
+			line = new FLOLaneLine();
+                         line.setDashArray(". ");
+                         line.setStroke(Math.max(strokesize*.75,1));
+			line.setStartPoint(AbX+2, AbY+background.getHeight() * .8/numlanes * i);
+			line.setEndPoint(AbX+background.getWidth() - 1, AbY+background.getHeight() * .8/numlanes * i);
+			line.setId("Line::"+lanes[i]);
+			canvas.addFigure(line);
+
+			//label = rowLabel(canvas, lanes[i], (background.getWidth() * .1)/2-lanes[i].length/2, (background.getHeight() * .8)/numlanes * (numlanes * i - 1.2));
+
+         //alert(i+"--"+lanes[i])
+         	}//end of numlanes check
+			}//end of lane loop
+
+     //calculate positions
+
+     countpos=1;//holds # of positions
+     for(s=1;steps[s]!=null;s++)
+     {
+	     //calc # of horizontal positions
+	     if(steps[s].roles==steps[s-1].roles | steps[s].roles.indexOf(",")>0 | steps[s-1].roles.indexOf(",")>0 |(s>2 && steps[s].roles==steps[s-2].roles && steps[s].roles!=steps[s-1].roles))
+	     {countpos++}
+	   
+	     //alert(countpos)
+  
+	 }
+	
+	 spread=(canvaswidth-(countpos+1)*blockwidth)/(countpos+1);
+	 //alert(spread)
+	
+	 //position steps
+	 var pos=1;//lateral position
+	 var laststep;//the last step added
+	 var shapes=[];
+	 for(s=0;steps[s]!=null;s++)
+     {
+       if( s!=0 && (steps[s].roles==steps[s-1].roles | steps[s].roles.indexOf(",")>0) | steps[s-1].roles.indexOf(",")>0 | (s>2 && steps[s].roles==steps[s-2].roles && steps[s].roles!=steps[s-1].roles) && steps[s].custrecord_flo_step_type!=6 && steps[s].custrecord_flo_step_type!=8)
+	    {
+		 pos++;
+
+	    }
+
+	    x=parseInt(pos)*parseInt(blockwidth)+parseInt(pos-1)*parseInt(spread);
+	    y=getYPos(steps[s].roles);
+	    //if(s==1){x=spread}
+	    //if(canvas.getBestFigure(x,y) !=null && canvas.getBestFigure(x,y).getX()==x && canvas.getBestFigure(x,y).getY()==y)
+	    //if(s>2 && x==canvas.getFigure(s-2).getX() && y==canvas.getFigure(s-2).getY())
+	    if(s>=2 && x==shapes[s-2].x && y==shapes[s-2].y)
+	    {x=x+parseInt(blockwidth)+parseInt(spread)}
+	    height=blockheight;
+	    if(steps[s].roles.split(",").length>1)
+	    {y=y+.5}
+	    if(steps[s].roles.split(",").length>2)
+	    {height=steps[s].roles.split(",").length*blockheight-blockheight/2}
+	
+        shapes[s]={"x":x,"y":y};
+	    //alert("name:"+steps[s].name+" x:"+x+" lane:"+(y+1)*(canvas.getHeight()*.8)/(uarray.length-1)+" height:"+height)
+	    //alert(JSON.stringify(steps[s]))
+	    //var step = new FLOStep(blockwidth, height, unescape(steps[s].name), true, fontsize, strokesize);
+	    if(steps[s].custrecord_flo_step_type==3)
+	    {
+	       var step = new FLODecision(blockwidth, height, unescape(steps[s].name), true, fontsize, strokesize, "#FF0000", null,steps[s],pid,steps[s].internalid);
+	       
+        }
+        else if(steps[s].custrecord_flo_step_type==4)
+        {
+			var step = new FLOProcess(blockwidth, height, unescape(steps[s].name), true, fontsize, strokesize, null, null,steps[s],pid,steps[s].internalid)
+	        
+		}
+		else if(steps[s].custrecord_flo_step_type==6)
+        {
+			var step = new FLOSuppProcess(blockwidth, height, unescape(steps[s].name), true, fontsize, strokesize,steps[s],pid,steps[s].internalid)
+	        
+		}
+		else if(steps[s].custrecord_flo_step_type==7)
+        {
+			var step = new FLONextPage(blockwidth, height, unescape(steps[s].name), true, fontsize, strokesize,steps[s],pid,steps[s].internalid)
+			   
+		}
+		else
+		{
+			var step = new FLOStep(blockwidth, height, unescape(steps[s].name), true, fontsize, strokesize, null, null,steps[s],pid,steps[s].internalid)
+	        
+		}
+       
+	    step.setId(steps[s].internalid);
+	    step.label.setId("label"+steps[s].internalid)
+	    if(steps[s].custrecord_flo_step_type!=6 && steps[s].custrecord_flo_step_type!=8)
+	    {canvas.addFigure(step, AbX+x+canvas.getWidth()*.1, AbY+(y+.5)*((canvas.getHeight()*.8)/(uarray.length-2))-blockheight/2);}
+	    else //insert supporting processes
+	    {
+		   //alert((canvas.getWidth()*.1+si*blockwidth+10*(si+1))+"--"+(canvas.getHeight()*.8+10))
+                   if(steps[s].custrecord_flo_step_type==6)
+		   {canvas.addFigure(step, AbX+canvas.getWidth()*.1+si*blockwidth+10*(si+1), AbY+canvas.getHeight()*.8+10);}
+                   else
+                  {
+                      canvas.addFigure(step, AbX+canvas.getWidth()-(sb++)*(blockwidth+10), AbY+canvas.getHeight()*.8+10);
+				   }
+
+		}
+	    if(firstshape==null){firstshape=step};
+	    if(steps[s+1]==null && steps[s].custrecord_flo_step_type!=6  && steps[s].custrecord_flo_step_type!=8){lastshape=step};
+	    
+	    //draw connection
+	    if(laststep!=null && steps[s].custrecord_flo_step_type!=6 && steps[s].custrecord_flo_step_type!=8)
+	    {
+		  //below laststep
+		 if(laststep.getX()==step.getX())
+		  {
+			if(laststep.getY()<step.getY())
+			{
+		//	//alert(laststep.hybridPorts.length)
+			startport=laststep.getHybridPort(1);
+			//alert(startport.getName())
+			endport=step.getHybridPort(0);
+			//alert(endport.getName())
+		    }
+		    else
+		    {
+			  	startport=laststep.getHybridPort(0);
+				//alert(startport.getName())
+				endport=step.getHybridPort(1);
+		    }
+		  }
+		 else if(laststep.getY()==step.getY())
+		  {
+			startport=laststep.getOutputPort("output");
+			//alert(startport.getName())
+			endport=step.getInputPort("input");
+			//alert(startport.getName())
+		  }
+
+		   else if(laststep.getY()>step.getY())
+		  {
+			//below left
+			startport=laststep.getOutputPort("output");
+			endport=step.getInputPort("input")
+		  }
+		  //above left
+		  else if(laststep.getY()<step.getY())
+		  {
+			startport=laststep.getOutputPort("output");
+			endport=step.getInputPort("input")
+		  }
+		
+		  connect= new draw2d.Connection();
+		  	connect.setTargetDecorator(new draw2d.decoration.connection.ArrowDecorator(8, 8));
+			connect.setStroke(Math.max(strokesize*.75,1));
+		  
+		  //alert(startport.getX()+":"+startport.getY())
+		  connect.setSource(startport);
+		  connect.setTarget(endport);
+		  canvas.addFigure(connect);
+		  //laststep=step;
+	    }
+	    if(step.custrecord_flo_step_type!=6 && step.custrecord_flo_step_type!=8)
+	    {laststep=step;}
+	     
+     }//end of shape positioning loop
+    
+     return uarray
+      }catch(e){
+      	console.log('Error in: '+e);
+      }
+}
+
+
+function getYPos(roles)
+{
+	try{
+	//alert(roles+"  "+lanerel.join())
+	rolelist=roles.split(",");
+	topPos=lanerel.length-2;
+	for(r=0;rolelist[r]!=null;r++)
+	{
+	    topPos=Math.min(topPos,lanerel.indexOf(rolelist[r])-1)
+	}
+	return topPos
+    }catch(e){
+      	console.log('Error in: '+e);
+      }
+}
+
+function cleanText(thetext,splitlen) {
+        //This function splits the text into rows to fit it in the shape
+	//var pname=unescape(tlp[i].name);
+	try{
+	if(splitlen==null | splitlen=="")
+	{splitlen=15}
+	thetext = unescape(thetext);
+	words = thetext.split(" ");
+        if(thetext.length>splitlen)
+        {
+	if (words.length> 3) {
+		//middle = Math.ceil(words.length/2);
+		var thetext = words[0];
+		for (w = 1; words[w] != null; w++) {
+                     if (w/2!=Math.floor(w/2)) {
+				thetext += "\n"+words[w];
+			}
+                        else
+			{thetext += " " + words[w];}
+			
+		}
+             }
+           else
+           {thetext=thetext.replace(" ","\n")}
+           }//end of reformatting
+		return thetext
+	  }catch(e){
+      	console.log('Error in: '+e);
+      }
+	}
+
+
+	function createImage(w,h) {
+		try{
+		//create a SVG image string and save to NS
+		var writer = new draw2d.io.svg.Writer();
+		var thisSvg = writer.marshal(canvas);
+		//if(w<=780){w=1600}
+		if(w==null){w=400}
+		if(h==null){h=216}
+		width=width+200;
+		//change the svg attributes so it can be scaled easily
+		thisSvg = '<svg align="center" width="2000"  stroke-width=0 points="0,10 20,10 10,0" preserveAspectRatio="none" viewBox="0 0 '+w+' '+h+'" id="svg' + pid + '" version="1.1" xmlns="https://www.w3.org/2000/svg" style="overflow: visible; position: absolute;">' + thisSvg.substring(thisSvg.indexOf("<desc"));
+		//thisSvg = '<svg align="center"  viewBox="0 0 '+w+' '+h+'" id="svg' + pid + '" version="1.1" xmlns="https://www.w3.org/2000/svg"  position: absolute;">' + thisSvg.substring(thisSvg.indexOf("<desc"));
+		thisSvg = '<div id="img' + pid + '">' + thisSvg + '</div>';
+		return thisSvg
+	  }catch(e){
+      	console.log('Error in: '+e);
+      }
+
+	}
+
+
+/*	function saveProcess() {
+
+		//JSONdoc=getMap();
+		//Create a JSON writer and convert it into a JSON-String representation.
+		//
+		var writer = new draw2d.io.json.Writer();
+		var JSONdoc = writer.marshal(canvas);
+		var JSONText = JSON.stringify(JSONdoc)
+		//Check if there are any auto-generated objects on the page
+		if (!checkUDs(JSONText)) {
+			//alert("This diagram has default items on it.  Please edit or delete any default items before saving.");
+			return false
+		}
+		//create svg image
+		thisSVG = createImage();
+		//Check whether the user has permission to edit the record or not - if not allow them to save a draft
+		if (checkPermissions(pid)) {
+			JSONText = JSONText.replace(/draw2d\.Connection/ig, 'LabelConnection');
+			top.nlapiSubmitField("customrecord_flo_process", pid, "custrecord_flo_current_json", JSONText);
+			//window.parent.document.getElementById("processdetail").contentDocument.nlapiSubmitField("customrecord_flo_process", pid, "custrecord_flo_current_json", JSONText);
+			//alert(JSON.stringify(writer.marshal(canvas),null,2));
+			//submit SVG to NS
+			top.nlapiSubmitField("customrecord_flo_process", pid, "custrecord_flo_process_diag", thisSVG);
+			//window.parent.document.getElementById("processdetail").contentDocument.nlapiSubmitField("customrecord_flo_process", pid, "custrecord_flo_process_diag", thisSVG);
+		} else if (confirm("You do not have permission to update this process.  You can, however, save a draft process.  Click 'OK' to save a draft process or 'Cancel' to return to the draft.")) {
+			createDraft(JSONText, thisSVG)
+		}
+	}
+
+	function checkUDs(JSONText) {
+
+		//This function checks the JSONText for incomplete objects
+		var JSONObs = JSONText.split("},{")
+		var noUDFlag = true;//this flag tracks the status of the JSON UDs
+		for (var j = 0; JSONObs[j] != null && noUDFlag == true; j++) {
+			//if there is a FLO Object with no userdata
+			if (JSONObs[j].indexOf("FLO")> 0 && JSONObs[j].indexOf("FLOEnd") <0 && JSONObs[j].indexOf("FLOStart") <0 && JSONObs[j].indexOf("Connection") <0 && JSONObs[j].indexOf("Label") <0 && JSONObs[j].indexOf("Quick") <0 && JSONObs[j].indexOf("Line") <0 && JSONObs[j].indexOf('userData":null')> 0) {
+
+				noUDFlag = false;
+			}
+		}
+
+		//return noUDFlag
+		//alert("checkUDs disabled");
+		return true
+	}
+
+	function checkPermissions(id) {
+
+		//this function checks whether the user is permitted to edit a process based on the owner and process editor settings for that function
+		//tlp editing is restricted to admin or full access
+		if (id == null | id == "") {
+			if (roleid == "4" | roleid == "3") {
+				return true
+			}
+			return false
+		}
+
+		var thisProcData;
+		for (tp = 0; tlp[tp] != null && thisProcData == null; tp++) {
+			if (tlp[tp].internalid == id) {
+				thisProcData = tlp[tp];
+			}
+		}
+
+
+		if (thisProcData != null) {
+			//userid=thisProcData.formulatext;
+			owner = thisProcData.owner;
+			//alert(userid+"##"+owner+"##"+roleid)
+			if (userid == owner | roleid == "administrator" | roleid == "3") {
+				return true
+			}
+			editors = thisProcData.custrecord_flo_process_editors;
+			if (editors != null && editors != "") {
+				editors = editors.split(",");
+				for (e = 0; editors[e] != null; e++) {
+					if (editors[e] == userid) {
+						return true
+					}
+				}
+			}
+
+		}
+		return false
+	}
+
+	function createDraft(JSONText, svg) {
+		//alert("Creating Draft")
+	}*/
+
+
+		function checkPermissions(id) {
+
+		//this function checks whether the user is permitted to edit a process based on the owner and process editor settings for that function
+		//tlp editing is restricted to admin or full access
+		/*if (id == null | id == "") {
+			if (roleid == "4" | roleid == "3") {
+				return true
+			}
+			return false
+		}
+
+		var thisProcData;
+		for (tp = 0; tlp[tp] != null && thisProcData == null; tp++) {
+			if (tlp[tp].internalid == id) {
+				thisProcData = tlp[tp];
+			}
+		}
+
+
+		if (thisProcData != null) {
+			//userid=thisProcData.formulatext;
+			owner = thisProcData.owner;
+			//alert(userid+"##"+owner+"##"+roleid)
+			if (userid == owner | roleid == "administrator" | roleid == "3") {
+				return true
+			}
+			editors = thisProcData.custrecord_flo_process_editors;
+			if (editors != null && editors != "") {
+				editors = editors.split(",");
+				for (e = 0; editors[e] != null; e++) {
+					if (editors[e] == userid) {
+						return true
+					}
+				}
+			}
+
+		}
+		return false
+		*/
+	}
+
+	function createLines(background) {
+
+		var sline = new FLOLine();//sline is the supporting process line at the bottom of the diagram
+		sline.setStartPoint(AbX+0, AbY+background.getHeight() * .8);
+		sline.setStroke(3);
+		sline.setEndPoint(AbX+background.getWidth() - 1, AbY+background.getHeight() * .8);
+		sline.installEditPolicy(new draw2d.policy.figure.VerticalEditPolicy());
+
+
+		var rline = new FLOLine();//rline is the swimlane label column at the side of the diagram
+		rline.setStartPoint(AbX+background.getWidth() * .1, AbY+0);
+		rline.setStroke(3);
+		rline.setEndPoint(AbX+background.getWidth() * .1, AbY+background.getHeight() - 1);
+		rline.installEditPolicy(new draw2d.policy.figure.HorizontalEditPolicy());
+
+
+		//...add them to the canvas 
+		canvas.addFigure(sline);
+		canvas.addFigure(rline);
+		try {
+
+			//window.parent.afterLoading(); //this sets the process assistant up to be ready and loaded
+		} catch (e) {}
+	}
+
+
+function createDiag(pid, parentdata,hlpflag) 
+{
+        
+        try{
+        //Get data
+		stepsdata=loadXMLDoc('/app/site/hosting/scriptlet.nl?script=customscript_flo_process_data&deploy=1&pid='+pid);
+		//var stepsdata=xmlhttp.responseText;
+		console.log('/app/site/hosting/scriptlet.nl?script=customscript_flo_process_data&deploy=1&pid='+pid)
+		
+	    eval(stepsdata);
+	    console.log(eval(stepsdata))
+
+        //set pid to match newpid
+        //pid=newpid;
+        //if there is a cookied process go directly to that process.
+        /*if(resetDiag==false)
+        {
+	      //resetProcessDiag();
+	      resetDiag=true;
+        }*/
+        //alert(pid+"=="+JSON.stringify(parentdata)+"=="+parent.currentpid+"=="+JSON.stringify(parent.currentud))
+		//initialize stepcounter - used to set UID for next step -- incremented as steps are added.
+		var stepcounter = 0;
+		parentLength = 0;
+		processJSON = "";
+		pi=0;//zero the top row counter
+		si=0;//zero the supporting process counter
+                sb=0;//zero the sandbox process counter
+
+        //start the autosave
+        
+	    //window.setInterval(alert("test"), 10000);
+		//get parent userdata
+		/*if(parentdata==null)
+		{parentdata=parent.currentud;}
+		else
+		{
+			//if parent data is not null set the current pid and userdata fields
+			parent.currentpid=newpid;
+			parent.currentud=parentdata;
+		}
+		
+		//check to ensure the that the parentdata internalid matches the pid, if not reload it.
+		try
+		{
+			pdata=JSON.stringify(parentdata)
+		if(pdata!=null && pdata!="" && pdata.indexOf('"'+newpid+'"')<0)
+		{parentdata=reloadParentData(pid)}
+		}
+		catch(e){}
+		//alert(pid+"--"+JSON.stringify(parentdata))
+		
+		//If system is just loading for the first time check to make sure there is at least one high-level process
+		if(newpid=="" && tlp.length==0)
+		{
+			newtlp=top.nlapiCreateRecord("customrecord_flo_process");
+			newtlp.setFieldValue("custrecord_flo_number",'1');
+			newtlp.setFieldValue("name",'New High Level Process');
+			newtlp.setFieldValue("custrecord_flo_step_type",5);
+			newtlp=top.nlapiSubmitRecord(newtlp);
+			location.reload(true);
+		}
+		//This function writes the High level process diagram
+		//calculate the width of each object
+		//Check how many top level nodes we have
+		*/
+		//Reload Data 
+		
+
+		for (i = 0; i <tlp.length; i++) 
+		{
+			if (tlp[i].custrecord_flo_process_parent == pid && tlp[i].custrecord_flo_step_type!=6 && tlp[i].custrecord_flo_step_type!=8) 
+			{
+				if(parentLength<10){
+					//xalert(tlp[i].name)
+				}
+				
+				parentLength++
+			}
+
+		}
+        //xalert(parentLength)
+        if(canvas.getWidth()==0)
+        {
+                    //xalert(0+"--"+document.getElementById("gfx_holder").width);
+                   
+                    canvas=null;
+                    canvas = new FLOCanvas("gfx_holder");
+                    canvas.installEditPolicy(new draw2d.policy.canvas.BoundingboxSelectionPolicy());
+			 		canvas.installEditPolicy(new draw2d.policy.canvas.FadeoutDecorationPolicy());
+		      		canvas.defaultRouterClassName = "draw2d.layout.connection.ManhattanConnectionRouter";
+	          		canvas.defaultRouter = new draw2d.layout.connection.ManhattanConnectionRouter();
+                    
+        }
+
+
+
+		//create background - if there are no parent nodes, use HLP layout
+		hlp = false;//hlp is High Level Process - a diagram with no swimlanes (usually) and no arrows (always)
+		
+		if (parentLength> 0 | hlpflag==true ) {
+			hlp = true;//set hlp to true if we have top-level processes
+			
+		}
+
+		//Create Background
+		var screenwidth = top.window.innerWidth - 150;
+		var screenheight = $(window).height() * 0.5;
+		//console.log(screenwidth + " : " + screenheight)
+		background = new Background(1197, 561, hlp);//the background is used to enable us to control the appearance of the diagram.
+		//background = new Background(screenwidth, screenheight, hlp);	
+		canvas.addFigure(background, 2, 2);
+		
+
+		
+		//calculate the size of the blocks based on the number of parent nodes
+		//if loading a process diagram from memory or a detailed step map from data, this will be overwritten
+		blockwidth = Math.min(background.getWidth() * .9/parentLength/1.15, 120);
+		
+		if (blockwidth == null) {
+			blockwidth = 100
+		}
+
+		//var blockheight=Math.min((background.getHeight() - 120)/parentLength/1.2,150);
+		blockheight = blockwidth/2;
+
+
+		fontsize = blockwidth/150 * 14;//This is the size of the font
+		strokesize = background.getWidth()/1500 * 3;//This is the heaviness of the line
+		//set id of background and userdata representing parent process if pid!=""
+		if (pid != "") 
+		{
+			background.setId(pid);
+			
+			/*background.setUserData(parentdata);
+			if(background.userData!=null && background.userData!="")
+			{parent.currentud=background.userData}
+			else if(parent.currentud!="" && parent.currentpid==newpid)
+			{
+				background.userData==parent.currentud;
+			}
+			else
+			{
+				//load user Data
+			}
+			*/
+			background.setUserData(userdata[0])
+		}
+
+		//xalert(JSON.stringify(background.getUserData()))
+		//Create Lines      
+		createLines(background);
+
+		//xalert("added lines")
+		//check for an existing diagram to load -- saved diagrams override this logic
+		if (pid != null && pid != "") 
+		{
+			//alert("retrieving JSON - pid is:"+pid)
+		        
+				processJSON = top.nlapiLookupField("customrecord_flo_process", pid, "custrecord_flo_current_JSON");
+				//processJSON="";
+				//clear diagram if no shapes on it.
+				if(processJSON.indexOf('type":"FLOStep')<0 && processJSON.indexOf('type":"FLOProcess')<0 && processJSON.indexOf('type":"FLODecision')<0)
+				{processJSON="";}
+				//alert("Process JSON:"+processJSON)
+		
+      
+			if (processJSON != null && processJSON != "") 
+			{
+				
+				//Remove parent number from labels
+				parentNum=canvas.getFigure(pid).getUserData().custrecord_flo_number;
+				labelExp=new RegExp('label":"'+parentNum+'.','g');
+				processJSON=processJSON.replace(labelExp,'label":"');
+
+				canvas.clear();
+				//canvas.installEditPolicy(new draw2d.policy.canvas.BoundingboxSelectionPolicy());
+				canvas.createConnection = function() {
+					var conn = new draw2d.Connection();
+					//conn.setRouter(this.defaultRouter);
+					conn.setTargetDecorator(new draw2d.decoration.connection.ArrowDecorator(8, 8));
+					conn.setStroke(2);
+					return conn;
+				}
+				var reader = new draw2d.io.json.Reader();
+				reader.unmarshal(canvas, eval(processJSON));
+				background=canvas.getFigure(pid);
+                
+                console.log('processJSON:'+processJSON)
+
+				//createLines(background)
+				//getSteps();
+				return
+			}//end of JSON check
+		}//end of pid check
+	    
+		if (parentLength == 0 && hlp==false) 
+		{
+ 
+			//add default swimlanes
+			var line = [];
+			var label = [];
+			
+			
+			
+			var lanes;//an array of lanes
+            //xalert("Steps:  "+steps.length+"  pid:"+pid+"  loadedpid:"+loadedpid)
+			if((steps==null | steps.length==0 | pid!=loadedpid ) && hlp!=true)
+			{
+				loadedpid=pid;
+				//get steps data
+				var xmlhttp;
+				
+
+				//load the default process diagram or update the existing process diagram
+				//hlp=getSteps();
+				
+				
+			}
+			else if(hlp==false)
+			{
+				//generate the process map
+				lanes=calcShapeOrder(steps);
+				//alert("adding steps")
+				var start = new FLOStart(50,25, "Start", true, fontsize, strokesize);
+				var end = new FLOEnd(50,25, "End", true, fontsize, strokesize);
+				/*var step = new FLOStep(blockwidth, blockheight, "This is a step", true, fontsize, strokesize);
+				var dec = new FLODecision(blockwidth, blockheight, "This is a decision", true, fontsize, strokesize);
+				var process = new FLOProcess(blockwidth, blockheight, "This is a subprocess", true, fontsize, strokesize);*/
+				//canvas.addFigure(start, Math.min(background.getWidth()*.1, 120) + 20, Math.min((background.getHeight() - 120)/numlanes/2-start.getHeight()/2,blockheight+20));
+				startheight=283;
+				endheight=283;
+				if(getStepArray()!=null)
+				{	
+					firststep=getStepArray()[0];
+					startheight=firststep.y+firststep.getHeight()/2-start.getHeight()/2;
+					try{
+					laststep=canvas.getFigure(steps[steps.length-1].internalid);
+					}
+					catch(e)
+					{laststep=getStepArray()[getStepArray().length-1];}
+					endheight=laststep.y+laststep.getHeight()/2-end.getHeight()/2;
+				}
+				canvas.addFigure(start, Math.min(background.getWidth()*.1, 120) + 20, startheight);
+				//alert("adding start")
+				try{
+				endport=firstshape.getHybridPort("left");
+				startport=start.getOutputPort(0);
+
+				//xalert(startport.getName())
+				//xalert(endport.getName())
+				//connect= new draw2d.Connection();
+				connect=new LabelConnection();
+				connect.setTargetDecorator(new draw2d.decoration.connection.ArrowDecorator(8, 8));
+				connect.setStroke(Math.max(strokesize*.75,1));
+				connect.setSource(startport);
+				connect.setTarget(endport);
+				canvas.addFigure(connect);
+			 	}catch(e){}
+
+				/*canvas.addFigure(step, 250, (background.getHeight() - 120)/2 - 40);
+				canvas.addFigure(dec, 450, (background.getHeight() - 120)/2 - 40);
+				canvas.addFigure(process, 650, (background.getHeight() - 120)/2 - 40)*/
+
+				canvas.addFigure(end, background.getWidth() -20-end.getWidth(), endheight);
+				try{
+				startport=laststep.getHybridPort("right");
+				endport=end.getInputPort(0);
+
+				//connect= new draw2d.Connection();
+				connect=new LabelConnection();
+				connect.setTargetDecorator(new draw2d.decoration.connection.ArrowDecorator(8, 8));
+				connect.setStroke(Math.max(strokesize,1));
+				connect.setSource(startport);
+				connect.setTarget(endport);
+				canvas.addFigure(connect);
+				}catch(e){}
+			}
+			steps=[];
+			//xalert("Lanes:"+lanes.join())
+			if(hlp==false)//generate swimlane
+			{
+			if(lanes!=null)
+			{numlanes=lanes.length-2}
+			if(getStepArray()==null | getStepArray().length==0)
+			{
+				//xalert("hlp"+hlp)
+				lanes=[];lanes[0]="Role 1";lanes[1]="Role 2";
+                var numlanes=lanes.length;
+            
+            //xalert("nl"+numlanes)
+			for (i = 0; lanes[i]!=null && lanes[i]!=""; i++) {
+				
+				label = rowLabel(canvas, lanes[i], (Math.min(background.getWidth()*.1, 120))/2-lanes[i].length/2, ((background.getHeight() - 120))/(numlanes) * (i+.5));
+				if(i<numlanes)
+				{
+				line = new FLOLaneLine();
+                                line.setDashArray(".");
+                                line.setStroke(2);
+				line.setStartPoint(2, (background.getHeight() - 120)/numlanes * i);
+				line.setEndPoint(background.getWidth() - 1, (background.getHeight() - 120)/numlanes * i);
+				line.setId("Line::"+lanes[i]);
+				canvas.addFigure(line);
+
+				//label = rowLabel(canvas, lanes[i], (Math.min(background.getWidth()*.1, 120))/2-lanes[i].length/2, ((background.getHeight() - 120))/numlanes * (numlanes * i - 1.2));
+				
+                //xalert(i+"--"+lanes[i])
+                	}//end of numlanes check
+				}//end of lane loop
+		    }
+			
+                
+				//alert("adding steps")
+				var start = new FLOStart(50,25, "Start", true, fontsize, strokesize);
+				var end = new FLOEnd(50,25, "End", true, fontsize, strokesize);
+				/*var step = new FLOStep(blockwidth, blockheight, "This is a step", true, fontsize, strokesize);
+				var dec = new FLODecision(blockwidth, blockheight, "This is a decision", true, fontsize, strokesize);
+				var process = new FLOProcess(blockwidth, blockheight, "This is a subprocess", true, fontsize, strokesize);*/
+				//canvas.addFigure(start, Math.min(background.getWidth()*.1, 120) + 20, Math.min((background.getHeight() - 120)/numlanes/2-start.getHeight()/2,blockheight+20));
+				startheight=283;
+				endheight=283;
+				if(getStepArray()!=null && getStepArray().length>0)
+				{	
+					firststep=getStepArray()[0];
+					startheight=firststep.y+firststep.getHeight()/2-start.getHeight()/2;
+					try{
+					laststep=canvas.getFigure(steps[steps.length-1].internalid);
+					}
+					catch(e)
+					{laststep=getStepArray()[getStepArray().length-1];}
+					endheight=laststep.y+laststep.getHeight()/2-end.getHeight()/2;
+				}
+				canvas.addFigure(start, Math.min(background.getWidth()*.1, 120) + 20, startheight);
+				//alert("adding start")
+				try{
+				endport=firstshape.getHybridPort("left");
+				startport=start.getOutputPort(0);
+
+				//xalert(startport.getName())
+				//xalert(endport.getName())
+				//connect= new draw2d.Connection();
+				connect=new LabelConnection();
+				connect.setTargetDecorator(new draw2d.decoration.connection.ArrowDecorator(8, 8));
+				connect.setStroke(Math.max(strokesize*.75,1));
+				connect.setSource(startport);
+				connect.setTarget(endport);
+				canvas.addFigure(connect);
+			 	}catch(e){}
+
+				/*canvas.addFigure(step, 250, (background.getHeight() - 120)/2 - 40);
+				canvas.addFigure(dec, 450, (background.getHeight() - 120)/2 - 40);
+				canvas.addFigure(process, 650, (background.getHeight() - 120)/2 - 40)*/
+
+				canvas.addFigure(end, background.getWidth() -20-end.getWidth(), endheight);
+				try{
+				startport=laststep.getOutputPort(0);
+				endport=end.getInputPort(0)
+
+				//connect= new draw2d.Connection();
+				connect=new LabelConnection();
+				connect.setTargetDecorator(new draw2d.decoration.connection.ArrowDecorator(8, 8));
+				connect.setStroke(Math.max(strokesize,1));
+				connect.setSource(startport);
+				connect.setTarget(endport);
+				canvas.addFigure(connect);
+				}catch(e){}
+
+				//Add supporting process line label
+				if(hlp==true)
+				{slable = rowLabel(canvas, "Supporting\nProcesses", (Math.min(background.getWidth()*.1, 120))/5, (background.getHeight() - 120));}
+			
+        	}//end of hlp check
+		}//end of new process layout
+		
+		    if(hlp==true)
+		    {
+			//xalert("pl>0 - adding corelabel")
+			corelabel = rowLabel(canvas, "Core\nProcesses", (Math.min(background.getWidth()*.1, 120))/5, ((background.getHeight() - 120))/2);
+			//Add supporting process line label
+			slable = rowLabel(canvas, "Supporting\nProcesses", (Math.min(background.getWidth()*.1, 120))/5, (background.getHeight() * .9));
+
+
+
+			//Create the diagram
+
+			
+			for (i = 0; tlp[i] != null; i++) {
+				//default to first process box
+                parents=unescape(tlp[i].custrecord_flo_process_parent).split(",");
+				//Create multiple records for multi-parent steps
+				for(pp=0;parents[pp]!=null;pp++)
+				{
+				pname = cleanText(tlp[i].name);
+	                        //pname=tlp[i].name;
+				//xalert("Name: "+tlp[i].name+"  PID:"+pid+"  id:"+tlp[i].internalid+" BG:"+background.getId())
+				rec = new FLOHLProcess(blockwidth, blockheight, pname, false, fontsize, strokesize, tlp[i],pid,tlp[i].internalid);
+				rec.setId(tlp[i].internalid)
+				rec.label.setId("label" + rec.getId())
+
+				//default to first process box
+				if (pi == 0 && parentLength> 0) {
+					selectedStep = rec;
+					//explodedView(rec.getUserData());
+				}
+				//xalert(tlp[i].name+"--"+tlp[i].custrecord_flo_step_type)
+				//select processes that match the pid and are not supporting or sandbox
+				if (parents[pp] == pid  && tlp[i].custrecord_flo_step_type!=6  && tlp[i].custrecord_flo_step_type!=8) {
+
+					//select only those that match the pid 
+					if (parents[pp] == pid) 
+					{
+						console.log("pi "+pi)
+						
+						spos=pi;
+						//Check the shape order field to position elements
+						if(pid!="")
+						{
+							spos=pi;
+							//console.log("parents[pp]:  "+parents[pp])
+							var parent=canvas.getFigure(parents[pp]);
+							if(parent!=null)
+							{
+								var shapeOrder=canvas.getFigure(parents[pp]).getUserData().custrecord_flo_shape_order;
+								//spos=canvas.getFigure(parents[pp]).count+1;
+								//pi=shapeOrder.length-1;
+								//spos=pi;
+								if(shapeOrder!=null && shapeOrder!="")
+								{
+									//pi=shapeOrder.length-1;
+									console.log("shapeorder"+shapeOrder)
+									shapeOrder=unescape(shapeOrder).split(",");
+									if(shapeOrder.indexOf(tlp[i].internalid)>=0)
+									{
+										spos=shapeOrder.indexOf(tlp[i].internalid);
+
+									}
+									else
+									{
+										console.log(shapeOrder.length+","+spos);
+										spos=Math.max(shapeOrder.length+1,spos);
+									}
+								}
+							}
+						}
+					
+						//Create top level row element (in gray)
+						console.log(spos)
+						canvas.addFigure(rec, (Math.min(background.getWidth()*.1, 120) + 10 + blockwidth * (spos+1) + 10 * spos+1)-100,spread)
+						rec.count = 0;
+						//canvas.addFigure(rec,i*10,i*10)
+						rec.setBackgroundColor("#DDDDDD");
+						rec.label.setBackgroundColor("#DDDDDD");
+						rec.label.setColor("#000000");
+						rec.label.setBold("bold");
+						rec.setId(tlp[i].internalid);
+						rec.label.setId("label" + rec.getId())
+						pi++
+					}//end of top level
+					
+
+				
+				}//end of top level test
+				else if ((tlp[i].custrecord_flo_step_type==6 | tlp[i].custrecord_flo_step_type==8) && (tlp[i].custrecord_flo_process_parent==pid | unescape(tlp[i].custrecord_flo_process_parent.split(",")).indexOf(pid)>=0)) {
+				    if(pp>0)
+				    {rec=null}
+				    else
+				    {
+					//create supporting process elements
+					rec.setBackgroundColor("#FFFFFF");
+					rec.setId(tlp[i].internalid);
+					rec.label.setId("label" + rec.getId())
+                                        if(tlp[i].custrecord_flo_step_type!=8)
+					{canvas.addFigure(rec, (Math.min(background.getWidth()*.1, 120) + 10 + blockwidth * (si) + 10 * si), (background.getHeight() - 120) + 10);
+					//canvas.addFigure(rec,i*blockwidth,20);
+					si++}
+                                        else
+                                        {
+  											sb++;
+											canvas.addFigure(rec, background.getWidth()  - 10 - (sb) *(blockwidth +10 ), (background.getHeight() - 120) + 10);
+											
+                                        }
+				    }
+				} else if ((tlp[i].custrecord_flo_step_type==6 | tlp[i].custrecord_flo_step_type==8) && tlp[i].custrecord_flo_process_parent != "") {
+					//Do nothing
+				} else {
+					try {
+						//xalert(background.getId()+"--"+ tlp[i].custrecord_flo_process_parent+"--"+ canvas.getFigure(tlp[i].custrecord_flo_process_parent))
+						//canvas.getFigure("cont"+tlp[i].custrecord_flo_process_parent).addFigure(rec);
+						
+						
+						if (canvas.getFigure(parents[pp]).getY() == spread) 
+						{
+						console.log("adding figure:"+rec.getUserData().custrecord_flo_number)	//alert(background.height-120-20+"-"+(blockheight+10)*(canvas.getFigure(tlp[i].custrecord_flo_process_parent).count+1)+"<"+(blockheight+10)*2)
+
+								if(background.height-120-20-(blockheight+10)*(canvas.getFigure(parents[pp]).count+1)<(blockheight+10)*2)
+                            	{
+                                  resizeBackground(background.width,background.height+(blockheight+20)*2);
+								}
+								parentNumber=canvas.getFigure(parents[pp]).getUserData().custrecord_flo_number;
+								if(rec.getUserData().custrecord_flo_number.indexOf(parentNumber)!=0)
+								{rec.label.setText(rec.getUserData().custrecord_flo_number+" "+unescape(cleanText(rec.getUserData().name)))}
+								//Check the shape order field to position elements
+								var shapeOrder=canvas.getFigure(parents[pp]).getUserData().custrecord_flo_shape_order;
+								spos=canvas.getFigure(parents[pp]).count+1;
+								if(shapeOrder!=null && shapeOrder!="")
+								{
+									shapeOrder=unescape(shapeOrder).split(",");
+									if(shapeOrder.indexOf(tlp[i].internalid)>=0)
+									{
+										spos=shapeOrder.indexOf(tlp[i].internalid)+1;
+									}
+									else
+									{
+										spos=Math.max(shapeOrder.length,spos);
+									}
+									
+								}
+
+									canvas.addFigure(rec, canvas.getFigure(parents[pp]).getX(),spread + (blockheight + 10) * spos);
+								
+								canvas.getFigure(parents[pp]).count++;
+							
+						}
+					
+
+					} catch (e) {
+						//This traps unmatched process steps
+					}
+				}
+				//canvas.addFigure(rec,150,75)
+				if(rec!=null)
+				{
+						rec.setId(tlp[i].internalid);
+						rec.label.setId("label" + rec.getId())
+				}
+
+
+
+			}//end of parent loop
+		}
+		}//end of hlp layout
+	   }catch(e){
+      	console.log('Error in: '+e);
+      }
+
+	}//end of hlp function
+	
+	</SCRIPT>
+	
+<script type="text/javascript">
+//initialize the variables
+var app;//this is the container object for the diagram
+var al;//afterload flag used to confirm that editing interface is ready
+var blockwidth=150;//default width of standard shape
+var blockheight=blockwidth/2;
+var fontsize=blockwidth/150*14;//This is the size of the font
+var strokesize=1000/1500*3;//This is the heaviness of the line
+var changedFlag=false;//tracks if any edits were made
+var currentUserData="";//stores current user data object
+var currentID=""//stores id of current object being edited.
+var hlp=false;//stores the type of diagram: High Level Process (hlp=true) or Swim Lane
+var parentLength=0;//used to track the top level hlps
+var background;//this will hold the background element
+var processJSON="";//JSON map loaded from the process record
+var newpid="";//This stores the id of any newly created process or step so that we can use it to set the id of the object (and thereby tie changes to the object to the backend.
+var firstshape;//used to store the first shape in a diagram
+var lastshape;//used to store the last shape in a diagram
+var loadedpid="";//used to store the last pid for which steps data was loaded
+var recs = [];
+var si = 0;//count supporting processes
+var pi = 0;//count parent processes
+var spread=20;//default space between shapes in a diagram
+var steps=[];//These are the steps that will be displayed
+var selectedStep = "";
+//var originalXY="0,0";//this is the original position of a shape prior to being dragged 
+var targetNode;//This is the shape that a user is dragging or copying onto
+
+
+$(window).load(function () {
+     //alert(screen.width)
+     document.getElementById("gfx_holder").style.width=screen.width;
+     //alert(document.getElementById("gfx_holder").style.width)
+     document.getElementById("gfx_holder").style.height=1300;
+
+    //Create the paint area. The id in the constructor must be
+    //an existing DIV 
+	//var canvas = new FLOCanvas("gfx_holder ");
+	 
+	 
+	app  = new example.Application();
+	draw2d.Connection.createConnection=function(sourcePort, targetPort){
+	  //return my special kind of connection
+	    
+	   return app.createConnection(sourcePort, targetPort);
+	};
+       
+    
+    canvas=app.view;
+    AbX=canvas.getAbsoluteX();
+    AbX=0;
+    AbY=canvas.getAbsoluteY();
+    AbY=0;
+    //alert(AbX+"="+AbY)
+    //check pid from location
+    if(window.location.href.indexOf("pid=")>0)
+    {pid=window.location.href.split("pid=")[1].split("&")[0]}
+    pid=pid.replace("#",'');
+   
+
+          //if(pid!=null)
+          {
+               createDiag(pid);
+               //if(!checkPermissions(pid))
+               {
+                    canvas.installEditPolicy(new draw2d.policy.canvas.ReadOnlySelectionPolicy);
+               }
+               
+			   createDescTable()
+               
+               
+          }
+         
+
+	 
+	 $("body").scrollTop(0).scrollLeft(0);
+});
+</script>
+
+</head>
+
+<body>
+	
+	<div class="page" id="overview">
+		<div class="header">
+		<div id="flologo" class="process"><img height="50" src="FLO_logo.png"/>&nbsp;&nbsp;FLODocs&#8482;</div>
+		<div>
+	  	<div id="navbuttons" class="navbuttonsx">
+		<div class="processtitle"><span class="processnumber"></span>&nbsp;&nbsp;<span class="processname" >Loading Process Data ...</span> - Overview</div>
+		<div id="controlbuttons" class="controlbuttons">
+		   	<div id="savebutton" class="toolbutton" ><i title="Open Process Record" class="fa fa-edit" onClick="openProcess()"></i></div>
+		   	<div id="trashbutton" class="toolbutton"><i title="Go To Swim Lane" class="fa fa-gear" onClick="goToSwimLane()"></i></div>
+		   	<div id="eventbutton" class="toolbutton"><i title="Set A Meeting About This Process" class="fa fa-calendar" onClick="processEvent(currentpid)"></i></div>
+		   	<div id="taskbutton" class="toolbutton"><i title="Assign A Task Regarding This Process" class="fa fa-list" onClick="processTask(currentpid)"></i></div>
+		 	<div id="issuebutton" class="toolbutton"><i title="Log An Issue With This Process" class="fa fa-exclamation" onClick="processIssue(currentpid)"></i></div>
+		</div>
+		</div>
+		<div id="instructions" ><a href="#" id="navcontrol" onclick="showInst()"><span style='color:red'>How to Use This Document</span><a>
+			<div id="navinst" style="display:none">
+				<p><b>Description:</b> This print view summarizes the process and provides a printable version for reference and meetings.</p>
+				<p><b>Organization:</b> The document is divided into 4 sections: Overview, Diagram, Description, Customizations.<br>   The <b>Overview</b> summarizes the process and shows all the participants and what they do.  It also shows the parent process to allow you to navigate upward.  It also includes links to the description of each step or subprocess.<br>   The <b>Diagram</b> shows the swim lane diagram of high-level process diagram for the process.  If the process has no steps, a blank swimlane is shown as a worksheet for meetings.<br>  The <b>Description</b> lists each step together with any overview or work instructions.  Each subprocess has a link that allows you to drill deeper or right click to open the subprocess in another tab.  Related Customizations are also listed with links to the relevant customization description in the next section.<br>  The <b>Customizations</b> section lists all of the customizations together with data to help you understand them more fully.  Each customization is linked to the relevant customization documentation in FLODocs.  Right click to open in a new tab or window.
+					</p>
+			</div>
+		</div>
+		<hr color="orange"/>
+		</div>
+		<div><table width="100%" height="500" padding="20" >
+			<tr>
+				<td width="60%">
+					<table width="100%"  class="details">
+						<tr bgcolor="orange" class="details" height="30"><th class="details" colspan="2">Process Overview</th></tr>
+						<tr height="30" class="contentrow"><td class="label">Parent(s):</td><td id="Parents"></td></tr>
+						<tr height="30" class="contentrow"><td class="label">Owner:</td><td id="ProcessOwner"></td></tr>
+						<tr height="60" class="contentrow"><td class="label">Overview:</td><td id="ProcessOverview" name='description'></td></tr>
+						<!--<tr height="60" class="contentrow"><td class="label">First Step:</td><td id="ProcessFirst" name='description'></td></tr>
+						<tr height="60" class="contentrow"><td class="label">Last Step:</td><td id="ProcessLast" name='description'></td></tr>-->
+						<tr height="200" class="contentrow"><td class="label">Description:</td><td id="ProcessDesc" name='description'></td></tr>
+					</table>
+				</td>
+				<td width="40%" height="100%" >
+					<table id="processparttable" width="100%" class="details" align="top">
+						<tr bgcolor="orange" class="details" height="30"><th colspan="2"class="details">Process Participants</th></tr>
+						<tr class="details"><td >Name</td><td >Actions</td></tr>
+					</table>
+					<br/><br/>
+
+				</td>
+		    </tr>
+		</table>
+		</div>
+	</div>
+	
+	<div class="page"></div>
+<div class="page-break">
+	<div class="page" id="diagram">
+		<div class="header">
+		<div id="flologo" class="process"><img height="50" src="FLO_logo.png"/>&nbsp;&nbsp;FLODocs&#8482;</div>
+		<div class="processtitle"><span class="processnumber">2.1.2</span>&nbsp;&nbsp;<span class="processname" >My Process</span> - Diagram</div>
+		<hr color="orange"/>
+		</div>
+         <div  onselectstart="javascript:/*IE8 hack*/ return false " id="gfx_holder" align="left">  
+         </div>
+         <!--<br/><br/>-->
+		 <div width="100%" align="left" class="processimage"  id="svg_image" style="width: 100%;height:1110;">
+		 </div>
+	</div>
+</div>
+<div class="page-break">
+	<div class="page" id="description">
+		<div class="header">
+		<div id="flologo" class="process"><img height="50" src="FLO_logo.png"/>&nbsp;&nbsp;FLODocs&#8482;</div>
+		<div class="processtitle"><span class="processnumber">2.1.2</span>&nbsp;&nbsp;<span class="processname" >My Process</span> - Description</div>
+		<hr color="orange"/>
+		</div>
+		<table id="processdesctable" name="processdesctable" width="100%" border="1">
+		 <tr bgcolor="orange"><th width="5%">Number</th><th width="15%">Task</th><th width="30%">Description</th><th width="10%">Screen Shots</th><th width="15%">Participants</th><th width="20%">Issues / Comments</th><th width="15%">Customizations</th></tr>
+		</table>
+	</div>
+</div>
+	<div class="myBreak" id="custlist">
+		<div class="header">
+		</div>
+	</div>	
+
+	<div class="finalpage" id="custlist">
+		<div class="header">
+		<div id="flologo" class="process"><img height="50" src="FLO_logo.png"/>&nbsp;&nbsp;FLODocs&#8482;</div>
+		<div class="processtitle"><span class="processnumber">2.1.2</span>&nbsp;&nbsp;<span class="processname" >My Process</span> - Customizations</div>
+		<hr color="orange"/>
+		</div>
+	<table id="processcusttable" width="100%" class="details">
+		<tr bgcolor="orange" class="details" height="30"><th colspan="6" class="details">Customizations</th></tr>
+		<tr class="details"><td width="20%">Name</td><td width="10%">ScriptId</td><td>Description</td><td width="10%">Owner</td><td width="10%" >Type</td><td width="10%">Last Used</td></tr>
+	</table>
+	</div>
+
+</body>
+</html>

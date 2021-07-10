@@ -1,0 +1,108 @@
+type netsuite.CustomSaleItem {
+  annotations {
+    hidden_string source {
+    }
+  }
+  netsuite.RecordRef item {
+  }
+  number line {
+  }
+  string description {
+  }
+  number amount {
+  }
+  boolean isTaxable {
+  }
+  boolean deferRevRec {
+  }
+  number quantity {
+  }
+  number currentPercent {
+  }
+  netsuite.RecordRef units {
+  }
+  netsuite.InventoryDetail inventoryDetail {
+  }
+  string serialNumbers {
+  }
+  string binNumbers {
+  }
+  netsuite.Price price {
+  }
+  string rate {
+  }
+  number percentComplete {
+  }
+  number quantityOnHand {
+  }
+  number quantityAvailable {
+  }
+  number quantityRemaining {
+  }
+  netsuite.Department department {
+  }
+  string licenseCode {
+  }
+  netsuite.Classification class {
+  }
+  netsuite.Location location {
+  }
+  netsuite.RecordRef revRecSchedule {
+  }
+  string revRecStartDate {
+  }
+  number revRecTermInMonths {
+  }
+  string revRecEndDate {
+  }
+  number grossAmt {
+  }
+  string costEstimateType {
+  }
+  number costEstimate {
+  }
+  string taxDetailsReference {
+  }
+  boolean excludeFromRateRequest {
+  }
+  netsuite.RecordRef catchUpPeriod {
+  }
+  string giftCertFrom {
+  }
+  string giftCertRecipientName {
+  }
+  string giftCertRecipientEmail {
+  }
+  string giftCertMessage {
+  }
+  netsuite.RecordRef shipAddress {
+  }
+  netsuite.Address shippingAddress {
+  }
+  netsuite.RecordRef shipMethod {
+  }
+  number shipGroup {
+  }
+  string itemIsFulfilled {
+  }
+  string giftCertNumber {
+  }
+  number taxAmount {
+  }
+  string vsoeSopGroup {
+  }
+  boolean vsoeIsEstimate {
+  }
+  number vsoePrice {
+  }
+  number vsoeAmount {
+  }
+  number vsoeAllocation {
+  }
+  string vsoeDeferral {
+  }
+  string vsoePermitDiscount {
+  }
+  boolean vsoeDelivered {
+  }
+}

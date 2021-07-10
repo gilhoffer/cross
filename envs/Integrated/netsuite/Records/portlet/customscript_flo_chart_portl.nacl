@@ -1,0 +1,75 @@
+netsuite.portlet customscript_flo_chart_portl {
+  scriptid = "customscript_flo_chart_portl"
+  defaultfunction = "main"
+  isinactive = false
+  name = "Strongpoint Chart Portlet"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  portlettype = "HTML"
+  scriptfile = "[/SuiteBundles/Bundle 297487/FLOChartPortlet.js]"
+  scriptcustomfields = {
+    scriptcustomfield = [
+      {
+        scriptid = "custscript_flo_param_ss_1"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        displaywidth = 40
+        fieldtype = "CLOBTEXT"
+        isformula = false
+        ismandatory = false
+        label = "SAVED SEARCHES TO PROCESS"
+        searchlevel = "2"
+        storevalue = true
+      },
+      {
+        scriptid = "custscript_icons_links_params"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        displaywidth = 40
+        fieldtype = "CLOBTEXT"
+        isformula = false
+        ismandatory = false
+        label = "ICONS AND LINKS TO PROCES"
+        searchlevel = "2"
+        storevalue = true
+      },
+      {
+        scriptid = "custscript_flo_colors"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        displaywidth = 40
+        fieldtype = "TEXT"
+        isformula = false
+        ismandatory = false
+        label = "COLORS"
+        searchlevel = "2"
+        storevalue = true
+      },
+    ]
+  }
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy_light_dashboard"
+        allemployees = true
+        allpartners = true
+        allroles = true
+        isdeployed = true
+        loglevel = "DEBUG"
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+        title = "Strongpoint Chart Portlet"
+      },
+    ]
+  }
+}

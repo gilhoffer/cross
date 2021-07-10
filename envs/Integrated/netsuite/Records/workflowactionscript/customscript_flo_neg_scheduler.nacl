@@ -1,0 +1,24 @@
+netsuite.workflowactionscript customscript_flo_neg_scheduler {
+  scriptid = "customscript_flo_neg_scheduler"
+  isinactive = false
+  name = "Strongpoint Negative Spider Scheduler"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = netsuite.file.instance.SuiteBundles_Bundle_297487_FLOSpiderSchedulerLight_js@dsdv.path
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy_flo_neg"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        isdeployed = true
+        loglevel = "AUDIT"
+        recordtype = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.scriptid
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+      },
+    ]
+  }
+}

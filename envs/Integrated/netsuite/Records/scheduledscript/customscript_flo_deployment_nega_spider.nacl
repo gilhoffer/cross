@@ -1,0 +1,56 @@
+netsuite.scheduledscript customscript_flo_deployment_nega_spider {
+  scriptid = "customscript_flo_deployment_nega_spider"
+  isinactive = false
+  name = "Strongpoint Script Deployment Neg Spider"
+  notifyadmins = false
+  notifyowner = true
+  scriptfile = netsuite.file.instance.SuiteBundles_Bundle_297487_FLOCustomNegativeSDSpider_js@dsdv.path
+  scriptcustomfields = {
+    scriptcustomfield = [
+      {
+        scriptid = "custscript_flo_negative_sd_lastindex"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "TEXT"
+        isformula = false
+        ismandatory = false
+        label = "searchId"
+        searchlevel = "2"
+        storevalue = true
+      },
+    ]
+  }
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy2"
+        isdeployed = true
+        loglevel = "AUDIT"
+        status = "NOTSCHEDULED"
+        title = "Strongpoint Script Deployment Negative Spider 2"
+        recurrence = {
+          single = {
+            startdate = "2017-05-17"
+            starttime = "01:00:00Z"
+          }
+        }
+      },
+      {
+        scriptid = "customdeploy_flo_deployment_nega_spider"
+        isdeployed = true
+        loglevel = "AUDIT"
+        status = "NOTSCHEDULED"
+        title = "Strongpoint Script Deployment Negative Spider"
+        recurrence = {
+          single = {
+            startdate = "2017-05-04"
+            starttime = "01:00:00Z"
+          }
+        }
+      },
+    ]
+  }
+}

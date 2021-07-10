@@ -1,0 +1,12 @@
+type netsuite.ClassTranslation {
+  annotations {
+    hidden_string source {
+    }
+  }
+  string locale {
+  }
+  string language {
+  }
+  string name {
+  }
+}

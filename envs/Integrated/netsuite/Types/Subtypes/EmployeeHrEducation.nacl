@@ -1,0 +1,12 @@
+type netsuite.EmployeeHrEducation {
+  annotations {
+    hidden_string source {
+    }
+  }
+  netsuite.RecordRef education {
+  }
+  string degree {
+  }
+  string degreeDate {
+  }
+}

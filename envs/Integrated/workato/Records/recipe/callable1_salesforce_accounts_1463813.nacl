@@ -1,0 +1,34 @@
+workato.recipe callable1_salesforce_accounts_1463813@ssu {
+  id = 1463813
+  user_id = 212128
+  name = "callable1 salesforce accounts"
+  copy_count = 2
+  trigger_application = "workato_service"
+  action_applications = [
+    "salesforce",
+  ]
+  applications = [
+    "workato_service",
+    "salesforce",
+  ]
+  description = "When there is a new call for callable recipe, do action"
+  folder_id = 318283
+  running = false
+  lifetime_task_count = 0
+  config = [
+    {
+      keyword = "application"
+      name = "workato_service"
+      provider = "workato_service"
+      skip_validation = false
+    },
+    {
+      keyword = "application"
+      name = "salesforce"
+      provider = "salesforce"
+      account_id = workato.connection.instance.Astar_s_sandbox@ts
+      skip_validation = false
+    },
+  ]
+  code = workato.recipe__code.instance.callable1_salesforce_accounts_1463813_ssu__receive_request@uuumuuu
+}

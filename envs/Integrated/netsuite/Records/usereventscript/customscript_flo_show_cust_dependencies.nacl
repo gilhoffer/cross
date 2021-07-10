@@ -1,0 +1,27 @@
+netsuite.usereventscript customscript_flo_show_cust_dependencies {
+  scriptid = "customscript_flo_show_cust_dependencies"
+  beforeloadfunction = "showDependentObjectsSummary"
+  description = "Display Summary and List of Customization Dependencies"
+  isinactive = false
+  name = "Strongpoint Show Cust Dependencies"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = "[/SuiteBundles/Bundle 297487/FLOShowCustomizationDependencies.js]"
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy_flo_show_cust_dependencies"
+        allemployees = false
+        alllocalizationcontexts = true
+        allpartners = false
+        allroles = true
+        executioncontext = "ACTION|ADVANCEDREVREC|BANKCONNECTIVITY|BANKSTATEMENTPARSER|BUNDLEINSTALLATION|CLIENT|CONSOLRATEADJUSTOR|CSVIMPORT|CUSTOMGLLINES|CUSTOMMASSUPDATE|DATASETBUILDER|DEBUGGER|EMAILCAPTURE|FICONNECTIVITY|FIPARSER|MAPREDUCE|OTHER|PAYMENTGATEWAY|PAYMENTPOSTBACK|PLATFORMEXTENSION|PORTLET|PROMOTIONS|RECORDACTION|RESTLET|SCHEDULED|SDFINSTALLATION|SHIPPINGPARTNERS|SUITELET|TAXCALCULATION|USEREVENT|USERINTERFACE|WEBAPPLICATION|WEBSERVICES|WORKBOOKBUILDER|WORKFLOW"
+        isdeployed = true
+        loglevel = "AUDIT"
+        recordtype = netsuite.customrecordtype.instance.customrecord_flo_customization.scriptid
+        status = "RELEASED"
+      },
+    ]
+  }
+}

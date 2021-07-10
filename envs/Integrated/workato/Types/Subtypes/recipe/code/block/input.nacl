@@ -1,0 +1,68 @@
+type workato.recipe__code__block__input {
+  string sobject_name {
+  }
+  string OpportunityId {
+  }
+  string netsuite_object {
+  }
+  string companyName {
+  }
+  string limit {
+  }
+  workato.recipe__code__block__input__search_settings search_settings {
+  }
+  string externalId {
+  }
+  string type {
+  }
+  string operand {
+  }
+  "List<workato.recipe__code__block__input__conditions>" conditions {
+  }
+  string LastName {
+  }
+  string Email {
+  }
+  string object {
+  }
+  string AccountId {
+  }
+  string FirstName {
+  }
+  string Description {
+  }
+  string custom_list {
+  }
+  string external_id {
+  }
+  string unit {
+  }
+  string id {
+  }
+  string flow_id {
+  }
+  workato.recipe__code__block__input__request request {
+  }
+  string field_list {
+  }
+  string topic_id {
+  }
+  workato.recipe__code__block__input__message message {
+  }
+  string Name {
+  }
+  string searchId {
+  }
+  string uuid {
+  }
+  string accountNumber {
+  }
+  string spreadsheet {
+  }
+  string sheet {
+  }
+  workato.recipe__code__block__input__data data {
+  }
+  string TargetObjectId {
+  }
+}

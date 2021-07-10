@@ -1,0 +1,56 @@
+type workato.recipe__code__extended_output_schema__properties {
+  string control_type {
+  }
+  string label {
+  }
+  unknown parse_output {
+  }
+  string type {
+  }
+  string name {
+  }
+  string of {
+  }
+  "List<workato.recipe__code__extended_output_schema__properties__properties>" properties {
+  }
+  boolean optional {
+  }
+  string hint {
+  }
+  string ns_content_type {
+  }
+  string ns_tag {
+  }
+  string ns_ref_type {
+  }
+  unknown render_input {
+  }
+  string toggle_hint {
+  }
+  workato.recipe__code__extended_output_schema__properties__toggle_field toggle_field {
+  }
+  string ns_custom_type {
+  }
+  string ns_search_type {
+  }
+  boolean custom {
+  }
+  boolean sticky {
+  }
+  boolean sdfc_address_attribute {
+  }
+  boolean sfdc_createable {
+  }
+  boolean sfdc_updateable {
+  }
+  boolean event_title {
+  }
+  unknown pick_list {
+  }
+  workato.recipe__code__extended_output_schema__properties__pick_list_params pick_list_params {
+  }
+  string key_scope {
+  }
+  string sfdc_field_type {
+  }
+}

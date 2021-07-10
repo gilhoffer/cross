@@ -1,0 +1,26 @@
+netsuite.suitelet customscript_flo_generic_cust_search_frm {
+  scriptid = "customscript_flo_generic_cust_search_frm"
+  defaultfunction = "genericCustSearchPopup"
+  isinactive = false
+  name = "Strongpoint Generic Cust Search Form"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = "[/SuiteBundles/Bundle 297487/FLOGenericCustSearchForm.js]"
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy_flo_generic_cust_search_frm"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        isdeployed = true
+        isonline = false
+        loglevel = "AUDIT"
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+        title = "Strongpoint Generic Customization Search Form"
+      },
+    ]
+  }
+}

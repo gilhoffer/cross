@@ -1,0 +1,12 @@
+netsuite.file SuiteBundles_Bundle_297487_FLODocs_Enterprise_FLO_logo_png@dsdsduv {
+  bundleable = false
+  isinactive = false
+  availablewithoutlogin = true
+  generateurltimestamp = false
+  hideinbundle = false
+  path = "/SuiteBundles/Bundle 297487/FLODocs Enterprise/FLO_logo.png"
+  content = file("netsuite/FileCabinet/SuiteBundles/Bundle 297487/FLODocs Enterprise/FLO_logo.png")
+  _parent = [
+    netsuite.folder.instance.SuiteBundles_Bundle_297487_FLODocs_Enterprise@dsds,
+  ]
+}

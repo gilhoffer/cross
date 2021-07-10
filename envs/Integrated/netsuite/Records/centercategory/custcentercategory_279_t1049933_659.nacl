@@ -1,0 +1,33 @@
+netsuite.centercategory custcentercategory_279_t1049933_659 {
+  scriptid = "custcentercategory_279_t1049933_659"
+  center = "BASIC"
+  centertab = netsuite.centertab.instance.custcentertab_flo_strongpoint_lite.scriptid
+  label = "Support"
+  links = {
+    link = [
+      {
+        linklabel = "User Guide"
+        linkobject = netsuite.centerlink.instance.custlink_2_t2257815_830.scriptid
+        linktasktype = "LINK"
+        shortlist = false
+      },
+      {
+        linkobject = "[scriptid=customrecord_flo_license]"
+        linktasktype = "LIST"
+        shortlist = false
+      },
+      {
+        linklabel = "Report a Bug"
+        linkobject = netsuite.centerlink.instance.custlink_1_t2257815_271.scriptid
+        linktasktype = "LINK"
+        shortlist = false
+      },
+      {
+        linklabel = "Stop Scripts"
+        linkobject = netsuite.suitelet.instance.customscript_flo_stop_schedule_scripts.scriptdeployments.scriptdeployment.1.scriptid
+        linktasktype = "SCRIPT"
+        shortlist = false
+      },
+    ]
+  }
+}

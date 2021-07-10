@@ -1,0 +1,22 @@
+type workato.recipe__code__extended_input_schema {
+  string type {
+  }
+  string name {
+  }
+  string control_type {
+  }
+  string label {
+  }
+  string hint {
+  }
+  number default {
+  }
+  "List<List<unknown>>" pick_list {
+  }
+  string toggle_hint {
+  }
+  workato.recipe__code__extended_input_schema__toggle_field toggle_field {
+  }
+  boolean since_field {
+  }
+}

@@ -1,0 +1,26 @@
+netsuite.scheduledscript customscript_flo_cleanup_fldsrchdeps {
+  scriptid = "customscript_flo_cleanup_fldsrchdeps"
+  defaultfunction = "FLOCleanFieldsFromSearches"
+  isinactive = false
+  name = "Strongpoint Cleanup-Field search depend."
+  notifyadmins = false
+  notifyowner = true
+  scriptfile = "[/SuiteBundles/Bundle 297487/FLOCleanupTools.js]"
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy_flo_cleanup_fldsrchdeps"
+        isdeployed = true
+        loglevel = "AUDIT"
+        status = "NOTSCHEDULED"
+        title = "Strongpoint Cleanup-Field search depend."
+        recurrence = {
+          single = {
+            startdate = "2016-09-21"
+            starttime = "01:00:00Z"
+          }
+        }
+      },
+    ]
+  }
+}

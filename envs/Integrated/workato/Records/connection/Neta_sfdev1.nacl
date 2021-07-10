@@ -1,0 +1,7 @@
+workato.connection Neta_sfdev1@s {
+  application = "salesforce"
+  id = 422894
+  name = "Neta sfdev1"
+  authorized_at = "2021-03-16T15:47:47.805-07:00"
+  authorization_status = "success"
+}

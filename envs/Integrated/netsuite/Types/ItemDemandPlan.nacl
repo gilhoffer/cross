@@ -1,0 +1,37 @@
+type netsuite.ItemDemandPlan {
+  annotations {
+    hidden_string source {
+    }
+  }
+  netsuite.RecordRef customForm {
+  }
+  netsuite.Subsidiary subsidiary {
+  }
+  netsuite.Location location {
+  }
+  netsuite.RecordRef item {
+  }
+  netsuite.RecordRef units {
+  }
+  string memo {
+  }
+  number year {
+  }
+  string month {
+  }
+  string startDate {
+  }
+  string endDate {
+  }
+  string demandPlanCalendarType {
+  }
+  netsuite.DemandPlanMatrix demandPlanMatrix {
+  }
+  string internalId {
+    isAttribute = true
+    _hidden_value = true
+  }
+  string externalId {
+    isAttribute = true
+  }
+}

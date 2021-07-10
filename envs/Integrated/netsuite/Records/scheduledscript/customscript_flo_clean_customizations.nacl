@@ -1,0 +1,34 @@
+netsuite.scheduledscript customscript_flo_clean_customizations {
+  scriptid = "customscript_flo_clean_customizations"
+  defaultfunction = "detectNewCustomization"
+  description = "Delete old customizations after get flag a inactive"
+  isinactive = false
+  name = "Strongpoint Clean Customization"
+  notifyadmins = false
+  notifyowner = true
+  scriptfile = "[/SuiteBundles/Bundle 297487/FLODetectChange.js]"
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy1"
+        isdeployed = true
+        loglevel = "AUDIT"
+        status = "NOTSCHEDULED"
+        title = "Strongpoint Clean Customization"
+        recurrence = {
+          single = {
+            startdate = "2014-10-02"
+            starttime = "01:00:00Z"
+          }
+        }
+      },
+    ]
+  }
+  libraries = {
+    library = [
+      {
+        scriptfile = "[/SuiteBundles/Bundle 297487/FLOValidateLicense.js]"
+      },
+    ]
+  }
+}

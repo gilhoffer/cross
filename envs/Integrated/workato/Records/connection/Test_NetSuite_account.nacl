@@ -1,0 +1,7 @@
+workato.connection Test_NetSuite_account@s {
+  application = "netsuite"
+  id = 422892
+  name = "Test NetSuite account"
+  authorized_at = "2021-05-13T09:19:43.865-07:00"
+  authorization_status = "success"
+}

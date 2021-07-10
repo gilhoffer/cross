@@ -1,0 +1,26 @@
+netsuite.workflowactionscript customscript_flo_det_form_to_make_join {
+  scriptid = "customscript_flo_det_form_to_make_join"
+  defaultfunction = "FLODetermineFormToMakeJoin"
+  isinactive = false
+  name = "Strongpoint Determine Form To MakeJoin"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  returntype = "TEXT"
+  scriptfile = "[/SuiteBundles/Bundle 297487/FLODetermineFormToMakeJoin.js]"
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy_flo_det_form_to_make_join"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        isdeployed = true
+        loglevel = "AUDIT"
+        recordtype = netsuite.customrecordtype.instance.customrecord_flo_customization.scriptid
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+      },
+    ]
+  }
+}

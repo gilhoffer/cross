@@ -1,0 +1,16 @@
+type netsuite.OtherChargeSaleItemHierarchyVersions {
+  annotations {
+    hidden_string source {
+    }
+  }
+  boolean isIncluded {
+  }
+  netsuite.RecordRef hierarchyVersion {
+  }
+  string startDate {
+  }
+  string endDate {
+  }
+  netsuite.RecordRef hierarchyNode {
+  }
+}

@@ -1,0 +1,12 @@
+netsuite.file SuiteBundles_Bundle_297487_FLODocs_Enterprise_Process_JSONs_DONE_FLOProcess_Testing_this_1295_20151125035714_json@dsdsdsddusuuv {
+  bundleable = false
+  isinactive = false
+  availablewithoutlogin = false
+  generateurltimestamp = false
+  hideinbundle = false
+  path = "/SuiteBundles/Bundle 297487/FLODocs Enterprise/Process JSONs/DONE/FLOProcess_Testing this_1295_20151125035714.json"
+  content = file("netsuite/FileCabinet/SuiteBundles/Bundle 297487/FLODocs Enterprise/Process JSONs/DONE/FLOProcess_Testing this_1295_20151125035714.json")
+  _parent = [
+    netsuite.folder.instance.SuiteBundles_Bundle_297487_FLODocs_Enterprise_Process_JSONs_DONE@dsdsdsd,
+  ]
+}

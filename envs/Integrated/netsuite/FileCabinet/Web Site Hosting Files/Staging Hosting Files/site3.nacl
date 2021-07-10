@@ -1,0 +1,9 @@
+netsuite.folder Web_Site_Hosting_Files_Staging_Hosting_Files_site3@sssdssd {
+  bundleable = false
+  isinactive = false
+  isprivate = false
+  path = "/Web Site Hosting Files/Staging Hosting Files/site3"
+  _parent = [
+    netsuite.folder.instance.Web_Site_Hosting_Files_Staging_Hosting_Files@sssdss,
+  ]
+}

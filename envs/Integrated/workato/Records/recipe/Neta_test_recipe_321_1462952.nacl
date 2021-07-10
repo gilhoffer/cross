@@ -1,0 +1,23 @@
+workato.recipe Neta_test_recipe_321_1462952@sssu {
+  id = 1462952
+  user_id = 212128
+  name = "Neta test recipe 321"
+  copy_count = 1
+  trigger_application = "workato_service"
+  applications = [
+    "workato_service",
+  ]
+  description = "When there is a new call for callable recipe, do action"
+  folder_id = 318283
+  running = false
+  lifetime_task_count = 0
+  config = [
+    {
+      keyword = "application"
+      provider = "workato_service"
+      skip_validation = false
+      name = "workato_service"
+    },
+  ]
+  code = workato.recipe__code.instance.Neta_test_recipe_321_1462952_sssu__receive_request@uuuumuuu
+}

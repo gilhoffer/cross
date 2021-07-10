@@ -1,0 +1,14 @@
+type netsuite.CustomerDownload {
+  annotations {
+    hidden_string source {
+    }
+  }
+  netsuite.file file {
+  }
+  string licenseCode {
+  }
+  number remainingDownloads {
+  }
+  string expiration {
+  }
+}

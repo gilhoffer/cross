@@ -1,0 +1,30 @@
+type netsuite.BinWorksheetItem {
+  annotations {
+    hidden_string source {
+    }
+  }
+  netsuite.RecordRef item {
+  }
+  string itemName {
+  }
+  string description {
+  }
+  number quantity {
+  }
+  string itemOnHand {
+  }
+  string itemUnitsLabel {
+  }
+  netsuite.InventoryDetail inventoryDetail {
+  }
+  string itemBins {
+  }
+  string itemBinNumbers {
+  }
+  string itemBinList {
+  }
+  string itemPreferBin {
+  }
+  string itemBlank {
+  }
+}

@@ -1,0 +1,113 @@
+netsuite.scheduledscript customscript_flo_report_record_count {
+  scriptid = "customscript_flo_report_record_count"
+  defaultfunction = "setReportRecordCount"
+  description = "Log the records and joins created by the spiders"
+  isinactive = false
+  name = "Strongpoint Report Record Count"
+  notifyadmins = false
+  notifyemails = "nic.cano@flodocs.com"
+  notifyowner = false
+  scriptfile = "[/SuiteBundles/Bundle 297487/FLOReportRecorCount.js]"
+  scriptcustomfields = {
+    scriptcustomfield = [
+      {
+        scriptid = "custscript_rrcount_skipreclist"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "TEXT"
+        isformula = false
+        ismandatory = false
+        label = "Skip Record List"
+        searchlevel = "2"
+        storevalue = true
+      },
+      {
+        scriptid = "custscript_rrcount_lastindex"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "TEXT"
+        isformula = false
+        ismandatory = false
+        label = "Last Index"
+        searchlevel = "2"
+        storevalue = true
+      },
+      {
+        scriptid = "custscript_rrcount_spidercfgid"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "TEXT"
+        isformula = false
+        ismandatory = false
+        label = "Spider Config ID"
+        searchlevel = "2"
+        storevalue = true
+      },
+      {
+        scriptid = "custscript_rrcount_snameidx"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "TEXT"
+        isformula = false
+        ismandatory = false
+        label = "Script Name Index"
+        searchlevel = "2"
+        storevalue = true
+      },
+    ]
+  }
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy1"
+        isdeployed = true
+        loglevel = "AUDIT"
+        status = "SCHEDULED"
+        title = "Strongpoint Report Record Count"
+        recurrence = {
+          daily = {
+            everyxdays = 1
+            repeat = "PT6H"
+            startdate = "2017-07-28"
+            starttime = "06:00:00Z"
+          }
+        }
+      },
+      {
+        scriptid = "customdeploy2"
+        isdeployed = true
+        loglevel = "AUDIT"
+        status = "NOTSCHEDULED"
+        title = "Strongpoint Report Record Count - OD"
+        recurrence = {
+          single = {
+            startdate = "2015-06-02"
+            starttime = "01:00:00Z"
+          }
+        }
+      },
+    ]
+  }
+  libraries = {
+    library = [
+      {
+        scriptfile = "[/SuiteBundles/Bundle 297487/FLOValidateLicense.js]"
+      },
+      {
+        scriptfile = netsuite.file.instance.SuiteBundles_Bundle_297487_FLOTimeWindow_js@dsdv.path
+      },
+    ]
+  }
+}

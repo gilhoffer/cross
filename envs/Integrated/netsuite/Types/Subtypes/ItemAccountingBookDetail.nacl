@@ -1,0 +1,22 @@
+type netsuite.ItemAccountingBookDetail {
+  annotations {
+    hidden_string source {
+    }
+  }
+  netsuite.RecordRef accountingBook {
+  }
+  netsuite.RecordRef createRevenuePlansOn {
+  }
+  netsuite.RecordRef revenueRecognitionRule {
+  }
+  netsuite.RecordRef revRecForecastRule {
+  }
+  netsuite.RecordRef revRecSchedule {
+  }
+  boolean sameAsPrimaryRevRec {
+  }
+  netsuite.RecordRef amortizationTemplate {
+  }
+  boolean sameAsPrimaryAmortization {
+  }
+}

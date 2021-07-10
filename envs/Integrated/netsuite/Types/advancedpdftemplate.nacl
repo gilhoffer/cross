@@ -1,0 +1,39 @@
+type netsuite.advancedpdftemplate {
+  serviceid scriptid {
+    _required = true
+    isAttribute = true
+    _restriction = {
+      regex = "^custtmpl[0-9a-z_]+"
+    }
+  }
+  netsuite.advancedpdftemplate_standard standard {
+    isAttribute = true
+  }
+  string title {
+    _required = true
+    _restriction = {
+      max_length = 297
+    }
+  }
+  string description {
+    _restriction = {
+      max_length = 4000
+    }
+  }
+  boolean displaysourcecode {
+  }
+  boolean preferred {
+  }
+  boolean isinactive {
+  }
+  string savedsearch {
+  }
+  string recordtype {
+  }
+  netsuite.fileContent content {
+    additionalFileSuffix = "xml"
+  }
+  string _lastfetchtime {
+    _hidden_value = true
+  }
+}

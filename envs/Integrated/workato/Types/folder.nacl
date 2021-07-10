@@ -1,0 +1,12 @@
+type workato.folder {
+  number id {
+  }
+  string name {
+  }
+  number parent_id {
+  }
+  string created_at {
+  }
+  string updated_at {
+  }
+}

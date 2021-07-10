@@ -1,0 +1,7 @@
+workato.connection Alon_Netsuite@s {
+  application = "netsuite"
+  id = 446995
+  name = "Alon Netsuite"
+  authorized_at = "2021-05-13T09:11:51.301-07:00"
+  authorization_status = "success"
+}

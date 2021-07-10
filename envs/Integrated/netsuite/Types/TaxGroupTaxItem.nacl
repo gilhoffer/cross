@@ -1,0 +1,14 @@
+type netsuite.TaxGroupTaxItem {
+  annotations {
+    hidden_string source {
+    }
+  }
+  netsuite.RecordRef taxName {
+  }
+  number rate {
+  }
+  number basis {
+  }
+  string taxType {
+  }
+}

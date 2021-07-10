@@ -1,0 +1,19 @@
+type netsuite.ContactCategory {
+  annotations {
+    hidden_string source {
+    }
+  }
+  string name {
+  }
+  boolean private {
+  }
+  boolean isInactive {
+  }
+  string internalId {
+    isAttribute = true
+    _hidden_value = true
+  }
+  string externalId {
+    isAttribute = true
+  }
+}

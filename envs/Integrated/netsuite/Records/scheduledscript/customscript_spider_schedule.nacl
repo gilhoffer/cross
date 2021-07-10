@@ -1,0 +1,155 @@
+netsuite.scheduledscript customscript_spider_schedule {
+  scriptid = "customscript_spider_schedule"
+  defaultfunction = "spiderRecordSS"
+  description = "Create or update the customization records based on the data collected by the front end spider."
+  isinactive = false
+  name = "Strongpoint Spider Record Server Side SS"
+  notifyadmins = false
+  notifyowner = true
+  scriptfile = "[/SuiteBundles/Bundle 297487/FloParseRecordListingServerSide.js]"
+  scriptcustomfields = {
+    scriptcustomfield = [
+      {
+        scriptid = "custscript_spiderrss_lastfileid"
+        accesslevel = "2"
+        applyformatting = true
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "INTEGER"
+        isformula = false
+        ismandatory = false
+        label = "Last File Internal ID"
+        searchlevel = "2"
+        storevalue = true
+      },
+      {
+        scriptid = "custscript_spiderrss_lastfileline"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "INTEGER"
+        isformula = false
+        ismandatory = false
+        label = "Last File Line"
+        searchlevel = "2"
+        storevalue = true
+      },
+      {
+        scriptid = "custscript_spiderrss_autospider"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "TEXT"
+        isformula = false
+        ismandatory = false
+        label = "AutoSpider"
+        searchlevel = "2"
+        storevalue = true
+      },
+      {
+        scriptid = "custscript_spider_schedule_search"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "TEXT"
+        isformula = false
+        ismandatory = false
+        label = "Saved Search ID"
+        searchlevel = "2"
+        storevalue = true
+      },
+      {
+        scriptid = "custscript_last_field_process_spider"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "INTEGER"
+        isformula = false
+        ismandatory = false
+        label = "Last Field Process"
+        searchlevel = "2"
+        storevalue = true
+      },
+      {
+        scriptid = "custscript_flo_disable_od"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "if the parameter is Y the script didn't get executed."
+        displaytype = "NORMAL"
+        fieldtype = "TEXT"
+        help = "if the parameter is Y the script didn't get executed."
+        isformula = false
+        ismandatory = false
+        label = "Disable OD"
+        searchlevel = "2"
+        storevalue = true
+      },
+    ]
+  }
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy_flo_autospider"
+        isdeployed = true
+        loglevel = "AUDIT"
+        status = "SCHEDULED"
+        title = "Strongpoint Spider Record Server Side SS"
+        recurrence = {
+          daily = {
+            everyxdays = 1
+            repeat = "PT30M"
+            startdate = "2016-11-02"
+            starttime = "07:00:00Z"
+          }
+        }
+      },
+      {
+        scriptid = "customdeploy_flo_autospider_od"
+        isdeployed = true
+        loglevel = "AUDIT"
+        status = "NOTSCHEDULED"
+        title = "Strongpoint Spider Record Server Side (OD)"
+        recurrence = {
+          single = {
+            startdate = "2015-05-14"
+            starttime = "01:00:00Z"
+          }
+        }
+      },
+      {
+        scriptid = "customdeploy_server_spider"
+        isdeployed = true
+        loglevel = "AUDIT"
+        status = "NOTSCHEDULED"
+        title = "Strongpoint Spider Record Server Side"
+        recurrence = {
+          single = {
+            startdate = "2014-09-17"
+            starttime = "01:00:00Z"
+          }
+        }
+      },
+    ]
+  }
+  libraries = {
+    library = [
+      {
+        scriptfile = "[/SuiteBundles/Bundle 297487/FLOValidateLicense.js]"
+      },
+      {
+        scriptfile = netsuite.file.instance.SuiteBundles_Bundle_297487_FLOTimeWindow_js@dsdv.path
+      },
+    ]
+  }
+}

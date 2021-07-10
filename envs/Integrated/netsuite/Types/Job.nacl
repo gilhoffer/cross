@@ -1,0 +1,185 @@
+type netsuite.Job {
+  annotations {
+    hidden_string source {
+    }
+  }
+  netsuite.RecordRef customForm {
+  }
+  serviceid entityId {
+  }
+  string altName {
+  }
+  string companyName {
+  }
+  string phoneticName {
+  }
+  netsuite.RecordRef entityStatus {
+  }
+  string defaultAddress {
+  }
+  netsuite.Job parent {
+  }
+  boolean isInactive {
+  }
+  netsuite.JobPercentCompleteOverrideList percentCompleteOverrideList {
+  }
+  string lastModifiedDate {
+  }
+  boolean billPay {
+  }
+  string dateCreated {
+  }
+  netsuite.RecordRef category {
+  }
+  netsuite.RecordRef workplace {
+  }
+  netsuite.RecordRef language {
+  }
+  string comments {
+  }
+  string accountNumber {
+  }
+  netsuite.Currency currency {
+  }
+  number fxRate {
+  }
+  string startDate {
+  }
+  string endDate {
+  }
+  string phone {
+  }
+  string altPhone {
+  }
+  string calculatedEndDate {
+  }
+  string calculatedEndDateBaseline {
+  }
+  string startDateBaseline {
+  }
+  string projectedEndDate {
+  }
+  string projectedEndDateBaseline {
+  }
+  string lastBaselineDate {
+  }
+  netsuite.JobType jobType {
+  }
+  number percentComplete {
+  }
+  number estimatedCost {
+  }
+  number estimatedRevenue {
+  }
+  netsuite.Duration estimatedTime {
+  }
+  netsuite.Duration estimatedTimeOverride {
+  }
+  string fax {
+  }
+  string email {
+  }
+  string emailPreference {
+  }
+  number openingBalance {
+  }
+  string openingBalanceDate {
+  }
+  netsuite.Account openingBalanceAccount {
+  }
+  netsuite.Subsidiary subsidiary {
+  }
+  string jobBillingType {
+  }
+  netsuite.RecordRef billingSchedule {
+  }
+  netsuite.RecordRef jobItem {
+  }
+  number percentTimeComplete {
+  }
+  netsuite.Duration actualTime {
+  }
+  boolean allowTime {
+  }
+  netsuite.Duration timeRemaining {
+  }
+  boolean limitTimeToAssignees {
+  }
+  number estimatedLaborCost {
+  }
+  number estimatedLaborCostBaseline {
+  }
+  netsuite.RecordRef estimateRevRecTemplate {
+  }
+  netsuite.RecordRef revRecForecastRule {
+  }
+  boolean usePercentCompleteOverride {
+  }
+  number estimatedLaborRevenue {
+  }
+  number estimatedGrossProfit {
+  }
+  number estimatedGrossProfitPercent {
+  }
+  netsuite.RecordRef projectExpenseType {
+  }
+  boolean applyProjectExpenseTypeToAll {
+  }
+  boolean allowAllResourcesForTasks {
+  }
+  number jobPrice {
+  }
+  boolean isUtilizedTime {
+  }
+  boolean isProductiveTime {
+  }
+  boolean isExemptTime {
+  }
+  boolean materializeTime {
+  }
+  boolean allowExpenses {
+  }
+  boolean allocatePayrollExpenses {
+  }
+  boolean includeCrmTasksInTotals {
+  }
+  string globalSubscriptionStatus {
+  }
+  netsuite.JobResourcesList jobResourcesList {
+  }
+  netsuite.JobPlStatementList plStatementList {
+  }
+  netsuite.JobAddressbookList addressbookList {
+  }
+  netsuite.JobMilestonesList milestonesList {
+  }
+  netsuite.JobCreditCardsList creditCardsList {
+  }
+  netsuite.RecordRef timeApproval {
+  }
+  netsuite.Duration plannedWork {
+  }
+  netsuite.Duration plannedWorkBaseline {
+  }
+  netsuite.RecordRef billingRateCard {
+  }
+  boolean createChargeRule {
+  }
+  boolean sourceServiceItemFromRateCard {
+  }
+  netsuite.RecordRef projectManager {
+  }
+  string schedulingMethod {
+  }
+  string scheduledEndDate {
+  }
+  string calculatedStartDate {
+  }
+  string internalId {
+    isAttribute = true
+    _hidden_value = true
+  }
+  string externalId {
+    isAttribute = true
+  }
+}

@@ -1,0 +1,278 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>FLO&trade; SuiteView&trade;</title>
+  <meta name="author" content="FLO Partners Inc.">
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+  <!-- Date: 2014-01-10 -->
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<style>
+.fa-10x {
+  font-size: 10em;
+}
+</style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="FLOEntryScripts_fromsearch.js"></script>
+    <script>
+      
+      var currentpid="";
+    var fadespeed=1000;
+    $(document).ready(function(){
+      
+            //Go directly to correct stage if STAGE specified in URL;
+            if(window.location.href.indexOf("STAGE=")>0 && window.location.href.indexOf("?t=")<0)
+            {
+        
+        thisStage=window.location.href.split("STAGE=")[1].split("&")[0];
+        console.log(thisStage);
+        routableStages="custframesearch";
+        if(routableStages.indexOf(thisStage)>=0)
+        {
+          $("#flologo").hide();
+          $(".topicon").hide();
+          showNav2(thisStage);
+        }
+      }
+      else
+      {
+      //Skip logo if home button was used
+
+      if(window.location.href.indexOf("?t=")>0)
+        {
+        $("#flologo").hide();
+        $(".topicon").fadeIn(fadespeed);
+        }
+       else
+      {
+      //fade in the logo
+        setTimeout(function(){
+
+        $("#flologo").fadeIn(fadespeed);
+              setTimeout(function(){
+        $("#flologo").fadeOut(fadespeed);},fadespeed*3);
+        setTimeout(function(){
+        $(".topicon").fadeIn(fadespeed);
+        },fadespeed*5);
+          },1);
+          }
+      }
+    
+      $('[name=custmap]').load(function(){
+        //console.log('laod the iframe');
+        //console.log($(this).contents().find('form'));
+        $(this).contents().find('form').on('change', '#targetRec', function() {
+          overwriteLastStage("custframe");
+          console.log('change');
+        });
+      });
+    });
+    </script>
+</head>
+<body viewsource="no">
+  <iframe name="autospider" id="autospider" frameborder="0" height="10" width="10" src="" seamless></iframe>
+
+<style>
+
+
+.flologo
+{
+position:absolute;
+top:30%;
+left:30%;
+color: orange;
+}
+
+.navicons {
+  position:absolute;
+  top:25%;
+  left:15%;
+    padding: 5px 0 0 5px;
+    width: 100%;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.topicon {
+    margin-right: 30px;
+    margin-left: 30px;
+    display:none;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    float: left;
+    color: orange;
+    cursor: pointer;
+
+}
+.viewicon {
+        position:relative;
+  left:10%;
+    margin-right: 30px;
+    margin-left: 30px;
+    display:none;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    float: left;
+    color: orange;
+    cursor:pointer;
+
+}
+
+.spider {
+  position:absolute;
+  top:20%;
+  left:10%;
+  display:none;
+  color: orange;
+  cursor: pointer;
+}
+
+.spiderform {
+  position:relative;
+  left:20%;
+  margin-right: 40px;
+  margin-left: 40px;
+  //display:none;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  float: left;
+  color: orange;
+}
+
+.spiderspin {
+    position:relative;
+  left:20%;
+  margin-right: 40px;
+  margin-left: 40px;
+  display:none;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  float: left;
+  color: orange;  
+}
+
+
+.newprocess {
+        position:relative;
+  left:20%;
+    margin-right: 40px;
+    margin-left: 40px;
+    display:none;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    float: left;
+    color: orange;
+    cursor: pointer;
+
+}
+
+.controlbuttons {
+  position:absolute;
+  top:5px;
+  right:5px;
+    padding: 5px 0 0 5px;
+    //width: 100%;
+    overflow: hidden;
+    color: orange;
+    float:right;
+    margin-bottom: 10px;
+    //margin-top: 10px;
+    //cursor: pointer;
+
+}
+
+.navbuttons {
+  position:relative;
+  top:5px;
+  left:5px;
+    padding: 5px 0 0 5px;
+    //width: 100%;
+    overflow: hidden;
+    float:left;
+    color: orange;
+    margin-bottom: 10px;
+    //margin-top: 10px;
+    //cursor: pointer;
+
+}
+
+.navbutton {
+  color: black;
+        display:none;
+    cursor: pointer;
+}
+
+.backbutton,.forwardbutton,.savebutton,.printbutton,.copybutton,.toolbutton,.issuebutton,.newbutton{
+  color: orange;
+        display:none;
+            margin-right: 5px;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    float: left;
+    cursor: pointer;
+}
+
+.savebutton,.printbutton,.copybutton,.toolbutton,.homebutton,.issuebutton,.newbutton,{
+  color: orange;
+        display:none;
+    position:relative;
+    margin-right: 5px;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    float: right;
+    cursor: pointer;
+}
+
+.homebutton,.processlisticon,.flobreadcrumbs{
+  color: orange;
+    display:none;
+    position:relative;
+    margin-right: 5px;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    float: left;
+    cursor: pointer;
+  //top: 50%;
+  //transform: translateY(-50%);
+}
+
+.flocrumb{
+  position:relative;
+  float: left;
+  margin-right: 5px;
+    margin-left: 5px;
+}
+
+
+
+.processframe { 
+        position:relative;
+  top:10px;
+  left:10px;
+
+}
+
+.erdbackbutton { display: none !important; }
+
+</style>
+<div id="maindiv" class="maindiv" width="100%" height="600">
+<div id="processmapdiv" class="processframe" width="100%"><iframe id="processframe" class="processframe"  style="display:none" width="100%" height="1200" src="empty.html" frameborder="0"></iframe></div>
+    <div id="processlistdiv" class="processlist" width="100%"><iframe id="processlist" class="processlist"  style="display:none" width="100%" height="1200" src="empty.html" frameborder="0"></iframe></div>
+    <div id="processdetaildiv" class="processdetail" width="100%" border="1" style="display:none"><div id="hidedetail" class="navbutton"><i class="fa fa-angle-double-right " onClick="closeProcessDetail()"></i></div><iframe name="processdetail" class="processdetail" id="processdetail" border="1" height="1200" width="100%" src="empty.html"></iframe></div>
+    
+     <div id="custframesearch" class="custframesearch" style="display:none" width="100%" height="100%">
+    <table width="100%" ><tr><td id="mapdiv" width="100%"><iframe name="custmapsearch" id="custmapsearch" border="0" height="1000" width="100%" src="empty.html" frameborder="0"></iframe></td>
+    <td id="detaildiv" width="0" border="1"><div id="hidedetail" class="navbutton"><i class="fa fa-angle-double-right " onClick="closeDetail()"></i></div><iframe name="custdetail" id="custdetail" border="0" height="1000" width="100%" src="empty.html" frameborder="0"></iframe></td></tr></table>
+     <table width="100%" style="display: none"><tr><td id="mapexternaldiv"></td></tr></table>
+    </div>
+</div>
+
+</body>
+</html>
+

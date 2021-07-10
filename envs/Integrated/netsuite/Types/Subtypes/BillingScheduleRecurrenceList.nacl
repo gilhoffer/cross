@@ -1,0 +1,11 @@
+type netsuite.BillingScheduleRecurrenceList {
+  annotations {
+    hidden_string source {
+    }
+  }
+  "List<netsuite.BillingScheduleRecurrence>" billingScheduleRecurrence {
+  }
+  boolean replaceAll {
+    isAttribute = true
+  }
+}

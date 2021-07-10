@@ -1,0 +1,33 @@
+netsuite.workflowactionscript customscript_spider_record_wf {
+  scriptid = "customscript_spider_record_wf"
+  defaultfunction = "processFile"
+  isinactive = false
+  name = "Strongpoint Spider Record WF"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  returntype = "TEXT"
+  scriptfile = netsuite.file.instance.SuiteBundles_Bundle_297487_FloParseRecordListingActionWF_js@dsdv.path
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy_spider_record_wf"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        isdeployed = true
+        loglevel = "AUDIT"
+        recordtype = "[scriptid=customrecord_flo_spider_files]"
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+      },
+    ]
+  }
+  libraries = {
+    library = [
+      {
+        scriptfile = netsuite.file.instance.SuiteBundles_Bundle_297487_FLORemoveInactiveReferencesFromCust_js@dsdv.path
+      },
+    ]
+  }
+}

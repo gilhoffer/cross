@@ -1,0 +1,8 @@
+type netsuite.LandedCost {
+  annotations {
+    hidden_string source {
+    }
+  }
+  netsuite.LandedCostDataList landedCostDataList {
+  }
+}

@@ -1,0 +1,45 @@
+netsuite.workflowactionscript customscript_unset_respidernow_flag {
+  scriptid = "customscript_unset_respidernow_flag"
+  defaultfunction = "unsetRespideringNowFlag"
+  description = "Sets the Respidering Now flag of each customization to F"
+  isinactive = false
+  name = "Strongpoint Unset Respidering Now Flag"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  returntype = "TEXT"
+  scriptfile = netsuite.file.instance.SuiteBundles_Bundle_297487_FloUnsetRespideringNow_js@dsdv.path
+  scriptcustomfields = {
+    scriptcustomfield = [
+      {
+        scriptid = "custscript_flo_unset_param_custid"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "TEXT"
+        isformula = false
+        ismandatory = false
+        label = "FLO Cust Ids"
+        searchlevel = "2"
+        storevalue = true
+      },
+    ]
+  }
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy_unset_respidernow_flag"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        isdeployed = true
+        loglevel = "AUDIT"
+        recordtype = "[scriptid=customrecord_flo_spider_files]"
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+      },
+    ]
+  }
+}

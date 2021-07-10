@@ -1,0 +1,6 @@
+"Can Be Safely Deleted or Modified","Cannot Be Safely Deleted or Modified","WARNING","IMPACTED CUSTOMIZATIONS","Inactive Customizations (Already Deleted)"
+"prototype customization customworkflowtest (Workflow)",,,,
+"prototype customization customlistnotexisting (List)",,,,
+,"-Quote Approval (Contract Pricing) (Workflow)","RECENTLY USED,DATA SOURCE","Hand (Item Field),Hand (Item Option Field)",
+,"Strongpoint Show Real Time Spider Button (User Event Script)","DEPENDENT SCRIPTS,RECENTLY USED","Strongpoint Show Real Time Spider Button (User Event Script),Strongpoint Trigger Real Time Spider (Suitelet Script),Strongpoint Script Search (Search),Strongpoint Account List Spider (Suitelet Script),Strongpoint Role Assign Changes Spider (Suitelet Script),Strongpoint Real Time Spider Rec Serv Sd (Suitelet Script),Strongpoint Report Spider (Suitelet Script)",
+,,,,"prototype customization custbodynobody (Body Field)"

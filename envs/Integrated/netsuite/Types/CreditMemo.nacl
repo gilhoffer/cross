@@ -1,0 +1,203 @@
+type netsuite.CreditMemo {
+  annotations {
+    hidden_string source {
+    }
+  }
+  string createdDate {
+  }
+  string lastModifiedDate {
+  }
+  netsuite.Nexus nexus {
+  }
+  netsuite.RecordRef subsidiaryTaxRegNum {
+  }
+  boolean taxRegOverride {
+  }
+  boolean taxDetailsOverride {
+  }
+  netsuite.RecordRef customForm {
+  }
+  netsuite.Currency currency {
+  }
+  netsuite.RecordRef entity {
+  }
+  string vatRegNum {
+  }
+  string tranDate {
+  }
+  string tranId {
+  }
+  netsuite.RecordRef entityTaxRegNum {
+  }
+  string taxPointDate {
+  }
+  netsuite.RecordRef createdFrom {
+  }
+  netsuite.RecordRef postingPeriod {
+  }
+  netsuite.Department department {
+  }
+  netsuite.Classification class {
+  }
+  netsuite.Location location {
+  }
+  netsuite.Subsidiary subsidiary {
+  }
+  netsuite.Job job {
+  }
+  netsuite.RecordRef salesRep {
+  }
+  netsuite.Partner partner {
+  }
+  string contribPct {
+  }
+  string otherRefNum {
+  }
+  string memo {
+  }
+  boolean excludeCommission {
+  }
+  netsuite.LeadSource leadSource {
+  }
+  number balance {
+  }
+  netsuite.Account account {
+  }
+  number exchangeRate {
+  }
+  string onCreditHold {
+  }
+  number amountPaid {
+  }
+  string salesEffectiveDate {
+  }
+  number totalCostEstimate {
+  }
+  number estGrossProfit {
+  }
+  number estGrossProfitPercent {
+  }
+  string currencyName {
+  }
+  netsuite.RecordRef promoCode {
+  }
+  number amountRemaining {
+  }
+  netsuite.DiscountItem discountItem {
+  }
+  string source {
+  }
+  string discountRate {
+  }
+  boolean isTaxable {
+  }
+  netsuite.RecordRef taxItem {
+  }
+  number taxRate {
+  }
+  number unapplied {
+  }
+  boolean autoApply {
+  }
+  number applied {
+  }
+  boolean toBePrinted {
+  }
+  boolean toBeEmailed {
+  }
+  string email {
+  }
+  boolean toBeFaxed {
+  }
+  string fax {
+  }
+  netsuite.RecordRef messageSel {
+  }
+  string message {
+  }
+  netsuite.Address billingAddress {
+  }
+  netsuite.RecordRef billAddressList {
+  }
+  netsuite.RecordRef shipMethod {
+  }
+  number shippingCost {
+  }
+  number shippingTax1Rate {
+  }
+  netsuite.RecordRef shippingTaxCode {
+  }
+  netsuite.RecordRef handlingTaxCode {
+  }
+  string shippingTax2Rate {
+  }
+  number handlingTax1Rate {
+  }
+  string handlingTax2Rate {
+  }
+  number handlingCost {
+  }
+  number subTotal {
+  }
+  number discountTotal {
+  }
+  string revenueStatus {
+  }
+  number recognizedRevenue {
+  }
+  number deferredRevenue {
+  }
+  boolean revRecOnRevCommitment {
+  }
+  number taxTotal {
+  }
+  number tax2Total {
+  }
+  number altShippingCost {
+  }
+  number altHandlingCost {
+  }
+  boolean isMultiShipTo {
+  }
+  number total {
+  }
+  netsuite.RecordRef salesGroup {
+  }
+  boolean syncSalesTeams {
+  }
+  string status {
+  }
+  netsuite.RecordRef giftCert {
+  }
+  number giftCertTotal {
+  }
+  number giftCertApplied {
+  }
+  number giftCertAvailable {
+  }
+  boolean tranIsVsoeBundle {
+  }
+  boolean vsoeAutoCalc {
+  }
+  boolean syncPartnerTeams {
+  }
+  netsuite.CreditMemoSalesTeamList salesTeamList {
+  }
+  netsuite.CreditMemoItemList itemList {
+  }
+  netsuite.AccountingBookDetailList accountingBookDetailList {
+  }
+  netsuite.CreditMemoPartnersList partnersList {
+  }
+  netsuite.CreditMemoApplyList applyList {
+  }
+  netsuite.TaxDetailsList taxDetailsList {
+  }
+  string internalId {
+    isAttribute = true
+    _hidden_value = true
+  }
+  string externalId {
+    isAttribute = true
+  }
+}

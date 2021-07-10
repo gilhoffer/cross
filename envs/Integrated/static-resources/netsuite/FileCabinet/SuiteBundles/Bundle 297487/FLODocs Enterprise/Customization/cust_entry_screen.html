@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>FLO&trade; SuiteView&trade;</title>
+	<meta name="author" content="FLO Partners Inc.">
+	<!-- Date: 2014-01-10 -->
+	<link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+<style>
+.fa-10x {
+  font-size: 10em;
+}
+</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>
+tlp={};//stores the customization types
+<data>
+function createOptions()
+{
+	//This script builds the drop-down options for selecting records
+	var tlpKeys = Object.keys(tlp); 
+	if(tlp && tlpKeys.length > 0) {
+		try{
+		
+			tlpKeys.sort(function(a,b) {
+				var x = tlp[a].name.toLowerCase();
+				var y = tlp[b].name.toLowerCase();
+				return x < y ? -1 : x > y ? 1 : 0;
+			});
+		} catch(e) {
+		}
+	}
+
+	for(var k = 0; k < tlpKeys.length && tlpKeys[k] != null; k++) {
+		var cust = tlp[tlpKeys[k]];
+			//loop through records and build options
+			var reclist = document.getElementById("targetRec");
+			var option = document.createElement("option");
+			option.text = cust.name;
+			option.value = cust.internalid;
+            reclist.add(option);
+	}
+
+}
+
+function goToRecord()
+{
+	var pid = $('#targetRec').val();
+    if(pid != "")
+    {
+		//This script refocuses the diagram on the relevant record
+		href=window.location.href.split("&pid=")[0];
+		href=href+"&pid="+pid
+
+		var nameFilter = $('#nameFilter').val() || '';
+		if(nameFilter.trim().length > 0) {
+			href = href + '&nameFilter=' + nameFilter;
+		}
+
+		var dateFilterFrom = $('#dateFilterFrom').val() || '';
+		console.log(dateFilterFrom);
+		var dateFilterTo = $('#dateFilterTo').val() || '';
+		console.log(dateFilterTo);
+
+		var redirect = true;
+		if(dateFilterFrom && dateFilterTo) {
+			href = href + '&dateFilterFrom=' + dateFilterFrom;	
+			href = href + '&dateFilterTo=' + dateFilterTo;
+		}
+		else {
+			if((dateFilterFrom && !dateFilterTo) || (!dateFilterFrom && dateFilterTo)) {
+				alert('Please enter both dates when using the date filter.');
+				redirect = false;
+			}
+			
+		}
+
+		if(redirect)
+ 		{
+ 			window.location.href=href;
+ 		}
+    }
+    else {
+    	alert('Please select a Record Type to view.');
+    }
+}
+//++ NS-775 No DLU Filter for Light ERD
+window.onload = function() {
+	document.getElementById("dluFilterTable").style.display = 'none';
+}
+//-- NS-775 No DLU Filter for Light ERD
+</script>
+</head>
+<body>
+
+<style>
+
+
+
+.cust {
+	position:absolute;
+	top:20%;
+	left:10%;
+	color: orange;
+}
+
+.custform {
+	position:relative;
+	left:20%;
+	margin-right: 40px;
+	margin-left: 40px;
+	//display:none;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	float: left;
+	color: orange;
+}
+</style>
+<div id="CUST" class="cust">
+  <div id="custlogo" class="custform"><i class="fa fa-sitemap fa-10x"></i></div>
+<div id="custform" class="custform">
+   <form name="custform" id="custform" action="https://system.na1.netsuite.com/app/site/hosting/scriptlet.nl" method="GET" target="">
+	<input type="hidden" name="script" value="customscript_flo_cust_viz"></input>
+	<input type="hidden" name="deploy" value="1"></input>
+
+	<table>
+		<tr>
+			<td colspan="2" width="200">Please select a record type to view using the pull-down below.</td>
+		</tr>
+		<tr>
+			<td colspan="2" width="200"></td>
+		</tr>
+		<tr>
+			<td valign="top" align='right'>Select a Record Type:</td>
+			<td>
+   				<select id="targetRec" name="pid" onchange="">
+<option value="">- - - - - - - - - - - - </option>
+
+     			</select>
+      		</td>
+      </tr>
+                    <tr>
+                        <td valign="top" align='right'>Field Name Filter <i>(optional)</i>:</td>
+                        <td>
+                            <input type="text" id="nameFilter" name="nameFilter"></input>
+                            <br><i>(Enter all or part of the name of the field to display)</i>
+                        </td>
+                    </tr>
+                    <tr id="dluFilterTable">
+                        <td valign="top" align='right'>Date Last Used Filter <i>(optional)</i>:</td>
+                        <td>
+                        	<table>
+                        		<tr>
+                        			<td>From<br><input type="date" id="dateFilterFrom" name="dateFilterFrom"></input></td>
+                        			<td>To<br><input type="date" id="dateFilterTo" name="dateFilterTo"></input></td>
+                        		</tr>
+                        	</table>
+                        </td>
+                    </tr>                    
+                    <tr>
+                        <td/>
+                        <td>
+                            <button type="button" onClick="goToRecord()">Show Record ERD</button>
+                        </td>
+                    </tr>         
+     </table>
+    </form>
+
+</div>
+
+
+<script>
+createOptions()
+</script>
+
+
+</body>
+</html>

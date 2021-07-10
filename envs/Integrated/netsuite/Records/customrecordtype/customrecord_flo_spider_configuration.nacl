@@ -1,0 +1,2147 @@
+netsuite.customrecordtype customrecord_flo_spider_configuration {
+  scriptid = "customrecord_flo_spider_configuration"
+  accesstype = "CUSTRECORDENTRYPERM"
+  allowattachments = false
+  allowinlinedeleting = false
+  allowinlinedetaching = false
+  allowinlineediting = false
+  allowmobileaccess = false
+  allownumberingoverride = false
+  allowquickadd = false
+  allowquicksearch = true
+  allowuiaccess = true
+  description = "This record stores the configuration fields for the Strongpoint Spiders as well as the stats compiled by the Strongpoint system.  These stats are compiled by a scheduled process that updates the relevant values."
+  enabledle = false
+  enablekeywords = false
+  enablemailmerge = false
+  enablenametranslation = false
+  enablenumbering = false
+  enableoptimisticlocking = false
+  enablesystemnotes = true
+  hierarchical = false
+  iconbuiltin = true
+  includeinsearchmenu = false
+  includename = false
+  isinactive = false
+  isordered = false
+  recordname = "Configuration and Stats"
+  showcreationdate = false
+  showcreationdateonlist = false
+  showid = false
+  showlastmodified = false
+  showlastmodifiedonlist = false
+  shownotes = true
+  showowner = false
+  showownerallowchange = false
+  showowneronlist = false
+  customrecordcustomfields = {
+    customrecordcustomfield = [
+      {
+        scriptid = "custrecord_flo_rep_css"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        defaultvalue = '''
+<style>
+.pt_body{
+background-color:orange;
+}
+formtabtext{
+background-color:orange;
+}
+.pt_title,
+formtabtext{
+font-size:26px;
+}
+
+.smallgraytextnolink{
+font-size:18px;
+font-weight:bold;
+}
+
+.inputreadonly{
+font-size:18px;
+font-weight:bold;
+}
+
+#outerwrapper .formtabtext{
+font-size:26px;
+}
+#outerwrapper .formtabtext{
+background-color:orange;
+}
+#notes_label{ 
+display: none;
+}
+#systemnotes__tab{
+display: none;
+}
+</style>
+'''
+        description = "This CSS formats the print view of the  Configuration and Stats Report"
+        displaytype = "STATICTEXT"
+        encryptatrest = false
+        fieldtype = "INLINEHTML"
+        globalsearch = false
+        help = "This CSS formats the print view of the  Configuration and Stats Report"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Report CSS"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = false
+      },
+      {
+        scriptid = "custrecord_flo_script_mgt_overview"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        defaultvalue = "<p><font face=\"Arial\"><b>The Script Management capabilities within Strongpoint help you identify:</b></font><BR><ol><li><font face=\"Arial\"><b>How often a script is executing</b></font></li><li><font face=\"Arial\"><b>Who is triggering it&nbsp;</b></font></li><li><font face=\"Arial\"><b>What departments are affected by it</b></font></li><li><font face=\"Arial\"><b>How long it takes to run</b></font></li><li><font face=\"Arial\"><b>When it last ran.</b></font></li></ol><font face=\"Arial\"><b>In order to gather this information, the scripts need to be set up properly with FLOStart and FLOEnd tags. &nbsp;They also need to be deployed in either Debug or Audit logging modes. &nbsp;These stats enable to quickly judge how well you are set up for script monitoring. &nbsp;Ideally, all unlocked scripts should have both FLOStart and FLOEnd tags and be in audit mode. &nbsp;If this is not the case, you can't reliably determine when a script last executed.</b></font></p>"
+        description = "This is an intro to the script management stats"
+        displaytype = "NORMAL"
+        displaywidth = 300
+        encryptatrest = false
+        fieldtype = "RICHTEXT"
+        globalsearch = false
+        help = "This is an intro to the script management stats"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Script Management Stats"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = false
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.5.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_cleanup_overview"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        defaultvalue = "<font face=\"Arial\"><b>Strongpoint enables you to identify and clean up unused customizations safely and quickly. &nbsp;This can provide significant performance gains. &nbsp;However, a potentially even important gain is making your system easier to understand and maintain. &nbsp;Strongpoint identifies different types of clean up activities. &nbsp;Each of these fields corresponds to one or more views under the Clean Up Section of the Strongpoint tab menu. &nbsp;Here is a brief explanation of each type:</b></font><ol><li><font face=\"Arial\"><b>Unused Fields: &nbsp;These are fields that are set to store a value but either were last used more than 6 months ago or for which we could find no date of last use (in which case we set the date to Dec 31, 1969). &nbsp;These dates are updated nightly based on use of the system and double-checked monthly.</b></font></li><li><font face=\"Arial\"><b>Unused Searches: &nbsp;These dates are pulled from metadata and represent the last recorded date a search run. &nbsp;Searches should be re-spidered &nbsp;monthly to ensure these dates are accurate. &nbsp;</b></font></li><li><font face=\"Arial\"><b>Unused Records: &nbsp;These are records for which no field has been updated in the last six months.</b></font></li><li><font face=\"Arial\"><b>Fields With No Parent: &nbsp;These are fields that have been retired from services and are not assigned to any record type. &nbsp;They are a special case of unused field.</b></font></li><li><b><font face=\"Arial\">Customizations with DefaultIds: These are customizations with generic script ids (eg custbody8). These names can cause huge headaches down the road. &nbsp;As a matter of best practice these should be eliminated since once they get incorporated into scripts and searches, it becomes more difficult to do so. &nbsp;Strongpoint helps you find where they are used and tells you whether it is safe to change them.&nbsp;</font></b></li><li><b>Customizations with No Active Owner: &nbsp;These customizations were created by people who no longer work for you company. &nbsp;This can cause problems finding out who to alert if something goes wrong. You can quickly update the owner in Strongpoint for one or a whole group of customizations.</b></li><li><b>Fields with No Help: &nbsp;If you can do one thing to make your system more understandable, ensure every field has it's help completed. &nbsp;The help is available when the user clicks on the field name. &nbsp;It should normally provide a brief explanation and instructions for use. &nbsp;Help needs to be updated on the field itself.&nbsp;</b></li><li><b>Customizations with No Description: &nbsp;Adding a description to each customization is the fastest way to capture knowledge about what each field does. &nbsp;You can add descriptions through direct list editing on this field.&nbsp;</b></li></ol><br><font face=\"Arial\" size=\"2\"><br></font>"
+        description = "This is an intro to clean up stats"
+        displaytype = "NORMAL"
+        displaywidth = 300
+        encryptatrest = false
+        fieldtype = "RICHTEXT"
+        globalsearch = false
+        help = "This is an intro to clean up stats"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Clean-up Overview"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = false
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.3.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_documentation_stats"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        defaultvalue = "<p><b><font face=\"arial\"> Strongpoint has automatically created vital documentation that will enable you to understand your account better, clean up unused customizations and respond more quickly with more confidence to questions and change requests. &nbsp;This section lists the total number of customizations created. &nbsp;It also provides the number of critical joins that Strongpoint has created. &nbsp;\"Joins\" are the relationships between different&nbsp;customizations. &nbsp;The joins represent the critical information that tells you if it is safe to delete or change something, help you identify what scripts or workflows may be affecting a given field or quickly find the search that a script uses. &nbsp;These relationships are constantly updated. &nbsp;Manually tracking them even once would take months. &nbsp; Strongpoint will keep them up to date for you. &nbsp;The types are:</font></b></p><p></p><ol><li><font face=\"arial\"><b>List Joins represent a list type field</b></font></li><li><font face=\"arial\"><b>Source Joins represent each field on every search, script, workflow, form or other field. &nbsp;There can be many of these for each field</b></font></li><li><font face=\"arial\"><b>Script Joins represent a script that depends on or is used by another script, field, workflow or mass update</b></font></li><li><font face=\"arial\"><b>Search Joins represent each search that uses a field or is used by a script or workflow</b></font></li><li><font face=\"arial\"><b>Workflow joins represent each workflow that is connected to a search or field or (rarely) a script</b></font></li><li><font face=\"arial\"><b>Form Joins represent the appearance of a custom field on a custom form.</b></font></li></ol><p></p>"
+        description = "These stats summarize the work that Strongpoint has completed"
+        displaytype = "NORMAL"
+        displaywidth = 300
+        encryptatrest = false
+        fieldtype = "RICHTEXT"
+        globalsearch = false
+        help = "These stats summarize the work that Strongpoint has completed"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Documentation Stats"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = false
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.4.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_header"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        defaultvalue = "<p class=\"introduction\" id=\"story_continues_1\" style=\"font-family: Arial, Helmet, Freesans, sans-serif; line-height: 18px; margin: 0px 0px 18px; padding: 0px; font-size: 1.077em; text-rendering: auto; clear: left; font-weight: bold; background-color: rgb(255, 255, 255);\"><font color=\"#333333\">This report provides a printable live update on the status and results of the Strongpoint Automated Documentation system. &nbsp;Each section below relates to a different area of the application. &nbsp;The instructions at the start of each section provide a brief explanation of the section. &nbsp;Additional information can be found in the relevant part of our&nbsp;</font><a href=\"https://help.strongpoint.io/strongpoint_for_netsuite/\" target=\"new\"><font color=\"#ff0000\">User Guide</font></a><span style=\"color: rgb(51, 51, 51); font-size: 1.077em;\">.</span></p>"
+        description = "This field stores the inline html for the Strongpoint Header"
+        displaytype = "STATICTEXT"
+        displaywidth = 300
+        encryptatrest = false
+        fieldtype = "RICHTEXT"
+        globalsearch = false
+        help = "This field stores the inline html for the Strongpoint Header"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "OVERVIEW"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = false
+      },
+      {
+        scriptid = "custrecord_flo_spider_intro"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        defaultvalue = "<p><b><font face=\"Arial\">The Spider Status section shows you the current status of the spider. The Auto-Spider checks for changes. &nbsp;</font><font face=\"Arial\">The remaining fields show the current status of the various Strongpoint spiders. &nbsp;The spiders execute in generally the order presented. &nbsp;It is not uncommon for one or more of the spiders to be running as they work to update the data on your customizations.</font></b></p>"
+        description = "These is the introduction for the spider status section"
+        displaytype = "STATICTEXT"
+        displaywidth = 300
+        encryptatrest = false
+        fieldtype = "RICHTEXT"
+        globalsearch = false
+        help = "These is the introduction for the spider status section."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Spider Status Overview"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = false
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.1.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_admin"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the main administrator in the account who will receive all Strongpoint alerts and will have exclusive ability to authorize changes to this file and approve mass deletions"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "SELECT"
+        globalsearch = false
+        help = '''
+This is the main administrator in the account who will receive all Strongpoint alerts and will have exclusive ability to authorize changes to this file and approve mass deletions.
+
+Once set, only that person or a Strongpoint employee can update this file.
+'''
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Main Administrator"
+        onparentdelete = "SET_NULL"
+        rolerestrict = false
+        searchlevel = "2"
+        selectrecordtype = "-4"
+        showinlist = false
+        storevalue = true
+      },
+      {
+        scriptid = "custrecord_flo_number_flodocs_ss_running"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = true
+        checkspelling = false
+        defaultchecked = false
+        description = "Number of other schedule script that is running and doesn't belong to Strongpoint"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "INTEGER"
+        globalsearch = false
+        help = "Number of other schedule script that is running and doesn't belong to Strongpoint"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Number of Non Strongpoint SS running"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+      },
+      {
+        scriptid = "custrecord_flo_number_queues"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "Number of queues available in the system"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "TEXT"
+        globalsearch = false
+        help = "Number of queues available in the system"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Number of Queues"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+      },
+      {
+        scriptid = "custrecord_flo_script_queues_set"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This sets the schedule scripts queues when checked"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "CHECKBOX"
+        globalsearch = false
+        help = "This sets the schedule scripts queues when checked"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Schedule Script Queues set"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+      },
+      {
+        scriptid = "custrecord_flo_administrators"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This the employee administrators of the Configuration and Stats"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "MULTISELECT"
+        globalsearch = false
+        help = "This the employee administrators of the Configuration and Stats"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Administrators"
+        onparentdelete = "SET_NULL"
+        rolerestrict = false
+        searchlevel = "2"
+        selectrecordtype = "-4"
+        showinlist = false
+        storevalue = true
+      },
+      {
+        scriptid = "custrecord_flo_segment_sets"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "Determine if the user not set the segments to 1000"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "CHECKBOX"
+        globalsearch = false
+        help = "Determine if the user no set the segments to 1000"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Segments Sets"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+      },
+      {
+        scriptid = "custrecord_flo_bundle_version"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This the bundle version of the Configuration and Stats"
+        displaytype = "STATICTEXT"
+        encryptatrest = false
+        fieldtype = "TEXT"
+        globalsearch = false
+        help = "This the bundle version of the Configuration and Stats"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Bundle Version"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+      },
+      {
+        scriptid = "custrecord_flo_current_server_time"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "HIDDEN"
+        dynamicdefault = "NOW"
+        encryptatrest = false
+        fieldtype = "DATETIMETZ"
+        globalsearch = false
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Current Server Time"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = false
+      },
+      {
+        scriptid = "custrecord_flo_spider2_tracker"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the Strongpoint Spider 2.0 tracker of the Configuration and Stats"
+        displaytype = "HIDDEN"
+        encryptatrest = false
+        fieldtype = "CLOBTEXT"
+        globalsearch = false
+        help = "This is the Strongpoint Spider 2.0 tracker of the Configuration and Stats"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Strongpoint Spider 2.0 Tracker"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+      },
+      {
+        scriptid = "custrecord_flo_installed_from"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "Indicates whether installation is from Production or Repository"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "TEXT"
+        globalsearch = false
+        help = "Indicates whether installation is from Production or Repository"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Installed From"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+      },
+      {
+        scriptid = "custrecord_jira_email"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This will be  use to store the user name of jira."
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "TEXT"
+        globalsearch = false
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Jira User"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+      },
+      {
+        scriptid = "custrecord_jira_pass"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This field will be use to place pass from jira users"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "TEXT"
+        globalsearch = false
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Jira Pass"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+      },
+      {
+        scriptid = "custrecord_jira_key"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "HIDDEN"
+        encryptatrest = false
+        fieldtype = "CLOBTEXT"
+        globalsearch = false
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Jira Key"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+      },
+      {
+        scriptid = "custrecord_jira_hide_credentials"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "STATICTEXT"
+        encryptatrest = false
+        fieldtype = "INLINEHTML"
+        globalsearch = false
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Jira inline HTML hide credentials"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = false
+      },
+      {
+        scriptid = "custrecord_jira_compare_token"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "HIDDEN"
+        encryptatrest = false
+        fieldtype = "TEXT"
+        globalsearch = false
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Jira compare token"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+      },
+      {
+        scriptid = "custrecord_flo_stdimpactanalysis_date"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "Track Standard Field Impact Analysis usage"
+        displaytype = "HIDDEN"
+        encryptatrest = false
+        fieldtype = "DATETIMETZ"
+        globalsearch = false
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Standard Field Impact Analysis Use Date"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+      },
+      {
+        scriptid = "custrecord_flo_autospider_initiate_date"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "Track when autospider is triggered"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "DATETIMETZ"
+        globalsearch = false
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Autospider Portlet Initiate Date"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+      },
+      {
+        scriptid = "custrecord_flo_erd_usage"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "Tracks ERD tool Usage"
+        displaytype = "HIDDEN"
+        encryptatrest = false
+        fieldtype = "DATETIMETZ"
+        globalsearch = false
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "ERD Usage Date"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+      },
+      {
+        scriptid = "custrecord_flo_install"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the date Strongpoint was first installed."
+        displaytype = "STATICTEXT"
+        encryptatrest = false
+        fieldtype = "DATE"
+        globalsearch = false
+        help = "This is the date Strongpoint was first installed."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Date Installed"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.0.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_last_update"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the date Strongpoint was last updated"
+        displaytype = "STATICTEXT"
+        encryptatrest = false
+        fieldtype = "DATE"
+        globalsearch = false
+        help = "This is the date Strongpoint was last updated"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Last Updated"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.0.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_customization_total"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = true
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the total number of customizations of the Installations"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "INTEGER"
+        globalsearch = false
+        help = "This is the total number of customizations of the Installations"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Total Customizations"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.0.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_total_joins"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = true
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the total number of joins of the Installations"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "INTEGER"
+        globalsearch = false
+        help = "This is the total number of joins of the Installations"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Total Joins"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.0.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_list_joins"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = true
+        checkspelling = false
+        defaultchecked = false
+        description = "Count of the joins documenting the list used in the customizations."
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "INTEGER"
+        globalsearch = false
+        help = "Count of the joins documenting the list used in the customizations."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "List Joins"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.0.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_sourcing_join"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = true
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the number of sourcing joins of the Configuration and Stats"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "INTEGER"
+        globalsearch = false
+        help = "This is the number of sourcing joins of the Configuration and Stats"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Sourcing Join"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.0.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_script_joins"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = true
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the number of scripts joins of the Configuration and Stats"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "INTEGER"
+        globalsearch = false
+        help = "This is the number of scripts joins of the Configuration and Stats"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Script Joins"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.0.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_search_join"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = true
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the number of search joins of the Configuration and Stats"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "INTEGER"
+        globalsearch = false
+        help = "This is the number of search joins of the Configuration and Stats"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Search Join"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.0.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_workflo_joins"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = true
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the total number of workflow joins of the Installations"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "INTEGER"
+        globalsearch = false
+        help = "This is the total number of workflow joins of the Installations"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Workflow Joins"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.0.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_form_join"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = true
+        checkspelling = false
+        defaultchecked = false
+        description = "Count of forms joined by customizations."
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "INTEGER"
+        globalsearch = false
+        help = "Count of forms joined by customizations."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Form Join"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.0.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_script_start_time"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "Specify the time to execution for all the schedule scritps, it can be override on deployment basis."
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "TIMEOFDAY"
+        globalsearch = false
+        help = "Specify the time to execution for all the schedule scritps, it can be override on deployment basis."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Start Time"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.0.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_script_end_time"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "Specify the time to execution for all the schedule scritps, it can be override on deployment basis."
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "TIMEOFDAY"
+        globalsearch = false
+        help = "Specify the time to execution for all the schedule scritps, it can be override on deployment basis."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "End Time"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.0.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_enable_auto_arch"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "Enable Scripts file archive"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "CHECKBOX"
+        globalsearch = false
+        help = "Enable Scripts file archive"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Enable Auto Archive"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.0.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_auto_archive_folder"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "Enter archive folder unique name or internal id"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "TEXT"
+        globalsearch = false
+        help = "Enter archive folder unique name or internal id"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Auto Archive Folder"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.0.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_stop_scripts"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This stops the Configuration and Stats script when checked"
+        displaytype = "HIDDEN"
+        encryptatrest = false
+        fieldtype = "CHECKBOX"
+        globalsearch = false
+        help = "This stops the Configuration and Stats script when checked"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Stop Scripts"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.0.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_process_enabled"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "Enable auto creation of process issue from script errors"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "CHECKBOX"
+        globalsearch = false
+        help = "Enable auto creation of process issue from script errors"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Enable Auto Process Issue"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.0.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_process_issue_assing"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "Define the default assignee for script error process issues"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "SELECT"
+        globalsearch = false
+        help = "Define the default assignee for script error process issues"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Process Issue Assigned"
+        onparentdelete = "SET_NULL"
+        rolerestrict = false
+        searchlevel = "2"
+        selectrecordtype = "-4"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.0.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_process_issue_approver"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "Define the default approver for script error process issues"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "SELECT"
+        globalsearch = false
+        help = "Define the default approver for script error process issues"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Process Issue Approver"
+        onparentdelete = "SET_NULL"
+        rolerestrict = false
+        searchlevel = "2"
+        selectrecordtype = "-4"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.0.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_disable_autospider"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This disables the last auto spider report when checked"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "CHECKBOX"
+        globalsearch = false
+        help = "This disables the last auto spider report when checked"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Disable Spider Last Use Report"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.0.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_ss_time_limi"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        defaultvalue = "2"
+        description = "Limit in years of which saved searches will be documented"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "INTEGER"
+        globalsearch = false
+        help = "Limit in years of which saved searches will be documented"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Saved Searches Spider Time Limit"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.0.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_enable_remote_sr"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = true
+        description = "Enable Strongpoint to read the status report remotely"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "CHECKBOX"
+        globalsearch = false
+        help = "Enable Strongpoint to read the status report remotely"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Enable Remote Status Report"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.0.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_total_cr"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the total number of change requests of the Installations"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "INTEGER"
+        globalsearch = false
+        help = "This is the total number of change requests of the Installations"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Total Change Requests"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.0.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_total_pi"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = true
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the total number of process issues of the Installations"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "INTEGER"
+        globalsearch = false
+        help = "This is the total number of process issues of the Installations"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Total Process Issue"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.0.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_total_policies"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the total number of policies of the Installations"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "INTEGER"
+        globalsearch = false
+        help = "This is the total number of policies of the Installations"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Total Policies"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.0.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_conf_current_tod"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "HIDDEN"
+        dynamicdefault = "NOW"
+        encryptatrest = false
+        fieldtype = "TIMEOFDAY"
+        globalsearch = false
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Current Time Of Day"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.0.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_autospider_enable"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This checkbox enables or disabled the Auto Spider which checks for changes on a daily basis."
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "CHECKBOX"
+        globalsearch = false
+        help = '''
+This checkbox enables or disabled the Auto Spider which checks for changes on a daily basis.  
+
+Check it to enable the auto-spider.  It will run according to the schedule set in the Auto-spider frequency field either when the Strongpoint Auto Spider portlet is opened on an Admin dashboard or in the background when Strongpoint ERD or Process Library is open.
+'''
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Auto Spider Enabled"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.1.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_autospider_last_run_date"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the last date the Auto-spider ran"
+        displaytype = "STATICTEXT"
+        encryptatrest = false
+        fieldtype = "DATE"
+        globalsearch = false
+        help = "This is the last date the Auto-spider ran"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Auto Spider Last Run Date"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.1.scriptid
+      },
+      {
+        scriptid = "custrecord_bundle_to_beignore"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "Ids of the bundle you want to block, add a coma separated list of the bundles to block."
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "TEXT"
+        globalsearch = false
+        help = "Ids of the bundle you want to block, add a coma separated list of the bundles to block."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Bundle(s) To Ignore"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.1.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_spider_front_end"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This tracks the status of the front end spider"
+        displaytype = "STATICTEXT"
+        encryptatrest = false
+        fieldtype = "SELECT"
+        globalsearch = false
+        help = "This tracks the status of the front end spider."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Spider - Front End"
+        onparentdelete = "NO_ACTION"
+        rolerestrict = false
+        searchlevel = "2"
+        selectrecordtype = "-219"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.1.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_spider_back_end"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This field tracks the progress of the back end spider that writes the Customization Records."
+        displaytype = "STATICTEXT"
+        encryptatrest = false
+        fieldtype = "SELECT"
+        globalsearch = false
+        help = "This field tracks the progress of the back end spider that writes the Customization Records."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Spider - Back End"
+        onparentdelete = "NO_ACTION"
+        rolerestrict = false
+        searchlevel = "2"
+        selectrecordtype = "-219"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.1.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_script_spider"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This shows the status of the script parser spider."
+        displaytype = "STATICTEXT"
+        encryptatrest = false
+        fieldtype = "SELECT"
+        globalsearch = false
+        help = "This shows the status of the script parser spider."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Spider - Script Parser"
+        onparentdelete = "NO_ACTION"
+        rolerestrict = false
+        searchlevel = "2"
+        selectrecordtype = "-219"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.1.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_make_joins"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This script tracks the status of the process that makes joins between customization records."
+        displaytype = "STATICTEXT"
+        encryptatrest = false
+        fieldtype = "SELECT"
+        globalsearch = false
+        help = "This script tracks the status of the process that makes joins between customization records."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Spider - Make Joins"
+        onparentdelete = "NO_ACTION"
+        rolerestrict = false
+        searchlevel = "2"
+        selectrecordtype = "-219"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.1.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_utiliz_metadata"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This field tracks the status of the process that gathers the date last used against fields and records."
+        displaytype = "STATICTEXT"
+        encryptatrest = false
+        fieldtype = "SELECT"
+        globalsearch = false
+        help = "This field tracks the status of the process that gathers the date last used against fields and records."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Spider - Gather Utilization Metadata"
+        onparentdelete = "NO_ACTION"
+        rolerestrict = false
+        searchlevel = "2"
+        selectrecordtype = "-219"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.1.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_session_lost"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "If the manual spider lost the session during the and execution it will log the date with the format, - Date,Date,Date"
+        displaytype = "STATICTEXT"
+        encryptatrest = false
+        fieldtype = "CLOBTEXT"
+        globalsearch = false
+        help = "If the manual spider lost the session during the and execution it will log the date with the format, - Date,Date,Date"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Sessions Lost"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.1.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_las_manual_trigger_user"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "Name of the user that last trigger a manual spider"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "TEXT"
+        globalsearch = false
+        help = "Name of the user that last trigger a manual spider"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Last Manual Spider Trigger by:"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.1.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_las_manual_trigger_date"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "Date of the last spider Trigger"
+        displaytype = "STATICTEXT"
+        encryptatrest = false
+        fieldtype = "TEXT"
+        globalsearch = false
+        help = "Date of the last spider Trigger"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Last Manual Spider Trigger date:"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.1.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_last_completed_spider"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the last completed Spider of the Configuration and Stats"
+        displaytype = "STATICTEXT"
+        encryptatrest = false
+        fieldtype = "TEXT"
+        globalsearch = false
+        help = "This is the last completed Spider of the Configuration and Stats"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Last Completed Spider"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.1.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_files_pending_to_process"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = true
+        checkspelling = false
+        defaultchecked = false
+        description = "Spider Files pending to process"
+        displaytype = "STATICTEXT"
+        encryptatrest = false
+        fieldtype = "INTEGER"
+        globalsearch = false
+        help = "Spider Files pending to process"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Files Pending to process"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.1.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_spider_front_end_date"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the Spider front end date for the Task Status"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "DATETIMETZ"
+        globalsearch = false
+        help = "This is the Spider front end date for the Task Status"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Spider - Front End Date"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.1.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_spider_back_en_date"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the Spider back end date for the Task Status"
+        displaytype = "STATICTEXT"
+        encryptatrest = false
+        fieldtype = "DATETIMETZ"
+        globalsearch = false
+        help = "This is the Spider back end date for the Task Status"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Spider - Back End Date"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.1.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_script_spider_date"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the Spider script parser date of the Configuration and Stats"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "DATETIMETZ"
+        globalsearch = false
+        help = "This is the Spider script parser date of the Configuration and Stats"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Spider - Script Parser Date"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.1.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_make_joins_date"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the Spider make joins date of the Configuration and Stats"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "DATETIMETZ"
+        globalsearch = false
+        help = "This is the Spider make joins date of the Configuration and Stats"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Spider - Make Joins Date"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.1.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_utiliz_metadata_date"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the Spider gathering utilization metadata date for the Task Status"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "DATETIMETZ"
+        globalsearch = false
+        help = "This is the Spider gathering utilization metadata date for the Task Status"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Spider - Gather Utiliz. Metadata Date"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.1.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_utiliz_metadat_lr"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the Spider gathering utilization metadata LR for the Task Status"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "TEXT"
+        globalsearch = false
+        help = "This is the Spider gathering utilization metadata LR for the Task Status"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Spider - Gather Utilization Metadata LR"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.1.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_make_joins_lr"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the Spider make joins LR of the Configuration and Stats"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "TEXT"
+        globalsearch = false
+        help = "This is the Spider make joins LR of the Configuration and Stats"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Spider - Make Joins LR"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.1.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_script_spider_lr"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the Spider script parser LR of the Configuration and Stats"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "TEXT"
+        globalsearch = false
+        help = "This is the Spider script parser LR of the Configuration and Stats"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Spider - Script Parser LR"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.1.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_spider_back_end_lr"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the Spider back end LR for the Task Status"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "TEXT"
+        globalsearch = false
+        help = "This is the Spider back end LR for the Task Status"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Spider - Back End LR"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.1.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_spider_front_en_lr"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the Spider front end LR for the Task Status"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "TEXT"
+        globalsearch = false
+        help = "This is the Spider front end LR for the Task Status"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Spider - Front End Date LR"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.1.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_remaining_obj_to_join"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = true
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the number of remaining objects to join"
+        displaytype = "STATICTEXT"
+        encryptatrest = false
+        fieldtype = "INTEGER"
+        globalsearch = false
+        help = "This is the number of remaining objects to join"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Remaining Objects to Join"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.1.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_rectypes_notcompleted"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This the record types with unfinished indexing of the Configuration and Stats"
+        displaytype = "STATICTEXT"
+        encryptatrest = false
+        fieldtype = "CLOBTEXT"
+        globalsearch = false
+        help = "This the record types with unfinished indexing of the Configuration and Stats"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Record Types with Unfinished Indexing"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.1.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_unused_fields"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "These are the fields that have not been used in the last 6 months."
+        displaytype = "STATICTEXT"
+        encryptatrest = false
+        fieldtype = "INTEGER"
+        globalsearch = false
+        help = "These are the fields that have not been used in the last 6 months."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Unused Fields"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.3.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_unused_searches"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This field tracks searches that have not been used in the last six months"
+        displaytype = "STATICTEXT"
+        encryptatrest = false
+        fieldtype = "INTEGER"
+        globalsearch = false
+        help = "This field tracks searches that have not been used in the last six months"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Unused Searches"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.3.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_def_scriptid"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = true
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the number of customizations with default script ids."
+        displaytype = "STATICTEXT"
+        encryptatrest = false
+        fieldtype = "INTEGER"
+        globalsearch = false
+        help = "This is the number of customizations with default script ids."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Customizations with Default Script Ids"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.3.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_inactive_owner"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the number of customizations whose owner is no longer active (ie they are inactive or no longer have access).  If they are inactive, their name is replaced on the customization record with a default user."
+        displaytype = "STATICTEXT"
+        encryptatrest = false
+        fieldtype = "INTEGER"
+        globalsearch = false
+        help = "This is the number of customizations whose owner is no longer active (ie they are inactive or no longer have access).  If they are inactive, their name is replaced on the customization record with a default user."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Customizations with No Active Owner"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.3.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_unused_records"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the number of unused records detected by Strongpoint."
+        displaytype = "STATICTEXT"
+        encryptatrest = false
+        fieldtype = "INTEGER"
+        globalsearch = false
+        help = "This is the number of unused records detected by Strongpoint."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Unused Records"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.3.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_field_no_parent"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the number of fields with no parent record."
+        displaytype = "STATICTEXT"
+        encryptatrest = false
+        fieldtype = "INTEGER"
+        globalsearch = false
+        help = "This is the number of fields with no parent record."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Fields With No Parent"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.3.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_no_help"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = true
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the number of fields with no help completed."
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "INTEGER"
+        globalsearch = false
+        help = "This is the number of fields with no help completed."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Custom Fields with No Help"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.3.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_no_desc"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the number of customizations with no description.  This makes the system more difficult to understand."
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "INTEGER"
+        globalsearch = false
+        help = "This is the number of customizations with no description.  This makes the system more difficult to understand."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Customizations with No Description"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.3.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_unused_scripts"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = true
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the number of potentially unused scripts.  It is calculated from scripts that have had audit tags inserted but have no execution date and/or a date more than six months ago."
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "INTEGER"
+        globalsearch = false
+        help = "This is the number of potentially unused scripts.  It is calculated from scripts that have had audit tags inserted but have no execution date and/or a date more than six months ago."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Potentially Unused Scripts"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.5.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_start_tags"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = true
+        checkspelling = false
+        defaultchecked = false
+        description = "Scripts with FLOStart Tags:  These are used to track the initiation of each script."
+        displaytype = "STATICTEXT"
+        encryptatrest = false
+        fieldtype = "INTEGER"
+        globalsearch = false
+        help = "Scripts with FLOStart Tags:  These are used to track the initiation of each script."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Scripts with FLOStart Tags"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.5.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_end_tags"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = true
+        checkspelling = false
+        defaultchecked = false
+        description = "This field tracks the scripts with FLOEnd tags.  These are used to calculate execution time."
+        displaytype = "STATICTEXT"
+        encryptatrest = false
+        fieldtype = "INTEGER"
+        globalsearch = false
+        help = "This field tracks the scripts with FLOEnd tags.  These are used to calculate execution time."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Scripts with FLOEnd Tags"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.5.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_no_audit_tags"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = true
+        checkspelling = false
+        defaultchecked = false
+        description = "This field tracks the scripts that are not being monitored"
+        displaytype = "STATICTEXT"
+        encryptatrest = false
+        fieldtype = "INTEGER"
+        globalsearch = false
+        help = "This field tracks the scripts that are not being monitored."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Scripts with No Audit Tags"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.5.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_doc_rec_overview"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        defaultvalue = "<p><font face=\"Arial\" size=\"4\"><b>The table below lists all of the different record types that can be documented in Strongpoint. &nbsp;You can browse these records in the Customization list under the Strongpoint tab. &nbsp;Each record shows the number of records the spider found and the number of records created to date. &nbsp;Sometimes these numbers will not match. &nbsp;In these cases, the report advises what steps to take which are summarized below:</b></font><br></p><ol><li><font face=\"Arial\" size=\"4\"><b>DEDUPLICATE: &nbsp;If there are more documented customizations than actual, it is usually due to a duplicate record being created. &nbsp;While rare, this can occur during imports or when the spider is unexpectedly interrupted. &nbsp;The DEDUPLICATE tool is located under Strongpoint Support &gt; Run Data Update in the Strongpoint menu.</b></font></li><li><font face=\"Arial\" size=\"4\"><b>RESPIDER: &nbsp;If there are less documented customizations than the spider found, first check if the spiders are running. &nbsp;If the backend spider is running, allow it to complete. &nbsp;It will likely clean up the missing customizations. &nbsp;Otherwise, go to Tools &gt; Strongpoint Spider under the Strongpoint tool menu and respider in update mode. &nbsp;You can respider everything or just select one record type. &nbsp;You can read more about the spiders in our&nbsp;Running Your Spiders&nbsp;section in the User Guide</b></font></li><li><font face=\"Arial\" size=\"4\"><b>NOT DETECTED: &nbsp;This means that the spiders have not logged any records of that type to document. &nbsp;Most of these records are types that we do not presently spider but which can be documented such as Standard Records and Fields, HTML files, Scorecard Reports.</b></font></li></ol><p></p>"
+        description = "This field describes the spidered records listing."
+        displaytype = "NORMAL"
+        displaywidth = 300
+        encryptatrest = false
+        fieldtype = "RICHTEXT"
+        globalsearch = false
+        help = "This field describes the spidered records listing."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Documented Records Overview"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = false
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.1.scriptid
+      },
+    ]
+  }
+  permissions = {
+    permission = [
+      {
+        permittedlevel = "FULL"
+        permittedrole = netsuite.role.instance.customrole_flo_developer_role.scriptid
+      },
+      {
+        permittedlevel = "FULL"
+        permittedrole = netsuite.role.instance.customrole_flo_flashlight.scriptid
+      },
+    ]
+  }
+  subtabs = {
+    subtab = [
+      {
+        scriptid = "tab_243_t1049933_133"
+        tabtitle = "Installation"
+      },
+      {
+        scriptid = "tab_244_t1049933_133"
+        tabtitle = "Spider Status"
+      },
+      {
+        scriptid = "tab_238_t1049933_133"
+        tabtitle = "Statistics"
+      },
+      {
+        scriptid = "tab_239_t1049933_133"
+        tabtitle = "Clean-Up"
+      },
+      {
+        scriptid = "tab_237_t1049933_133"
+        tabtitle = "Documentation"
+      },
+      {
+        scriptid = "tab_240_t1049933_133"
+        tabtitle = "Script Management"
+      },
+      {
+        scriptid = "tab_241_t1049933_133"
+        tabtitle = "User Management"
+      },
+      {
+        scriptid = "tab_242_t1049933_133"
+        tabtitle = "Processes"
+      },
+      {
+        scriptid = "tab_997_t1267181_824"
+        tabtitle = "Jira Integration"
+      },
+    ]
+  }
+  recordsublists = {
+    recordsublist = [
+      {
+        scriptid = "sublist_52_t1049933_152"
+        recorddescr = "Strongpoint Spider Log"
+        recordsearch = "[scriptid=customsearch_flo_spider_def_view]"
+        recordtab = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.1.scriptid
+      },
+    ]
+  }
+}

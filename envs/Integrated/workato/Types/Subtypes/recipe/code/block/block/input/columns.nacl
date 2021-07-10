@@ -1,0 +1,14 @@
+type workato.recipe__code__block__block__input__columns {
+  string col_col1 {
+  }
+  string col_col2 {
+  }
+  string col_col3 {
+  }
+  string col_col4 {
+  }
+  string col_col5 {
+  }
+  string col_col6 {
+  }
+}

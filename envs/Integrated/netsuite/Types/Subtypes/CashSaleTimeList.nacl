@@ -1,0 +1,11 @@
+type netsuite.CashSaleTimeList {
+  annotations {
+    hidden_string source {
+    }
+  }
+  "List<netsuite.CashSaleTime>" time {
+  }
+  boolean replaceAll {
+    isAttribute = true
+  }
+}

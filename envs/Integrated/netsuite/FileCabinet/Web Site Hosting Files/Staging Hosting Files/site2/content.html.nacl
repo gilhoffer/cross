@@ -1,0 +1,12 @@
+netsuite.file Web_Site_Hosting_Files_Staging_Hosting_Files_site2_content_html@sssdssddv {
+  bundleable = false
+  isinactive = false
+  availablewithoutlogin = true
+  generateurltimestamp = false
+  hideinbundle = false
+  path = "/Web Site Hosting Files/Staging Hosting Files/site2/content.html"
+  content = file("netsuite/FileCabinet/Web Site Hosting Files/Staging Hosting Files/site2/content.html")
+  _parent = [
+    netsuite.folder.instance.Web_Site_Hosting_Files_Staging_Hosting_Files_site2@sssdssd,
+  ]
+}

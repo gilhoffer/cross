@@ -1,0 +1,33 @@
+netsuite.suitelet customscript_flo_cust_viz_fr_search {
+  scriptid = "customscript_flo_cust_viz_fr_search"
+  defaultfunction = "FLOCustomizationSuite"
+  isinactive = false
+  name = "Strongpoint Cust Visual From Search"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = "[/SuiteBundles/Bundle 297487/FLOCustomizationSuite_FromSavedSearch.js]"
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy_flo_cust_viz_fr_search"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        isdeployed = true
+        isonline = false
+        loglevel = "AUDIT"
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+        title = "Strongpoint Customization Visual From Search"
+      },
+    ]
+  }
+  libraries = {
+    library = [
+      {
+        scriptfile = "[/SuiteBundles/Bundle 297487/FLOValidateLicense.js]"
+      },
+    ]
+  }
+}

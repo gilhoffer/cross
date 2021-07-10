@@ -1,0 +1,11 @@
+type netsuite.ItemFulfillmentPackageUspsList {
+  annotations {
+    hidden_string source {
+    }
+  }
+  "List<netsuite.ItemFulfillmentPackageUsps>" packageUsps {
+  }
+  boolean replaceAll {
+    isAttribute = true
+  }
+}

@@ -1,0 +1,26 @@
+netsuite.suitelet customscript_flo_update_manual_spider_st {
+  scriptid = "customscript_flo_update_manual_spider_st"
+  defaultfunction = "updateManualSpiderStatus"
+  isinactive = false
+  name = "Strongpoint Update Manual Spider Status"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = netsuite.file.instance.SuiteBundles_Bundle_297487_FLOUpdateManualSpiderStatus_js@dsdv.path
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy_flo_update_manual_spider_st"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        isdeployed = true
+        isonline = false
+        loglevel = "AUDIT"
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+        title = "Strongpoint Update Manual Spider Status"
+      },
+    ]
+  }
+}

@@ -1,0 +1,10 @@
+type netsuite.Duration {
+  annotations {
+    hidden_string source {
+    }
+  }
+  number timeSpan {
+  }
+  string unit {
+  }
+}

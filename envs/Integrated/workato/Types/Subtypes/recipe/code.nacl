@@ -1,0 +1,42 @@
+type workato.recipe__code {
+  number number {
+  }
+  string provider {
+  }
+  string name {
+  }
+  string as {
+  }
+  string title {
+  }
+  string description {
+  }
+  string keyword {
+  }
+  workato.recipe__code__dynamicPickListSelection dynamicPickListSelection {
+  }
+  workato.recipe__code__toggleCfg toggleCfg {
+  }
+  workato.recipe__code__input input {
+  }
+  workato.recipe__code__filter filter {
+  }
+  "List<workato.recipe__code__extended_output_schema>" extended_output_schema {
+  }
+  "List<workato.recipe__code__extended_input_schema>" extended_input_schema {
+  }
+  "List<string>" visible_config_fields {
+  }
+  "List<workato.recipe__code__block>" block {
+  }
+  "List<workato.recipe__code__job_report_schema>" job_report_schema {
+  }
+  workato.recipe__code__job_report_config job_report_config {
+  }
+  string uuid {
+  }
+  "List<string>" hidden_config_fields {
+  }
+  string comment {
+  }
+}

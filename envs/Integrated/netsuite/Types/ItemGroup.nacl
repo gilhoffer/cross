@@ -1,0 +1,65 @@
+type netsuite.ItemGroup {
+  annotations {
+    hidden_string source {
+    }
+  }
+  string createdDate {
+  }
+  string lastModifiedDate {
+  }
+  netsuite.RecordRef customForm {
+  }
+  boolean includeStartEndLines {
+  }
+  boolean isVsoeBundle {
+  }
+  netsuite.RecordRef defaultItemShipMethod {
+  }
+  boolean availableToPartners {
+  }
+  boolean isInactive {
+  }
+  serviceid itemId {
+  }
+  string upcCode {
+  }
+  string displayName {
+  }
+  string vendorName {
+  }
+  netsuite.RecordRef issueProduct {
+  }
+  netsuite.ItemGroup parent {
+  }
+  string description {
+  }
+  "List<netsuite.Subsidiary>" subsidiaryList {
+  }
+  boolean includeChildren {
+  }
+  netsuite.Department department {
+  }
+  netsuite.Classification class {
+  }
+  netsuite.Location location {
+  }
+  string itemCarrier {
+  }
+  netsuite.RecordRefList itemShipMethodList {
+  }
+  boolean printItems {
+  }
+  netsuite.ItemMemberList memberList {
+  }
+  netsuite.TranslationList translationsList {
+  }
+  netsuite.ItemGroupHierarchyVersionsList hierarchyVersionsList {
+  }
+  string internalId {
+    isAttribute = true
+    _hidden_value = true
+  }
+  string externalId {
+    isAttribute = true
+  }
+}

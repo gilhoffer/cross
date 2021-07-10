@@ -1,0 +1,43 @@
+netsuite.scheduledscript customscript_flo_custrecfields_negspider {
+  scriptid = "customscript_flo_custrecfields_negspider"
+  isinactive = false
+  name = "Strongpoint Cust Rec Field Neg Spider"
+  notifyadmins = false
+  notifyowner = true
+  scriptfile = "[/SuiteBundles/Bundle 297487/FLOCustomNegativeRFUpdateSpider.js]"
+  scriptcustomfields = {
+    scriptcustomfield = [
+      {
+        scriptid = "custscript_flo_negatve_rfu_lastindex"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "TEXT"
+        isformula = false
+        ismandatory = false
+        label = "searchId"
+        searchlevel = "2"
+        storevalue = true
+      },
+    ]
+  }
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy_flo_custrecfields_negspider"
+        isdeployed = true
+        loglevel = "AUDIT"
+        status = "NOTSCHEDULED"
+        title = "Strongpoint Custom Record Fields Negative Spider"
+        recurrence = {
+          single = {
+            startdate = "2017-05-04"
+            starttime = "01:00:00Z"
+          }
+        }
+      },
+    ]
+  }
+}

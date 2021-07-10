@@ -1,0 +1,42 @@
+type netsuite.centercategory_links {
+  "List<netsuite.centercategory_links_link>" link {
+  }
+}
+type netsuite.centercategory_links_link {
+  netsuite.generic_task linkid {
+  }
+  string linkobject {
+  }
+  netsuite.centercategory_tasktype linktasktype {
+  }
+  string linklabel {
+  }
+  boolean shortlist {
+  }
+}
+type netsuite.centercategory {
+  serviceid scriptid {
+    _required = true
+    isAttribute = true
+    _restriction = {
+      regex = "^custcentercategory[0-9a-z_]+"
+    }
+  }
+  string center {
+    _required = true
+  }
+  string centertab {
+    _required = true
+  }
+  string label {
+    _required = true
+    _restriction = {
+      max_length = 99
+    }
+  }
+  netsuite.centercategory_links links {
+  }
+  string _lastfetchtime {
+    _hidden_value = true
+  }
+}

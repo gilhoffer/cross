@@ -1,0 +1,29 @@
+type netsuite.BinTransfer {
+  annotations {
+    hidden_string source {
+    }
+  }
+  string createdDate {
+  }
+  string lastModifiedDate {
+  }
+  string tranDate {
+  }
+  string memo {
+  }
+  netsuite.Location location {
+  }
+  netsuite.BinTransferInventoryList inventoryList {
+  }
+  netsuite.Subsidiary subsidiary {
+  }
+  string tranId {
+  }
+  string internalId {
+    isAttribute = true
+    _hidden_value = true
+  }
+  string externalId {
+    isAttribute = true
+  }
+}

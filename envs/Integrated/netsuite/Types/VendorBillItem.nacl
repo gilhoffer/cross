@@ -1,0 +1,74 @@
+type netsuite.VendorBillItem {
+  annotations {
+    hidden_string source {
+    }
+  }
+  netsuite.RecordRef item {
+  }
+  string vendorName {
+  }
+  number line {
+  }
+  number orderDoc {
+  }
+  number orderLine {
+  }
+  number quantity {
+  }
+  netsuite.RecordRef units {
+  }
+  netsuite.InventoryDetail inventoryDetail {
+  }
+  string description {
+  }
+  string serialNumbers {
+  }
+  string binNumbers {
+  }
+  string expirationDate {
+  }
+  netsuite.RecordRef taxCode {
+  }
+  number taxRate1 {
+  }
+  number taxRate2 {
+  }
+  number grossAmt {
+  }
+  number tax1Amt {
+  }
+  string rate {
+  }
+  number amount {
+  }
+  netsuite.Department department {
+  }
+  netsuite.Classification class {
+  }
+  netsuite.Location location {
+  }
+  netsuite.Customer customer {
+  }
+  netsuite.RecordRef landedCostCategory {
+  }
+  boolean isBillable {
+  }
+  string billVarianceStatus {
+  }
+  netsuite.RecordRefList billreceiptsList {
+  }
+  netsuite.RecordRef amortizationSched {
+  }
+  string amortizStartDate {
+  }
+  string amortizationEndDate {
+  }
+  string amortizationResidual {
+  }
+  number taxAmount {
+  }
+  string taxDetailsReference {
+  }
+  netsuite.LandedCost landedCost {
+  }
+}

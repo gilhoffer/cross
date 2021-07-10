@@ -1,0 +1,10 @@
+netsuite.folder SuiteBundles_Bundle_297487_FLODocs_Enterprise@dsds {
+  description = "These are the files relevant to the FLODocs Enterprise Product."
+  bundleable = true
+  isinactive = false
+  isprivate = false
+  path = "/SuiteBundles/Bundle 297487/FLODocs Enterprise"
+  _parent = [
+    netsuite.folder.instance.SuiteBundles_Bundle_297487@ds,
+  ]
+}

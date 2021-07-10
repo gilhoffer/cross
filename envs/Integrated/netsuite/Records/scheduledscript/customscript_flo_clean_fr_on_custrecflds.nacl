@@ -1,0 +1,26 @@
+netsuite.scheduledscript customscript_flo_clean_fr_on_custrecflds {
+  scriptid = "customscript_flo_clean_fr_on_custrecflds"
+  defaultfunction = "FLOCleanFormsFromCustrecs"
+  isinactive = false
+  name = "Strongpoint Clean Forms frm Cust Rec Fld"
+  notifyadmins = false
+  notifyowner = true
+  scriptfile = "[/SuiteBundles/Bundle 297487/FLOCleanFormsFromCustrecs.js]"
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy_flo_clean_fr_on_custrecflds"
+        isdeployed = true
+        loglevel = "AUDIT"
+        status = "NOTSCHEDULED"
+        title = "Strongpoint Clean Forms from Custom Record Field"
+        recurrence = {
+          single = {
+            startdate = "2016-06-25"
+            starttime = "01:00:00Z"
+          }
+        }
+      },
+    ]
+  }
+}

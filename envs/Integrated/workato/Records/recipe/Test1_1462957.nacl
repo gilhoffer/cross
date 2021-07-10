@@ -1,0 +1,11 @@
+workato.recipe Test1_1462957 {
+  id = 1462957
+  user_id = 212128
+  name = "Test1"
+  copy_count = 1
+  description = "When there is a trigger event, do action"
+  folder_id = 318283
+  running = false
+  lifetime_task_count = 0
+  code = workato.recipe__code.instance.Test1_1462957__unnamed
+}

@@ -1,0 +1,26 @@
+netsuite.scheduledscript customscript_flo_duplicate_cust_script {
+  scriptid = "customscript_flo_duplicate_cust_script"
+  defaultfunction = "processDuplicates"
+  isinactive = false
+  name = "Strongpoint Process Duplicate Custs"
+  notifyadmins = false
+  notifyowner = true
+  scriptfile = netsuite.file.instance.SuiteBundles_Bundle_297487_FLOProcessDuplicateCusts_js@dsdv.path
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy1"
+        isdeployed = true
+        loglevel = "AUDIT"
+        status = "NOTSCHEDULED"
+        title = "Strongpoint Process Duplicate Cust Scripts"
+        recurrence = {
+          single = {
+            startdate = "2016-07-26"
+            starttime = "01:00:00Z"
+          }
+        }
+      },
+    ]
+  }
+}

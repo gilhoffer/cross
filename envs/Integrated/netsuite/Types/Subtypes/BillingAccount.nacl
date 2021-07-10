@@ -1,0 +1,57 @@
+type netsuite.BillingAccount {
+  annotations {
+    hidden_string source {
+    }
+  }
+  netsuite.RecordRef customForm {
+  }
+  string idNumber {
+  }
+  boolean customerDefault {
+  }
+  netsuite.Customer customer {
+  }
+  netsuite.Subsidiary subsidiary {
+  }
+  string name {
+  }
+  boolean inactive {
+  }
+  string memo {
+  }
+  string createdDate {
+  }
+  string createdBy {
+  }
+  netsuite.Currency currency {
+  }
+  netsuite.Classification class {
+  }
+  netsuite.Department department {
+  }
+  netsuite.Location location {
+  }
+  netsuite.RecordRef billingSchedule {
+  }
+  string frequency {
+  }
+  string startDate {
+  }
+  string lastBillDate {
+  }
+  string lastBillCycleDate {
+  }
+  string nextBillCycleDate {
+  }
+  netsuite.RecordRef invoiceForm {
+  }
+  netsuite.RecordRef cashSaleForm {
+  }
+  string internalId {
+    isAttribute = true
+    _hidden_value = true
+  }
+  string externalId {
+    isAttribute = true
+  }
+}

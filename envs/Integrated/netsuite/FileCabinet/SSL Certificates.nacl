@@ -1,0 +1,7 @@
+netsuite.folder SSL_Certificates@s {
+  description = "Certificates for use with secure domains"
+  bundleable = false
+  isinactive = false
+  isprivate = false
+  path = "/SSL Certificates"
+}

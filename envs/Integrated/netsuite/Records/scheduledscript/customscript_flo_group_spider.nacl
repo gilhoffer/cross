@@ -1,0 +1,57 @@
+netsuite.scheduledscript customscript_flo_group_spider {
+  scriptid = "customscript_flo_group_spider"
+  description = '''
+Create a scheduled script spider for Groups (found in Lists &gt; Relationship &gt; Groups).
+The spider should create a Customization record for each group. Customization Type = Group
+Get as much information you can get from the group record and store the information to the Customization record. 
+
+Basic Fields to set in the Customization:
+- Name
+- Type
+- Owner
+- Internal Id
+- Description (from Comments)
+- Map the Group's 'Type’ field to FLO customizations’ Parent’ field. Find the equivalent Customization record of the parent by name and type is Standard Record.
+- From the Group ’Saved Search’, set data source field with the search scriptid. Then find the equivalent Customization of the search and save in the custrecord_flo_searches of the Group Customization
+'''
+  isinactive = false
+  name = "Strongpoint Group Spider"
+  notifyadmins = false
+  notifyowner = true
+  scriptfile = "[/SuiteBundles/Bundle 297487/FLOGroupSpider.js]"
+  scriptcustomfields = {
+    scriptcustomfield = [
+      {
+        scriptid = "custscript_flo_group_li"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "TEXT"
+        isformula = false
+        ismandatory = false
+        label = "FLO Group spider last index"
+        searchlevel = "2"
+        storevalue = true
+      },
+    ]
+  }
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy_flo_group_spider_dep"
+        isdeployed = true
+        loglevel = "AUDIT"
+        status = "NOTSCHEDULED"
+        title = "Strongpoint Group Spider Dep"
+        recurrence = {
+          single = {
+            startdate = "2017-06-02"
+            starttime = "01:00:00Z"
+          }
+        }
+      },
+    ]
+  }
+}

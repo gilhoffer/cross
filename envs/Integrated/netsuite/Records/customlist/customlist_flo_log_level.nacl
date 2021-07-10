@@ -1,0 +1,31 @@
+netsuite.customlist customlist_flo_log_level {
+  scriptid = "customlist_flo_log_level"
+  isinactive = false
+  ismatrixoption = false
+  isordered = false
+  name = "Log Level"
+  customvalues = {
+    customvalue = [
+      {
+        scriptid = "value_2_t1049933_417"
+        isinactive = false
+        value = "Audit"
+      },
+      {
+        scriptid = "value_3_t1049933_417"
+        isinactive = false
+        value = "Debug"
+      },
+      {
+        scriptid = "value_4_t1049933_417"
+        isinactive = false
+        value = "Emergency"
+      },
+      {
+        scriptid = "value_1_t1049933_417"
+        isinactive = false
+        value = "Error"
+      },
+    ]
+  }
+}

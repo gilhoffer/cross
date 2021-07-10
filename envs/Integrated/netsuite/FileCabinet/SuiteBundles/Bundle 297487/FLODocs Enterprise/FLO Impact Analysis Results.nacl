@@ -1,0 +1,9 @@
+netsuite.folder SuiteBundles_Bundle_297487_FLODocs_Enterprise_FLO_Impact_Analysis_Results@dsdsdsss {
+  bundleable = false
+  isinactive = false
+  isprivate = false
+  path = "/SuiteBundles/Bundle 297487/FLODocs Enterprise/FLO Impact Analysis Results"
+  _parent = [
+    netsuite.folder.instance.SuiteBundles_Bundle_297487_FLODocs_Enterprise@dsds,
+  ]
+}

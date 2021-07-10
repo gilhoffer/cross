@@ -1,0 +1,45 @@
+type netsuite.customlist_customvalues {
+  "List<netsuite.customlist_customvalues_customvalue>" customvalue {
+  }
+}
+type netsuite.customlist_customvalues_customvalue {
+  serviceid scriptid {
+    _required = true
+    isAttribute = true
+  }
+  string value {
+    _required = true
+  }
+  string abbreviation {
+  }
+  boolean isinactive {
+  }
+}
+type netsuite.customlist {
+  serviceid scriptid {
+    _required = true
+    isAttribute = true
+    _restriction = {
+      regex = "^customlist[0-9a-z_]+"
+    }
+  }
+  string name {
+    _required = true
+    _restriction = {
+      max_length = 30
+    }
+  }
+  string description {
+  }
+  boolean isinactive {
+  }
+  boolean ismatrixoption {
+  }
+  boolean isordered {
+  }
+  netsuite.customlist_customvalues customvalues {
+  }
+  string _lastfetchtime {
+    _hidden_value = true
+  }
+}

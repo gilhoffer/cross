@@ -1,0 +1,12 @@
+netsuite.file SuiteBundles_Bundle_297487_FLODocs_Enterprise_Strongpoint_Files_Envioroment__Test_Search_Changes__Search__1513258746337_pdf@dsdsdssdosssjkuv {
+  bundleable = false
+  isinactive = false
+  availablewithoutlogin = true
+  generateurltimestamp = false
+  hideinbundle = false
+  path = "/SuiteBundles/Bundle 297487/FLODocs Enterprise/Strongpoint Files Envioroment/*Test Search Changes (Search)_1513258746337.pdf"
+  content = file("netsuite/FileCabinet/SuiteBundles/Bundle 297487/FLODocs Enterprise/Strongpoint Files Envioroment/*Test Search Changes (Search)_1513258746337.pdf")
+  _parent = [
+    netsuite.folder.instance.SuiteBundles_Bundle_297487_FLODocs_Enterprise_Strongpoint_Files_Envioroment@dsdsdss,
+  ]
+}

@@ -1,0 +1,26 @@
+netsuite.scheduledscript customscript_flo_get_status_for_customer {
+  scriptid = "customscript_flo_get_status_for_customer"
+  defaultfunction = "getStatusForCustomer"
+  isinactive = false
+  name = "Strongpoint Get Status For Customer"
+  notifyadmins = false
+  notifyowner = true
+  scriptfile = "[/SuiteBundles/Bundle 297487/FLOGetStatusForCustomer.js]"
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy_flo_get_status_for_customer"
+        isdeployed = true
+        loglevel = "ERROR"
+        status = "NOTSCHEDULED"
+        title = "Strongpoint Get Status For Customer"
+        recurrence = {
+          single = {
+            startdate = "2017-02-04"
+            starttime = "02:00:00Z"
+          }
+        }
+      },
+    ]
+  }
+}

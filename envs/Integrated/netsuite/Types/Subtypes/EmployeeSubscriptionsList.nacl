@@ -1,0 +1,11 @@
+type netsuite.EmployeeSubscriptionsList {
+  annotations {
+    hidden_string source {
+    }
+  }
+  "List<netsuite.EmployeeSubscriptions>" subscriptions {
+  }
+  boolean replaceAll {
+    isAttribute = true
+  }
+}

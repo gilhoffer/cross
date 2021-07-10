@@ -1,0 +1,32 @@
+type netsuite.script_eventtype is string {
+  _restriction = {
+    values = [
+      "APPROVE",
+      "CANCEL",
+      "CHANGEPASSWORD",
+      "COPY",
+      "CREATE",
+      "DELETE",
+      "DROPSHIP",
+      "EDIT",
+      "EDITFORECAST",
+      "EMAIL",
+      "GET",
+      "MARKCOMPLETE",
+      "ORDERITEMS",
+      "PACK",
+      "PAYBILLS",
+      "POST",
+      "PRINT",
+      "QUICKVIEW",
+      "REASSIGN",
+      "REJECT",
+      "SHIP",
+      "SPECIALORDER",
+      "TRANSFORM",
+      "VIEW",
+      "XEDIT",
+    ]
+    enforce_value = false
+  }
+}

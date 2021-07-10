@@ -1,0 +1,32 @@
+netsuite.workflowactionscript customscript_alert_admin_reminders {
+  scriptid = "customscript_alert_admin_reminders"
+  defaultfunction = "alertAdmins"
+  isinactive = false
+  name = "Strongpoint Alert Admin Reminders"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = netsuite.file.instance.SuiteBundles_Bundle_297487_FLOAlertReminders_js@dsdv.path
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy_alert_admin_reminders"
+        allemployees = true
+        allpartners = false
+        allroles = true
+        isdeployed = true
+        loglevel = "AUDIT"
+        recordtype = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.scriptid
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+      },
+    ]
+  }
+  libraries = {
+    library = [
+      {
+        scriptfile = netsuite.file.instance.SuiteBundles_Bundle_297487_FlashlightPortlet_Library_js@dsduv.path
+      },
+    ]
+  }
+}

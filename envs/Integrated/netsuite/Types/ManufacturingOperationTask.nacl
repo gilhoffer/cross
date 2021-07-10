@@ -1,0 +1,59 @@
+type netsuite.ManufacturingOperationTask {
+  annotations {
+    hidden_string source {
+    }
+  }
+  netsuite.RecordRef customForm {
+  }
+  netsuite.RecordRef manufacturingWorkCenter {
+  }
+  netsuite.ManufacturingCostTemplate manufacturingCostTemplate {
+  }
+  string title {
+  }
+  number operationSequence {
+  }
+  netsuite.WorkOrder workOrder {
+  }
+  netsuite.RecordRef order {
+  }
+  string status {
+  }
+  string message {
+  }
+  number estimatedWork {
+  }
+  number actualWork {
+  }
+  number remainingWork {
+  }
+  number inputQuantity {
+  }
+  number completedQuantity {
+  }
+  number setupTime {
+  }
+  number runRate {
+  }
+  string startDate {
+  }
+  string endDate {
+  }
+  boolean autoCalculateLag {
+  }
+  number machineResources {
+  }
+  number laborResources {
+  }
+  netsuite.ManufacturingCostDetailList costDetailList {
+  }
+  netsuite.ManufacturingOperationTaskPredecessorList predecessorList {
+  }
+  string internalId {
+    isAttribute = true
+    _hidden_value = true
+  }
+  string externalId {
+    isAttribute = true
+  }
+}

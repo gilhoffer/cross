@@ -1,0 +1,12 @@
+type netsuite.ExpenseCategoryRates {
+  annotations {
+    hidden_string source {
+    }
+  }
+  netsuite.Subsidiary subsidiary {
+  }
+  netsuite.Currency currency {
+  }
+  number defaultRate {
+  }
+}

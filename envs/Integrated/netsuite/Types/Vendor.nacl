@@ -1,0 +1,179 @@
+type netsuite.Vendor {
+  annotations {
+    hidden_string source {
+    }
+  }
+  netsuite.RecordRef customForm {
+  }
+  string entityId {
+  }
+  string altName {
+  }
+  boolean isPerson {
+  }
+  string phoneticName {
+  }
+  string salutation {
+  }
+  string firstName {
+  }
+  string middleName {
+  }
+  string lastName {
+  }
+  string companyName {
+  }
+  string phone {
+  }
+  string fax {
+  }
+  string email {
+  }
+  string url {
+  }
+  string defaultAddress {
+  }
+  boolean isInactive {
+  }
+  string lastModifiedDate {
+  }
+  string dateCreated {
+  }
+  netsuite.RecordRef category {
+  }
+  string title {
+  }
+  string printOnCheckAs {
+  }
+  string altPhone {
+  }
+  string homePhone {
+  }
+  string mobilePhone {
+  }
+  string altEmail {
+  }
+  string comments {
+  }
+  string globalSubscriptionStatus {
+  }
+  netsuite.file image {
+  }
+  string emailPreference {
+  }
+  netsuite.Subsidiary subsidiary {
+  }
+  netsuite.Subsidiary representingSubsidiary {
+  }
+  string accountNumber {
+  }
+  string legalName {
+  }
+  string vatRegNumber {
+  }
+  netsuite.Account expenseAccount {
+  }
+  netsuite.Account payablesAccount {
+  }
+  netsuite.Term terms {
+  }
+  netsuite.RecordRef incoterm {
+  }
+  number creditLimit {
+  }
+  number balancePrimary {
+  }
+  number openingBalance {
+  }
+  string openingBalanceDate {
+  }
+  netsuite.Account openingBalanceAccount {
+  }
+  number balance {
+  }
+  number unbilledOrdersPrimary {
+  }
+  string bcn {
+  }
+  number unbilledOrders {
+  }
+  netsuite.Currency currency {
+  }
+  boolean is1099Eligible {
+  }
+  boolean isJobResourceVend {
+  }
+  number laborCost {
+  }
+  number purchaseOrderQuantity {
+  }
+  number purchaseOrderAmount {
+  }
+  number purchaseOrderQuantityDiff {
+  }
+  number receiptQuantity {
+  }
+  number receiptAmount {
+  }
+  number receiptQuantityDiff {
+  }
+  netsuite.RecordRef workCalendar {
+  }
+  string taxIdNum {
+  }
+  netsuite.RecordRef taxItem {
+  }
+  boolean giveAccess {
+  }
+  boolean sendEmail {
+  }
+  boolean billPay {
+  }
+  boolean isAccountant {
+  }
+  string password {
+  }
+  string password2 {
+  }
+  boolean requirePwdChange {
+  }
+  boolean eligibleForCommission {
+  }
+  boolean emailTransactions {
+  }
+  boolean printTransactions {
+  }
+  boolean faxTransactions {
+  }
+  netsuite.RecordRef defaultTaxReg {
+  }
+  netsuite.VendorPricingScheduleList pricingScheduleList {
+  }
+  netsuite.SubscriptionsList subscriptionsList {
+  }
+  netsuite.VendorAddressbookList addressbookList {
+  }
+  netsuite.VendorCurrencyList currencyList {
+  }
+  netsuite.VendorRolesList rolesList {
+  }
+  netsuite.VendorTaxRegistrationList taxRegistrationList {
+  }
+  number predictedDays {
+  }
+  number predConfidence {
+  }
+  string internalId {
+    isAttribute = true
+    _hidden_value = true
+  }
+  string externalId {
+    isAttribute = true
+  }
+  number custentity13 {
+    field_instance = netsuite.entitycustomfield.instance.custentity13.scriptid
+  }
+  number custentity_slt_tax_reg {
+    field_instance = netsuite.entitycustomfield.instance.custentity_slt_tax_reg.scriptid
+  }
+}

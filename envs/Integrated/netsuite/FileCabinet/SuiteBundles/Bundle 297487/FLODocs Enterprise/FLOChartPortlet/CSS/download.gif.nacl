@@ -1,0 +1,12 @@
+netsuite.file SuiteBundles_Bundle_297487_FLODocs_Enterprise_FLOChartPortlet_CSS_download_gif@dsdsdddv {
+  bundleable = false
+  isinactive = false
+  availablewithoutlogin = false
+  generateurltimestamp = false
+  hideinbundle = false
+  path = "/SuiteBundles/Bundle 297487/FLODocs Enterprise/FLOChartPortlet/CSS/download.gif"
+  content = file("netsuite/FileCabinet/SuiteBundles/Bundle 297487/FLODocs Enterprise/FLOChartPortlet/CSS/download.gif")
+  _parent = [
+    netsuite.folder.instance.SuiteBundles_Bundle_297487_FLODocs_Enterprise_FLOChartPortlet_CSS@dsdsdd,
+  ]
+}

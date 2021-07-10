@@ -1,0 +1,121 @@
+type netsuite.CustomerRefund {
+  annotations {
+    hidden_string source {
+    }
+  }
+  string createdDate {
+  }
+  string lastModifiedDate {
+  }
+  string status {
+  }
+  string transactionNumber {
+  }
+  netsuite.Customer customer {
+  }
+  netsuite.RecordRef customForm {
+  }
+  number balance {
+  }
+  netsuite.Account arAcct {
+  }
+  string currencyName {
+  }
+  number exchangeRate {
+  }
+  number total {
+  }
+  netsuite.Currency currency {
+  }
+  string tranDate {
+  }
+  netsuite.RecordRef voidJournal {
+  }
+  netsuite.RecordRef postingPeriod {
+  }
+  string memo {
+  }
+  netsuite.PaymentMethod paymentMethod {
+  }
+  netsuite.Account account {
+  }
+  boolean toBePrinted {
+  }
+  string tranId {
+  }
+  string debitCardIssueNo {
+  }
+  netsuite.RecordRef creditCardProcessor {
+  }
+  boolean chargeIt {
+  }
+  string pnRefNum {
+  }
+  string validFrom {
+  }
+  netsuite.Subsidiary subsidiary {
+  }
+  netsuite.Department department {
+  }
+  netsuite.Classification class {
+  }
+  netsuite.Location location {
+  }
+  netsuite.RecordRef paymentOption {
+  }
+  string inputAuthCode {
+  }
+  string inputReferenceCode {
+  }
+  string checkNumber {
+  }
+  string paymentCardCsc {
+  }
+  netsuite.RecordRef paymentProcessingProfile {
+  }
+  string handlingMode {
+  }
+  string outputAuthCode {
+  }
+  string outputReferenceCode {
+  }
+  string paymentOperation {
+  }
+  string dynamicDescriptor {
+  }
+  netsuite.RecordRef creditCard {
+  }
+  boolean ccIsPurchaseCardBin {
+  }
+  string ccNumber {
+  }
+  boolean ccProcessAsPurchaseCard {
+  }
+  string ccExpireDate {
+  }
+  string ccName {
+  }
+  string ccStreet {
+  }
+  string ccZipCode {
+  }
+  boolean ccApproved {
+  }
+  netsuite.CustomerRefundApplyList applyList {
+  }
+  netsuite.CustomerRefundDepositList depositList {
+  }
+  netsuite.AccountingBookDetailList accountingBookDetailList {
+  }
+  netsuite.RecordRef payeeAddressList {
+  }
+  netsuite.Address payeeAddress {
+  }
+  string internalId {
+    isAttribute = true
+    _hidden_value = true
+  }
+  string externalId {
+    isAttribute = true
+  }
+}

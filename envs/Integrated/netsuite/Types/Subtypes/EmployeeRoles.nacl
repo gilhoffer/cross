@@ -1,0 +1,8 @@
+type netsuite.EmployeeRoles {
+  annotations {
+    hidden_string source {
+    }
+  }
+  netsuite.RecordRef selectedRole {
+  }
+}

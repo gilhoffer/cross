@@ -1,0 +1,31 @@
+type netsuite.Nexus {
+  annotations {
+    hidden_string source {
+    }
+  }
+  string country {
+  }
+  netsuite.State state {
+  }
+  netsuite.RecordRef taxAgency {
+  }
+  netsuite.RecordRef taxAgencyPst {
+  }
+  netsuite.RecordRef taxCode {
+  }
+  string description {
+  }
+  netsuite.Nexus parentNexus {
+  }
+  boolean isInactive {
+  }
+  boolean taxDateFromFulfillment {
+  }
+  string internalId {
+    isAttribute = true
+    _hidden_value = true
+  }
+  string externalId {
+    isAttribute = true
+  }
+}

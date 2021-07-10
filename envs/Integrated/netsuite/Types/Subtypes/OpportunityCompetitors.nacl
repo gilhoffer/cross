@@ -1,0 +1,16 @@
+type netsuite.OpportunityCompetitors {
+  annotations {
+    hidden_string source {
+    }
+  }
+  netsuite.RecordRef competitor {
+  }
+  string url {
+  }
+  string notes {
+  }
+  string strategy {
+  }
+  boolean winner {
+  }
+}

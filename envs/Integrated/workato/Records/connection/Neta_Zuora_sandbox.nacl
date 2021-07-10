@@ -1,0 +1,7 @@
+workato.connection Neta_Zuora_sandbox@s {
+  application = "zuora"
+  id = 433022
+  name = "Neta Zuora sandbox"
+  authorized_at = "2021-04-09T13:38:39.834-07:00"
+  authorization_status = "success"
+}

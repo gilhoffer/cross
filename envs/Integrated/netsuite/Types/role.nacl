@@ -1,0 +1,86 @@
+type netsuite.role_recordrestrictions {
+  "List<netsuite.role_recordrestrictions_recordrestriction>" recordrestriction {
+  }
+}
+type netsuite.role_recordrestrictions_recordrestriction {
+  netsuite.role_restrictionsegment segment {
+    _required = true
+  }
+  netsuite.role_restrictions restriction {
+    _required = true
+  }
+  boolean viewingallowed {
+  }
+  boolean itemsrestricted {
+  }
+}
+type netsuite.role_permissions {
+  "List<netsuite.role_permissions_permission>" permission {
+  }
+}
+type netsuite.role_permissions_permission {
+  string permkey {
+    _required = true
+  }
+  netsuite.generic_permission_level permlevel {
+    _required = true
+  }
+  netsuite.role_restrict restriction {
+  }
+}
+type netsuite.role {
+  serviceid scriptid {
+    _required = true
+    isAttribute = true
+    _restriction = {
+      regex = "^customrole[0-9a-z_]+"
+    }
+  }
+  string centertype {
+    _required = true
+  }
+  string name {
+    _required = true
+  }
+  netsuite.tfaduration tfaduration {
+  }
+  netsuite.role_fullrestrictions employeerestriction {
+  }
+  boolean employeeviewingallowed {
+  }
+  boolean ispartnerrole {
+  }
+  boolean issalesrole {
+  }
+  boolean issupportrole {
+  }
+  string issuerole {
+  }
+  boolean restricttimeandexpenses {
+  }
+  boolean employeeselectionunrestricted {
+  }
+  boolean isinactive {
+  }
+  boolean subsidiaryviewingallowed {
+  }
+  netsuite.rolesubsidiaryoption subsidiaryoption {
+  }
+  boolean issinglesignononly {
+  }
+  boolean iswebserviceonlyrole {
+  }
+  boolean restrictbydevice {
+  }
+  boolean restrictip {
+  }
+  netsuite.tfarequired tfarequired {
+  }
+  netsuite.role_permissions permissions {
+  }
+  netsuite.role_recordrestrictions recordrestrictions {
+  }
+  string _lastfetchtime {
+    _hidden_value = true
+  }
+}

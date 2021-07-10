@@ -1,0 +1,11 @@
+type netsuite.CalendarEventAttendeeList {
+  annotations {
+    hidden_string source {
+    }
+  }
+  "List<netsuite.CalendarEventAttendee>" attendee {
+  }
+  boolean replaceAll {
+    isAttribute = true
+  }
+}

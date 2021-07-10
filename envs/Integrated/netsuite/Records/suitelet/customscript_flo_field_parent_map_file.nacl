@@ -1,0 +1,26 @@
+netsuite.suitelet customscript_flo_field_parent_map_file {
+  scriptid = "customscript_flo_field_parent_map_file"
+  description = "Creates mapping file for Standard Record Custom Fields' parent names. (flo_transactionbodycustomfield_map)"
+  isinactive = false
+  name = "Strongpoint Field Parent Map File 2.0"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = "[/SuiteBundles/Bundle 297487/FLOStdRecFieldParentMapping.js]"
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy_flo_field_parent_map_file"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        isdeployed = true
+        isonline = false
+        loglevel = "AUDIT"
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+        title = "Strongpoint Field Parent Map File 2.0"
+      },
+    ]
+  }
+}

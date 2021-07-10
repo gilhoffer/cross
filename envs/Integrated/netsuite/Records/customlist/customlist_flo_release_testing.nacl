@@ -1,0 +1,21 @@
+netsuite.customlist customlist_flo_release_testing {
+  scriptid = "customlist_flo_release_testing"
+  isinactive = false
+  ismatrixoption = false
+  isordered = true
+  name = "Release/Testing"
+  customvalues = {
+    customvalue = [
+      {
+        scriptid = "value_1_t1049933_417"
+        isinactive = false
+        value = "RELEASED"
+      },
+      {
+        scriptid = "value_2_t1049933_417"
+        isinactive = false
+        value = "TESTING"
+      },
+    ]
+  }
+}

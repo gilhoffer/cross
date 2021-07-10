@@ -1,0 +1,28 @@
+type netsuite.ManufacturingRoutingRoutingStep {
+  annotations {
+    hidden_string source {
+    }
+  }
+  number operationSequence {
+  }
+  string operationName {
+  }
+  netsuite.RecordRef manufacturingWorkCenter {
+  }
+  number machineResources {
+  }
+  number laborResources {
+  }
+  netsuite.ManufacturingCostTemplate manufacturingCostTemplate {
+  }
+  number setupTime {
+  }
+  number runRate {
+  }
+  string lagType {
+  }
+  number lagAmount {
+  }
+  string lagUnits {
+  }
+}

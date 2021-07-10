@@ -1,0 +1,1777 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns="urn:partner.soap.sforce.com" xmlns:sf="urn:sobject.partner.soap.sforce.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><soapenv:Header><LimitInfoHeader><limitInfo><current>43</current><limit>15000</limit><type>API REQUESTS</type></limitInfo></LimitInfoHeader></soapenv:Header><soapenv:Body><retrieveResponse><result xsi:type="sf:sObject"><sf:type>ApexPage</sf:type><sf:Id>06628000008PkcrAAC</sf:Id><sf:ApiVersion>37.0</sf:ApiVersion><sf:ControllerKey>FloDocsLinksController</sf:ControllerKey><sf:ControllerType>2</sf:ControllerType><sf:CreatedById>00528000003pbOYAAY</sf:CreatedById><sf:CreatedDate>2017-01-23T15:09:22.000Z</sf:CreatedDate><sf:Description xsi:nil="true"/><sf:Id>06628000008PkcrAAC</sf:Id><sf:IsAvailableInTouch>false</sf:IsAvailableInTouch><sf:IsConfirmationTokenRequired>false</sf:IsConfirmationTokenRequired><sf:LastModifiedById>00528000003pbOYAAY</sf:LastModifiedById><sf:LastModifiedDate>2017-01-23T15:11:03.000Z</sf:LastModifiedDate><sf:Markup>&lt;apex:page controller="FLODocs.FloDocsLinksController" tabStyle="FLODocs__FLO_Customization__c"  &gt;
+  &lt;apex:pageBlock title="FLODocs Links"&gt;
+        &lt;head&gt;
+        &lt;apex:includeScript value="{!URLFOR($Resource.FLODocs__FLOJQuery, '/jquery-ui-1.12.1.custom/external/jquery/jquery.js')}"  /&gt;
+        &lt;apex:includeScript value="{!URLFOR($Resource.FLODocs__FLOJQuery, '/jquery-ui-1.12.1.custom/jquery-ui.js')}"  /&gt;
+        &lt;apex:stylesheet value="{!URLFOR($Resource.FLODocs__FLOJQuery, '/jquery-ui-1.12.1.custom/jquery-ui.css')}"  /&gt;
+        &lt;script&gt;
+            
+            $(document).ready(function() {
+              $(".slide").click(function(){
+                  $(this).parent().children("ul").slideToggle();
+                  var sign = $(this).parent().find(".plus").text();
+                  if(sign == "+") {
+                    $(this).parent().find(".plus").text("-");
+                  } else {
+                      $(this).parent().find(".plus").text("+");
+                  }
+              });
+              $("#expandall").click(function(){
+                  $('.slide').parent().children("ul").slideDown();
+                  $('.plus').text("-");
+              });
+              
+              $("#collapseall").click(function(){
+                  $('.slide').parent().children("ul").slideUp();
+                  $('.plus').text("+");
+              });
+            }); 
+        &lt;/script&gt;
+        &lt;style&gt;
+           .slide,#collapseall,#expandall {
+               cursor: pointer;
+           }
+           #flodoclinks &gt; li ul{
+               display: none;
+           };
+           .flodocslinksUl{
+               font-size: 15px;
+           }
+           ul &gt; li{
+              margin-bottom: 8px;
+           }
+
+           a {
+               color: #255598 !important;
+           }
+        &lt;/style&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
+
+            &lt;apex:pageMessages /&gt;
+            &lt;apex:form &gt;
+            &lt;!-- &lt;apex:actionPoller action="{!checkAsyncRequest}" interval="5"  status="statusC" rerender="" rendered="{!NOT(ISNULL(AsyncResult))}"/&gt; --&gt;
+            &lt;/apex:form&gt;
+
+            &lt;!--  &lt;apex:pageBlockSection title="Auto Scanner details" collapsible="false"&gt;   
+                &lt;apex:outputLabel value="FLODocs Auto Scanner: {!isScannerRunning}"/&gt;
+             &lt;/apex:pageBlockSection&gt; --&gt;
+             &lt;apex:pageBlockSection title="FLO Reports" collapsible="false" columns="1"&gt;   
+                &lt;span id="collapseall" style="color: #255598;"&gt;Collapse All&lt;/span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;span id="expandall" style="color: #255598;"&gt;Expand All&lt;/span&gt;
+
+                &lt;div style="width:100%;"&gt;
+                   &lt;div style="width:30%;float:left;"&gt;
+                    &lt;ul id="flodoclinks" class="flodocslinksUl" style=" list-style: none; padding-left:0; font-size: 15px;"&gt;   
+                        &lt;li style=""&gt;&lt;span class='slide'&gt;&lt;span class="plus"&gt;+&lt;/span&gt;&lt;h1&gt;FLODocs Support&lt;/h1&gt;&lt;/span&gt;
+                            &lt;ul&gt;
+                                &lt;li&gt;&lt;a href="http://flodocs.com/knowledgebase/installation-running-spiders-and-post-install-checks/" target="_blank"&gt;How to get started with FLODocs&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="http://flodocs.com/userguide" target="_blank"&gt;User Guide&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="http://flodocs.com/faq" target="_blank"&gt;Frequently Asked Questions&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="http://flodocs.com/contact_support" target="_blank"&gt;Contact Support&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="{!status_report}"  target="_blank"&gt;Status Report&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="{!urlBase}/apex/FloRemoteSitePage" target="_blank"&gt;Installation Settings&lt;/a&gt;&lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/li&gt;
+                        &lt;li style=""&gt;&lt;span class='slide'&gt;&lt;span class="plus"&gt;+&lt;/span&gt;&lt;h1&gt;Tools&lt;/h1&gt;&lt;/span&gt;
+                            &lt;ul&gt;
+                                &lt;!-- &lt;li&gt;&lt;a href="{!fLO_SQL_Library}" target="_blank"&gt;FLO SQL Library&lt;/a&gt;&lt;/li&gt; --&gt;
+                                &lt;li&gt;&lt;a href="{!urlBase}/apex/FloERDView" target="_blank"&gt;FLODocs ERD&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="{!urlBase}/apex/FloSpider" target="_blank"&gt;FLODocs Scanner&lt;/a&gt;&lt;/li&gt;
+                                 &lt;li&gt;&lt;a href="{!urlBase}/apex/Flofinder" target="_blank"&gt;FLODocs Finder&lt;/a&gt;&lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/li&gt;
+                        &lt;li style=""&gt;&lt;span class='slide'&gt;&lt;span class="plus"&gt;+&lt;/span&gt;&lt;h1&gt;Customizations&lt;/h1&gt;&lt;/span&gt;
+                            &lt;ul&gt;
+                                &lt;li&gt;&lt;a href="{!flo_Customization}" target="_blank"&gt;FLO Customization&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="{!customization_Search}" target="_blank"&gt;Customization Quick Search&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="{!missing_Customization}" target="_blank"&gt;Missing Customization&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="{!customizations_with_No_Active_Owner}" target="_blank"&gt;Customizations with No Active Owner&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="{!flo_standard_fields_overview}" target="_blank"&gt;Standard Objects Overview&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="{!fLO_Customization_Impact_Search}" target="_blank"&gt;Customization Impact Search Form&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="{!fLO_Field_Impact_Search}" target="_blank"&gt;Customization Field Impact Search&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="{!fLO_Customization_TTL_Search}" target="_blank"&gt;Customizations Expired&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="{!fLO_Change_Log}" target="_blank"&gt;Customizations Change log&lt;/a&gt;&lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/li&gt;
+                    &lt;/ul&gt;
+                  &lt;/div&gt;
+                  &lt;div style="width:30%;float:left;"&gt;
+                    &lt;ul id="flodoclinks" class="flodocslinksUl" style=" list-style: none; padding-left:0; font-size: 15px;"&gt;   
+                         &lt;li style=""&gt;&lt;span class='slide'&gt;&lt;span class="plus"&gt;+&lt;/span&gt;&lt;h1&gt;Map Customizations&lt;/h1&gt;&lt;/span&gt;
+                            &lt;ul&gt;
+                                &lt;li&gt;&lt;a href="{!fLO_Bundles_With_No_Process}" target="_blank"&gt;Packages with No Process&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="{!fLO_Scripts_With_No_Process}" target="_blank"&gt;Apex Scripts with No Process&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="{!fLO_Workflows_With_No_Process}" target="_blank"&gt;Workflows with No Process&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="{!fLO_Custom_Records_With_No_Process}" target="_blank"&gt;Custom Object with No Process&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="{!fLO_Custom_Record_Fields_With_No_Process}" target="_blank"&gt;Custom Fields with No Process&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="{!fLO_Active_Searches_With_No_Process}" target="_blank"&gt;Active Searches with No Process&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="{!fLO_Customizations_With_No_Process}" target="_blank"&gt;Customizations with No Process&lt;/a&gt;&lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/li&gt;       
+                        &lt;li style=""&gt;&lt;span class='slide'&gt;&lt;span class="plus"&gt;+&lt;/span&gt;&lt;h1&gt;Process Issues&lt;/h1&gt;&lt;/span&gt;
+                            &lt;ul&gt;
+                                &lt;li&gt;&lt;a href="{!flo_Process_Issue}" target="_blank"&gt;FLO Process Issue&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="{!fLO_Process_Issue_Overview}" target="_blank"&gt;Process Issue Overview&lt;/a&gt;&lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/li&gt;
+                    &lt;/ul&gt;
+                  &lt;/div&gt;
+                  &lt;div style="width:30%;float:left;"&gt;
+                    &lt;ul id="flodoclinks" class="flodocslinksUl" style=" list-style: none; padding-left:0; font-size: 15px;"&gt;   
+                      
+                        &lt;li style=""&gt;&lt;span class='slide'&gt;&lt;span class="plus"&gt;+&lt;/span&gt;&lt;h1&gt;Change Management&lt;/h1&gt;&lt;/span&gt;
+                            &lt;ul&gt;
+                                &lt;li&gt;&lt;a href="{!fLO_Change_Approval_Policy}" target="_blank"&gt;FLO Change / Approval Policy&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="{!fLO_Change_Request}" target="_blank"&gt;FLO Change Request&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="{!what_Changed}" target="_blank"&gt;What Changed?&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="{!fLO_Change_Request_Result_Alert}" target="_blank"&gt;Change Request Alerts&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="{!fLO_Changes_with_out_Bundles}" target="_blank"&gt;Changes without Packages&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="{!fLO_Changes_Bundles}" target="_blank"&gt;Changes with Packages&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="{!fLO_Bundle_Updates_To_Approve}" target="_blank"&gt;Package Updates To Approve&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="{!customizations_Not_Being_Used_by_Process}" target="_blank"&gt;Customizations Not Being Used By Process&lt;/a&gt;&lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/li&gt;
+                        &lt;li style=""&gt;&lt;span class='slide'&gt;&lt;span class="plus"&gt;+&lt;/span&gt;&lt;h1&gt;Clean Up&lt;/h1&gt;&lt;/span&gt;
+                            &lt;ul&gt;
+                                &lt;li&gt;&lt;a href="{!fLO_Open_Clean_Ups_Status_View}" target="_blank"&gt;Open Clean-Up Status View&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="{!fLO_Open_Clean_Ups_Status_View}" target="_blank"&gt;Clean-Up By Process Search&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="{!fLO_Unused_Scripts}" target="_blank"&gt;Unused Scripts&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="{!fLO_Customizations_With_No_Active_Owner}" target="_blank"&gt;Inactive Owner&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="{!fLO_Customizations_With_No_Process}" target="_blank"&gt;Customizations with No Related Processes&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="{!fLO_Customizations_Missing_Description}" target="_blank"&gt;Customizations with No Description&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="{!fLO_Customizations_Missing_Help_Text}" target="_blank"&gt;Customizations with No Help Text&lt;/a&gt;&lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/li&gt;
+                    &lt;/ul&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+             &lt;/apex:pageBlockSection&gt;
+        &lt;/body&gt;
+    &lt;/apex:pageBlock&gt;
+&lt;/apex:page&gt;</sf:Markup><sf:MasterLabel>FLODocsLinks</sf:MasterLabel><sf:Name>FLODocsLinks</sf:Name><sf:NamespacePrefix>FLODocs</sf:NamespacePrefix><sf:SystemModstamp>2017-01-23T15:12:02.000Z</sf:SystemModstamp></result><result xsi:type="sf:sObject"><sf:type>ApexPage</sf:type><sf:Id>06628000008PkcxAAC</sf:Id><sf:ApiVersion>34.0</sf:ApiVersion><sf:ControllerKey>FloFinderPdfController</sf:ControllerKey><sf:ControllerType>2</sf:ControllerType><sf:CreatedById>00528000003pbOYAAY</sf:CreatedById><sf:CreatedDate>2017-01-23T15:09:23.000Z</sf:CreatedDate><sf:Description xsi:nil="true"/><sf:Id>06628000008PkcxAAC</sf:Id><sf:IsAvailableInTouch>false</sf:IsAvailableInTouch><sf:IsConfirmationTokenRequired>false</sf:IsConfirmationTokenRequired><sf:LastModifiedById>00528000003pbOYAAY</sf:LastModifiedById><sf:LastModifiedDate>2017-01-23T15:11:05.000Z</sf:LastModifiedDate><sf:Markup>&lt;apex:page applyBodyTag="false" readOnly="true" standardStylesheets="false" showHeader="false" applyHtmlTag="false" renderAs="pdf"  controller="FLODocs.FloFinderPdfController" docType="HTML-5.0"&gt;
+
+    &lt;head&gt;
+        &lt;style type="text/CSS"&gt;
+
+            .page-break {
+                display:block;
+                page-break-after:always;
+            }
+            
+
+            .tablehead {
+                border: 1px solid #000;
+                background-color: orange;
+                font-size: 120%;
+                text-align: center;
+            }
+
+            .odd {
+               border-bottom: 1px solid #000;
+               background-color: #ECE5B6;
+               padding: 1px 1px 2px 2px;
+               font-size: 100%;
+             }
+
+           .even {
+             border-bottom: 1px solid #000;
+             padding: 1px 1px 2px 2px;
+             font-size: 100%;
+            }
+
+           
+
+
+        &lt;/style&gt;
+    &lt;/head&gt;
+
+    &lt;body&gt;
+        
+        &lt;div style="width:100%;height:40px;"&gt;
+            &lt;div style="width:50%;float:left;"&gt; &lt;div align="left" style="width:100px;"&gt;&lt;img src="{!$Resource.FLO_Logo}"&gt;&lt;/img&gt;&lt;/div&gt;&lt;/div&gt;
+            &lt;div style="width:50%;float:left;"&gt; &lt;div align="right"&gt;&lt;strong&gt;Date&lt;/strong&gt;: {!DAY(Today())} {!CASE(MONTH(Today()), 1, 'January', 2, 'February', 3, 'March', 4, 'April', 5, 'May', 6, 'June', 7, 'July', 8, 'August', 9, 'September', 10, 'October', 11, 'November', 12, 'December', 'Unknown')} {!YEAR(Today())}&lt;/div&gt;
+            &lt;div align="right"&gt;&lt;strong&gt;Generated By&lt;/strong&gt;: {!$User.FirstName} {!$User.LastName}&lt;/div&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div style="margin-top:2px;"&gt;
+            &lt;br/&gt;&lt;br/&gt;&lt;br/&gt;
+        &lt;p&gt;FLODocs Impact Analisys&lt;/p&gt;
+        &lt;p&gt;Value Searched: {!searchedText}&lt;br/&gt;
+        Salesforce Metadata Selected: {!sfdcType}&lt;/p&gt;
+        &lt;/div&gt;
+        
+
+       
+          &lt;apex:dataTable value="{!custoGraphList}" var="inner" rowClasses="odd,even"  width="100%" align="center" headerClass="tablehead" style="font-size: 50%; "&gt;
+              &lt;apex:column style="border: 1px;"&gt; 
+                  &lt;apex:facet name="header"&gt;Type&lt;/apex:facet&gt;
+                  &lt;apex:outputText value="{!inner.sfdcType}"/&gt;
+              &lt;/apex:column&gt;
+              &lt;apex:column style="text-align:center;"&gt;
+                  &lt;apex:facet name="header" &gt;Direct Matches&lt;/apex:facet&gt;
+                  &lt;apex:outputText value="{!inner.direct}"/&gt;
+              &lt;/apex:column&gt;
+              &lt;apex:column style="text-align:center;" &gt;
+                  &lt;apex:facet name="header"&gt;Dependencies&lt;/apex:facet&gt;
+                  &lt;apex:outputText value="{!inner.dependency}"/&gt;
+              &lt;/apex:column&gt;   
+          &lt;/apex:dataTable&gt;
+       &lt;br/&gt;
+       &lt;p&gt;FLO Customization Details:&lt;/p&gt;
+       &lt;div style="page-break-after:always;"&gt;
+          &lt;apex:dataTable value="{!listinner}" var="inner" id="theTable" headerClass="tablehead" rowClasses="odd,even" style="font-size: 50%; " columnsWidth="10px, 10px, 10px, 10px, 10px"&gt;
+                      &lt;apex:column style="border: 1px"&gt; 
+                          &lt;apex:facet name="header"&gt;Name&lt;/apex:facet&gt;
+                          &lt;apex:outputText value="{!inner.name}"/&gt;
+                      &lt;/apex:column&gt;
+                      &lt;apex:column &gt;
+                          &lt;apex:facet name="header" &gt;Type&lt;/apex:facet&gt;
+                          &lt;apex:outputText value="{!inner.sfdcType}"/&gt;
+                      &lt;/apex:column&gt;
+                      &lt;apex:column &gt;
+                          &lt;apex:facet name="header"&gt;API Name&lt;/apex:facet&gt;
+                          &lt;apex:outputText value="{!inner.api_name}"/&gt;
+                      &lt;/apex:column&gt;   
+                      &lt;apex:column &gt;
+                          &lt;apex:facet name="header"&gt;Direct/Dependency&lt;/apex:facet&gt;
+                          &lt;apex:outputText value="{!inner.directMessage}"/&gt;
+                      &lt;/apex:column&gt;
+                    &lt;apex:column &gt; 
+                          &lt;apex:facet name="header"&gt;Last Modified Date / DLU&lt;/apex:facet&gt;
+                          &lt;apex:outputText value="{0, date, MMMM d','  yyyy}"&gt;
+                          &lt;apex:param value="{!inner.lastMetadataModified}" /&gt; 
+                      &lt;/apex:outputText&gt;
+                      &lt;/apex:column&gt;
+          &lt;/apex:dataTable&gt;
+       &lt;/div&gt;
+
+            &lt;!-- &lt;table class="table-bordered" cellspacing="0" width="100%"&gt;
+                &lt;thead&gt;
+                    &lt;tr&gt;
+                        &lt;th style="width:10px;" &gt;Name&lt;/th&gt;
+                        &lt;th style="width:10px;"&gt;Type&lt;/th&gt;
+                        &lt;th style="width:10px;"&gt;API Name&lt;/th&gt;
+                        &lt;th style="width:10px;"&gt;Direct/Dependency&lt;/th&gt;
+                        &lt;th style="width:10px;"&gt;Last Modified Date / DLU&lt;/th&gt;
+                        &lt;th style="width:10px;"&gt;Created By&lt;/th&gt;
+                        &lt;th style="width:10px;"&gt;Modified By&lt;/th&gt;
+                    &lt;/tr&gt;
+                &lt;/thead&gt;
+                &lt;tbody&gt;
+                        &lt;apex:repeat value="{!customizationLists}" var="listCus"&gt;
+                        &lt;apex:repeat value="{!listCus}" var="cus"&gt;
+                        &lt;tr&gt;
+                            &lt;td style="width:10px;"&gt;{!cus.name}&lt;/td&gt;
+                            &lt;td style="width:10px;"&gt;{!cus.sfdcType}&lt;/td&gt;
+                            &lt;td style="width:10px;"&gt;{!cus.api_name}&lt;/td&gt;
+                            &lt;td style="width:10px;"&gt;{!cus.directMessage}&lt;/td&gt;
+                            &lt;td style="width:10px;"&gt;&lt;apex:outputText value="{0, date, MMMM d','  yyyy}"&gt;
+                                    &lt;apex:param value="{!cus.lastMetadataModified}" /&gt; 
+                                &lt;/apex:outputText&gt;&lt;/td&gt;
+                            &lt;td style="width:10px;"&gt;{!cus.createdBy}&lt;/td&gt;
+                            &lt;td style="width:10px;"&gt;{!cus.lastModifiedBy}&lt;/td&gt;
+                        &lt;/tr&gt;
+                    &lt;/apex:repeat&gt;
+                    &lt;/apex:repeat&gt;
+                &lt;/tbody&gt; 
+            &lt;/table&gt;--&gt;
+        &lt;!-- &lt;/div&gt; --&gt;
+    &lt;/body&gt;
+&lt;/apex:page&gt;</sf:Markup><sf:MasterLabel>FloFinderPdf</sf:MasterLabel><sf:Name>FloFinderPdf</sf:Name><sf:NamespacePrefix>FLODocs</sf:NamespacePrefix><sf:SystemModstamp>2017-01-23T15:12:02.000Z</sf:SystemModstamp></result><result xsi:type="sf:sObject"><sf:type>ApexPage</sf:type><sf:Id>06628000008PkctAAC</sf:Id><sf:ApiVersion>34.0</sf:ApiVersion><sf:ControllerKey>FLO_Change_Request__c</sf:ControllerKey><sf:ControllerType>1</sf:ControllerType><sf:CreatedById>00528000003pbOYAAY</sf:CreatedById><sf:CreatedDate>2017-01-23T15:09:22.000Z</sf:CreatedDate><sf:Description xsi:nil="true"/><sf:Id>06628000008PkctAAC</sf:Id><sf:IsAvailableInTouch>false</sf:IsAvailableInTouch><sf:IsConfirmationTokenRequired>false</sf:IsConfirmationTokenRequired><sf:LastModifiedById>00528000003pbOYAAY</sf:LastModifiedById><sf:LastModifiedDate>2017-01-23T15:11:04.000Z</sf:LastModifiedDate><sf:Markup>&lt;apex:page showHeader="true" sidebar="true" standardController="FLODocs__FLO_Change_Request__c" extensions="FLODocs.FloChangeRequestEditNewController"&gt;
+  
+
+    &lt;script&gt;
+      function importFromProcessesJS(){
+          if(confirm('Do you want to Import FLO Customizations for the Selected Affected Process(es)?' )){
+              importFromProcessesAF();
+          }
+      }
+    &lt;/script&gt;
+     &lt;apex:sectionHeader title="FLO Change Request" subtitle="New/Edit FLO Change Request"/&gt;
+          &lt;apex:form id="changeRequestForm"&gt;
+            &lt;apex:actionFunction name="importFromProcessesAF" action="{!importFromProcesses}" status="statusC" reRender="multi2"/&gt;
+            &lt;apex:pageMessages /&gt;
+            &lt;apex:pageBlock title="Change Request Info"&gt;
+              &lt;apex:pageBlockButtons &gt;
+                &lt;apex:commandButton action="{!save}" value="Save" status="statusC"/&gt;
+                &lt;apex:commandButton action="{!cancel}" value="Cancel" /&gt;
+              &lt;/apex:pageBlockButtons&gt;
+
+              &lt;apex:pageBlockSection title="Main" collapsible="false" columns="2"&gt;
+                &lt;apex:inputField required="true" value="{!changeRequest.Name}" /&gt;
+                &lt;apex:inputField required="true" value="{!changeRequest.FLODocs__Change_Type__c}" /&gt;
+                &lt;apex:inputField value="{!changeRequest.FLODocs__External_Change_Request_Number__c}" /&gt;
+                &lt;apex:inputField value="{!changeRequest.FLODocs__External_Link__c}" /&gt;
+                &lt;apex:inputField value="{!changeRequest.FLODocs__Completion_Status__c}" /&gt;
+                &lt;apex:inputField value="{!changeRequest.FLODocs__Parent_Change_Request__c}" /&gt;
+                &lt;!-- FLODocs__Status__c --&gt;
+              &lt;/apex:pageBlockSection&gt;
+
+              &lt;apex:pageBlockSection title="Scope" collapsible="false" columns="2" id="scopePb"&gt;
+                    &lt;apex:inputField required="true" value="{!changeRequest.FLODocs__Change_Overview__c}" /&gt;
+                    &lt;apex:inputField value="{!changeRequest.FLODocs__Affected_Bundle_Id__c}" /&gt;
+                   &lt;c:FloMultiSelectList id="multi1" leftLabel="Select Affected Processes" leftOption="{!listAffProccessesOptions}" rightLabel="Selected Process(es)" rightOption="{!selectedAffectedProcesses}" size="7" width="150px"/&gt;
+                    &lt;c:FloMultiSelectList id="multi2" leftLabel="Select Flo Customization" leftOption="{!listCustomizationsOptions}" rightLabel="Selected Customization(s)" rightOption="{!selectedCustomization}" size="7" width="196px" isCustomization="true"/&gt;
+                  &lt;c:FloMultiSelectList id="multi3" leftLabel="Select Proposed Process(es)" leftOption="{!listPropProccessesOptions}" rightLabel="Selected Proposed Process(es)" rightOption="{!selectedPropProcesses}" size="7" width="150px"/&gt;
+                   &lt;!-- &lt;apex:inputField value="{!changeRequest.Import_From_Processes__c}" onchange="importFromProcessesJS();" /&gt; --&gt;
+                  &lt;apex:commandButton value="Import From Process(es)" onclick="importFromProcessesJS(); return false;" /&gt;
+
+                   &lt;apex:inputField value="{!changeRequest.FLODocs__Proposed_Customizations__c}" /&gt;
+              &lt;/apex:pageBlockSection&gt;
+
+              &lt;apex:pageBlockSection title="Approval" collapsible="false" columns="2"&gt;
+                &lt;apex:inputField value="{!changeRequest.FLODocs__Approval_Status__c}" /&gt;
+                &lt;apex:inputField value="{!changeRequest.FLODocs__Stage__c}" /&gt;
+                &lt;apex:inputField value="{!changeRequest.FLODocs__Approver_Notes__c}" /&gt;
+                &lt;c:FloMultiSelectList id="multi4" leftLabel="Select Additional Approver(s)" isUser="true" leftOption="{!listAddApproversOptions}" rightLabel="Selected Additional Approver(s)" rightOption="{!selectedAddApprovers}" size="7" width="230px"/&gt;
+              &lt;/apex:pageBlockSection&gt;
+
+            &lt;!--   &lt;apex:pageBlockSection title="Related Changes Record" collapsible="false" columns="2"&gt;
+                &lt;apex:inputField value="{!changeRequest.Created_From__c}" /&gt;
+              &lt;/apex:pageBlockSection&gt; --&gt;
+              &lt;apex:pageBlockSection title="Deployments" collapsible="false" columns="2"&gt;
+                 &lt;c:FloMultiSelectList id="multi5" leftLabel="Select Developers" isUser="true" leftOption="{!listDevelopersOptions}" rightLabel="Selected Developers" rightOption="{!selectedDevelopers}" size="7" width="230px"/&gt;
+                &lt;c:FloMultiSelectList id="multi6" leftLabel="Select Deployment assigned" isUser="true" leftOption="{!listDeploymentAssOptions}" rightLabel="Selected Deployment Assigned" rightOption="{!selectedDeploymentAss}" size="7" width="230px"/&gt;
+              &lt;/apex:pageBlockSection&gt;
+
+              &lt;apex:pageBlockSection title="Controls" collapsible="false" columns="2"&gt;
+                &lt;apex:inputField value="{!changeRequest.FLODocs__Results_Filter__c}" /&gt;
+              &lt;/apex:pageBlockSection&gt;
+
+            &lt;/apex:pageBlock&gt;
+  &lt;/apex:form&gt;
+  &lt;apex:actionStatus id="statusC"&gt;
+    &lt;apex:facet name="start"&gt;
+      &lt;div style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; opacity: 0.25; z-index: 1000; background-color: black;"&gt;
+        &amp;nbsp;
+      &lt;/div&gt;
+      &lt;div style="position: fixed; left: 0; top: 0; bottom: 0; right: 0; z-index: 1001; margin: 15% 50%"&gt;
+        &lt;div style="display: inline-block; padding: 2px; background-color: #fff; width: 125px;"&gt;
+          &lt;img src="/img/loading.gif" style="float: left; margin: 8px;" /&gt;
+          &lt;span style="display: inline-block; padding: 10px 0px;"&gt;Please Wait...&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/apex:facet&gt;
+      &lt;apex:facet name="stop"&gt;&lt;/apex:facet&gt;
+  &lt;/apex:actionStatus&gt;
+
+&lt;/apex:page&gt;</sf:Markup><sf:MasterLabel>FloChangeRequestEditNew</sf:MasterLabel><sf:Name>FloChangeRequestEditNew</sf:Name><sf:NamespacePrefix>FLODocs</sf:NamespacePrefix><sf:SystemModstamp>2017-01-23T15:12:02.000Z</sf:SystemModstamp></result><result xsi:type="sf:sObject"><sf:type>ApexPage</sf:type><sf:Id>066280000074DDWAA2</sf:Id><sf:ApiVersion>37.0</sf:ApiVersion><sf:ControllerKey xsi:nil="true"/><sf:ControllerType>0</sf:ControllerType><sf:CreatedById>00528000003pbOYAAY</sf:CreatedById><sf:CreatedDate>2016-09-27T16:16:32.000Z</sf:CreatedDate><sf:Description xsi:nil="true"/><sf:Id>066280000074DDWAA2</sf:Id><sf:IsAvailableInTouch>false</sf:IsAvailableInTouch><sf:IsConfirmationTokenRequired>false</sf:IsConfirmationTokenRequired><sf:LastModifiedById>00528000003pbOYAAY</sf:LastModifiedById><sf:LastModifiedDate>2016-09-27T16:22:14.000Z</sf:LastModifiedDate><sf:Markup>&lt;apex:page sidebar="false" showHeader="true"&gt;
+    &lt;h1&gt;
+        First VF Page
+    &lt;/h1&gt;
+    &lt;p&gt;
+     	Sentence
+    &lt;/p&gt;
+&lt;/apex:page&gt;</sf:Markup><sf:MasterLabel>FirstVFPage</sf:MasterLabel><sf:Name>FirstVFPage</sf:Name><sf:NamespacePrefix xsi:nil="true"/><sf:SystemModstamp>2016-09-27T16:22:14.000Z</sf:SystemModstamp></result><result xsi:type="sf:sObject"><sf:type>ApexPage</sf:type><sf:Id>06628000008PkcuAAC</sf:Id><sf:ApiVersion>34.0</sf:ApiVersion><sf:ControllerKey>FloERDViewController</sf:ControllerKey><sf:ControllerType>2</sf:ControllerType><sf:CreatedById>00528000003pbOYAAY</sf:CreatedById><sf:CreatedDate>2017-01-23T15:09:22.000Z</sf:CreatedDate><sf:Description xsi:nil="true"/><sf:Id>06628000008PkcuAAC</sf:Id><sf:IsAvailableInTouch>false</sf:IsAvailableInTouch><sf:IsConfirmationTokenRequired>false</sf:IsConfirmationTokenRequired><sf:LastModifiedById>00528000003pbOYAAY</sf:LastModifiedById><sf:LastModifiedDate>2017-01-23T15:11:04.000Z</sf:LastModifiedDate><sf:Markup>&lt;apex:page showHeader="true" sidebar="false" applyBodyTag="false" controller="FLODocs.FloERDViewController"&gt;
+
+
+
+&lt;head&gt;
+	&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"&gt;&lt;/script&gt;
+	&lt;link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" /&gt;
+	&lt;script&gt;
+		Visualforce.remoting.timeout = 120000;
+		tlp=[];//stores the customization types
+		var pid="";
+		var recname="Service";
+		var reccustid="";
+
+		function createOptions()
+				{
+			//This script builds the drop-down options for selecting records
+			if(tlp.length!=0)
+			{
+				for(t=0;tlp[t]!=null;t++)
+				{
+					//loop through records and build options
+					var reclist = document.getElementById("targetRec");
+					var option = document.createElement("option");
+					option.text = tlp[t].name;
+					option.value = tlp[t].internalid;
+					reclist.add(option);
+				}
+			}
+		}
+
+		function goToRecord(pidParam){
+
+			if(pidParam != ""){
+				pid = pidParam;
+				//var pid="8234";
+				//Javascript Remoting to bring all info of the Flo Custo Selected
+				Visualforce.remoting.Manager.invokeAction(
+					'{!$RemoteAction.FloERDViewController.retrieveRecordInfo}', 
+					pid, 
+					function(result, event){
+						if (event.status) {
+							 //console.log('result',result);
+							 recname = result.Name;
+							 reccustid="";
+							 $('#CUST').hide();
+							 createDiagram();
+							 console.log('after creatediagram()');
+							
+						} else if (event.type === 'exception') {
+							 document.getElementById("errors").innerHTML = event.message;
+						} else {
+							 document.getElementById("errors").innerHTML = event.message;
+						}
+					}, 
+					{escape: true}
+					);
+			}
+		}
+&lt;/script&gt;
+
+&lt;script&gt;
+	/* ERD FUNCS */
+
+
+	function drillDown(id)
+		{
+			id=id.match(/[0-9]+/)[0];
+	    //alert(id)
+	    windowloc=window.location.href;
+	    window.location.href=windowloc.substring(0,windowloc.indexOf("pid="))+"pid="+id
+	}
+
+	function explodedView(id)
+	{
+	   //alert(id+":"+target)
+	   if(id!=target)
+	   {
+	   	//if (id.id != null)
+	   	//	id = id.id;
+
+	   	console.log('explodedview:'+id);
+	   	setDetail(id);
+	   	setTimeout(resizeDetail(id),250);
+	   }
+	   /*else
+	   {
+	   resizeDetail(id)
+	}*/
+	}
+
+	function closeView(id)
+	{
+		if(target!="" &amp;&amp; target!=id)
+		{
+			resizeDetail(id);
+			//$(".details").hide();
+		}
+	}
+
+	function setDetail(id)
+	{
+	  
+	//	 var id = id.id;
+		   //alert(id)
+		   // if(isNaN(id))
+		   // 	{id=id.match(/[0-9]+/)[0];}
+		  //var detsrc=parent.document.getElementById("custdetail").src;
+		   // var detsrc = top.nlapiResolveURL("RECORD","customrecord_flo_customization",id);
+		   //    detsrc+="&amp;target=main:custrecord_flo_cust_parent&amp;label=Parent&amp;l=T";
+
+		    //alert(detsrc)
+		   //detsrc=detsrc.substring(0,detsrc.lastIndexOf("id=")+3)+id;
+		   document.getElementById("custframe").style.display = 'block';
+		   document.getElementById("custdetail").src= '/apex/FloERDViewRecord?id='+id;
+		
+	}
+
+	var target=""
+	var lastY=0;
+	function resizeDetail(id)
+	{  
+
+		if(target=="")
+		{
+
+			document.getElementById("mapdiv").width='300';
+			document.getElementById("detaildiv").width='900';
+			/*while($("#mapdiv).width&gt;300){$("#mapdiv).width=$("#mapdiv).width-1;$("#detaildiv).width=$("#mapdiv).width+1;}*/
+			document.getElementById("detaildiv").style.display='inline';
+			target=id
+		}
+		else 
+		{
+			target="";
+
+			document.getElementById("mapdiv").width='100%';
+			document.getElementById("detaildiv").style.display='none';
+		}
+	}
+
+	function showDetail(thisObj,id,clear){
+
+				//$("#mainlist").width(250);
+				//$(".listcell").width(250);
+				//$(".listcell).css("cursor","wait");
+				//$("#mainlist").css("cursor","wait");
+
+				$("div").css("cursor","wait");
+				$(".details").hide();
+				if(clear!=null)
+				{
+					openitems=[];
+					$(".attrwrapper").hide();
+					$(".FLOConnector").hide();
+					lastY=0;
+				}
+
+				if(id.length &gt; 1 ){
+					var idSelection = id[1].id;
+				}else{
+					var idSelection = id.id;
+				}
+
+				
+				//Remove children of siblings
+				thisClass=$("#"+idSelection).attr("class");
+					//lastY=$("#"+id).position().top;
+					classString="."+thisClass.replace(/ /g,".");
+					$(classString).not("[class='"+thisClass+"']").remove();
+					lastY=$("#"+idSelection).parent().position().top+$("#"+idSelection).position().top;
+					    //remove lines
+					    classString="."+thisClass.replace(/ /g,".");
+					    classString=classString.replace("listcell","FLOConnector");
+					    $(classString).not("[class='"+thisClass.replace("listcell","FLOConnector")+"']").remove();
+					    //remove wrapper
+					    classString="."+thisClass.replace(/ /g,".");
+					    classString=classString.replace("listcell","attrwrapper");
+
+					    $(classString).not("[class='"+thisClass.replace("listcell","attrwrapper")+"']").remove();
+					    $("#detail"+idSelection).show();
+					    if($("#detail"+idSelection).width()&gt;$(".listcell").width())
+					    {
+								//$("#mainlist").width($("#detail"+id).width());
+						//		$(".attrwrapper").width($("#detail"+id).width());
+						//		$(".attrlabel").width($("#detail"+id).width());
+						//		//$(".scriptid").width($("#detail"+id).width());
+						//		$(".listcell").width($("#detail"+id).width());
+						}
+				$("#detail"+idSelection).parent().css("min-width",$("#detail"+idSelection).width());
+				showRelatedObjects(idSelection)
+				$("div").css("cursor","default");
+				$(".listcell").css("cursor","pointer");
+				$(".listtext").css("cursor","pointer");
+				/*
+				var container = $('.bodyDiv'),
+   				 scrollTo = $('#'+idSelection);
+
+				container.animate({
+				    scrollTop: scrollTo.offset().top - container.offset().top + container.scrollTop()
+				});
+				*/
+
+	}
+
+	function normalView(id)
+	{
+		thisShape=custcanvas.getFigure(id);
+		thisShape.setDimension(blockwidth,blockheight)
+	}
+
+	/* END ERD FUNCS */
+    var date1=new Date();
+    var objloop=false;//used to prevent recursive calls to object data in getObj function in case of a communication error
+	var xmlhttp;//xmlhttp obj used to retrieve data
+	var lastObj="";//used to track the currently focused object in order to remove its children when matched.
+	var openitems=[];//track open items do avoid duplicates
+	//var custcanvas=new draw2d.Canvas("gfx_holder_cust");
+	//parent.document.getElementById("detaildiv").style.display='none';
+	var recs=[];
+	var ti;
+	var parentLength=0;
+	/*for(i=0;i&lt;tlp.length &amp;&amp; i&lt;500;i++)
+	{
+		if(tlp[i].custrecord_flo_cust_parent.indexOf(pid)&gt;=0)
+		{
+                     parentLength++
+
+                 }
+
+             }*/
+    parentLength=tlp.length;
+   //alert(parent.length)
+   function appendRelatedObjs(result, event) {
+		if (event.status) {
+
+			if( result != null ) {
+			 	//tlp = [];
+			 	var custos = result.jsonCustos;
+		 		//getMoreRecords = result.hasNext;
+			 	//lastJunctionId = result.lastId;
+			 	//for(var i = 0 ; i &lt; custos.length ; i++){
+			 		
+			 	//}
+
+			 	console.log('before forloop');
+  			    ti=0;
+  				var redata="";//related item data
+  				for(i=0;custos[i]!=null;i++)
+  				{
+					tlp.push(custos[i]);
+  				  //Add a label
+  				  var pname=custos[i].name;
+  				  if(pname.length&gt;30){
+  				  	pname = pname.substring(0,pname.lastIndexOf(" "))+"\n"+pname.substring(pname.lastIndexOf(" ")+1);
+  				   }
+  				 
+  				  $("#mainlist").append("&lt;div id='"+custos[i].internalid+"' onmouseover='closeView("+custos[i].internalid+")' onclick='showDetail(this,"+custos[i].internalid+",true)'  class='listcell'&gt;&lt;div class='listtext'&gt;"+pname+"&lt;/div&gt;&lt;/div&gt;");
+
+  				  $("#mainlist").append("&lt;div style='display:none;' id='detail"+custos[i].internalid+"' class='details'&gt;&lt;table width='100%' style=''&gt;&lt;tr&gt;&lt;td&gt;Scriptid:&lt;/td&gt;&lt;td style=''&gt;"+custos[i].custrecord_flo_cust_id+"&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Owner:&lt;/td&gt;&lt;td&gt;"+custos[i].formulatext+"&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Data Type:&lt;/td&gt;&lt;td&gt;"+custos[i].custrecord_flo_data_type.replace("undefined","")+"&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td width='50'&gt;Last Used:&lt;/td&gt;&lt;td&gt;"+custos[i].custrecord_flo_dls+"&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td align='right'&gt;&lt;input type='button'  name='open record' value='Open Record' onclick='explodedView("+ '"' + custos[i].internalid + '"'+")'/&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;");
+
+  				  $("#loadingdatagif").hide();
+
+			          //Add attribute tables
+			          if(custos[i].list_custrecord_flo_list!=null &amp;&amp; custos[i].list_custrecord_flo_list!="")
+			          {
+			          	createContainer(custos[i].list_name,custos[i].list_internalid,2,400,$("#"+custos[i].internalid).position().top,"",custos[i].list_custrecord_flo_cust_id,1);
+			          	ti++
+			          	lastY=Math.max(Math.max($("#"+custos[i].internalid).position().top,70*ti),lastY)+10;
+			          }
+
+			      	  redata+=","+custos[i].custrecord_flo_list+","+custos[i].custrecord_flo_scripts+","+custos[i].custrecord_flo_searches+","+custos[i].custrecord_flo_cust_forms+","+custos[i].custrecord_flo_data_source+","+custos[i].list_custrecord_flo_wflws;
+
+				}//end for flo records
+
+  				console.log('after forloop');
+			    console.log(result.hasNext + ' ' + result.lastId);
+
+  				if (result.hasNext &amp;&amp; result.parentId != null &amp;&amp; result.lastId != null)
+  					{!$RemoteAction.FloERDViewController.loadChildrenRecords}(result.parentId, result.lastId, appendRelatedObjs);
+	  				  	
+
+			 } else {
+			 	console.log('result null');
+			 	//getMoreRecords = false;
+			 }
+			 
+			 // document.getElementById('errors').innerHTML = result.Id
+			 // document.getElementById('acctName').innerHTML = result.Name;
+		} else if (event.type === 'exception') {
+			 console.log('exception');
+			 document.getElementById("errors").innerHTML = event.message;
+			 //getMoreRecords = false;
+		} else {
+			 console.log('else');
+			 document.getElementById("errors").innerHTML = event.message;
+			 //getMoreRecords = false;
+		}
+	}
+
+	function createDiagram(){
+
+		   	//Request REmote Action
+		   	//Map and Merge fields 
+		   	tlp = [];
+		   	$("#mainlist").append("&lt;div id='"+pid+"' class='attrlabel' style='min-width:300px;width: auto;'&gt;&lt;div class='listtext'&gt;"+recname+"&lt;/div&gt;&lt;/div&gt;");
+	   		
+		   	Visualforce.remoting.Manager.invokeAction(
+					'{!$RemoteAction.FloERDViewController.loadChildrenRecords}', 
+					pid,null, appendRelatedObjs, 
+					{escape: true}
+					);
+	}
+
+	function createContainer(name,id,attributes,pos1,pos2,origrec,thisIntId,count)
+	{
+
+		if(document.getElementById(id)!=null)
+			{rec=document.getElementById(id);}
+		else
+		{
+			var newcont=false;
+	   	  	//var container1 = new draw2d.shape.layout.VerticalLayout();
+	   	  	if($('#cont'+id+'-'+count).length==0)
+	   	  	{
+	   	  		newcont=true;
+	   	  		$("#mainlist").append('&lt;div id="cont'+id+'-'+count+'" class="attrwrapper"  style="position:absolute;left:'+pos1+'px;top:'+pos2+'px;"&gt;&lt;/div&gt;');
+	   	  		$('#cont'+id+'-'+count).append("&lt;div id='intid"+id+"-"+count+"' onmouseover='closeView("+id+")' onclick='explodedView("+'"'+id+'"'+ ")' class='attrlabel'&gt;&lt;div class='listtext'&gt;"+name+"&lt;/div&gt;&lt;/div&gt;");
+	   			//$('#cont'+id+'-'+count).append("&lt;div id='script"+id+"-"+count+"' class='scriptid'&gt;&lt;div class='listtext'&gt;"+thisIntId+"&lt;/div&gt;&lt;/div&gt;");
+	   		}
+				//alert(thisIntId)
+				p=$('#'+tlp[i].internalid).position();
+				//alert("FOUND:"+id+"  "+p.top)
+
+
+				var svgNS = "http://www.w3.org/2000/svg";  
+				if(newcont)
+				{
+
+					var myLine = document.createElementNS(svgNS,"polyline"); 
+					myLine.setAttributeNS(null,"id","line"+id);
+					myLine.setAttributeNS(null,"points","0,"+(p.top+blockheight)+" 150,"+(pos2+blockheight));
+				}
+				else
+				{
+					var myLine = document.createElementNS(svgNS,"polyline"); 
+					myLine.setAttributeNS(null,"id","line"+id);
+					myLine.setAttributeNS(null,"points","0,"+(pos2+blockheight)+" "+"450,"+(pos2+blockheight)+" "+"450,"+(p.top+blockheight)+" "+(p.left)+","+(p.top+blockheight));
+					//myLine.setAttributeNS(null,"points","0,2000 700,3000 700,4000 650,1000");
+				}
+				myLine.setAttributeNS(null,"fill","black");
+				myLine.setAttributeNS(null,"style","fill:none;stroke:black;stroke-width:3");
+
+				document.getElementById("svg").appendChild(myLine);
+
+
+				if(pos1==null |pos1=="")
+				{
+					pos1=custcanvas.getWidth()/2;
+					pos2=custcanvas.getHeight()/2;
+	              //alert(i)
+
+	          }
+	      }
+
+	  }
+
+	function showRelatedObjects(id)
+	{
+		  
+	  	$("#mainlist").css('cursor', 'wait');
+	  	$("#"+id).css('cursor', 'wait');
+	  	foundObj=getObj(id)
+
+	  	console.log(id);
+	  	console.log(foundObj);
+
+		/*if(openitems.indexOf(id)&gt;=0)
+		{return}
+		else
+			{openitems.push(id);}*/
+		//get data for each of the objects
+		redata=foundObj.custrecord_flo_list+","+foundObj.custrecord_flo_scripts+","+foundObj.custrecord_flo_searches+","+foundObj.custrecord_flo_cust_forms+","+foundObj.custrecord_flo_data_source+","+foundObj.list_custrecord_flo_wflws+","+foundObj.customlistfields;
+		redata=redata.replace(/[,]+/g,',').replace(/^,/,'').replace(/,$/,'');
+		if(redata!="")
+		{
+			idlist=[];//list of ids of customizations to get data for
+			redata=redata.split(",");
+			var arraycount = 0;
+			for(re=0;redata[re]!=null;re++)
+			{
+				
+				if(getObj(redata[re],false)=="")
+				{
+					idlist.push(redata[re]);
+					arraycount++;
+				}
+				
+				if(arraycount == 10) {
+					loadDataAndCreateTable(idlist,id);
+					arraycount = 0;
+					idlist=[];
+				}
+			}
+			redata="";
+			if(idlist.length&gt;0)
+				{loadDataAndCreateTable(idlist,id);}
+			
+		}
+
+	}
+
+	function loadDataAndCreateTable(relatedIds,id) {
+		Visualforce.remoting.Manager.invokeAction(
+			'{!$RemoteAction.FloERDViewController.retrieveRecordJsonInfo}', 
+			relatedIds, 
+			function(result, event){
+				if (event.status) {
+					
+					data = result;
+				    //loop through data adding each object to object list
+				    redata = "";
+				    for(d=0;data[d]!=null;d++)
+				    {
+						lasttlp=tlp.push(data[d]);
+					}
+					//Add List element
+					objcount=0;
+					if(!isNaN(foundObj.custrecord_flo_list) &amp;&amp; foundObj.custrecord_flo_list!="")
+					{
+						createObjTable(foundObj,"LIST",foundObj.custrecord_flo_list,objcount);
+						writeConnector($("#"+id),$("#LIST"+foundObj.internalid),objcount);
+						objcount++
+						
+					}
+					
+					console.log(foundObj.custrecord_flo_data_source);
+					
+					//Add Script elements
+					if(foundObj.custrecord_flo_scripts!="")
+					{
+						createObjTable(foundObj,"SCRIPTS",foundObj.custrecord_flo_scripts,objcount);
+						writeConnector($("#"+id),$("#SCRIPTS"+foundObj.internalid),objcount);
+						objcount++
+						
+					}
+					
+					
+					//Add Search elements
+					if(foundObj.custrecord_flo_searches!="")
+					{
+						createObjTable(foundObj,"SEARCHES",foundObj.custrecord_flo_searches,objcount);
+						writeConnector($("#"+id),$("#SEARCHES"+foundObj.internalid),objcount);
+						objcount++
+						
+					}
+					
+					//Add Form Elements
+					if(foundObj.custrecord_flo_cust_forms!="")
+					{
+						createObjTable(foundObj,"FORMS",foundObj.custrecord_flo_cust_forms,objcount);
+						writeConnector($("#"+id),$("#FORMS"+foundObj.internalid),objcount);
+						objcount++
+						
+					}
+					
+					//Add Source Elements
+					if(foundObj.custrecord_flo_data_source!="")
+					{
+						createObjTable(foundObj,"SOURCES",foundObj.custrecord_flo_data_source,objcount);
+						writeConnector($("#"+id),$("#SOURCES"+foundObj.internalid),objcount);
+						objcount++
+						
+					}
+
+					//Add Workflow Elements
+					if(foundObj.list_custrecord_flo_wflws!="")
+					{
+						createObjTable(foundObj,"WORKFLOW",foundObj.list_custrecord_flo_wflws,objcount);
+						writeConnector($("#"+id),$("#WORKFLOW"+foundObj.internalid),objcount);
+						objcount++
+						
+					}
+
+
+					$("#mainlist").css('cursor', 'default');
+					$("#"+id).css('cursor', 'pointer');
+
+				} else if (event.type === 'exception') {
+					 document.getElementById("errors").innerHTML = event.message;
+				} else {
+					 document.getElementById("errors").innerHTML = event.message;
+				}
+			}, 
+			{escape: true}
+		);
+	}
+
+	function getObj(id,skipload)
+	{
+		var foundObj="";
+		for(i=0;tlp[i]!=null &amp;&amp; foundObj=="";i++)
+		{
+			if(tlp[i].internalid==id)
+			{
+				foundObj=tlp[i];
+			}
+		}
+		if(foundObj=="" &amp;&amp; objloop==false &amp;&amp; skipload==null)
+		{
+			var param = [id];
+			loadData(param);
+			objloop=true;
+			foundObj=getObj(id);
+		}
+		
+		objloop=false;
+		return foundObj
+	}
+		
+	function loadData(id)
+	{
+
+
+		var data;
+		//Javascript Remoting to bring all info of the Flo Custo Selected
+		Visualforce.remoting.Manager.invokeAction(
+			'{!$RemoteAction.FloERDViewController.retrieveRecordJsonInfo}', 
+			id, 
+			function(result, event){
+				if (event.status) {
+					
+					data = result;
+				    //loop through data adding each object to object list
+				    redata = "";
+				    for(d=0;data[d]!=null;d++)
+				    {
+						//lasttlp=tlp.push(jQuery.parseJSON(jsonstring));
+						lasttlp=tlp.push(data[d]);
+						redata+=","+data[d].custrecord_flo_list+","+data[d].custrecord_flo_scripts+","+data[d].custrecord_flo_searches+","+data[d].custrecord_flo_cust_forms+","+data[d].custrecord_flo_data_source+","+data[d].list_custrecord_flo_wflws+","+data[d].customlistfields;
+					}
+					
+					redata=redata.replace(/[,]+/g,',').replace(/^,/,'').replace(/,$/,'');
+
+					if(redata!="")
+					{
+						idlist=[];//list of ids of customizations to get data for
+						redata=redata.split(",");
+						var arraycount = 0;
+						for(re=0;redata[re]!=null;re++)
+						{
+
+							if(getObj(redata[re],false)=="")
+							{
+								idlist.push(redata[re]);
+								arraycount++;
+							}
+							if(arraycount == 10) {
+								setTimeout(loadData(idlist),200);
+								arraycount = 0;
+								idlist=[];
+							}
+						}
+						redata="";
+						if(idlist.length&gt;0)
+							{setTimeout(loadData(idlist),200);}
+
+					}
+					//alert(lasttlp)
+					//alert(tlp[lasttlp-1].name)
+					
+					//return tlp[lasttlp-1];
+				} else if (event.type === 'exception') {
+					 document.getElementById("errors").innerHTML = event.message;
+				} else {
+					 document.getElementById("errors").innerHTML = event.message;
+				}
+			}, 
+			{escape: true}
+			);
+
+	}
+	
+	function loadXMLDoc(url){
+			//xalert(url)
+			if (window.XMLHttpRequest)
+			  {// code for IE7+, Firefox, Chrome, Opera, Safari
+			  	xmlhttp=new XMLHttpRequest();
+			  }
+			  else
+			  {// code for IE6, IE5
+			  	xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+			  }
+			//xmlhttp.onreadystatechange=function(){  //xalert(xmlhttp.readyState+"=="+xmlhttp.status)}
+			xmlhttp.open("GET",url,false);
+			xmlhttp.send();
+	}//end of loadXML function
+		
+	function createObjTable(currentObj,label,list,seq){
+
+			//try
+			//{
+		id=currentObj.internalid;
+			//alert("getting object: "+id)
+		parentClassString=getParentClass($("#"+id));
+			//alert(seq);
+			//alert(id+"--"+$("#"+id).position().left+"--"+$("#"+id).width())
+		var newy=parseInt(Math.max(Math.max($("#"+id).position().top,70*ti),lastY)-15);
+		if(seq==0){$("#"+id).position().top;}
+		console.log('createTabe List: ',list);
+		if($('#'+label+id).length==0)
+		{
+			$("#mainlist").append('&lt;div id="'+label+id+'" class="attrwrapper'+parentClassString+'"  style="min-width:300px;width: auto;position:absolute;left:'+($("#"+id).parent().position().left+$("#"+id).position().left+$("#"+id).width()+150)+'px;top:'+newy+'px;"&gt;&lt;/div&gt;');
+
+			$('#'+label+id).append("&lt;div id='intid"+currentObj.list_internalid+"' class='attrlabel'&gt;&lt;div class='listtext'&gt;"+label+"&lt;/div&gt;&lt;/div&gt;");
+			
+
+			objlist=list.split(",");
+			console.log('objlist: ',objlist);
+			var maxrows = 10;
+			for(ol=0;objlist[ol]!=null&amp;&amp;ol&lt;maxrows;ol++)
+			{
+				thisObj=getObj(objlist[ol]);
+					//$('#'+label+id).append("&lt;div id='"+objlist[ol]+"' class='listcell"+parentClassString+"' onclick='showDetail(this,"+objlist[ol]+")'&gt;&lt;div class='listtext'&gt;"+top.nlapiLookupField("customrecord_flo_customization",objlist[ol],"name")+"&lt;/div&gt;&lt;/div&gt;");
+				$('#'+label+id).append("&lt;div id='"+objlist[ol]+"' class='listcell"+parentClassString+"' onclick='showDetail(this,"+objlist[ol]+")'&gt;&lt;div class='listtext'&gt;"+thisObj.name+"&lt;/div&gt;&lt;/div&gt;");
+				//thisObj=getObj(objlist[ol]);
+				
+				$('#'+label+id).append("&lt;div style='display:none;' id='detail"+thisObj.internalid+"' class='details'&gt;&lt;table&gt;&lt;tr&gt;&lt;td&gt;Scriptid:&lt;/td&gt;&lt;td style=''&gt;"+thisObj.custrecord_flo_cust_id+"&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Owner:&lt;/td&gt;&lt;td&gt;"+thisObj.formulatext+"&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Data Type:&lt;/td&gt;&lt;td&gt;"+thisObj.custrecord_flo_data_type+"&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td width='50'&gt;Last Used:&lt;/td&gt;&lt;td&gt;"+thisObj.custrecord_flo_dls+"&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td align='right'&gt;&lt;input type='button'  name='open record' value='Open Record' onclick='explodedView("+'"'+thisObj.internalid+'"'+")'/&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;");
+			}
+			if(objlist!=null &amp;&amp; objlist.length &gt; maxrows) {
+				$('#'+label+id).append("&lt;div id='"+label+id+"more' class='listcell"+parentClassString+"'&gt;&lt;div class='listtext'&gt;More...&lt;/div&gt;&lt;/div&gt;");
+			}
+		}
+		parentClassString=parentClassString.replace(" ",".");
+		$('.attrwrapper'+parentClassString).show();
+		$('.listcell'+parentClassString).show();
+
+		lastY=$('#'+label+id).position().top+$('#'+label+id).height()+155;
+				//if(seq==0){lastY=lastY-15}
+			/*}
+			catch(e)
+			{alert(e.message)}*/
+	}
+		
+		function writeConnector(startObj,endObj,seq)
+		{
+			//This function writes the connector(s) between the source record and the destination record(s)
+			//The seq variable shifts the arrow shape to avoid overlaps
+			parentClassString=getParentClass(startObj);
+			startx=startObj.parent().position().left+startObj.position().left+startObj.width()-7;
+			starty = 0;
+			if (startObj.parent().position().top &gt; 0)
+				starty+=startObj.parent().position().top;
+			else
+				starty+=15;
+			
+			if (seq &gt; 0){
+				starty+=((startObj.height()/5)*seq);
+			}
+			
+			starty+=startObj.position().top;
+			console.log('seq:' + seq);
+			console.log('startObj.parent().position().top:' + startObj.parent().position().top);
+			console.log('startObj.position().top:' + startObj.position().top);
+			console.log('startObj.height():' + startObj.height());
+			if(startObj.parent().parent()!=null &amp;&amp; startObj.parent().parent().position().top &gt; 0)
+				{
+					console.log('startObj.parent().parent().position().top:' + startObj.parent().parent().position().top);
+					starty=starty+startObj.parent().parent().position().top;
+				}
+
+			endy=endObj.position().top+12.5;
+			if (endObj.parent().position().top &gt; 0)
+				endy+=endObj.parent().position().top;
+			else
+				endy+=20;
+			
+			if(endObj.parent().position().left &gt; 0)
+				endx=endObj.parent().position().left+endObj.position().left+5;
+			else
+				endx=endObj.position().left+25;
+
+			console.log('endObj.parent().position().top:' + endObj.parent().position().top);
+			console.log('endObj.position().top:' + endObj.position().top);
+			console.log('endObj.parent().position().left' + endObj.parent().position().left);
+			console.log('endObj.position().left:' + endObj.position().left);
+			var svg = document.getElementById('svg');
+
+			console.log('endy:' + endy);
+			if (endy &gt; svg.clientHeight)
+				svg.style.height = endy + 500;
+			console.log('endy:' + endy);
+			console.log('height:' + svg.clientHeight);
+
+			console.log('styleheight:' + svg.style.height );
+			console.log('width:' + svg.clientWidth);
+			if (endx &gt; svg.clientWidth)
+				svg.style.width = endx + 500;
+			console.log('endx:' + endx);
+			console.log('width:' + svg.clientWidth);
+			console.log('stylewidth:' + svg.style.width);
+
+			//alert(endObj.parent().attr("id")+"--"+endObj.parent().position().left+"--"+endObj.position().left)
+			if(seq==0  &amp;&amp; (endy-starty)&lt;20){endy=starty;midpoint=endx}
+			else
+				{midpoint=(endx-startx)*(1-(1/6)*(seq+1))+startObj.width()+startObj.parent().position().left+startObj.position().left;}
+			
+			//alert(seq+"--"+startx+","+starty+","+endx+","+endy+","+midpoint)
+			var svgNS = "http://www.w3.org/2000/svg";  
+				/*if(newcont)
+				{
+			    var myLine = document.createElementNS(svgNS,"polyline"); 
+			    myLine.setAttributeNS(null,"id","line"+id);
+			    myLine.setAttributeNS(null,"points","0,"+(p.top+blockheight)+" 150,"+(pos2+blockheight));
+		    	}
+		        else
+		        	{*/
+		        		var myLine = document.createElementNS(svgNS,"polyline"); 
+		        		myLine.setAttributeNS(null,"id","line"+id);
+		        		myLine.setAttributeNS(null,"points",startx+","+starty+" "+midpoint+","+starty+" "+midpoint+","+endy+" "+endx+","+endy);
+					//myLine.setAttributeNS(null,"points","0,2000 700,3000 700,4000 650,1000");
+				//}
+				myLine.setAttributeNS(null,"class","FLOConnector"+parentClassString);
+				myLine.setAttributeNS(null,"fill","black");
+				myLine.setAttributeNS(null,"style","fill:none;stroke:black;stroke-width:2");
+
+				document.getElementById("svg").appendChild(myLine);
+			    //startObj.parent().hide();
+			}
+
+			function getParentClass(thisClassObj){
+
+				id=thisClassObj.attr("id");
+				if(id==undefined || id=="undefined")
+				{
+					id=thisClassObj.parent().attr("id");
+					thisClassObj=thisClassObj.parent();
+				}
+				//alert("ID"+id)
+				parentClassString=thisClassObj.attr("class");
+				parentClassString=parentClassString.replace("listcell","");
+				//alert(parentClassString+"--"+thisClassObj.attr("id"))
+				/*if(parentClassString.indexOf(" ")&gt;0 &amp;&amp; parentClassString!="listcell")
+				{parentClassString=parentClassString.substring(parentClassString.indexOf(" "))}
+				else
+					{parentClassString=""}*/
+				parentClassString+=" "+thisClassObj.attr("id");
+				return parentClassString
+			}
+&lt;/script&gt;
+&lt;style&gt;
+    .bodyDiv {
+    	overflow:scroll;
+    }
+    table#bodyTable {
+            table-layout: fixed;
+    }
+	.fa-10x {
+		font-size: 10em;
+	}
+	.cust {
+		position:absolute;
+		top:20%;
+		left:10%;
+		color: orange;
+	}
+
+	.custform {
+		position:relative;
+		left:20%;
+		margin-right: 40px;
+		margin-left: 40px;
+		//display:none;
+		margin-bottom: 10px;
+		margin-top: 10px;
+		float: left;
+		color: orange;
+	}
+	#loadingdatagif{
+		position: relative;
+		top: 50%;
+		transform: translateY(-50%);
+		align:center;
+	}
+
+
+	#mainlist,.attrwrapper{
+		position:absolute;
+		left:20px;
+		top:20px;
+		border:2px solid black;
+		align:center;
+		text-align: center;
+		
+	}
+	#svgdiv,#svg{
+		/*position:absolute;*/
+		left:0px;
+		top:0px;
+		background-color: #FFFFFF;
+		
+	}
+
+	#custdetail{
+		border: 0px;
+		height: 1000px;
+		width: 100%;
+		position: relative;
+	}
+
+	.listcell,.openlistcell{
+		align:center;
+		height:25px;
+		min-width:250px;
+		width: auto;
+		background-color: #CED8F6;
+		border:1px solid gray;
+		font-size:small;
+		text-align: center;
+		//onclick: explodedView(this.id);
+	}
+
+	.listcell{
+		cursor:pointer;
+	}
+
+	.openlistcell{
+		cursor:wait;
+	}
+
+	.listtext{
+		position: relative;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+	.details{
+		word-wrap: break-word;
+	}
+
+	.attrlabel{
+		align:center;
+		height:25px;
+		min-width:250px;
+		width: auto;
+		background-color: #DDDDDD;
+		border:1px solid black;
+		font-size:small;
+		font-weight:bold;
+		text-align: center;
+		vertical-align:text-bottom;
+	}
+	.scriptid{
+		align:center;
+		height:25px;
+		min-width:250px;
+		width: auto;
+		background-color: #CCCCCC;
+		border:1px solid gray;
+		font-size:small;
+		text-align: center;
+	}
+
+	body{
+		height: 1500px;
+	}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;apex:form &gt;
+	
+
+
+	&lt;div id="maindiv" class="maindiv" width="100%" height="600"&gt;
+
+&lt;!-- 
+		&lt;div id="flologo" class="flologo"align="center" style="display:none"&gt;
+		&lt;img src="FLO_logo.png"/&gt;&lt;h1&gt;FLODocs&amp;trade; - Beta&lt;/h1&gt;
+		&lt;/div&gt; --&gt;
+		&lt;div id="custframe" class="custframe" width="100%" height="100%"&gt;
+			&lt;table width="100%" &gt;
+				&lt;tr&gt;
+					&lt;td id="mapdiv" width="100%"&gt;
+						&lt;!-- &lt;iframe name="custmap" id="custmap" border="0" height="1000" width="100%" src="empty.html" frameborder="0"&gt;&lt;/iframe&gt; --&gt;
+						&lt;!--&lt;svg id="svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xstyle="position:absolute;top:10px;left:270px;" height="1500" width="800"&gt;Sorry, your browser does not support inline SVG.&lt;/svg&gt; --&gt;
+						&lt;svg id="svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xstyle="position:absolute;top:10px;left:270px;" height="1500" width="100%" &gt;Sorry, your browser does not support inline SVG.&lt;/svg&gt;
+						&lt;div id="errors"/&gt;
+						&lt;div id="mainlist"&gt;&lt;/div&gt;
+						&lt;div id="CUST" class="cust"&gt;
+							&lt;div id="custlogo" class="custform"&gt;&lt;i class="fa fa-sitemap fa-10x"&gt;&lt;/i&gt;&lt;/div&gt;
+							&lt;div id="custform" class="custform"&gt;
+								&lt;form name="custform" id="custform" action="" method="GET" target=""&gt;
+									&lt;input type="hidden" name="script" value="customscript_flo_cust_viz"&gt;&lt;/input&gt;
+									&lt;input type="hidden" name="deploy" value="1"&gt;&lt;/input&gt;
+									&lt;table&gt;
+										&lt;tr&gt;	
+											&lt;td colspan="2" width="200"&gt;Please select a Custom Object to view using the pull-down below.  &lt;/td&gt;
+										&lt;/tr&gt;
+										&lt;tr&gt;
+											&lt;td&gt;Select a Record Type:&lt;/td&gt;
+											&lt;td&gt;
+												&lt;apex:selectList id="targetRec" onchange="goToRecord(this.value)" value="{!objectSelected}" multiselect="false" size="1"&gt;
+													&lt;apex:selectOptions value="{!FloRecords}"/&gt;
+												&lt;/apex:selectList&gt;
+											
+											&lt;/td&gt;
+										&lt;/tr&gt;
+									&lt;/table&gt;
+								&lt;/form&gt;
+							&lt;/div&gt;
+						&lt;/div&gt;
+					&lt;/td&gt;
+					&lt;td id="detaildiv" width="0" border="1"&gt;
+						&lt;div id="hidedetail" class="navbutton"&gt;
+							&lt;i class="fa fa-angle-double-right " onClick="closeDetail()"&gt;&lt;/i&gt;
+						&lt;/div&gt;
+						&lt;iframe name="custdetail" id="custdetail" frameborder="0" src=""&gt;&lt;/iframe&gt;
+					&lt;/td&gt;
+				&lt;/tr&gt;
+			&lt;/table&gt;
+		&lt;/div&gt;
+
+	&lt;/div&gt;
+
+
+	&lt;/apex:form&gt;
+
+
+
+
+&lt;/body&gt;
+&lt;/apex:page&gt;</sf:Markup><sf:MasterLabel>FloERDView</sf:MasterLabel><sf:Name>FloERDView</sf:Name><sf:NamespacePrefix>FLODocs</sf:NamespacePrefix><sf:SystemModstamp>2017-01-23T15:12:02.000Z</sf:SystemModstamp></result><result xsi:type="sf:sObject"><sf:type>ApexPage</sf:type><sf:Id>06628000008PkcyAAC</sf:Id><sf:ApiVersion>34.0</sf:ApiVersion><sf:ControllerKey>FLO_Change_Request__c</sf:ControllerKey><sf:ControllerType>1</sf:ControllerType><sf:CreatedById>00528000003pbOYAAY</sf:CreatedById><sf:CreatedDate>2017-01-23T15:09:23.000Z</sf:CreatedDate><sf:Description xsi:nil="true"/><sf:Id>06628000008PkcyAAC</sf:Id><sf:IsAvailableInTouch>false</sf:IsAvailableInTouch><sf:IsConfirmationTokenRequired>false</sf:IsConfirmationTokenRequired><sf:LastModifiedById>00528000003pbOYAAY</sf:LastModifiedById><sf:LastModifiedDate>2017-01-23T15:11:05.000Z</sf:LastModifiedDate><sf:Markup>&lt;apex:page showHeader="true" sidebar="true"  standardController="FLODocs__FLO_Change_Request__c" extensions="FLODocs.FloImpactAnalysisCRSectionController"&gt;
+
+	&lt;apex:outputPanel rendered="{!NOT(FLODocs__FLO_Change_Request__c.FLODocs__Impact_Analysis__c)}"&gt;
+		&lt;apex:pageMessage detail="Impact Analysis not activated: You should click on Impact Analysis button before approve or reject a Change Request" severity="Warning" summary="Impact Analysis Section Messages" strength="3" /&gt;
+	&lt;/apex:outputPanel&gt;
+	&lt;apex:outputPanel rendered="{!FLODocs__FLO_Change_Request__c.FLODocs__Impact_Analysis__c}"&gt;
+
+			&lt;div class="container"&gt;
+		    &lt;ul class="nav nav-tabs"&gt;
+		        &lt;li class="nav active"&gt;&lt;a href="#A" data-toggle="tab"&gt;Can Be Safely Deleted or Modified&lt;/a&gt;&lt;/li&gt;
+		        &lt;li class="nav"&gt;&lt;a href="#B" data-toggle="tab"&gt;Cannot Be Safely Deleted or Modified&lt;/a&gt;&lt;/li&gt;
+		    &lt;/ul&gt;
+		    &lt;!-- Tab panes --&gt;
+		    &lt;div class="tab-content"&gt;
+		        &lt;div class="tab-pane fade in active" id="A"&gt;
+		        	&lt;apex:outputPanel rendered="{!IF(safetyImpactAnalysisList.size &gt; 0,true,false)}"&gt;
+	        			&lt;table class="table table-bordered"&gt;
+		        			&lt;thead&gt;
+		        				&lt;tr&gt;
+		        					&lt;th&gt;Customization&lt;/th&gt;
+		        				&lt;/tr&gt;
+		        			&lt;/thead&gt;
+		        			&lt;tbody&gt;
+	        				&lt;apex:repeat value="{!safetyImpactAnalysisList}" var="cus"&gt;
+		        				&lt;tr&gt;
+		        					&lt;td&gt;&lt;a target="_blank" href="/{!cus.customization.Id}"&gt;{!cus.customization.Name}&lt;/a&gt;&lt;/td&gt;
+		        				&lt;/tr&gt;
+	        				&lt;/apex:repeat&gt;
+		        			&lt;/tbody&gt;
+		        		&lt;/table&gt;
+		        	&lt;/apex:outputPanel&gt;
+		        	&lt;apex:outputPanel rendered="{!IF(safetyImpactAnalysisList.size == 0,true,false)}"&gt;
+		        		&lt;apex:outputText value="No Record to show"/&gt;
+		        	&lt;/apex:outputPanel&gt;
+		        &lt;/div&gt;
+		        &lt;div class="tab-pane fade" id="B"&gt;
+		        	&lt;apex:outputPanel rendered="{!IF(notSafetyImpactAnalysisList.size &gt; 0,true,false)}"&gt;
+			        	&lt;div class="container"&gt;
+			        		&lt;table class="table table-bordered"&gt;
+			        			&lt;thead&gt;
+			        				&lt;tr&gt;
+			        					&lt;th&gt;Customization&lt;/th&gt;
+			        					&lt;th&gt;Warning&lt;/th&gt;
+			        					&lt;th&gt;Impacted Customization&lt;/th&gt;
+			        				&lt;/tr&gt;
+			        			&lt;/thead&gt;
+			        			&lt;tbody&gt;
+
+			        				&lt;apex:repeat value="{!notSafetyImpactAnalysisList}" var="cus"&gt;
+				        				&lt;tr&gt;
+				        					&lt;td&gt;&lt;a target="_blank" href="/{!cus.customization.Id}"&gt;{!cus.customization.Name}&lt;/a&gt;&lt;/td&gt;
+				        					&lt;td&gt;{!cus.warning_message}&lt;/td&gt;
+				        					&lt;td&gt;
+					        					&lt;apex:repeat value="{!cus.impactedCustomization}" var="cusImp"&gt;
+					        						&lt;a target="_blank" href="/{!cusImp.Id}"&gt;{!cusImp.Name}&lt;/a&gt;&lt;br/&gt;
+					        					&lt;/apex:repeat&gt;
+				        					&lt;/td&gt;
+				        				&lt;/tr&gt;
+			        				&lt;/apex:repeat&gt;
+			        			&lt;/tbody&gt;
+			        		&lt;/table&gt;
+			        	&lt;/div&gt;
+		        	&lt;/apex:outputPanel&gt;
+		        	&lt;apex:outputPanel rendered="{!IF(notSafetyImpactAnalysisList.size == 0,true,false)}"&gt;
+		        		&lt;apex:outputText value="No Record to show"/&gt;
+		        	&lt;/apex:outputPanel&gt;
+		        &lt;/div&gt;
+		    &lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/apex:outputPanel&gt;
+
+	&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"&gt;&lt;/script&gt;
+	&lt;!-- Latest compiled and minified CSS --&gt;
+	&lt;link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"/&gt;
+	&lt;!-- Optional theme --&gt;
+	&lt;link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css"/&gt;
+	&lt;!-- Latest compiled and minified JavaScript --&gt;
+	&lt;script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"&gt;&lt;/script&gt;
+&lt;/apex:page&gt;</sf:Markup><sf:MasterLabel>FloImpactAnalysisCRSection</sf:MasterLabel><sf:Name>FloImpactAnalysisCRSection</sf:Name><sf:NamespacePrefix>FLODocs</sf:NamespacePrefix><sf:SystemModstamp>2017-01-23T15:12:02.000Z</sf:SystemModstamp></result><result xsi:type="sf:sObject"><sf:type>ApexPage</sf:type><sf:Id>06628000005j0vNAAQ</sf:Id><sf:ApiVersion>27.0</sf:ApiVersion><sf:ControllerKey>WarehouseDataInstall</sf:ControllerKey><sf:ControllerType>2</sf:ControllerType><sf:CreatedById>00528000003pbOYAAY</sf:CreatedById><sf:CreatedDate>2016-07-20T21:30:26.000Z</sf:CreatedDate><sf:Description xsi:nil="true"/><sf:Id>06628000005j0vNAAQ</sf:Id><sf:IsAvailableInTouch>false</sf:IsAvailableInTouch><sf:IsConfirmationTokenRequired>false</sf:IsConfirmationTokenRequired><sf:LastModifiedById>00528000003pbOYAAY</sf:LastModifiedById><sf:LastModifiedDate>2016-07-20T21:30:30.000Z</sf:LastModifiedDate><sf:Markup>&lt;apex:page controller="WarehouseDataInstall"&gt;
+    &lt;apex:form &gt;
+    &lt;h1&gt;Warehouse Schema Data Install&lt;/h1&gt;
+    &lt;apex:outputPanel id="page"&gt;
+    &lt;apex:outputPanel rendered="{!NOT(hasData)}" &gt;
+        &lt;P&gt;If you are using the Warehouse application for the first time, you can use the button below to quickly create test data.&lt;/P&gt;
+        &lt;HR /&gt;
+        &lt;apex:commandButton action="{!createData}" value="Create Data" rerender="page" /&gt;
+    &lt;/apex:outputPanel&gt;
+    &lt;apex:outputPanel rendered="{!hasData}" &gt;
+        &lt;P&gt;Data has been successfully installed.&lt;/P&gt;
+    &lt;/apex:outputPanel&gt;
+    &lt;/apex:outputPanel&gt;
+
+    &lt;/apex:form&gt;
+&lt;/apex:page&gt;</sf:Markup><sf:MasterLabel>WarehouseDataInstall</sf:MasterLabel><sf:Name>WarehouseDataInstall</sf:Name><sf:NamespacePrefix xsi:nil="true"/><sf:SystemModstamp>2016-07-20T21:30:30.000Z</sf:SystemModstamp></result><result xsi:type="sf:sObject"><sf:type>ApexPage</sf:type><sf:Id>06628000008PkcvAAC</sf:Id><sf:ApiVersion>34.0</sf:ApiVersion><sf:ControllerKey>FLO_Customization__c</sf:ControllerKey><sf:ControllerType>1</sf:ControllerType><sf:CreatedById>00528000003pbOYAAY</sf:CreatedById><sf:CreatedDate>2017-01-23T15:09:22.000Z</sf:CreatedDate><sf:Description xsi:nil="true"/><sf:Id>06628000008PkcvAAC</sf:Id><sf:IsAvailableInTouch>false</sf:IsAvailableInTouch><sf:IsConfirmationTokenRequired>false</sf:IsConfirmationTokenRequired><sf:LastModifiedById>00528000003pbOYAAY</sf:LastModifiedById><sf:LastModifiedDate>2017-01-23T15:11:05.000Z</sf:LastModifiedDate><sf:Markup>&lt;apex:page showHeader="false" sidebar="false" standardController="FLODocs__FLO_Customization__c"&gt;
+	&lt;apex:detail id="a" subject="{!FLODocs__FLO_Customization__c.Id}"/&gt;
+&lt;/apex:page&gt;</sf:Markup><sf:MasterLabel>FloERDViewRecord</sf:MasterLabel><sf:Name>FloERDViewRecord</sf:Name><sf:NamespacePrefix>FLODocs</sf:NamespacePrefix><sf:SystemModstamp>2017-01-23T15:12:02.000Z</sf:SystemModstamp></result><result xsi:type="sf:sObject"><sf:type>ApexPage</sf:type><sf:Id>06628000008PitbAAC</sf:Id><sf:ApiVersion>38.0</sf:ApiVersion><sf:ControllerKey xsi:nil="true"/><sf:ControllerType>0</sf:ControllerType><sf:CreatedById>00528000003pbOYAAY</sf:CreatedById><sf:CreatedDate>2017-01-16T12:38:07.000Z</sf:CreatedDate><sf:Description xsi:nil="true"/><sf:Id>06628000008PitbAAC</sf:Id><sf:IsAvailableInTouch>false</sf:IsAvailableInTouch><sf:IsConfirmationTokenRequired>false</sf:IsConfirmationTokenRequired><sf:LastModifiedById>00528000003pbOYAAY</sf:LastModifiedById><sf:LastModifiedDate>2017-01-17T09:20:12.000Z</sf:LastModifiedDate><sf:Markup>&lt;apex:page &gt;
+    &lt;head&gt;
+        
+    &lt;/head&gt;
+&lt;/apex:page&gt;</sf:Markup><sf:MasterLabel>FloFinder</sf:MasterLabel><sf:Name>FloFinder</sf:Name><sf:NamespacePrefix xsi:nil="true"/><sf:SystemModstamp>2017-01-17T09:20:12.000Z</sf:SystemModstamp></result><result xsi:type="sf:sObject"><sf:type>ApexPage</sf:type><sf:Id>06628000008Pkd1AAC</sf:Id><sf:ApiVersion>34.0</sf:ApiVersion><sf:ControllerKey>FloSpiderController</sf:ControllerKey><sf:ControllerType>2</sf:ControllerType><sf:CreatedById>00528000003pbOYAAY</sf:CreatedById><sf:CreatedDate>2017-01-23T15:09:24.000Z</sf:CreatedDate><sf:Description xsi:nil="true"/><sf:Id>06628000008Pkd1AAC</sf:Id><sf:IsAvailableInTouch>false</sf:IsAvailableInTouch><sf:IsConfirmationTokenRequired>false</sf:IsConfirmationTokenRequired><sf:LastModifiedById>00528000003pbOYAAY</sf:LastModifiedById><sf:LastModifiedDate>2017-01-23T15:11:08.000Z</sf:LastModifiedDate><sf:Markup>&lt;apex:page showHeader="true" sidebar="false" controller="FLODocs.FloSpiderController" tabStyle="Account" docType="HTML-5.0"&gt;
+	
+	&lt;link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" /&gt;
+
+	&lt;style&gt;
+		.spiderform {
+			left: 20%;
+			margin-right: 40px;
+			margin-left: 40px;
+			margin-bottom: 10px;
+			margin-top: 10px;
+			color: orange;
+		}
+		.erdform{
+			left: 20%;
+			margin-right: 40px;
+			margin-left: 40px;
+			margin-bottom: 10px;
+			margin-top: 10px;
+			color: orange;	
+		}
+		.spider {
+			top: 20%;
+			left: 10%;
+			display: none;
+			color: orange;
+			cursor: pointer;
+			width: 100%;
+			height: 160px;
+		}
+		.fa-10x {
+			font-size: 10em;
+		}
+	&lt;/style&gt;
+	&lt;script&gt;
+		function addMoveGearsClass(){
+			document.getElementById('gearLogo').className += ' fa-spin';
+		}
+		function removeMoveGearsClass(){
+			document.getElementById('gearLogo').className = 'fa fa-gears fa-10x';
+		}
+	&lt;/script&gt;
+	&lt;apex:form id="form" &gt;
+        	&lt;apex:sectionHeader title="FLODocs BETA Tools"/&gt;
+        	&lt;apex:pageMessages id="messages" escape="false"/&gt;
+        	&lt;div style="width:100%;"&gt;
+        	&lt;div style="width:47%;float:left"&gt;
+        	&lt;apex:pageBlock title="FLO Scanner feature"&gt;
+        			&lt;apex:pageBlockButtons location="top"&gt;
+        				&lt;apex:commandButton value="Get all types" action="{!getAllMetadataTypes}" disabled="{!AND(logsCreated,connectionError)}"/&gt;
+        			&lt;/apex:pageBlockButtons&gt;
+					&lt;apex:pageMessage strength="3" summary="You should get all Salesforce types before Start Individual or FULL type Scanner. Click under get all types button." severity="Warning" rendered="{!NOT(logsCreated)}"/&gt;
+					&lt;div id="SPIDER" class="spider" style="display: block;"&gt;
+						&lt;div style="float:left;"&gt;
+							&lt;div id="spiderlogo" class="spiderform"&gt;&lt;i id="gearLogo" class="fa fa-gears fa-10x"&gt;&lt;/i&gt;&lt;/div&gt;
+						&lt;/div&gt;
+						&lt;div style="float:left;margin-top: 3%;"&gt;
+							&lt;apex:outputLabel value="Select Metadata Type: "/&gt;
+							&lt;apex:selectList label="Select Metadata Type" value="{!metadataSelected}"  size="1" disabled="{!AND(logsCreated,connectionError)}"&gt;
+								&lt;apex:selectOptions value="{!sfdcTypes}"/&gt;
+							&lt;/apex:selectList&gt;&lt;br/&gt;&lt;br/&gt;
+							
+							&lt;apex:commandButton value="Run Scanner" action="{!runSpider}" disabled="{!AND(logsCreated,connectionError)}" /&gt;
+						&lt;/div&gt;
+					&lt;/div&gt;
+			&lt;/apex:pageBlock&gt;
+
+			&lt;apex:pageBlock title="ERD View"&gt;
+				&lt;div id="SPIDER" class="spider" style="display: block;"&gt;
+					&lt;div style="float:left;"&gt;
+						&lt;div id="custlogo" class="erdform"&gt;&lt;i class="fa fa-sitemap fa-10x"&gt;&lt;/i&gt;&lt;/div&gt;
+					&lt;/div&gt;
+					&lt;div style="float:left;margin-top: 50px;"&gt;
+						&lt;apex:commandButton value="Go To ERD Tool" action="{!goToERDView}" disabled="{!AND(logsCreated,connectionError)}" /&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+			&lt;/apex:pageBlock&gt;
+			&lt;apex:pageBlock title="FLODocs Clean Up - Parser Job &amp; Make Join manually execution"&gt;
+				&lt;div id="SPIDER" class="spider" style="display: block;"&gt;
+					&lt;div style="float:left;"&gt;
+						&lt;div id="custlogo" class="erdform"&gt;&lt;i class="fa fa-database fa-10x"&gt;&lt;/i&gt;&lt;/div&gt;
+					&lt;/div&gt;
+					&lt;div style=""&gt;
+						&lt;!-- &lt;apex:pageMessage strength="3" summary="Before execute any of the following methods we do recommend execute first: Clean up Joins" severity="Info"/&gt; --&gt;
+						&lt;apex:outputLabel value="Clean make join date of all Flo Customization records, this will be helpful to make the makeJoin Job run sucessfully:"/&gt;&lt;br/&gt;
+						&lt;apex:commandButton value="Clean MakeJoin Dates" action="{!cleanMakeJoinDate}" disabled="{!AND(logsCreated,connectionError)}"/&gt;
+						&lt;br/&gt;&lt;br/&gt;
+						&lt;apex:outputLabel value="Execute Parser with Make Join"/&gt;&lt;br/&gt;
+						&lt;apex:commandButton value="Execute Parser/Make Join" action="{!executeParser}" disabled="{!AND(logsCreated,connectionError)}"/&gt;
+						&lt;br/&gt;
+						&lt;apex:outputLabel value="Execute Only Make Join:"/&gt;&lt;br/&gt;
+						&lt;apex:commandButton value="Execute Make Join" action="{!executeMakeJoin}" disabled="{!AND(logsCreated,connectionError)}"/&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+			&lt;/apex:pageBlock&gt;
+			&lt;/div&gt;
+			&lt;div style="width:50%;float:left;margin-left:2px;"&gt;
+
+				&lt;apex:pageBlock title="Status Report"&gt;
+					&lt;div id="SPIDER" class="spider" style="display: block;"&gt;
+						&lt;div style="float:left;"&gt;
+							&lt;div id="custlogo" class="erdform"&gt;&lt;i class="fa fa-file-text fa-10x"&gt;&lt;/i&gt;&lt;/div&gt;
+						&lt;/div&gt;
+						&lt;div style="float:left;margin-top: 50px;"&gt;
+							&lt;apex:commandButton value="Status Report" action="{!statusReport}"/&gt;
+						&lt;/div&gt;
+					&lt;/div&gt;
+				&lt;/apex:pageBlock&gt;
+
+				&lt;apex:pageBlock title="FLO Finder"&gt;
+
+					&lt;div id="SPIDER" class="spider" style="display: block;"&gt;
+						&lt;div style="float:left;"&gt;
+							   &lt;div id="custlogo" class="erdform"&gt;&lt;i class="fa fa-search fa-10x"&gt;&lt;/i&gt;&lt;/div&gt;
+						&lt;/div&gt;
+						&lt;div style="float:left;margin-top: 50px;"&gt;
+							&lt;apex:commandButton value="FLO Finder" action="{!finder}" /&gt;
+						&lt;/div&gt;
+					&lt;/div&gt;
+				&lt;/apex:pageBlock&gt;
+
+				&lt;apex:pageBlock title="Installation Settings"&gt;
+					&lt;div id="SPIDER" class="spider" style="display: block;"&gt;
+						&lt;div style="float:left;"&gt;
+							&lt;div id="custlogo" class="erdform"&gt;&lt;i class="fa fa-file-code-o fa-10x"&gt;&lt;/i&gt;&lt;/div&gt;
+						&lt;/div&gt;
+						&lt;div style="float:left;margin-top: 50px;"&gt;
+							&lt;apex:commandLink target="_blank" styleClass="btn" value="Link &gt;&gt;" action="{!installationSettings}"/&gt;
+						&lt;/div&gt;
+					&lt;/div&gt;
+				&lt;/apex:pageBlock&gt;
+				
+			&lt;/div&gt;
+			&lt;/div&gt;
+    &lt;/apex:form&gt;
+    &lt;apex:actionStatus id="statusC" onstart="addMoveGearsClass();" onstop="removeMoveGearsClass();"/&gt;
+&lt;/apex:page&gt;</sf:Markup><sf:MasterLabel>FloSpider</sf:MasterLabel><sf:Name>FloSpider</sf:Name><sf:NamespacePrefix>FLODocs</sf:NamespacePrefix><sf:SystemModstamp>2017-01-23T15:12:02.000Z</sf:SystemModstamp></result><result xsi:type="sf:sObject"><sf:type>ApexPage</sf:type><sf:Id>06628000008PkczAAC</sf:Id><sf:ApiVersion>36.0</sf:ApiVersion><sf:ControllerKey>FLO_Process__c</sf:ControllerKey><sf:ControllerType>1</sf:ControllerType><sf:CreatedById>00528000003pbOYAAY</sf:CreatedById><sf:CreatedDate>2017-01-23T15:09:23.000Z</sf:CreatedDate><sf:Description xsi:nil="true"/><sf:Id>06628000008PkczAAC</sf:Id><sf:IsAvailableInTouch>false</sf:IsAvailableInTouch><sf:IsConfirmationTokenRequired>false</sf:IsConfirmationTokenRequired><sf:LastModifiedById>00528000003pbOYAAY</sf:LastModifiedById><sf:LastModifiedDate>2017-01-23T15:11:06.000Z</sf:LastModifiedDate><sf:Markup>&lt;apex:page showHeader="true" sidebar="true" standardController="FLODocs__FLO_Process__c" extensions="FLODocs.FloProcessEditNewController"&gt;
+	&lt;apex:sectionHeader title="FLO Process" subtitle="New/Edit FLO Process"/&gt;
+		&lt;apex:form &gt;
+	    	&lt;apex:pageMessages /&gt;
+    		&lt;apex:pageBlock title="Process Info"&gt;	      
+    			&lt;apex:pageBlockButtons &gt;
+			        &lt;apex:commandButton action="{!save}" value="Save" reRender="" /&gt;
+			        &lt;apex:commandButton action="{!cancel}" value="Cancel" /&gt;
+      			&lt;/apex:pageBlockButtons&gt;
+		      	&lt;apex:pageBlockSection title="Main" collapsible="false" columns="2"&gt;
+		            &lt;apex:inputField required="true" value="{!floProcess.Name}" /&gt;
+		            &lt;apex:inputField value="{!floProcess.FLODocs__Number__c}" /&gt;
+		            &lt;apex:inputField value="{!floProcess.FLODocs__Parent_num__c}" /&gt;
+		            &lt;apex:inputField value="{!floProcess.FLODocs__Parent__c}" /&gt;
+					&lt;apex:inputField value="{!floProcess.FLODocs__Step_Type__c}" /&gt;
+					&lt;apex:inputField value="{!floProcess.FLODocs__Status__c}" /&gt;
+					&lt;apex:inputField value="{!floProcess.FLODocs__Update_Child_Statuses__c}" /&gt;
+					&lt;apex:inputField value="{!floProcess.FLODocs__Update_Child_Owners_and_Approvers__c}" /&gt;
+		            &lt;c:FloMultiSelectList leftLabel="Select Additional Approver(s)" isUser="true" leftOption="{!listAAOptions}" rightLabel="Selected Additional Approver(s)" rightOption="{!selectedAA}" size="7" width="231px"/&gt; 	
+		      	&lt;/apex:pageBlockSection&gt;
+		      	&lt;apex:pageBlockSection title="Process Docs" collapsible="false" columns="2"&gt;
+					&lt;apex:inputField value="{!floProcess.FLODocs__Overview__c}" /&gt;
+					&lt;apex:inputField value="{!floProcess.FLODocs__Test_Date__c}" /&gt;
+					&lt;apex:inputField value="{!floProcess.FLODocs__Process_Description__c}" /&gt;
+					&lt;apex:inputField value="{!floProcess.FLODocs__Comment_Ideas__c}" /&gt;
+					&lt;apex:inputField value="{!floProcess.FLODocs__To_Archive__c}" /&gt;
+					&lt;apex:inputField value="{!floProcess.FLODocs__Archive_Status__c}" /&gt;
+		      	&lt;/apex:pageBlockSection&gt;
+		      	&lt;apex:pageBlockSection title="Steps" collapsible="false" columns="2"&gt;
+					&lt;apex:inputField value="{!floProcess.FLODocs__Next_Process__c}" /&gt;
+					&lt;apex:inputField value="{!floProcess.FLODocs__Yes_Step__c}" /&gt;
+					&lt;apex:inputField value="{!floProcess.FLODocs__No_Step__c}" /&gt;
+					&lt;apex:inputField value="{!floProcess.FLODocs__Other_Step__c}" /&gt;
+		            &lt;c:FloMultiSelectList leftLabel="Select Supporting Process(es)" leftOption="{!listProcesses}" rightLabel="Selected Process(es)" rightOption="{!selectedProcesses}" size="7" width="150px"/&gt;
+		      	&lt;/apex:pageBlockSection&gt;
+		      	&lt;apex:pageBlockSection title="Customizations" collapsible="false" columns="2"&gt;
+		            &lt;c:FloMultiSelectList leftLabel="Select Visualforce Page(s)/Component(s)" isProcess="true" sfdcType="ApexPage,ApexComponent" leftOption="{!listPages}" rightLabel="Selected Visualforce Page(s)/Component(s)" rightOption="{!selectedPages}" size="7" width="150px"/&gt;
+		            &lt;c:FloMultiSelectList leftLabel="Select Apex Class(es)/Trigger(s)" isProcess="true" sfdcType="ApexTrigger,ApexClass" leftOption="{!listScripts}" rightLabel="Selected Apex Class(es)/Trigger(s)" rightOption="{!selectedScripts}" size="7" width="150px"/&gt;
+		            &lt;c:FloMultiSelectList leftLabel="Select Workflow(s)/Flow(s)/Approval Process(es)" isProcess="true" sfdcType="Workflow,Flow,ApprovalProcess" leftOption="{!listWorkflows}" rightLabel="Selected Workflow(s)/Flow(s)/Approval Process(es)" rightOption="{!selectedWorkflows}" size="7" width="150px"/&gt;
+		            &lt;c:FloMultiSelectList leftLabel="Select Field(s)" leftOption="{!listFields}"  isProcess="true" sfdcType="CustomField"  rightLabel="Selected Field(s)" rightOption="{!selectedFields}" size="7" width="150px"/&gt;
+		            &lt;c:FloMultiSelectList leftLabel="Select Report(s)" leftOption="{!listReports}"  isProcess="true" sfdcType="Report" rightLabel="Selected Report(s)" rightOption="{!selectedReports}" size="7" width="150px"/&gt;
+		            &lt;c:FloMultiSelectList leftLabel="Select Other Customization(s)"  isProcess="true" sfdcType="Other" leftOption="{!listOtherCusts}" rightLabel="Selected Customization(s)" rightOption="{!selectedOtherCusts}" size="7" width="150px"/&gt;
+		      	&lt;/apex:pageBlockSection&gt;
+		      	&lt;apex:pageBlockSection title="Continuous Improvement" collapsible="false" columns="2"&gt;
+					&lt;apex:inputField value="{!floProcess.FLODocs__Audit_Approval_Policy__c}" /&gt;
+					&lt;apex:inputField value="{!floProcess.FLODocs__Update_Child_Process_Policies__c}" /&gt;
+					&lt;apex:inputField value="{!floProcess.FLODocs__Next_Process_Review_Date__c}" /&gt;
+					&lt;apex:inputField value="{!floProcess.FLODocs__Copy_Of__c}" /&gt;
+		            &lt;c:FloMultiSelectList leftLabel="Select Process Audience(s)" leftOption="{!listProcAudiences}" rightLabel="Selected Process Audience(s)" rightOption="{!selectedProcAudiences}" size="7" width="150px"/&gt;
+		            &lt;c:FloMultiSelectList leftLabel="Select Process Editor(s)" leftOption="{!listProcEditors}" rightLabel="Selected Process Editor(s)" rightOption="{!selectedProcEditors}" size="7" width="150px"/&gt;
+					&lt;apex:inputField value="{!floProcess.FLODocs__Copy_Children__c}" /&gt;
+		      	&lt;/apex:pageBlockSection&gt;
+		      	&lt;apex:pageBlockSection title="Implementation" collapsible="false" columns="2"&gt;
+					&lt;apex:inputField value="{!floProcess.FLODocs__Assigned_Implementer__c}" /&gt;
+					&lt;apex:inputField value="{!floProcess.FLODocs__Target_Implementation_Date__c}" /&gt;
+					&lt;apex:inputField value="{!floProcess.FLODocs__Estimated_Implementation_Effort__c}" /&gt;
+					&lt;apex:inputField value="{!floProcess.FLODocs__Material_Risk_Assessed__c}" /&gt;
+		      	&lt;/apex:pageBlockSection&gt;
+		      	&lt;apex:pageBlockSection title="Automation" collapsible="false" columns="2"&gt;
+					&lt;apex:inputField value="{!floProcess.FLODocs__Assigned_Employee__c}" /&gt;
+					&lt;apex:inputField value="{!floProcess.FLODocs__Assign_from_Record__c}" /&gt;
+		      	&lt;/apex:pageBlockSection&gt;
+		      	&lt;apex:pageBlockSection title="Test" collapsible="false" columns="2"&gt;
+					&lt;apex:inputField value="{!floProcess.FLODocs__Test_Template__c}" /&gt;
+		      	&lt;/apex:pageBlockSection&gt;
+	    	&lt;/apex:pageBlock&gt;
+		&lt;/apex:form&gt;
+&lt;/apex:page&gt;</sf:Markup><sf:MasterLabel>FloProcessEditNew</sf:MasterLabel><sf:Name>FloProcessEditNew</sf:Name><sf:NamespacePrefix>FLODocs</sf:NamespacePrefix><sf:SystemModstamp>2017-01-23T15:12:02.000Z</sf:SystemModstamp></result><result xsi:type="sf:sObject"><sf:type>ApexPage</sf:type><sf:Id>06628000008PkcwAAC</sf:Id><sf:ApiVersion>34.0</sf:ApiVersion><sf:ControllerKey>FloFinderController</sf:ControllerKey><sf:ControllerType>2</sf:ControllerType><sf:CreatedById>00528000003pbOYAAY</sf:CreatedById><sf:CreatedDate>2017-01-23T15:09:23.000Z</sf:CreatedDate><sf:Description xsi:nil="true"/><sf:Id>06628000008PkcwAAC</sf:Id><sf:IsAvailableInTouch>false</sf:IsAvailableInTouch><sf:IsConfirmationTokenRequired>false</sf:IsConfirmationTokenRequired><sf:LastModifiedById>00528000003pbOYAAY</sf:LastModifiedById><sf:LastModifiedDate>2017-01-23T15:11:05.000Z</sf:LastModifiedDate><sf:Markup>&lt;apex:page showHeader="true"  sidebar="false" controller="FLODocs.FloFinderController"  tabStyle="FLODocs__FLO_Customization__c"&gt;
+
+     &lt;head&gt;
+        &lt;apex:includescript value="//code.jquery.com/jquery-1.11.1.min.js" / &gt;
+        &lt;apex:includescript value="//cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js" /&gt;
+        &lt;apex:stylesheet value="//cdn.datatables.net/1.10.4/css/jquery.dataTables.css" /&gt;
+        &lt;script&gt;
+             function pressButton(){
+                  var allSelected = '';
+                      $(".selectColumns option:selected").each(function(){
+                    allSelected+=allSelected!='' ? ', '+this.value : this.value;
+                  });
+                  alert(allSelected);
+                  doSearchAF(allSelected);
+                  return false;
+              }
+
+              function searchTextJs(){
+                doSearchByTextAF();
+              }
+
+              function pdfExport(){
+
+              }
+
+              function excelExport(){
+
+              }
+
+        &lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;apex:form id="searchForm"&gt;
+     
+
+            &lt;apex:actionfunction name="doSearchByTextAF" action="{!doSearchByText}" rerender="custoTable,charts" status="statusC" /&gt;
+
+            
+
+            &lt;apex:pageBlock title="Finder - FLO Customization records"&gt;
+                &lt;apex:pageBlockButtons location="top"&gt;
+                    &lt;apex:commandButton value="Find" onclick="searchTextJs();return false;" /&gt;
+                    &lt;apex:commandLink styleClass="btn" value="PDF" target="_blank" action="{!createPdf}" /&gt;
+                    &lt;!-- &lt;apex:commandButton value="Excel" onclick="excelExport();return false;" /&gt; --&gt;
+                &lt;/apex:pageBlockButtons&gt;
+                &lt;apex:pageBlockSection title="Filters" columns="1"&gt;
+                    &lt;apex:pageMessage strength="3" summary="This will search into all Customization Records" severity="INFO"/&gt;
+                    &lt;apex:inputText value="{!searchByText}" label="Search by text"/&gt;
+                    &lt;apex:selectList label="Select Metadata Type" value="{!metadataSelected}"  size="1" &gt;
+                        &lt;apex:selectOptions value="{!sfdcTypes}"/&gt;
+                        &lt;apex:actionSupport event="onchange" action="{!filterByType}" rerender="custoTable,charts" status="statusC"/&gt;
+                    &lt;/apex:selectList&gt;
+                    &lt;!-- &lt;apex:selectList styleClass="selectColumns" label="Select Columns to display" value="{!metadataSelected}" multiselect="true" style="height: 40px;overflow: auto;resize: both;"&gt;
+                        &lt;apex:selectOptions value="{!custColumns}"/&gt;
+                    &lt;/apex:selectList&gt; --&gt;
+                    &lt;!-- &lt;apex:commandButton value="Find" action="{!doSearch}"/&gt; --&gt;
+                &lt;/apex:pageBlockSection&gt;  
+
+                &lt;apex:outputPanel id="charts"&gt;
+                    &lt;apex:chart data="{!custoGraphList}" width="800" height="300" theme="Salesforce" resizable="true"&gt;
+                        &lt;apex:legend position="right" spacing="5"/&gt;
+                        &lt;apex:axis type="Category" position="left" fields="sfdcType" title="Salesforce Types" &gt;&lt;/apex:axis&gt;
+                        &lt;apex:axis type="Numeric" position="bottom" fields="direct,dependency" title="# of Direct Match/Dependencies"&gt;&lt;/apex:axis&gt;
+                        &lt;apex:barSeries orientation="horizontal" stacked="true" axis="bottom" xField="direct,dependency" yField="sfdcType" title="Direct Match,Dependency" tips="true"&gt;&lt;/apex:barSeries&gt;
+                    &lt;/apex:chart&gt;
+                &lt;/apex:outputPanel&gt;
+
+                &lt;apex:outputPanel id="custoTable"  &gt;
+                    &lt;script&gt;
+                        j$ = jQuery.noConflict();
+                        j$(document).ready( function () {
+                            var contactTable = j$('[id$="custable"]').DataTable({
+                            });
+                        });
+                    &lt;/script&gt;
+                    &lt;table id="custable" class="display"&gt;
+                        &lt;thead&gt;
+                            &lt;tr&gt;
+                                &lt;th&gt;Name&lt;/th&gt;
+                                &lt;th&gt;Type&lt;/th&gt;
+                                &lt;th&gt;API Name&lt;/th&gt;
+                                &lt;th&gt;Direct/Dependency&lt;/th&gt;
+                                &lt;th&gt;Last Modified Date / DLU&lt;/th&gt;
+                                &lt;th&gt;Created By&lt;/th&gt;
+                                &lt;th&gt;Modified By&lt;/th&gt;
+                            &lt;/tr&gt;
+                        &lt;/thead&gt;
+                        &lt;tbody&gt;
+                            &lt;apex:repeat value="{!customizationLists}" var="listCus"&gt;
+                                &lt;apex:repeat value="{!listCus}" var="cus"&gt;
+                                &lt;tr&gt;
+                                    &lt;td&gt;&lt;a href="/{!cus.custId}" target="_blank"&gt;{!cus.name}&lt;/a&gt;&lt;/td&gt;
+                                    &lt;td&gt;{!cus.sfdcType}&lt;/td&gt;
+                                    &lt;td&gt;{!cus.api_name}&lt;/td&gt;
+                                    &lt;td&gt;{!cus.directMessage}&lt;/td&gt;
+                                    &lt;td&gt;&lt;apex:outputText value="{0, date, MMMM d','  yyyy}"&gt;
+                                            &lt;apex:param value="{!cus.lastMetadataModified}" /&gt; 
+                                        &lt;/apex:outputText&gt;&lt;/td&gt;
+                                    &lt;td&gt;{!cus.createdBy}&lt;/td&gt;
+                                    &lt;td&gt;{!cus.lastModifiedBy}&lt;/td&gt;
+                                &lt;/tr&gt;
+                            &lt;/apex:repeat&gt;
+                            &lt;/apex:repeat&gt;
+                        &lt;/tbody&gt;
+                    &lt;/table&gt;
+                &lt;/apex:outputPanel&gt;
+            &lt;/apex:pageBlock&gt;
+        &lt;/apex:form&gt;
+
+         &lt;apex:actionStatus id="statusC"&gt;
+            &lt;apex:facet name="start"&gt;
+              &lt;div style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; opacity: 0.25; z-index: 1000; background-color: black;"&gt;
+                &amp;nbsp;
+              &lt;/div&gt;
+              &lt;div style="position: fixed; left: 0; top: 0; bottom: 0; right: 0; z-index: 1001; margin: 15% 50%"&gt;
+                &lt;div style="display: inline-block; padding: 2px; background-color: #fff; width: 125px;"&gt;
+                  &lt;img src="/img/loading.gif" style="float: left; margin: 8px;" /&gt;
+                  &lt;span style="display: inline-block; padding: 10px 0px;"&gt;Please Wait...&lt;/span&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/apex:facet&gt;
+              &lt;apex:facet name="stop"&gt;&lt;/apex:facet&gt;
+          &lt;/apex:actionStatus&gt;
+    &lt;/body&gt;
+&lt;/apex:page&gt;</sf:Markup><sf:MasterLabel>FloFinder</sf:MasterLabel><sf:Name>FloFinder</sf:Name><sf:NamespacePrefix>FLODocs</sf:NamespacePrefix><sf:SystemModstamp>2017-01-23T15:12:02.000Z</sf:SystemModstamp></result><result xsi:type="sf:sObject"><sf:type>ApexPage</sf:type><sf:Id>06628000008PkcsAAC</sf:Id><sf:ApiVersion>34.0</sf:ApiVersion><sf:ControllerKey>FloRemoteSitePageController</sf:ControllerKey><sf:ControllerType>2</sf:ControllerType><sf:CreatedById>00528000003pbOYAAY</sf:CreatedById><sf:CreatedDate>2017-01-23T15:09:22.000Z</sf:CreatedDate><sf:Description xsi:nil="true"/><sf:Id>06628000008PkcsAAC</sf:Id><sf:IsAvailableInTouch>false</sf:IsAvailableInTouch><sf:IsConfirmationTokenRequired>false</sf:IsConfirmationTokenRequired><sf:LastModifiedById>00528000003pbOYAAY</sf:LastModifiedById><sf:LastModifiedDate>2017-01-23T15:11:03.000Z</sf:LastModifiedDate><sf:Markup>&lt;apex:page showHeader="true" sidebar="false" standardStylesheets="true" controller="FLODocs.FloRemoteSitePageController"&gt;
+
+
+		&lt;c:FloRemoteSiteHelper rssName="FLODocs_metadata_api"
+			rssDescription="SFDC to SFDC metadata api."
+			pageOverview="Tool to create Remote Site Settings for FLODocs Scanner"
+			pageOverviewLinkURL="https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_callouts_remote_site_settings.htm"
+			pageOverviewLinkText="Remote Site Setting Overview!"
+			pageSectionTitle="Welcome to Post Install Page"
+			pageSectionSubTitle="FLODocs Configure Installation"
+			/&gt;
+
+
+		&lt;apex:pageBlock title="Flodocs ConnectedApp"&gt;
+			&lt;apex:pageMessage strength="3" severity="Info" summary="To run flodocs scanners you must create a connectedApp in Setup &gt; Create &gt; Apps"/&gt;
+			&lt;p&gt;Useful link about how to create ConnectedApp: &lt;a target="_blank" href="http://www.calvinfroedge.com/salesforce-how-to-generate-api-credentials/"&gt;here&lt;/a&gt;&lt;/p&gt;
+			&lt;p&gt;Steps to follow:&lt;/p&gt;
+			&lt;ul&gt;
+				&lt;li&gt;Create a connected app in Setup &gt; Create &gt; Apps&lt;/li&gt;
+				&lt;li&gt;Extract its consumer key and secret key from the ConnectedApp created&lt;/li&gt;
+				&lt;li&gt;Add username/pass/token of the Admin as well as the ConnectedApp information mentioned above in &lt;apex:outputLink target="_blank" value="/{!floConnectServ}"&gt; Flo Connection Service record&lt;/apex:outputLink&gt;&lt;/li&gt;
+				
+			&lt;/ul&gt;
+		&lt;/apex:pageBlock&gt;
+
+&lt;/apex:page&gt;</sf:Markup><sf:MasterLabel>FLoRemoteSitePage</sf:MasterLabel><sf:Name>FLoRemoteSitePage</sf:Name><sf:NamespacePrefix>FLODocs</sf:NamespacePrefix><sf:SystemModstamp>2017-01-23T15:12:02.000Z</sf:SystemModstamp></result><result xsi:type="sf:sObject"><sf:type>ApexPage</sf:type><sf:Id>06628000008Pkd0AAC</sf:Id><sf:ApiVersion>34.0</sf:ApiVersion><sf:ControllerKey>FLO_Process_Issue__c</sf:ControllerKey><sf:ControllerType>1</sf:ControllerType><sf:CreatedById>00528000003pbOYAAY</sf:CreatedById><sf:CreatedDate>2017-01-23T15:09:24.000Z</sf:CreatedDate><sf:Description xsi:nil="true"/><sf:Id>06628000008Pkd0AAC</sf:Id><sf:IsAvailableInTouch>false</sf:IsAvailableInTouch><sf:IsConfirmationTokenRequired>false</sf:IsConfirmationTokenRequired><sf:LastModifiedById>00528000003pbOYAAY</sf:LastModifiedById><sf:LastModifiedDate>2017-01-23T15:11:07.000Z</sf:LastModifiedDate><sf:Markup>&lt;apex:page showHeader="true" sidebar="true" standardController="FLODocs__FLO_Process_Issue__c" extensions="FLODocs.FloProcessIssueEditNewController"&gt;
+	 &lt;apex:sectionHeader title="FLO Process Issue" subtitle="New/Edit FLO Process Issue"/&gt;
+	  &lt;apex:form &gt;
+	    &lt;apex:pageMessages /&gt;
+	    &lt;apex:pageBlock title="Process Issue Info"&gt;
+	      &lt;apex:pageBlockButtons &gt;
+	        &lt;apex:commandButton action="{!save}" value="Save" reRender="" /&gt;
+	        &lt;apex:commandButton action="{!cancel}" value="Cancel" /&gt;
+	      &lt;/apex:pageBlockButtons&gt;
+	      &lt;apex:pageBlockSection title="Information" collapsible="false" columns="2"&gt;
+	            &lt;apex:inputField required="true" value="{!processIssue.Name}" /&gt;
+	            &lt;apex:inputField required="true" value="{!processIssue.FLODocs__Type__c}" /&gt;
+	            &lt;apex:inputField value="{!processIssue.FLODocs__Issue_Description__c}" /&gt;
+	            &lt;apex:inputField value="{!processIssue.FLODocs__Process__c}" /&gt;
+	            &lt;apex:inputField value="{!processIssue.FLODocs__Status__c}" /&gt;
+				&lt;apex:inputField value="{!processIssue.FLODocs__Approver__c}" /&gt;
+				&lt;apex:inputField value="{!processIssue.FLODocs__External_Ticket_Link__c}" /&gt;
+				&lt;apex:inputField value="{!processIssue.FLODocs__External_Ticket_Number__c}" /&gt;
+	         	&lt;c:FloMultiSelectList leftLabel="Select Flo Customization" isCustomization="true" leftOption="{!listCustomizationsOptions}" rightLabel="Selected Customization(s)" rightOption="{!selectedCustomization}" size="7" width="196px"/&gt;
+	      &lt;/apex:pageBlockSection&gt;
+	      &lt;apex:pageBlockSection title="Implementation" collapsible="false" columns="2" id="scopePb"&gt;
+	      	&lt;apex:inputField value="{!processIssue.FLODocs__Target_Resolution_Date__c}" /&gt;
+	        &lt;apex:inputField value="{!processIssue.FLODocs__Assigned__c}" /&gt;
+			&lt;apex:inputfield value="{!processIssue.FLODocs__Request_Process_Help__c}"/&gt;
+			&lt;apex:inputfield value="{!processIssue.FLODocs__Related_Test__c}"/&gt;
+			&lt;apex:inputfield value="{!processIssue.FLODocs__Effort_Required__c  }"/&gt;
+			&lt;apex:inputfield value="{!processIssue.FLODocs__Originating_URL__c}"/&gt;
+			&lt;apex:inputfield value="{!processIssue.FLODocs__Test__c}"/&gt;
+	      &lt;/apex:pageBlockSection&gt;
+	    &lt;/apex:pageBlock&gt;
+		&lt;/apex:form&gt;
+&lt;/apex:page&gt;</sf:Markup><sf:MasterLabel>FloProcessIssueEditNew</sf:MasterLabel><sf:Name>FloProcessIssueEditNew</sf:Name><sf:NamespacePrefix>FLODocs</sf:NamespacePrefix><sf:SystemModstamp>2017-01-23T15:12:02.000Z</sf:SystemModstamp></result></retrieveResponse></soapenv:Body></soapenv:Envelope>

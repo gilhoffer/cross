@@ -1,0 +1,44 @@
+type netsuite.ItemMember {
+  annotations {
+    hidden_string source {
+    }
+  }
+  string memberDescr {
+  }
+  number componentYield {
+  }
+  number bomQuantity {
+  }
+  string itemSource {
+  }
+  number quantity {
+  }
+  netsuite.RecordRef memberUnit {
+  }
+  string vsoeDeferral {
+  }
+  string vsoePermitDiscount {
+  }
+  boolean vsoeDelivered {
+  }
+  netsuite.RecordRef taxSchedule {
+  }
+  string taxcode {
+  }
+  netsuite.RecordRef item {
+  }
+  number taxrate {
+  }
+  string effectiveDate {
+  }
+  string obsoleteDate {
+  }
+  netsuite.RecordRef effectiveRevision {
+  }
+  netsuite.RecordRef obsoleteRevision {
+  }
+  number lineNumber {
+  }
+  string memberKey {
+  }
+}

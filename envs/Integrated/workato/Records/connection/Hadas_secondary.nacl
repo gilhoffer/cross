@@ -1,0 +1,7 @@
+workato.connection Hadas_secondary@s {
+  application = "salesforce_secondary"
+  id = 423177
+  name = "Hadas secondary"
+  authorized_at = "2021-03-16T15:48:45.022-07:00"
+  authorization_status = "success"
+}

@@ -1,0 +1,25 @@
+netsuite.suitelet customscript_cstm_doc_form_lvl_spider {
+  scriptid = "customscript_cstm_doc_form_lvl_spider"
+  isinactive = false
+  name = "Strongpoint Cust Docu Form Level Spider"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = netsuite.file.instance.SuiteBundles_Bundle_297487_FLOCustomDocumentFormLevelSpider_js@dsdv.path
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy_cstm_doc_form_lvl_spider"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        isdeployed = true
+        isonline = true
+        loglevel = "AUDIT"
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+        title = "Strongpoint Custom Document Form Level Spider"
+      },
+    ]
+  }
+}

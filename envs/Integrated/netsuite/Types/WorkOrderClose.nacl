@@ -1,0 +1,47 @@
+type netsuite.WorkOrderClose {
+  annotations {
+    hidden_string source {
+    }
+  }
+  string createdDate {
+  }
+  string lastModifiedDate {
+  }
+  netsuite.RecordRef customForm {
+  }
+  string tranId {
+  }
+  netsuite.RecordRef item {
+  }
+  number quantity {
+  }
+  number orderQuantity {
+  }
+  number scrapQuantity {
+  }
+  netsuite.RecordRef createdFrom {
+  }
+  string tranDate {
+  }
+  netsuite.RecordRef postingPeriod {
+  }
+  string memo {
+  }
+  netsuite.Subsidiary subsidiary {
+  }
+  netsuite.Department department {
+  }
+  netsuite.Classification class {
+  }
+  netsuite.Location location {
+  }
+  netsuite.RecordRef revision {
+  }
+  string internalId {
+    isAttribute = true
+    _hidden_value = true
+  }
+  string externalId {
+    isAttribute = true
+  }
+}

@@ -1,0 +1,12 @@
+netsuite.file SuiteBundles_Bundle_297487_Strongpoint_Get_HTML_Content_js@dsdbbbv {
+  bundleable = false
+  isinactive = false
+  availablewithoutlogin = false
+  generateurltimestamp = false
+  hideinbundle = false
+  path = "/SuiteBundles/Bundle 297487/Strongpoint-Get-HTML-Content.js"
+  content = file("netsuite/FileCabinet/SuiteBundles/Bundle 297487/Strongpoint-Get-HTML-Content.js")
+  _parent = [
+    netsuite.folder.instance.SuiteBundles_Bundle_297487@ds,
+  ]
+}

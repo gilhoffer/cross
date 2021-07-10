@@ -1,0 +1,11 @@
+type netsuite.VendorBillItemList {
+  annotations {
+    hidden_string source {
+    }
+  }
+  "List<netsuite.VendorBillItem>" item {
+  }
+  boolean replaceAll {
+    isAttribute = true
+  }
+}

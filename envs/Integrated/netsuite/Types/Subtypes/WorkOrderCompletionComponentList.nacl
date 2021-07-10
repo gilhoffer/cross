@@ -1,0 +1,11 @@
+type netsuite.WorkOrderCompletionComponentList {
+  annotations {
+    hidden_string source {
+    }
+  }
+  "List<netsuite.WorkOrderCompletionComponent>" workOrderCompletionComponent {
+  }
+  boolean replaceAll {
+    isAttribute = true
+  }
+}

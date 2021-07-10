@@ -1,0 +1,7 @@
+netsuite.folder Web_Site_Hosting_Files@s {
+  description = "Web Site Folder"
+  bundleable = false
+  isinactive = false
+  isprivate = false
+  path = "/Web Site Hosting Files"
+}

@@ -1,0 +1,33 @@
+workato.recipe New_updated_record_in_Salesforce_will_add_a_new_row_in_a_sheet_in_Google_Sheets_1462955@dssssssssssssssu {
+  id = 1462955
+  user_id = 212128
+  name = "New/updated record in Salesforce will add a new row in a sheet in Google Sheets"
+  copy_count = 1
+  trigger_application = "salesforce"
+  action_applications = [
+    "google_sheets",
+  ]
+  applications = [
+    "salesforce",
+    "google_sheets",
+  ]
+  description = "When there is a new/updated record in Salesforce, add a new row in a sheet in Google Sheets"
+  folder_id = 318283
+  running = false
+  lifetime_task_count = 0
+  config = [
+    {
+      keyword = "application"
+      provider = "salesforce"
+      name = "salesforce"
+      account_id = workato.connection.instance.Gil_s_dev2_sfdc_account@tsss
+    },
+    {
+      keyword = "application"
+      provider = "google_sheets"
+      name = "google_sheets"
+      account_id = workato.connection.instance.My_Google_sheets_connection@s
+    },
+  ]
+  code = workato.recipe__code.instance.New_updated_record_in_Salesforce_will_add_a_new_row_in_a_sheet_in_Google_Sheets_1462955_dssssssssssssssu__updated_custom_object@uuuuuuuuuuuuuuuumuuuu
+}

@@ -1,0 +1,11 @@
+type netsuite.ItemMemberList {
+  annotations {
+    hidden_string source {
+    }
+  }
+  "List<netsuite.ItemMember>" itemMember {
+  }
+  boolean replaceAll {
+    isAttribute = true
+  }
+}

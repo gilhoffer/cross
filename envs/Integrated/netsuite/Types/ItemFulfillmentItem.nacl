@@ -1,0 +1,50 @@
+type netsuite.ItemFulfillmentItem {
+  annotations {
+    hidden_string source {
+    }
+  }
+  string jobName {
+  }
+  boolean itemReceive {
+  }
+  string itemName {
+  }
+  string description {
+  }
+  netsuite.Department department {
+  }
+  netsuite.Classification class {
+  }
+  netsuite.Location location {
+  }
+  number onHand {
+  }
+  number quantity {
+  }
+  string unitsDisplay {
+  }
+  string createPo {
+  }
+  netsuite.InventoryDetail inventoryDetail {
+  }
+  string binNumbers {
+  }
+  string serialNumbers {
+  }
+  string poNum {
+  }
+  netsuite.RecordRef item {
+  }
+  number orderLine {
+  }
+  number quantityRemaining {
+  }
+  number shipGroup {
+  }
+  boolean itemIsFulfilled {
+  }
+  netsuite.RecordRef shipAddress {
+  }
+  netsuite.RecordRef shipMethod {
+  }
+}

@@ -1,0 +1,253 @@
+type netsuite.ServiceResaleItem {
+  annotations {
+    hidden_string source {
+    }
+  }
+  string createdDate {
+  }
+  string lastModifiedDate {
+  }
+  string purchaseDescription {
+  }
+  boolean manufacturingChargeItem {
+  }
+  number cost {
+  }
+  string costUnits {
+  }
+  netsuite.Account expenseAccount {
+  }
+  netsuite.RecordRef intercoExpenseAccount {
+  }
+  string salesDescription {
+  }
+  boolean includeChildren {
+  }
+  netsuite.Account incomeAccount {
+  }
+  netsuite.Account intercoIncomeAccount {
+  }
+  netsuite.RecordRef taxSchedule {
+  }
+  string matrixType {
+  }
+  boolean isTaxable {
+  }
+  string costEstimateType {
+  }
+  number costEstimate {
+  }
+  netsuite.UnitsType unitsType {
+  }
+  netsuite.RecordRef purchaseUnit {
+  }
+  netsuite.RecordRef saleUnit {
+  }
+  string costEstimateUnits {
+  }
+  netsuite.RecordRef issueProduct {
+  }
+  netsuite.RecordRef billingSchedule {
+  }
+  netsuite.Account deferredRevenueAccount {
+  }
+  netsuite.Account intercoDefRevAccount {
+  }
+  netsuite.RecordRef revRecSchedule {
+  }
+  netsuite.RecordRef deferralAccount {
+  }
+  netsuite.RecordRef amortizationTemplate {
+  }
+  string residual {
+  }
+  boolean deferRevRec {
+  }
+  netsuite.RecordRef revenueRecognitionRule {
+  }
+  netsuite.RecordRef revRecForecastRule {
+  }
+  netsuite.RecordRef revenueAllocationGroup {
+  }
+  netsuite.RecordRef createRevenuePlansOn {
+  }
+  boolean directRevenuePosting {
+  }
+  boolean contingentRevenueHandling {
+  }
+  netsuite.Account revReclassFXAccount {
+  }
+  number amortizationPeriod {
+  }
+  number minimumQuantity {
+  }
+  boolean enforceMinQtyInternally {
+  }
+  number maximumQuantity {
+  }
+  string softDescriptor {
+  }
+  boolean pricesIncludeTax {
+  }
+  netsuite.RecordRef quantityPricingSchedule {
+  }
+  boolean useMarginalRates {
+  }
+  string overallQuantityPricingType {
+  }
+  boolean isFulfillable {
+  }
+  boolean generateAccruals {
+  }
+  netsuite.CostCategory costCategory {
+  }
+  number purchaseOrderQuantity {
+  }
+  number purchaseOrderAmount {
+  }
+  number purchaseOrderQuantityDiff {
+  }
+  number receiptQuantity {
+  }
+  number receiptAmount {
+  }
+  number receiptQuantityDiff {
+  }
+  netsuite.PricingGroup pricingGroup {
+  }
+  string minimumQuantityUnits {
+  }
+  number vsoePrice {
+  }
+  string vsoeSopGroup {
+  }
+  string vsoeDeferral {
+  }
+  string vsoePermitDiscount {
+  }
+  boolean vsoeDelivered {
+  }
+  netsuite.RecordRef itemRevenueCategory {
+  }
+  boolean createJob {
+  }
+  string matrixItemNameTemplate {
+  }
+  string storeDisplayName {
+  }
+  netsuite.file storeDisplayThumbnail {
+  }
+  netsuite.file storeDisplayImage {
+  }
+  string storeDescription {
+  }
+  string storeDetailedDescription {
+  }
+  netsuite.RecordRef storeItemTemplate {
+  }
+  string pageTitle {
+  }
+  string urlComponent {
+  }
+  string metaTagHtml {
+  }
+  boolean excludeFromSitemap {
+  }
+  string sitemapPriority {
+  }
+  string searchKeywords {
+  }
+  boolean isDonationItem {
+  }
+  boolean showDefaultDonationAmount {
+  }
+  number maxDonationAmount {
+  }
+  boolean dontShowPrice {
+  }
+  string noPriceMessage {
+  }
+  string outOfStockMessage {
+  }
+  boolean onSpecial {
+  }
+  string outOfStockBehavior {
+  }
+  string relatedItemsDescription {
+  }
+  string specialsDescription {
+  }
+  netsuite.ServiceItemTaskTemplatesList itemTaskTemplatesList {
+  }
+  string featuredDescription {
+  }
+  netsuite.RecordRef customForm {
+  }
+  serviceid itemId {
+  }
+  string upcCode {
+  }
+  string displayName {
+  }
+  string vendorName {
+  }
+  netsuite.ServiceResaleItem parent {
+  }
+  boolean isOnline {
+  }
+  boolean isGcoCompliant {
+  }
+  boolean offerSupport {
+  }
+  boolean isInactive {
+  }
+  boolean availableToPartners {
+  }
+  netsuite.Department department {
+  }
+  netsuite.Classification class {
+  }
+  netsuite.Location location {
+  }
+  "List<netsuite.Subsidiary>" subsidiaryList {
+  }
+  string currency {
+  }
+  netsuite.BillingRatesMatrix billingRatesMatrix {
+  }
+  netsuite.ItemAccountingBookDetailList accountingBookDetailList {
+  }
+  netsuite.ItemOptionsList itemOptionsList {
+  }
+  netsuite.MatrixOptionList matrixOptionList {
+  }
+  netsuite.ItemVendorList itemVendorList {
+  }
+  netsuite.PricingMatrix pricingMatrix {
+  }
+  netsuite.RecordRef purchaseTaxCode {
+  }
+  number rate {
+  }
+  netsuite.RecordRef salesTaxCode {
+  }
+  netsuite.SiteCategoryList siteCategoryList {
+  }
+  netsuite.TranslationList translationsList {
+  }
+  netsuite.Vendor vendor {
+  }
+  netsuite.PresentationItemList presentationItemList {
+  }
+  netsuite.ServiceResaleItemHierarchyVersionsList hierarchyVersionsList {
+  }
+  netsuite.RecordRef consumptionUnit {
+  }
+  string internalId {
+    isAttribute = true
+    _hidden_value = true
+  }
+  string externalId {
+    isAttribute = true
+  }
+}

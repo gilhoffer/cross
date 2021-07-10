@@ -1,0 +1,6 @@
+type workato.recipe__code__block__requirements {
+  "List<workato.recipe__code__block__requirements__extended_input_schema>" extended_input_schema {
+  }
+  "List<unknown>" extended_output_schema {
+  }
+}

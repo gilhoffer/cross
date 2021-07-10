@@ -1,0 +1,10 @@
+type netsuite.TaskContact {
+  annotations {
+    hidden_string source {
+    }
+  }
+  netsuite.RecordRef company {
+  }
+  netsuite.Contact contact {
+  }
+}

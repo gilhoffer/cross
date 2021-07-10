@@ -1,0 +1,11 @@
+type netsuite.LandedCostDataList {
+  annotations {
+    hidden_string source {
+    }
+  }
+  "List<netsuite.LandedCostData>" landedCostData {
+  }
+  boolean replaceAll {
+    isAttribute = true
+  }
+}

@@ -1,0 +1,26 @@
+netsuite.suitelet customscript_flo_stat_report_online {
+  scriptid = "customscript_flo_stat_report_online"
+  defaultfunction = "externalReport"
+  isinactive = false
+  name = "Strongpoint Status Report Online"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = netsuite.file.instance.SuiteBundles_Bundle_297487_FLOExternalCustomerReport_js@dsdv.path
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy_flo_stat_report_online"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        isdeployed = true
+        isonline = true
+        loglevel = "ERROR"
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+        title = "Strongpoint Status Report Online"
+      },
+    ]
+  }
+}

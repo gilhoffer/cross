@@ -1,0 +1,36 @@
+workato.recipe Zuora_test_1___zuora_account_to_salesforce_contact_1495201@sssbsssssu {
+  id = 1495201
+  user_id = 212128
+  name = "Zuora test 1 - zuora account to salesforce contact"
+  copy_count = 1
+  trigger_application = "zuora"
+  action_applications = [
+    "salesforce",
+    "zuora",
+  ]
+  applications = [
+    "zuora",
+    "salesforce",
+  ]
+  description = "When there is a trigger event, do action"
+  folder_id = 318283
+  running = false
+  lifetime_task_count = 0
+  config = [
+    {
+      keyword = "application"
+      name = "zuora"
+      provider = "zuora"
+      account_id = workato.connection.instance.Neta_Zuora_sandbox@s
+      skip_validation = false
+    },
+    {
+      keyword = "application"
+      name = "salesforce"
+      provider = "salesforce"
+      account_id = workato.connection.instance.Astar_s_sandbox@ts
+      skip_validation = false
+    },
+  ]
+  code = workato.recipe__code.instance.Zuora_test_1___zuora_account_to_salesforce_contact_1495201_sssbsssssu__new_updated_record@uuuuuuuuuumuuuu
+}

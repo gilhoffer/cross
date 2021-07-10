@@ -1,0 +1,20 @@
+type workato.recipe__code__block__block__block__block {
+  number number {
+  }
+  string keyword {
+  }
+  workato.recipe__code__block__block__block__block__dynamicPickListSelection dynamicPickListSelection {
+  }
+  workato.recipe__code__block__block__block__block__toggleCfg toggleCfg {
+  }
+  workato.recipe__code__block__block__block__block__input input {
+  }
+  string uuid {
+  }
+  string provider {
+  }
+  string name {
+  }
+  string as {
+  }
+}

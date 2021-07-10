@@ -1,0 +1,99 @@
+<!doctype html>
+
+<html>
+<head>
+	<title>NetSuite Login</title>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel='stylesheet' href='/core/styles/pagestyles.nl?ct=-2&bglt=F2F4F6&bgmd=EDF1F7&bgdk=737A82&bgon=5C7499&bgoff=AFB5BF&bgbar=5C7499&tasktitletext=E4EAF4&crumbtext=C4C8CF&headertext=B5C1D5&ontab=FFFFFF&offtab=000000&text=000000&link=000000&bgbody=FFFFFF&bghead=FFFFFF&portlet=C0CAD9&portletlabel=000000&bgbutton=FFE599&bgrequiredfld=FFFFE5&font=Verdana%2CHelvetica%2Csans-serif&size_site_content=9pt&size_site_title=9pt&size=1.0&nlinputstyles=T&accessibility=F&appOnly=F&NS_VER=2021.1.0'>
+	<link rel="stylesheet" href="/uirefresh/css/fonts.css"/>
+	<link rel="stylesheet" href="/uirefresh/css/global.css"/>
+	<link rel="stylesheet" href="/uirefresh/css/oneoff_loginpage.css"/>
+	<link rel="stylesheet" href="/uirefresh/css/auth_login.css"/>
+        <script type='text/javascript' src='/javascript/NLPortal.jsp?JSP_VER=1&NS_VER=2021.1.0&minver=103'></script>
+    <script type='text/javascript' src='/javascript/FieldLevelHelp.jsp?JSP_VER=1&NS_VER=2021.1.0&minver=103'></script>
+    <script type='text/javascript' src='/assets/help_service/3663278969.js?NS_VER=2021.1.0&minver=103'></script>
+    <script type='text/javascript' src='/javascript/NLUtil.jsp?JSP_VER=1&NS_VER=2021.1.0&minver=103'></script>
+    <script type='text/javascript' src='/javascript/NLUtil.js?NS_VER=2021.1.0&minver=103'></script>
+    <script type='text/javascript' src='/authentication/ui/jquery/jquery-3.5.1.min.js?NS_VER=2021.1.0&minver=103'></script>
+    <script type='text/javascript' src='/authentication/ui/jquery/jquery_isolation.js?NS_VER=2021.1.0&minver=103'></script>
+    <script type='text/javascript' src='/assets/help_center_service/3696101135.js?NS_VER=2021.1.0&minver=103'></script>
+    <script type='text/javascript' src='/assets/legacy_apputil/298586179.js?NS_VER=2021.1.0&minver=103'></script>
+    <script type='text/javascript' src='/javascript/NLAppUtil.jsp?JSP_VER=1&NS_VER=2021.1.0&minver=103'></script>
+    <script type='text/javascript' src='/assets/loginpage_defaultloginpage/1863214813.js?NS_VER=2021.1.0&minver=103'></script>
+
+
+</head>
+<body marginheight=5>
+
+<div id="page-wrapper">
+	<div id="content">
+		<div id='div__alert' class="text-center"></div>
+		<div class="box main-box" id="login-box">
+<div id="login-box-header" class="box-header">
+	<div class="row wrap-image text-center mb-20">
+		<span class="img-pad"></span>
+        			<img src="/images/logos/netsuite-oracle.svg" alt="Company logo" align="center" id="login-logo" class="logo-img">
+	</div>
+</div>
+
+<form method="post" id="login-form" class="validate-form">
+		<input type="hidden" name="redirect" value="/app/help/helpcenter.nl?topic=DOC_LastSalesActivity_SuiteBundle">
+
+		<div class="mb-15">
+            Oracle NetSuite Login
+		</div>
+
+	<div class="row wrap-input validate-input mb-10"
+		 data-validate="Valid email is required: foobar@example.com">
+		<input class="login-email w100 input" type="email" maxlength="254"
+			   title="Enter your email address"
+			   id="userName"
+			   name="email" value="" placeholder="Email"
+			   aria-label="Email address"
+			   tabindex="1"/>
+
+	</div>
+
+	<div class="row wrap-input validate-input mb-15" data-validate="Password is required">
+		<input class="login-password w100 input" type="password" name="password"
+			   id="password"
+			   placeholder="Password" autocomplete="off" title="Enter your password"
+			   aria-label="Password"
+			   maxlength="254" tabindex="2"/>
+	</div>
+
+
+	<div class="row check-forgot-section mb-20 fl-left">
+		<div class="form-checkbox fl-left text-left w100">
+			<label class="label-checkbox remember-me-link" for="rememberme"
+				   title="When you check this box, you will not have to re-enter your e-mail address when you log in. For security, you will always have to re-enter your password.">
+				<input class="input-checkbox" id="rememberme" type="checkbox"
+					   name="rememberme" aria-labelledby="rememberMeLabel" tabindex="4">
+				<span id="rememberMeLabel">Remember Me</span>
+			</label>
+		</div>
+	</div>
+
+	<div class="wrap-button mb-10">
+		<button type="submit" class="submitButton login-button w100" name="Submit" id="login-submit" tabindex="3">
+Log In		</button>
+	</div>
+	<div class="forgot-password fl-left w100 mb-20 text-center link">
+		<a class="link" href="/app/login/preparepwdreset.nl?email=&">
+Forgot your password?		</a>
+	</div>
+</form>
+
+<div id="login-box-footer" class="box-footer">
+	<div class="row mb-15 privacy_statement_static privacy_statement_inline_block">
+		By clicking on the Log In button, you understand and agree to
+		<a href="https://www.oracle.com/us/legal/terms/index.html" class="link">Oracle Terms of Use</a> and
+		<a href="https://www.oracle.com/us/legal/privacy/privacy-policy/index.html" class="link">Oracle Privacy Policy</a>
+	</div>
+</div>		</div> <!-- #login-box -->
+	</div> <!-- #content -->
+</div> <!-- #page-wrapper -->
+</body>
+</html>

@@ -1,0 +1,19 @@
+type netsuite.VendorCategory {
+  annotations {
+    hidden_string source {
+    }
+  }
+  string name {
+  }
+  boolean isTaxAgency {
+  }
+  boolean isInactive {
+  }
+  string internalId {
+    isAttribute = true
+    _hidden_value = true
+  }
+  string externalId {
+    isAttribute = true
+  }
+}

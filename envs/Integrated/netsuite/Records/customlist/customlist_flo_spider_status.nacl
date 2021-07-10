@@ -1,0 +1,41 @@
+netsuite.customlist customlist_flo_spider_status {
+  scriptid = "customlist_flo_spider_status"
+  isinactive = false
+  ismatrixoption = false
+  isordered = true
+  name = "Spider Status"
+  customvalues = {
+    customvalue = [
+      {
+        scriptid = "val_117979_t1049933_278"
+        abbreviation = "R"
+        isinactive = false
+        value = "Run Spider"
+      },
+      {
+        scriptid = "val_117980_t1049933_237"
+        abbreviation = "P"
+        isinactive = false
+        value = "Parse File"
+      },
+      {
+        scriptid = "val_117981_t1049933_239"
+        abbreviation = "M"
+        isinactive = false
+        value = "Make Join"
+      },
+      {
+        scriptid = "val_117982_t1049933_367"
+        abbreviation = "C"
+        isinactive = false
+        value = "Complete"
+      },
+      {
+        scriptid = "val_128231_t1049933_660"
+        abbreviation = "S"
+        isinactive = false
+        value = "Set Form Fields"
+      },
+    ]
+  }
+}

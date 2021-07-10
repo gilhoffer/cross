@@ -1,0 +1,67 @@
+type netsuite.JournalEntry {
+  annotations {
+    hidden_string source {
+    }
+  }
+  netsuite.RecordRef postingPeriod {
+  }
+  string tranDate {
+  }
+  netsuite.Currency currency {
+  }
+  number exchangeRate {
+  }
+  string tranId {
+  }
+  string reversalDate {
+  }
+  boolean reversalDefer {
+  }
+  netsuite.RecordRef parentExpenseAlloc {
+  }
+  boolean isBookSpecific {
+  }
+  netsuite.RecordRef accountingBook {
+  }
+  string reversalEntry {
+  }
+  netsuite.RecordRef createdFrom {
+  }
+  netsuite.Department department {
+  }
+  netsuite.Classification class {
+  }
+  netsuite.Location location {
+  }
+  netsuite.Subsidiary subsidiary {
+  }
+  netsuite.Nexus nexus {
+  }
+  netsuite.RecordRef subsidiaryTaxRegNum {
+  }
+  string taxPointDate {
+  }
+  string memo {
+  }
+  netsuite.Subsidiary toSubsidiary {
+  }
+  boolean approved {
+  }
+  string createdDate {
+  }
+  string lastModifiedDate {
+  }
+  netsuite.RecordRef customForm {
+  }
+  netsuite.JournalEntryLineList lineList {
+  }
+  netsuite.AccountingBookDetailList accountingBookDetailList {
+  }
+  string internalId {
+    isAttribute = true
+    _hidden_value = true
+  }
+  string externalId {
+    isAttribute = true
+  }
+}

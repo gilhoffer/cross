@@ -1,0 +1,14 @@
+type netsuite.ReturnAuthorizationSalesTeam {
+  annotations {
+    hidden_string source {
+    }
+  }
+  netsuite.Employee employee {
+  }
+  netsuite.SalesRole salesRole {
+  }
+  boolean isPrimary {
+  }
+  number contribution {
+  }
+}

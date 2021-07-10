@@ -1,0 +1,8 @@
+<apex:component >
+    <h1>
+        First Component
+    </h1>
+    <p>
+        Component
+    </p>
+</apex:component>

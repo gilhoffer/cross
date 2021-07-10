@@ -1,0 +1,11 @@
+type netsuite.JobCreditCardsList {
+  annotations {
+    hidden_string source {
+    }
+  }
+  "List<netsuite.JobCreditCards>" creditCards {
+  }
+  boolean replaceAll {
+    isAttribute = true
+  }
+}

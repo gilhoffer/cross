@@ -1,0 +1,24 @@
+type netsuite.ProjectTaskAssignee {
+  annotations {
+    hidden_string source {
+    }
+  }
+  netsuite.RecordRef resource {
+  }
+  number units {
+  }
+  netsuite.RecordRef serviceItem {
+  }
+  number estimatedWork {
+  }
+  number unitCost {
+  }
+  number unitPrice {
+  }
+  number cost {
+  }
+  number price {
+  }
+  number plannedWork {
+  }
+}

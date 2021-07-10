@@ -1,0 +1,25 @@
+type netsuite.CouponCode {
+  annotations {
+    hidden_string source {
+    }
+  }
+  netsuite.RecordRef promotion {
+  }
+  string code {
+  }
+  netsuite.RecordRef recipient {
+  }
+  string dateSent {
+  }
+  boolean used {
+  }
+  number useCount {
+  }
+  string internalId {
+    isAttribute = true
+    _hidden_value = true
+  }
+  string externalId {
+    isAttribute = true
+  }
+}

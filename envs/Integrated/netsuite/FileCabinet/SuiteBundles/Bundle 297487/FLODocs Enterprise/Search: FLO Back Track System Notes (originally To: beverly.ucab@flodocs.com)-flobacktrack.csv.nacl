@@ -1,0 +1,12 @@
+netsuite.file SuiteBundles_Bundle_297487_FLODocs_Enterprise_Search__FLO_Back_Track_System_Notes__originally_To__beverly_ucab_flodocs_com__flobacktrack_csv@dsdsdfssssssjsfsvmvkbv {
+  bundleable = false
+  isinactive = false
+  availablewithoutlogin = false
+  generateurltimestamp = false
+  hideinbundle = false
+  path = "/SuiteBundles/Bundle 297487/FLODocs Enterprise/Search: FLO Back Track System Notes (originally To: beverly.ucab@flodocs.com)-flobacktrack.csv"
+  content = file("netsuite/FileCabinet/SuiteBundles/Bundle 297487/FLODocs Enterprise/Search: FLO Back Track System Notes (originally To: beverly.ucab@flodocs.com)-flobacktrack.csv")
+  _parent = [
+    netsuite.folder.instance.SuiteBundles_Bundle_297487_FLODocs_Enterprise@dsds,
+  ]
+}

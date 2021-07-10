@@ -1,0 +1,10 @@
+netsuite.folder SuiteBundles_Bundle_297487_FLODocs_Enterprise_Salesforce_Scripts@dsdsds {
+  description = "Contains files for Salesforce Connector / Salesforce retrieve of Salesforce scripts"
+  bundleable = false
+  isinactive = false
+  isprivate = false
+  path = "/SuiteBundles/Bundle 297487/FLODocs Enterprise/Salesforce Scripts"
+  _parent = [
+    netsuite.folder.instance.SuiteBundles_Bundle_297487_FLODocs_Enterprise@dsds,
+  ]
+}

@@ -1,0 +1,8 @@
+type netsuite.VendorRoles {
+  annotations {
+    hidden_string source {
+    }
+  }
+  netsuite.RecordRef selectedRole {
+  }
+}

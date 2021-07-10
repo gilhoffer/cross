@@ -1,0 +1,27 @@
+netsuite.suitelet customscript_flo_customization_delete {
+  scriptid = "customscript_flo_customization_delete"
+  defaultfunction = "FLOCleanUpRecords"
+  description = "Delete customizations from a CR on click basis."
+  isinactive = false
+  name = "Strongpoint Delete Customizations"
+  notifyadmins = false
+  notifyowner = false
+  notifyuser = false
+  scriptfile = "[/SuiteBundles/Bundle 297487/FLOCleanUpRecords.js]"
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy1"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        isdeployed = true
+        isonline = false
+        loglevel = "AUDIT"
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+        title = "Strongpoint Delete Customizations"
+      },
+    ]
+  }
+}

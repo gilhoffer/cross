@@ -1,0 +1,12 @@
+netsuite.file SuiteBundles_Bundle_297487_FLODocs_Enterprise_FLOChartPortlet_JS_Chart_bundle_js@dsdsdddvv {
+  bundleable = true
+  isinactive = false
+  availablewithoutlogin = true
+  generateurltimestamp = false
+  hideinbundle = false
+  path = "/SuiteBundles/Bundle 297487/FLODocs Enterprise/FLOChartPortlet/JS/Chart.bundle.js"
+  content = file("netsuite/FileCabinet/SuiteBundles/Bundle 297487/FLODocs Enterprise/FLOChartPortlet/JS/Chart.bundle.js")
+  _parent = [
+    netsuite.folder.instance.SuiteBundles_Bundle_297487_FLODocs_Enterprise_FLOChartPortlet_JS@dsdsdd,
+  ]
+}

@@ -1,0 +1,87 @@
+type netsuite.VendorCredit {
+  annotations {
+    hidden_string source {
+    }
+  }
+  string createdDate {
+  }
+  string lastModifiedDate {
+  }
+  netsuite.Nexus nexus {
+  }
+  netsuite.RecordRef subsidiaryTaxRegNum {
+  }
+  boolean taxRegOverride {
+  }
+  boolean taxDetailsOverride {
+  }
+  netsuite.RecordRef customForm {
+  }
+  netsuite.Account account {
+  }
+  number unApplied {
+  }
+  netsuite.RecordRef billAddressList {
+  }
+  boolean autoApply {
+  }
+  number applied {
+  }
+  string transactionNumber {
+  }
+  string tranId {
+  }
+  netsuite.RecordRef createdFrom {
+  }
+  netsuite.RecordRef entity {
+  }
+  number total {
+  }
+  number userTotal {
+  }
+  netsuite.Currency currency {
+  }
+  string currencyName {
+  }
+  netsuite.Address billingAddress {
+  }
+  string tranDate {
+  }
+  number exchangeRate {
+  }
+  netsuite.RecordRef entityTaxRegNum {
+  }
+  string taxPointDate {
+  }
+  number userTaxTotal {
+  }
+  netsuite.RecordRef postingPeriod {
+  }
+  string memo {
+  }
+  netsuite.Department department {
+  }
+  netsuite.Classification class {
+  }
+  netsuite.Location location {
+  }
+  netsuite.Subsidiary subsidiary {
+  }
+  netsuite.VendorCreditExpenseList expenseList {
+  }
+  netsuite.VendorCreditItemList itemList {
+  }
+  netsuite.AccountingBookDetailList accountingBookDetailList {
+  }
+  netsuite.VendorCreditApplyList applyList {
+  }
+  netsuite.TaxDetailsList taxDetailsList {
+  }
+  string internalId {
+    isAttribute = true
+    _hidden_value = true
+  }
+  string externalId {
+    isAttribute = true
+  }
+}

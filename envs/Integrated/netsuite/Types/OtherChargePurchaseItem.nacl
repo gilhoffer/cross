@@ -1,0 +1,117 @@
+type netsuite.OtherChargePurchaseItem {
+  annotations {
+    hidden_string source {
+    }
+  }
+  string createdDate {
+  }
+  string lastModifiedDate {
+  }
+  string purchaseDescription {
+  }
+  boolean manufacturingChargeItem {
+  }
+  number cost {
+  }
+  string costUnits {
+  }
+  netsuite.Account expenseAccount {
+  }
+  boolean isTaxable {
+  }
+  string matrixType {
+  }
+  netsuite.UnitsType unitsType {
+  }
+  netsuite.RecordRef purchaseUnit {
+  }
+  boolean includeChildren {
+  }
+  netsuite.RecordRef issueProduct {
+  }
+  netsuite.RecordRef customForm {
+  }
+  serviceid itemId {
+  }
+  string upcCode {
+  }
+  string displayName {
+  }
+  string vendorName {
+  }
+  netsuite.OtherChargePurchaseItem parent {
+  }
+  boolean isInactive {
+  }
+  string matrixItemNameTemplate {
+  }
+  boolean availableToPartners {
+  }
+  netsuite.Department department {
+  }
+  netsuite.Classification class {
+  }
+  "List<netsuite.Subsidiary>" subsidiaryList {
+  }
+  netsuite.Location location {
+  }
+  netsuite.RecordRef taxSchedule {
+  }
+  netsuite.RecordRef deferralAccount {
+  }
+  netsuite.RecordRef amortizationTemplate {
+  }
+  string residual {
+  }
+  number amortizationPeriod {
+  }
+  boolean isFulfillable {
+  }
+  boolean generateAccruals {
+  }
+  netsuite.ItemAccountingBookDetailList accountingBookDetailList {
+  }
+  netsuite.CostCategory costCategory {
+  }
+  string overheadType {
+  }
+  number purchaseOrderQuantity {
+  }
+  number purchaseOrderAmount {
+  }
+  number purchaseOrderQuantityDiff {
+  }
+  number receiptQuantity {
+  }
+  number receiptAmount {
+  }
+  number receiptQuantityDiff {
+  }
+  string currency {
+  }
+  netsuite.ItemOptionsList itemOptionsList {
+  }
+  netsuite.MatrixOptionList matrixOptionList {
+  }
+  netsuite.ItemVendorList itemVendorList {
+  }
+  netsuite.RecordRef purchaseTaxCode {
+  }
+  netsuite.RecordRef salesTaxCode {
+  }
+  netsuite.TranslationList translationsList {
+  }
+  netsuite.Vendor vendor {
+  }
+  netsuite.OtherChargePurchaseItemHierarchyVersionsList hierarchyVersionsList {
+  }
+  netsuite.RecordRef consumptionUnit {
+  }
+  string internalId {
+    isAttribute = true
+    _hidden_value = true
+  }
+  string externalId {
+    isAttribute = true
+  }
+}

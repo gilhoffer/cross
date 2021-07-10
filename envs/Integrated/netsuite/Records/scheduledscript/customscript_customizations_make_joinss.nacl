@@ -1,0 +1,251 @@
+netsuite.scheduledscript customscript_customizations_make_joinss {
+  scriptid = "customscript_customizations_make_joinss"
+  defaultfunction = "makeRecJoins"
+  description = "Join the customizations based on data relationships"
+  isinactive = false
+  name = "Strongpoint Customization To MakeJoin SS"
+  notifyadmins = false
+  notifyemails = "nic.cano@flodocs.com"
+  notifyowner = false
+  scriptfile = "[/SuiteBundles/Bundle 297487/FLOCustDetailsSS.js]"
+  scriptcustomfields = {
+    scriptcustomfield = [
+      {
+        scriptid = "custscript_last_field_process"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        displaywidth = 40
+        fieldtype = "TEXT"
+        isformula = false
+        ismandatory = false
+        label = "last field proccess"
+        searchlevel = "2"
+        storevalue = true
+      },
+      {
+        scriptid = "custscript_makejoins_iteminternalid"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        displaywidth = 40
+        fieldtype = "TEXT"
+        isformula = false
+        ismandatory = false
+        label = "Last internal id"
+        searchlevel = "2"
+        storevalue = true
+      },
+      {
+        scriptid = "custscript_flo_make_joins_ss_search"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "TEXT"
+        isformula = false
+        ismandatory = false
+        label = "Saved Search ID"
+        searchlevel = "2"
+        storevalue = true
+      },
+      {
+        scriptid = "custscript_flo_makejoin_starttime"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "TIMEOFDAY"
+        isformula = false
+        ismandatory = false
+        label = "Start Time"
+        searchlevel = "2"
+        storevalue = true
+      },
+      {
+        scriptid = "custscript_flo_makejoin_endtime"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "TIMEOFDAY"
+        isformula = false
+        ismandatory = false
+        label = "End Time"
+        searchlevel = "2"
+        storevalue = true
+      },
+    ]
+  }
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy8"
+        isdeployed = true
+        loglevel = "AUDIT"
+        status = "NOTSCHEDULED"
+        title = "Strongpoint Customization To Make Join SS 2"
+        recurrence = {
+          single = {
+            startdate = "2015-12-03"
+            starttime = "02:00:00Z"
+          }
+        }
+      },
+      {
+        scriptid = "customdeploy_customizations_make_joinss"
+        isdeployed = true
+        loglevel = "AUDIT"
+        status = "NOTSCHEDULED"
+        title = "Strongpoint Customization To Make Join SS - OD"
+        recurrence = {
+          single = {
+            repeat = "PT12H"
+            startdate = "2014-12-12"
+            starttime = "02:00:00Z"
+          }
+        }
+      },
+      {
+        scriptid = "customdeploy_customizations_to_make_join"
+        isdeployed = true
+        loglevel = "AUDIT"
+        status = "NOTSCHEDULED"
+        title = "Strongpoint Customization To Make Join SS"
+        recurrence = {
+          daily = {
+            everyxdays = 1
+            repeat = "PT12H"
+            startdate = "2014-12-17"
+            starttime = "02:00:00Z"
+          }
+        }
+      },
+      {
+        scriptid = "customdeploy_flo_cust_join_searches"
+        isdeployed = true
+        loglevel = "AUDIT"
+        status = "SCHEDULED"
+        title = "Strongpoint Customization To Make Join SS (By Proc)"
+        recurrence = {
+          daily = {
+            everyxdays = 1
+            repeat = "PT1H"
+            startdate = "2016-03-01"
+            starttime = "19:30:00Z"
+          }
+        }
+      },
+      {
+        scriptid = "customdeploy_flo_cust_to_make_join_all"
+        isdeployed = true
+        loglevel = "AUDIT"
+        status = "NOTSCHEDULED"
+        title = "Strongpoint Customization To Make Join SS (All)"
+        recurrence = {
+          daily = {
+            everyxdays = 1
+            repeat = "PT12H"
+            startdate = "2014-12-12"
+            starttime = "02:00:00Z"
+          }
+        }
+      },
+      {
+        scriptid = "customdeploy_flo_cust_to_make_join_fr"
+        isdeployed = true
+        loglevel = "AUDIT"
+        status = "NOTSCHEDULED"
+        title = "Strongpoint Customization To Make Join SS (FR)"
+        recurrence = {
+          single = {
+            startdate = "2015-09-09"
+            starttime = "01:00:00Z"
+          }
+        }
+      },
+      {
+        scriptid = "customdeploy_flo_cust_to_make_join_lists"
+        isdeployed = true
+        loglevel = "AUDIT"
+        status = "NOTSCHEDULED"
+        title = "Strongpoint Customization To Make Join SS (List)"
+        recurrence = {
+          single = {
+            startdate = "2016-06-16"
+            starttime = "01:00:00Z"
+          }
+        }
+      },
+      {
+        scriptid = "customdeploy_flo_cust_to_make_join_se"
+        isdeployed = true
+        loglevel = "AUDIT"
+        status = "NOTSCHEDULED"
+        title = "Strongpoint Customization To Make Join SS (SE)"
+        recurrence = {
+          single = {
+            startdate = "2015-09-09"
+            starttime = "01:00:00Z"
+          }
+        }
+      },
+      {
+        scriptid = "customdeploy_flo_cust_to_make_join_trgt"
+        isdeployed = true
+        loglevel = "AUDIT"
+        status = "NOTSCHEDULED"
+        title = "Strongpoint Customization To Make Join SS (targeted)"
+        recurrence = {
+          single = {
+            startdate = "2016-08-27"
+            starttime = "01:00:00Z"
+          }
+        }
+      },
+      {
+        scriptid = "customdeploy_flo_cust_to_make_join_wf"
+        isdeployed = true
+        loglevel = "AUDIT"
+        status = "NOTSCHEDULED"
+        title = "Strongpoint Customization To Make Join SS (WF)"
+        recurrence = {
+          single = {
+            startdate = "2015-09-09"
+            starttime = "01:00:00Z"
+          }
+        }
+      },
+      {
+        scriptid = "customdeploy_flo_make_join_from_spider"
+        isdeployed = true
+        loglevel = "AUDIT"
+        status = "NOTSCHEDULED"
+        title = "Strongpoint Customization To Make Join SS (By Proc Unscheduled)"
+        recurrence = {
+          single = {
+            startdate = "2017-03-02"
+            starttime = "02:00:00Z"
+          }
+        }
+      },
+    ]
+  }
+  libraries = {
+    library = [
+      {
+        scriptfile = netsuite.file.instance.SuiteBundles_Bundle_297487_FLOTimeWindow_js@dsdv.path
+      },
+      {
+        scriptfile = netsuite.file.instance.SuiteBundles_Bundle_297487_FLORemoveInactiveReferencesFromCust_js@dsdv.path
+      },
+    ]
+  }
+}

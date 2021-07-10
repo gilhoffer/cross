@@ -1,0 +1,27 @@
+netsuite.suitelet customscript_flo_validate_license_suite {
+  scriptid = "customscript_flo_validate_license_suite"
+  defaultfunction = "licenseManagerSuiteLet"
+  description = "Validate if the current user have a valid license to access a particular tool like ERD or Proc. Library."
+  isinactive = false
+  name = "Strongpoint Validate License Suitelet"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = "[/SuiteBundles/Bundle 297487/FLOValidateLicense.js]"
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy_flo_validate_license_suite"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        isdeployed = true
+        isonline = false
+        loglevel = "AUDIT"
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+        title = "Strongpoint Validate License Suitelet"
+      },
+    ]
+  }
+}

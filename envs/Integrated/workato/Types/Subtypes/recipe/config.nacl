@@ -1,0 +1,12 @@
+type workato.recipe__config {
+  string keyword {
+  }
+  string name {
+  }
+  string provider {
+  }
+  number account_id {
+  }
+  boolean skip_validation {
+  }
+}

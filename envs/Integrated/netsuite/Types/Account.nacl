@@ -1,0 +1,71 @@
+type netsuite.Account {
+  annotations {
+    hidden_string source {
+    }
+  }
+  string acctType {
+  }
+  netsuite.UnitsType unitsType {
+  }
+  netsuite.RecordRef unit {
+  }
+  string acctNumber {
+  }
+  serviceid acctName {
+  }
+  string legalName {
+  }
+  boolean includeChildren {
+  }
+  netsuite.Currency currency {
+  }
+  string exchangeRate {
+  }
+  string generalRate {
+  }
+  netsuite.Account parent {
+  }
+  string cashFlowRate {
+  }
+  netsuite.RecordRef billableExpensesAcct {
+  }
+  netsuite.RecordRef deferralAcct {
+  }
+  string description {
+  }
+  number curDocNum {
+  }
+  boolean isInactive {
+  }
+  netsuite.Department department {
+  }
+  netsuite.Classification class {
+  }
+  netsuite.Location location {
+  }
+  netsuite.RecordRefList restrictToAccountingBookList {
+  }
+  boolean inventory {
+  }
+  boolean eliminate {
+  }
+  "List<netsuite.Subsidiary>" subsidiaryList {
+  }
+  netsuite.RecordRef category1099misc {
+  }
+  netsuite.AccountLocalizationsList localizationsList {
+  }
+  number openingBalance {
+  }
+  string tranDate {
+  }
+  boolean revalue {
+  }
+  string internalId {
+    isAttribute = true
+    _hidden_value = true
+  }
+  string externalId {
+    isAttribute = true
+  }
+}

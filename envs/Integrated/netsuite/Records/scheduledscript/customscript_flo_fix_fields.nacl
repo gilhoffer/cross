@@ -1,0 +1,27 @@
+netsuite.scheduledscript customscript_flo_fix_fields {
+  scriptid = "customscript_flo_fix_fields"
+  defaultfunction = "FLOfixFields"
+  description = "Consolidate datasource join after de duplicate customizations"
+  isinactive = false
+  name = "Strongpoint Fix Fields"
+  notifyadmins = false
+  notifyowner = true
+  scriptfile = "[/SuiteBundles/Bundle 297487/FLOSourcingDataFix.js]"
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy_flo_fix_fields"
+        isdeployed = true
+        loglevel = "AUDIT"
+        status = "NOTSCHEDULED"
+        title = "Strongpoint Fix Fields"
+        recurrence = {
+          single = {
+            startdate = "2015-07-19"
+            starttime = "01:00:00Z"
+          }
+        }
+      },
+    ]
+  }
+}

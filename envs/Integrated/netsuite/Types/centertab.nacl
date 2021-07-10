@@ -1,0 +1,48 @@
+type netsuite.centertab_portlets {
+  "List<netsuite.centertab_portlets_portlet>" portlet {
+  }
+}
+type netsuite.centertab_portlets_portlet {
+  serviceid scriptid {
+    _required = true
+    isAttribute = true
+  }
+  netsuite.generic_portlet portlet {
+  }
+  netsuite.generic_portletcolumn portletcolumn {
+  }
+  boolean isportletshown {
+  }
+}
+type netsuite.centertab {
+  serviceid scriptid {
+    _required = true
+    isAttribute = true
+    _restriction = {
+      regex = "^custcentertab[0-9a-z_]+"
+    }
+  }
+  string label {
+    _required = true
+  }
+  string center {
+    _required = true
+  }
+  boolean allvendors {
+  }
+  boolean allroles {
+  }
+  boolean allpartners {
+  }
+  boolean allcustomers {
+  }
+  boolean allemployees {
+  }
+  string audslctrole {
+  }
+  netsuite.centertab_portlets portlets {
+  }
+  string _lastfetchtime {
+    _hidden_value = true
+  }
+}

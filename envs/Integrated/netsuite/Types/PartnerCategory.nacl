@@ -1,0 +1,19 @@
+type netsuite.PartnerCategory {
+  annotations {
+    hidden_string source {
+    }
+  }
+  string name {
+  }
+  netsuite.PartnerCategory parent {
+  }
+  boolean isInactive {
+  }
+  string internalId {
+    isAttribute = true
+    _hidden_value = true
+  }
+  string externalId {
+    isAttribute = true
+  }
+}

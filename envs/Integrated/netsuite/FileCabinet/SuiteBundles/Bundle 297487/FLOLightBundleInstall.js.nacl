@@ -1,0 +1,12 @@
+netsuite.file SuiteBundles_Bundle_297487_FLOLightBundleInstall_js@dsdv {
+  bundleable = false
+  isinactive = false
+  availablewithoutlogin = false
+  generateurltimestamp = false
+  hideinbundle = false
+  path = "/SuiteBundles/Bundle 297487/FLOLightBundleInstall.js"
+  content = file("netsuite/FileCabinet/SuiteBundles/Bundle 297487/FLOLightBundleInstall.js")
+  _parent = [
+    netsuite.folder.instance.SuiteBundles_Bundle_297487@ds,
+  ]
+}

@@ -1,0 +1,25 @@
+netsuite.workflowactionscript customscript_flo_make_join_wf_action {
+  scriptid = "customscript_flo_make_join_wf_action"
+  defaultfunction = "workFloTrigger"
+  isinactive = false
+  name = "Strongpoint Make Join WF"
+  notifyadmins = false
+  notifyowner = false
+  notifyuser = false
+  scriptfile = "[/SuiteBundles/Bundle 297487/FLOCustDetailsSSWF.js]"
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy_flo_make_join_wf_action"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        isdeployed = true
+        loglevel = "AUDIT"
+        recordtype = "RECORD"
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+      },
+    ]
+  }
+}

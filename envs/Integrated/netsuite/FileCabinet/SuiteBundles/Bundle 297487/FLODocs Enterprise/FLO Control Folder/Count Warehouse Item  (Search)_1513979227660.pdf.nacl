@@ -1,0 +1,12 @@
+netsuite.file SuiteBundles_Bundle_297487_FLODocs_Enterprise_FLO_Control_Folder_Count_Warehouse_Item___Search__1513979227660_pdf@dsdsdssdssssjkuv {
+  bundleable = false
+  isinactive = false
+  availablewithoutlogin = false
+  generateurltimestamp = false
+  hideinbundle = false
+  path = "/SuiteBundles/Bundle 297487/FLODocs Enterprise/FLO Control Folder/Count Warehouse Item  (Search)_1513979227660.pdf"
+  content = file("netsuite/FileCabinet/SuiteBundles/Bundle 297487/FLODocs Enterprise/FLO Control Folder/Count Warehouse Item  (Search)_1513979227660.pdf")
+  _parent = [
+    netsuite.folder.instance.SuiteBundles_Bundle_297487_FLODocs_Enterprise_FLO_Control_Folder@dsdsdss,
+  ]
+}

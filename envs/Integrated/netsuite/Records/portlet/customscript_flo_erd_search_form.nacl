@@ -1,0 +1,26 @@
+netsuite.portlet customscript_flo_erd_search_form {
+  scriptid = "customscript_flo_erd_search_form"
+  defaultfunction = "ERDSearchFormPortlet"
+  isinactive = false
+  name = "Strongpoint ERD Search Form"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  portlettype = "FORM"
+  scriptfile = "[/SuiteBundles/Bundle 297487/FLOERDSearchFormPortlet.js]"
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy_flo_erd_search_form"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        isdeployed = false
+        loglevel = "AUDIT"
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+        title = "Strongpoint ERD Search Form"
+      },
+    ]
+  }
+}

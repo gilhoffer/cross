@@ -1,0 +1,24 @@
+netsuite.workflowactionscript customscript_flo_get_lic_from_prod {
+  scriptid = "customscript_flo_get_lic_from_prod"
+  isinactive = false
+  name = "Strongpoint Get License From Production"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = "[/SuiteBundles/Bundle 297487/FLOGetLicenseFromProd.js]"
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy_flo_get_lic_from_prod"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        isdeployed = true
+        loglevel = "DEBUG"
+        recordtype = "[scriptid=customrecord_flo_license]"
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+      },
+    ]
+  }
+}

@@ -1,0 +1,205 @@
+type netsuite.ServiceSaleItem {
+  annotations {
+    hidden_string source {
+    }
+  }
+  string createdDate {
+  }
+  string lastModifiedDate {
+  }
+  string salesDescription {
+  }
+  boolean includeChildren {
+  }
+  netsuite.Account incomeAccount {
+  }
+  boolean isTaxable {
+  }
+  string matrixType {
+  }
+  netsuite.RecordRef taxSchedule {
+  }
+  string costEstimateType {
+  }
+  number costEstimate {
+  }
+  netsuite.UnitsType unitsType {
+  }
+  netsuite.RecordRef saleUnit {
+  }
+  netsuite.RecordRef issueProduct {
+  }
+  string costEstimateUnits {
+  }
+  netsuite.RecordRef billingSchedule {
+  }
+  netsuite.Account deferredRevenueAccount {
+  }
+  netsuite.RecordRef revRecSchedule {
+  }
+  number minimumQuantity {
+  }
+  boolean enforceMinQtyInternally {
+  }
+  number maximumQuantity {
+  }
+  string softDescriptor {
+  }
+  boolean pricesIncludeTax {
+  }
+  netsuite.RecordRef quantityPricingSchedule {
+  }
+  boolean useMarginalRates {
+  }
+  string overallQuantityPricingType {
+  }
+  boolean isFulfillable {
+  }
+  netsuite.CostCategory costCategory {
+  }
+  netsuite.PricingGroup pricingGroup {
+  }
+  string minimumQuantityUnits {
+  }
+  number vsoePrice {
+  }
+  string vsoeSopGroup {
+  }
+  string vsoeDeferral {
+  }
+  string vsoePermitDiscount {
+  }
+  boolean vsoeDelivered {
+  }
+  netsuite.RecordRef itemRevenueCategory {
+  }
+  boolean deferRevRec {
+  }
+  netsuite.RecordRef revenueRecognitionRule {
+  }
+  netsuite.RecordRef revRecForecastRule {
+  }
+  netsuite.RecordRef revenueAllocationGroup {
+  }
+  netsuite.RecordRef createRevenuePlansOn {
+  }
+  boolean directRevenuePosting {
+  }
+  boolean contingentRevenueHandling {
+  }
+  netsuite.Account revReclassFXAccount {
+  }
+  boolean createJob {
+  }
+  string matrixItemNameTemplate {
+  }
+  string storeDisplayName {
+  }
+  netsuite.file storeDisplayThumbnail {
+  }
+  netsuite.file storeDisplayImage {
+  }
+  string storeDescription {
+  }
+  string storeDetailedDescription {
+  }
+  netsuite.RecordRef storeItemTemplate {
+  }
+  string pageTitle {
+  }
+  string urlComponent {
+  }
+  string metaTagHtml {
+  }
+  boolean excludeFromSitemap {
+  }
+  string sitemapPriority {
+  }
+  string searchKeywords {
+  }
+  boolean isDonationItem {
+  }
+  boolean showDefaultDonationAmount {
+  }
+  number maxDonationAmount {
+  }
+  boolean dontShowPrice {
+  }
+  string noPriceMessage {
+  }
+  string outOfStockMessage {
+  }
+  boolean onSpecial {
+  }
+  string outOfStockBehavior {
+  }
+  string relatedItemsDescription {
+  }
+  string specialsDescription {
+  }
+  netsuite.ServiceItemTaskTemplatesList itemTaskTemplatesList {
+  }
+  string featuredDescription {
+  }
+  netsuite.RecordRef customForm {
+  }
+  serviceid itemId {
+  }
+  string upcCode {
+  }
+  string displayName {
+  }
+  netsuite.ServiceSaleItem parent {
+  }
+  boolean isOnline {
+  }
+  boolean isGcoCompliant {
+  }
+  boolean offerSupport {
+  }
+  boolean isInactive {
+  }
+  boolean availableToPartners {
+  }
+  netsuite.Department department {
+  }
+  netsuite.Classification class {
+  }
+  netsuite.Location location {
+  }
+  "List<netsuite.Subsidiary>" subsidiaryList {
+  }
+  netsuite.BillingRatesMatrix billingRatesMatrix {
+  }
+  netsuite.ItemAccountingBookDetailList accountingBookDetailList {
+  }
+  netsuite.ItemOptionsList itemOptionsList {
+  }
+  netsuite.MatrixOptionList matrixOptionList {
+  }
+  netsuite.PricingMatrix pricingMatrix {
+  }
+  netsuite.RecordRef purchaseTaxCode {
+  }
+  number rate {
+  }
+  netsuite.RecordRef salesTaxCode {
+  }
+  netsuite.SiteCategoryList siteCategoryList {
+  }
+  netsuite.TranslationList translationsList {
+  }
+  netsuite.PresentationItemList presentationItemList {
+  }
+  netsuite.ServiceSaleItemHierarchyVersionsList hierarchyVersionsList {
+  }
+  netsuite.RecordRef consumptionUnit {
+  }
+  string internalId {
+    isAttribute = true
+    _hidden_value = true
+  }
+  string externalId {
+    isAttribute = true
+  }
+}

@@ -1,0 +1,37 @@
+type netsuite.cmscontenttype {
+  serviceid scriptid {
+    _required = true
+    isAttribute = true
+    _restriction = {
+      regex = "^custcontenttype[0-9a-z_]+"
+    }
+  }
+  string name {
+    _required = true
+    _restriction = {
+      max_length = 999
+    }
+  }
+  string label {
+    _required = true
+    _restriction = {
+      max_length = 18
+    }
+  }
+  string customrecordid {
+    _required = true
+  }
+  string description {
+    _restriction = {
+      max_length = 999
+    }
+  }
+  string iconimagepath {
+    _restriction = {
+      max_length = 999
+    }
+  }
+  string _lastfetchtime {
+    _hidden_value = true
+  }
+}

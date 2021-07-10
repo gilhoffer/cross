@@ -1,0 +1,24 @@
+type netsuite.BinTransferInventory {
+  annotations {
+    hidden_string source {
+    }
+  }
+  number line {
+  }
+  netsuite.RecordRef item {
+  }
+  string description {
+  }
+  string preferredBin {
+  }
+  number quantity {
+  }
+  string itemUnitsLabel {
+  }
+  netsuite.InventoryDetail inventoryDetail {
+  }
+  string fromBins {
+  }
+  string toBins {
+  }
+}

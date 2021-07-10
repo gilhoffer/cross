@@ -1,0 +1,6 @@
+type netsuite.Record {
+  annotations {
+    hidden_string source {
+    }
+  }
+}

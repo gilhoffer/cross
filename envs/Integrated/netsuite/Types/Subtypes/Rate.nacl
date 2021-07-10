@@ -1,0 +1,10 @@
+type netsuite.Rate {
+  annotations {
+    hidden_string source {
+    }
+  }
+  number value {
+  }
+  netsuite.PriceLevel priceLevel {
+  }
+}

@@ -1,0 +1,11 @@
+type netsuite.LocationBusinessHoursList {
+  annotations {
+    hidden_string source {
+    }
+  }
+  "List<netsuite.LocationBusinessHours>" locationBusinessHours {
+  }
+  boolean replaceAll {
+    isAttribute = true
+  }
+}

@@ -1,0 +1,14 @@
+type netsuite.LandedCostSummary {
+  annotations {
+    hidden_string source {
+    }
+  }
+  netsuite.RecordRef category {
+  }
+  number amount {
+  }
+  string source {
+  }
+  netsuite.RecordRef transaction {
+  }
+}

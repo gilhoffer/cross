@@ -1,0 +1,159 @@
+type netsuite.DownloadItem {
+  annotations {
+    hidden_string source {
+    }
+  }
+  string createdDate {
+  }
+  string lastModifiedDate {
+  }
+  netsuite.RecordRef customForm {
+  }
+  string salesDescription {
+  }
+  netsuite.RecordRef quantityPricingSchedule {
+  }
+  netsuite.Account deferredRevenueAccount {
+  }
+  boolean onSpecial {
+  }
+  serviceid itemId {
+  }
+  string upcCode {
+  }
+  string displayName {
+  }
+  netsuite.DownloadItem parent {
+  }
+  boolean isOnline {
+  }
+  boolean isGcoCompliant {
+  }
+  boolean offerSupport {
+  }
+  boolean isInactive {
+  }
+  boolean availableToPartners {
+  }
+  "List<netsuite.Subsidiary>" subsidiaryList {
+  }
+  netsuite.Department department {
+  }
+  boolean includeChildren {
+  }
+  netsuite.Classification class {
+  }
+  netsuite.Location location {
+  }
+  netsuite.Account incomeAccount {
+  }
+  number numOfAllowedDownloads {
+  }
+  number daysBeforeExpiration {
+  }
+  boolean immediateDownload {
+  }
+  boolean isTaxable {
+  }
+  netsuite.RecordRef issueProduct {
+  }
+  netsuite.RecordRef taxSchedule {
+  }
+  string costEstimateType {
+  }
+  number costEstimate {
+  }
+  netsuite.RecordRef billingSchedule {
+  }
+  boolean isFulfillable {
+  }
+  boolean useMarginalRates {
+  }
+  string overallQuantityPricingType {
+  }
+  netsuite.PricingGroup pricingGroup {
+  }
+  netsuite.RecordRef revRecSchedule {
+  }
+  number vsoePrice {
+  }
+  string vsoeSopGroup {
+  }
+  string vsoeDeferral {
+  }
+  string vsoePermitDiscount {
+  }
+  boolean vsoeDelivered {
+  }
+  netsuite.RecordRef itemRevenueCategory {
+  }
+  boolean deferRevRec {
+  }
+  netsuite.RecordRef revenueRecognitionRule {
+  }
+  netsuite.RecordRef revRecForecastRule {
+  }
+  netsuite.RecordRef revenueAllocationGroup {
+  }
+  netsuite.RecordRef createRevenuePlansOn {
+  }
+  boolean directRevenuePosting {
+  }
+  string storeDisplayName {
+  }
+  netsuite.file storeDisplayThumbnail {
+  }
+  netsuite.file storeDisplayImage {
+  }
+  string featuredDescription {
+  }
+  string storeDescription {
+  }
+  string storeDetailedDescription {
+  }
+  netsuite.RecordRef storeItemTemplate {
+  }
+  string pageTitle {
+  }
+  string metaTagHtml {
+  }
+  boolean excludeFromSitemap {
+  }
+  string sitemapPriority {
+  }
+  string searchKeywords {
+  }
+  boolean isDonationItem {
+  }
+  boolean showDefaultDonationAmount {
+  }
+  number maxDonationAmount {
+  }
+  boolean dontShowPrice {
+  }
+  string noPriceMessage {
+  }
+  string outOfStockMessage {
+  }
+  string outOfStockBehavior {
+  }
+  string relatedItemsDescription {
+  }
+  string specialsDescription {
+  }
+  netsuite.PricingMatrix pricingMatrix {
+  }
+  netsuite.ItemAccountingBookDetailList accountingBookDetailList {
+  }
+  netsuite.SiteCategoryList siteCategoryList {
+  }
+  netsuite.PresentationItemList presentationItemList {
+  }
+  string internalId {
+    isAttribute = true
+    _hidden_value = true
+  }
+  string externalId {
+    isAttribute = true
+  }
+}

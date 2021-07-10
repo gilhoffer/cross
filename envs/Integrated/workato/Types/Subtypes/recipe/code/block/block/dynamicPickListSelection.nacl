@@ -1,0 +1,10 @@
+type workato.recipe__code__block__block__dynamicPickListSelection {
+  string sobject_name {
+  }
+  string netsuite_object {
+  }
+  string StageName {
+  }
+  "List<workato.recipe__code__block__block__dynamicPickListSelection__field_list>" field_list {
+  }
+}

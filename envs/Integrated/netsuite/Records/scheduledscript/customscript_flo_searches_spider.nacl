@@ -1,0 +1,61 @@
+netsuite.scheduledscript customscript_flo_searches_spider {
+  scriptid = "customscript_flo_searches_spider"
+  description = "Spider for Saved Searches"
+  isinactive = false
+  name = "Strongpoint Searches Spider 2.0"
+  notifyadmins = false
+  notifyowner = true
+  scriptfile = netsuite.file.instance.SuiteBundles_Bundle_297487_FLOSearchesSpider2_js@dsdv.path
+  scriptcustomfields = {
+    scriptcustomfield = [
+      {
+        scriptid = "custscript_searchspider_lastid"
+        accesslevel = "2"
+        applyformatting = true
+        checkspelling = false
+        defaultchecked = false
+        description = "Saved search ID to continue spider"
+        displaytype = "NORMAL"
+        fieldtype = "INTEGER"
+        isformula = false
+        ismandatory = false
+        label = "Last ID"
+        searchlevel = "2"
+        storevalue = true
+      },
+      {
+        scriptid = "custscript_flo_isinitialspider_search"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "Indicates whether the script is initiated from the first spider run of a new installation / initial spider"
+        displaytype = "NORMAL"
+        fieldtype = "CHECKBOX"
+        help = "True/Checked if the script is initiated from the first spider run of a new installation / initial spider"
+        isformula = false
+        ismandatory = false
+        label = "From Initial Spider"
+        searchlevel = "2"
+        storevalue = true
+      },
+    ]
+  }
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy_flo_searches_spider_2"
+        isdeployed = true
+        loglevel = "AUDIT"
+        status = "NOTSCHEDULED"
+        title = "Strongpoint Searches Spider 2.0"
+        recurrence = {
+          single = {
+            startdate = "2017-04-06"
+            starttime = "01:00:00Z"
+          }
+        }
+      },
+    ]
+  }
+}

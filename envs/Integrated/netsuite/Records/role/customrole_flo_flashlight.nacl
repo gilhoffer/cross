@@ -1,0 +1,195 @@
+netsuite.role customrole_flo_flashlight {
+  scriptid = "customrole_flo_flashlight"
+  centertype = "BASIC"
+  employeerestriction = "NONE"
+  employeeselectionunrestricted = false
+  isinactive = false
+  ispartnerrole = false
+  issalesrole = false
+  issinglesignononly = false
+  issupportrole = false
+  iswebserviceonlyrole = false
+  name = "Strongpoint Flashlight"
+  restrictbydevice = false
+  restricttimeandexpenses = false
+  subsidiaryoption = "OWN"
+  subsidiaryviewingallowed = false
+  tfaduration = "0"
+  tfarequired = "OFF"
+  permissions = {
+    permission = [
+      {
+        permkey = "REPO_ANALYTICS"
+        permlevel = "EDIT"
+      },
+      {
+        permkey = "LIST_CALENDAR"
+        permlevel = "VIEW"
+      },
+      {
+        permkey = "LIST_CUSTRECORDENTRY"
+        permlevel = "FULL"
+      },
+      {
+        permkey = "LIST_FILECABINET"
+        permlevel = "FULL"
+      },
+      {
+        permkey = "LIST_EMPLOYEE_RECORD"
+        permlevel = "FULL"
+      },
+      {
+        permkey = "LIST_EMPLOYEE"
+        permlevel = "VIEW"
+      },
+      {
+        permkey = "LIST_HISTORY"
+        permlevel = "FULL"
+      },
+      {
+        permkey = "LIST_FIND"
+        permlevel = "FULL"
+      },
+      {
+        permkey = "LIST_VENDOR"
+        permlevel = "VIEW"
+      },
+      {
+        permkey = "ADMI_ACCOUNTINGLIST"
+        permlevel = "VIEW"
+      },
+      {
+        permkey = "ADMI_ALLOW_JS_HTML_UPLOAD"
+        permlevel = "FULL"
+      },
+      {
+        permkey = "ADMI_CRMLIST"
+        permlevel = "VIEW"
+      },
+      {
+        permkey = "ADMI_CUSTADDRESSFORM"
+        permlevel = "VIEW"
+      },
+      {
+        permkey = "ADMI_CUSTBODYFIELD"
+        permlevel = "VIEW"
+      },
+      {
+        permkey = "ADMI_CUSTCATEGORY"
+        permlevel = "VIEW"
+      },
+      {
+        permkey = "ADMI_CUSTTASKS"
+        permlevel = "VIEW"
+      },
+      {
+        permkey = "ADMI_CUSTCENTER"
+        permlevel = "VIEW"
+      },
+      {
+        permkey = "ADMI_CUSTCOLUMNFIELD"
+        permlevel = "VIEW"
+      },
+      {
+        permkey = "ADMI_CUSTENTITYFIELD"
+        permlevel = "VIEW"
+      },
+      {
+        permkey = "ADMI_CUSTENTRYFORM"
+        permlevel = "FULL"
+      },
+      {
+        permkey = "ADMI_CUSTEVENTFIELD"
+        permlevel = "VIEW"
+      },
+      {
+        permkey = "ADMI_CUSTFIELD"
+        permlevel = "VIEW"
+      },
+      {
+        permkey = "ADMI_CUSTEMAILLAYOUT"
+        permlevel = "VIEW"
+      },
+      {
+        permkey = "ADMI_CUSTITEMFIELD"
+        permlevel = "VIEW"
+      },
+      {
+        permkey = "ADMI_CUSTLIST"
+        permlevel = "FULL"
+      },
+      {
+        permkey = "ADMI_CUSTLAYOUT"
+        permlevel = "VIEW"
+      },
+      {
+        permkey = "ADMI_CUSTRECORD"
+        permlevel = "VIEW"
+      },
+      {
+        permkey = "ADMI_CUSTOMSUBLIST"
+        permlevel = "VIEW"
+      },
+      {
+        permkey = "ADMI_CUSTFIELDTAB"
+        permlevel = "VIEW"
+      },
+      {
+        permkey = "ADMI_CUSTFORM"
+        permlevel = "FULL"
+      },
+      {
+        permkey = "ADMI_CUSTRECORDFORM"
+        permlevel = "VIEW"
+      },
+      {
+        permkey = "ADMI_CUSTOMERFORM"
+        permlevel = "VIEW"
+      },
+      {
+        permkey = "ADMI_CUSTOTHERFIELD"
+        permlevel = "VIEW"
+      },
+      {
+        permkey = "ADMI_SAVEDASHBOARD"
+        permlevel = "FULL"
+      },
+      {
+        permkey = "ADMI_BUNDLER"
+        permlevel = "FULL"
+      },
+      {
+        permkey = "ADMI_CUSTOMSCRIPT"
+        permlevel = "FULL"
+      },
+      {
+        permkey = "ADMI_VICARIOUS_EMAILS"
+        permlevel = "FULL"
+      },
+      {
+        permkey = "ADMI_AUDITLOGIN"
+        permlevel = "FULL"
+      },
+      {
+        permkey = "ADMI_WORKFLOW"
+        permlevel = "FULL"
+      },
+      {
+        permkey = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.scriptid
+        permlevel = "FULL"
+      },
+      {
+        permkey = netsuite.customrecordtype.instance.customrecord_flo_customization.scriptid
+        permlevel = "FULL"
+      },
+      {
+        permkey = netsuite.customrecordtype.instance.customrecord_flo_license_user.scriptid
+        permlevel = "FULL"
+      },
+      {
+        permkey = netsuite.customrecordtype.instance.customrecord_flo_spider_log.scriptid
+        permlevel = "VIEW"
+      },
+    ]
+  }
+}

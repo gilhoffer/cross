@@ -1,0 +1,46 @@
+type netsuite.InventoryAdjustmentInventory {
+  annotations {
+    hidden_string source {
+    }
+  }
+  netsuite.RecordRef item {
+  }
+  number line {
+  }
+  netsuite.InventoryDetail inventoryDetail {
+  }
+  string description {
+  }
+  netsuite.Department department {
+  }
+  netsuite.Classification class {
+  }
+  netsuite.Location location {
+  }
+  netsuite.RecordRef units {
+  }
+  number quantityOnHand {
+  }
+  number currentValue {
+  }
+  number adjustQtyBy {
+  }
+  string binNumbers {
+  }
+  string serialNumbers {
+  }
+  number newQuantity {
+  }
+  number unitCost {
+  }
+  number foreignCurrencyUnitCost {
+  }
+  string memo {
+  }
+  string currency {
+  }
+  string expirationDate {
+  }
+  number exchangeRate {
+  }
+}

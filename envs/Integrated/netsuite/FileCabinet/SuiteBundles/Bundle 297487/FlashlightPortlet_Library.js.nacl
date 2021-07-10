@@ -1,0 +1,12 @@
+netsuite.file SuiteBundles_Bundle_297487_FlashlightPortlet_Library_js@dsduv {
+  bundleable = false
+  isinactive = false
+  availablewithoutlogin = false
+  generateurltimestamp = false
+  hideinbundle = false
+  path = "/SuiteBundles/Bundle 297487/FlashlightPortlet_Library.js"
+  content = file("netsuite/FileCabinet/SuiteBundles/Bundle 297487/FlashlightPortlet_Library.js")
+  _parent = [
+    netsuite.folder.instance.SuiteBundles_Bundle_297487@ds,
+  ]
+}

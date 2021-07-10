@@ -1,0 +1,20 @@
+type workato.recipe__code__block__block__input__itemList__item {
+  string ____source {
+  }
+  string item {
+  }
+  string quantity {
+  }
+  string description {
+  }
+  string isTaxable {
+  }
+  string quantityCommitted {
+  }
+  string taxRate1 {
+  }
+  string rate {
+  }
+  string tax1Amt {
+  }
+}

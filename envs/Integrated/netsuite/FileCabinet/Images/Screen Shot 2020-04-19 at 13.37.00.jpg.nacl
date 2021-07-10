@@ -1,0 +1,12 @@
+netsuite.file Images_Screen_Shot_2020_04_19_at_13_37_00_jpg@dssbbssvvv {
+  bundleable = false
+  isinactive = false
+  availablewithoutlogin = true
+  generateurltimestamp = false
+  hideinbundle = false
+  path = "/Images/Screen Shot 2020-04-19 at 13.37.00.jpg"
+  content = file("netsuite/FileCabinet/Images/Screen Shot 2020-04-19 at 13.37.00.jpg")
+  _parent = [
+    netsuite.folder.instance.Images,
+  ]
+}

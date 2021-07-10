@@ -1,0 +1,25 @@
+type netsuite.CampaignEvent {
+  annotations {
+    hidden_string source {
+    }
+  }
+  string internalId {
+    _hidden_value = true
+  }
+  netsuite.RecordRef campaignGroup {
+  }
+  string description {
+  }
+  netsuite.RecordRef subscription {
+  }
+  netsuite.RecordRef channel {
+  }
+  number cost {
+  }
+  string status {
+  }
+  string dateScheduled {
+  }
+  netsuite.RecordRef promoCode {
+  }
+}

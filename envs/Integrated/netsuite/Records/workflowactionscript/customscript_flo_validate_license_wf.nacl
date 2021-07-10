@@ -1,0 +1,26 @@
+netsuite.workflowactionscript customscript_flo_validate_license_wf {
+  scriptid = "customscript_flo_validate_license_wf"
+  defaultfunction = "validateLinceseUserRecord"
+  description = "Validate if the user trying to access a record or tool have a valid license associated to the tool or record tried to be access."
+  isinactive = false
+  name = "Strongpoint Validate User License"
+  notifyadmins = false
+  notifyowner = false
+  notifyuser = false
+  returntype = "TEXT"
+  scriptfile = "[/SuiteBundles/Bundle 297487/FLOlicenseRestWA.js]"
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy_flo_validate_license_wf"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        isdeployed = true
+        loglevel = "AUDIT"
+        recordtype = "RECORD"
+        status = "RELEASED"
+      },
+    ]
+  }
+}

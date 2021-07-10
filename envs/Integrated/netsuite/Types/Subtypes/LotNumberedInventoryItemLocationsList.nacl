@@ -1,0 +1,11 @@
+type netsuite.LotNumberedInventoryItemLocationsList {
+  annotations {
+    hidden_string source {
+    }
+  }
+  "List<netsuite.LotNumberedInventoryItemLocations>" locations {
+  }
+  boolean replaceAll {
+    isAttribute = true
+  }
+}

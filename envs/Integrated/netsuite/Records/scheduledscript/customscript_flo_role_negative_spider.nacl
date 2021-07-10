@@ -1,0 +1,44 @@
+netsuite.scheduledscript customscript_flo_role_negative_spider {
+  scriptid = "customscript_flo_role_negative_spider"
+  isinactive = false
+  name = "Strongpoint User Role Negative Spider"
+  notifyadmins = false
+  notifyowner = true
+  scriptfile = "[/SuiteBundles/Bundle 297487/FLOCustomNegativeUsrSpider.js]"
+  scriptcustomfields = {
+    scriptcustomfield = [
+      {
+        scriptid = "custscript_flo_nega_user_lastindex"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        displaywidth = 40
+        fieldtype = "TEXT"
+        isformula = false
+        ismandatory = false
+        label = "searchId"
+        searchlevel = "2"
+        storevalue = true
+      },
+    ]
+  }
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy_flo_role_negative_spider"
+        isdeployed = true
+        loglevel = "AUDIT"
+        status = "NOTSCHEDULED"
+        title = "Strongpoint User Role Negative Spider"
+        recurrence = {
+          single = {
+            startdate = "2017-05-04"
+            starttime = "01:00:00Z"
+          }
+        }
+      },
+    ]
+  }
+}

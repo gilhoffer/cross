@@ -1,0 +1,46 @@
+type workato.recipe {
+  number id {
+  }
+  number user_id {
+  }
+  string name {
+  }
+  string created_at {
+  }
+  string updated_at {
+  }
+  number copy_count {
+  }
+  string trigger_application {
+  }
+  "List<string>" action_applications {
+  }
+  "List<string>" applications {
+  }
+  string description {
+  }
+  "List<unknown>" parameters_schema {
+  }
+  workato.recipe__parameters parameters {
+  }
+  number folder_id {
+  }
+  boolean running {
+  }
+  number job_succeeded_count {
+  }
+  number job_failed_count {
+  }
+  number lifetime_task_count {
+  }
+  string last_run_at {
+  }
+  string stopped_at {
+  }
+  unknown stop_cause {
+  }
+  "List<workato.recipe__config>" config {
+  }
+  workato.recipe__code code {
+  }
+}

@@ -1,0 +1,16 @@
+type workato.recipe__code__dynamicPickListSelection {
+  string sobject_name {
+  }
+  string object {
+  }
+  "List<workato.recipe__code__dynamicPickListSelection__field_list>" field_list {
+  }
+  "List<workato.recipe__code__dynamicPickListSelection__table_list>" table_list {
+  }
+  string topic_id {
+  }
+  string netsuite_object {
+  }
+  "List<workato.recipe__code__dynamicPickListSelection__custom_list>" custom_list {
+  }
+}

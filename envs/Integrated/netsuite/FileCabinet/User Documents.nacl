@@ -1,0 +1,7 @@
+netsuite.folder User_Documents@s {
+  description = "User Documents Folder"
+  bundleable = false
+  isinactive = false
+  isprivate = false
+  path = "/User Documents"
+}

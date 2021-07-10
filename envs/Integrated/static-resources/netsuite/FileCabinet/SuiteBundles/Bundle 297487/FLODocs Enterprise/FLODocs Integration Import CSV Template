@@ -1,0 +1,1 @@
+External System,Parent,Name,Data Type,ID,Additional Data,Mapping1,24652,Test1,Double,custfield1234,Some Data,"custrecord_flo_cust_id,custbody8"1,24652,Test2,String,custfield1236,Other Data,"custfield1235:1649,custrecord_flo_cust_id2:1650"1,24652,Test3,String,custfield1236,Other Data,some field:1649

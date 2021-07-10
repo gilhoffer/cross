@@ -1,0 +1,26 @@
+netsuite.suitelet customscript_flo_create_spider_logs {
+  scriptid = "customscript_flo_create_spider_logs"
+  defaultfunction = "createSpiderLogs"
+  description = "Create spider log records."
+  isinactive = false
+  name = "Strongpoint Create Spider Logs Suitelet"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = netsuite.file.instance.SuiteBundles_Bundle_297487_createSpiderLogs_js@dsdv.path
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy_flo_create_spider_logs"
+        allemployees = false
+        allpartners = false
+        allroles = false
+        isdeployed = true
+        isonline = false
+        loglevel = "AUDIT"
+        status = "TESTING"
+        title = "Strongpoint Create Spider Logs"
+      },
+    ]
+  }
+}

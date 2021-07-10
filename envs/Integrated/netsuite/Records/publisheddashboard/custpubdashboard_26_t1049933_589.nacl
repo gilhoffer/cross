@@ -1,0 +1,202 @@
+netsuite.publisheddashboard custpubdashboard_26_t1049933_589 {
+  scriptid = "custpubdashboard_26_t1049933_589"
+  center = "BASIC"
+  locknewbar = false
+  lockshortcuts = false
+  name = "Strongpoint Flashlight"
+  roles = {
+    role = [
+      {
+        role = "ADMINISTRATOR"
+      },
+      {
+        role = netsuite.role.instance.customrole_flo_developer_role.scriptid
+      },
+      {
+        role = netsuite.role.instance.customrole_flo_flashlight.scriptid
+      },
+    ]
+  }
+  dashboards = {
+    dashboard = [
+      {
+        centertab = netsuite.centertab.instance.custcentertab_flo_strongpoint_lite.scriptid
+        layout = "TWO_COLUMN"
+        mode = "LOCKED"
+        centercolumn = {
+          reminders = [
+            {
+              isminimized = false
+              showzeroresults = false
+              headline = {
+                reminder = [
+                  {
+                    id = "[scriptid=customsearch_flo_new_custs_document_2]"
+                    highlightingrules = {
+                      rule = [
+                        {
+                          color = "GREEN"
+                          greaterthanorequalto = 1
+                        },
+                      ]
+                    }
+                  },
+                  {
+                    id = "[scriptid=customsearch_flo_new_obj_documented_3]"
+                    highlightingrules = {
+                      rule = [
+                        {
+                          color = "LIMEGREEN"
+                          greaterthanorequalto = 1
+                        },
+                      ]
+                    }
+                  },
+                  {
+                    id = "[scriptid=customsearch_flo_deleted_custs_thisweek]"
+                    highlightingrules = {
+                      rule = [
+                        {
+                          color = "DARKRED"
+                          greaterthanorequalto = 1
+                        },
+                      ]
+                    }
+                  },
+                ]
+              }
+              other = {
+                reminder = [
+                  {
+                    id = "[scriptid=customsearch_flo_workflow_detected__3]"
+                  },
+                  {
+                    id = "[scriptid=customsearch_flo_workflow_detected_3_2]"
+                  },
+                  {
+                    id = "[scriptid=customsearch_flo_cust_filter_2_3_2__8]"
+                    highlightingrules = {
+                      rule = [
+                        {
+                          color = "DARKRED"
+                          greaterthanorequalto = 1
+                        },
+                      ]
+                    }
+                  },
+                  {
+                    id = "[scriptid=customsearch_flo_scripted_object_de_5]"
+                  },
+                  {
+                    id = "[scriptid=customsearch_flo_scripted_object_de_4]"
+                  },
+                  {
+                    id = "[scriptid=customsearch_flo_cust_filter_2_3_2__7]"
+                  },
+                  {
+                    id = "[scriptid=customsearch_flo_cust_filter_2_3_2__6]"
+                  },
+                  {
+                    id = "[scriptid=customsearch_flo_cust_filter_2_3_3]"
+                  },
+                  {
+                    id = "[scriptid=customsearch_flo_cust_filter_2_3_2_4]"
+                  },
+                  {
+                    id = "[scriptid=customsearch_flo_cust_filter_2_3_2__9]"
+                  },
+                  {
+                    id = "[scriptid=customsearch_flo_new_custs_default_ids]"
+                  },
+                  {
+                    id = "[scriptid=customsearch_flo_new_custs_no_help]"
+                  },
+                  {
+                    id = "[scriptid=customsearch_flo_new_custs_no_desc]"
+                  },
+                  {
+                    id = "[scriptid=customsearch_flo_new_custs_no_owner]"
+                  },
+                  {
+                    id = "[scriptid=customsearch_newemployees_standard_roles]"
+                  },
+                  {
+                    id = "[scriptid=customsearch_flo_newemp_unused_logins]"
+                  },
+                  {
+                    id = "[scriptid=customsearch_flo_newemp_diff_ip_logins]"
+                  },
+                  {
+                    id = "[scriptid=customsearch_flo_employee_role_change_2]"
+                    highlightingrules = {
+                      rule = [
+                        {
+                          color = "DARKRED"
+                          greaterthanorequalto = 1
+                        },
+                      ]
+                    }
+                  },
+                  {
+                    id = "[scriptid=customsearch_flo_employee_global_perm_2]"
+                    highlightingrules = {
+                      rule = [
+                        {
+                          color = "DARKRED"
+                          greaterthanorequalto = 1
+                        },
+                      ]
+                    }
+                  },
+                  {
+                    id = "[scriptid=customsearch_flo_employee_role_change__2]"
+                    highlightingrules = {
+                      rule = [
+                        {
+                          color = "DARKRED"
+                          greaterthanorequalto = 1
+                        },
+                      ]
+                    }
+                  },
+                  {
+                    id = "[scriptid=customsearch_flo_deleted_records_2_2]"
+                    highlightingrules = {
+                      rule = [
+                        {
+                          color = "DARKRED"
+                          greaterthanorequalto = 1
+                        },
+                      ]
+                    }
+                  },
+                  {
+                    id = "[scriptid=customsearch_flo_undelivered_emails_2]"
+                    highlightingrules = {
+                      rule = [
+                        {
+                          color = "DARKRED"
+                          greaterthanorequalto = 1
+                        },
+                      ]
+                    }
+                  },
+                ]
+              }
+            },
+          ]
+          customportlet = [
+            {
+              isminimized = false
+              source = netsuite.portlet.instance.customscript_flo_chart_portl.scriptdeployments.scriptdeployment.0.scriptid
+            },
+            {
+              isminimized = false
+              source = netsuite.portlet.instance.customscript_flo_account_summary_li_2.scriptdeployments.scriptdeployment.0.scriptid
+            },
+          ]
+        }
+      },
+    ]
+  }
+}

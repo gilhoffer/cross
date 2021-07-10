@@ -1,0 +1,11 @@
+type netsuite.ServiceItemTaskTemplatesList {
+  annotations {
+    hidden_string source {
+    }
+  }
+  "List<netsuite.ServiceItemTaskTemplates>" taskTemplates {
+  }
+  boolean replaceAll {
+    isAttribute = true
+  }
+}

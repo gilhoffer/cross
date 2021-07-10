@@ -1,0 +1,499 @@
+type netsuite.InventoryItem {
+  annotations {
+    hidden_string source {
+    }
+  }
+  string createdDate {
+  }
+  string lastModifiedDate {
+  }
+  string purchaseDescription {
+  }
+  boolean copyDescription {
+  }
+  netsuite.Account expenseAccount {
+  }
+  string dateConvertedToInv {
+  }
+  string originalItemType {
+  }
+  string originalItemSubtype {
+  }
+  netsuite.Account cogsAccount {
+  }
+  netsuite.Account intercoCogsAccount {
+  }
+  string salesDescription {
+  }
+  string fraudRisk {
+  }
+  boolean includeChildren {
+  }
+  netsuite.Account incomeAccount {
+  }
+  netsuite.Account intercoIncomeAccount {
+  }
+  netsuite.RecordRef taxSchedule {
+  }
+  netsuite.Account dropshipExpenseAccount {
+  }
+  boolean deferRevRec {
+  }
+  netsuite.RecordRef revenueRecognitionRule {
+  }
+  netsuite.RecordRef revRecForecastRule {
+  }
+  netsuite.RecordRef revenueAllocationGroup {
+  }
+  netsuite.RecordRef createRevenuePlansOn {
+  }
+  boolean directRevenuePosting {
+  }
+  boolean contingentRevenueHandling {
+  }
+  netsuite.Account revReclassFXAccount {
+  }
+  boolean isTaxable {
+  }
+  string matrixType {
+  }
+  netsuite.Account assetAccount {
+  }
+  boolean matchBillToReceipt {
+  }
+  netsuite.Account billQtyVarianceAcct {
+  }
+  netsuite.Account billPriceVarianceAcct {
+  }
+  netsuite.Account billExchRateVarianceAcct {
+  }
+  netsuite.Account gainLossAccount {
+  }
+  number shippingCost {
+  }
+  string shippingCostUnits {
+  }
+  number handlingCost {
+  }
+  string handlingCostUnits {
+  }
+  number weight {
+  }
+  string weightUnit {
+  }
+  string weightUnits {
+  }
+  string costingMethodDisplay {
+  }
+  netsuite.UnitsType unitsType {
+  }
+  netsuite.RecordRef stockUnit {
+  }
+  netsuite.RecordRef purchaseUnit {
+  }
+  netsuite.RecordRef saleUnit {
+  }
+  netsuite.RecordRef issueProduct {
+  }
+  netsuite.RecordRef billingSchedule {
+  }
+  boolean trackLandedCost {
+  }
+  string matrixItemNameTemplate {
+  }
+  boolean isDropShipItem {
+  }
+  boolean isSpecialOrderItem {
+  }
+  string stockDescription {
+  }
+  netsuite.Account deferredRevenueAccount {
+  }
+  netsuite.Account intercoDefRevAccount {
+  }
+  boolean producer {
+  }
+  string manufacturer {
+  }
+  netsuite.RecordRef revRecSchedule {
+  }
+  string mpn {
+  }
+  boolean multManufactureAddr {
+  }
+  string manufacturerAddr1 {
+  }
+  string manufacturerCity {
+  }
+  string manufacturerState {
+  }
+  string manufacturerZip {
+  }
+  string countryOfManufacture {
+  }
+  boolean roundUpAsComponent {
+  }
+  number purchaseOrderQuantity {
+  }
+  number purchaseOrderAmount {
+  }
+  number purchaseOrderQuantityDiff {
+  }
+  number receiptQuantity {
+  }
+  number receiptAmount {
+  }
+  number receiptQuantityDiff {
+  }
+  netsuite.RecordRef defaultItemShipMethod {
+  }
+  string itemCarrier {
+  }
+  netsuite.RecordRefList itemShipMethodList {
+  }
+  string manufacturerTaxId {
+  }
+  string scheduleBNumber {
+  }
+  number scheduleBQuantity {
+  }
+  string scheduleBCode {
+  }
+  string manufacturerTariff {
+  }
+  string preferenceCriterion {
+  }
+  number minimumQuantity {
+  }
+  boolean enforceMinQtyInternally {
+  }
+  number maximumQuantity {
+  }
+  string minimumQuantityUnits {
+  }
+  netsuite.RecordRef softDescriptor {
+  }
+  netsuite.RecordRef shipPackage {
+  }
+  boolean shipIndividually {
+  }
+  netsuite.CostCategory costCategory {
+  }
+  boolean pricesIncludeTax {
+  }
+  netsuite.Account purchasePriceVarianceAcct {
+  }
+  netsuite.RecordRef quantityPricingSchedule {
+  }
+  string reorderPointUnits {
+  }
+  boolean useMarginalRates {
+  }
+  string preferredStockLevelUnits {
+  }
+  string costEstimateType {
+  }
+  number costEstimate {
+  }
+  number transferPrice {
+  }
+  string overallQuantityPricingType {
+  }
+  netsuite.PricingGroup pricingGroup {
+  }
+  number vsoePrice {
+  }
+  string vsoeSopGroup {
+  }
+  string costEstimateUnits {
+  }
+  string vsoeDeferral {
+  }
+  string vsoePermitDiscount {
+  }
+  boolean vsoeDelivered {
+  }
+  netsuite.RecordRef itemRevenueCategory {
+  }
+  netsuite.Location preferredLocation {
+  }
+  boolean isStorePickupAllowed {
+  }
+  number reorderMultiple {
+  }
+  number cost {
+  }
+  string lastInvtCountDate {
+  }
+  string nextInvtCountDate {
+  }
+  number invtCountInterval {
+  }
+  string invtClassification {
+  }
+  string costUnits {
+  }
+  number totalValue {
+  }
+  number averageCost {
+  }
+  boolean useBins {
+  }
+  string quantityReorderUnits {
+  }
+  number leadTime {
+  }
+  boolean autoLeadTime {
+  }
+  number lastPurchasePrice {
+  }
+  boolean autoPreferredStockLevel {
+  }
+  number preferredStockLevelDays {
+  }
+  number safetyStockLevel {
+  }
+  number safetyStockLevelDays {
+  }
+  number backwardConsumptionDays {
+  }
+  boolean seasonalDemand {
+  }
+  string safetyStockLevelUnits {
+  }
+  number demandModifier {
+  }
+  netsuite.RecordRef distributionNetwork {
+  }
+  netsuite.RecordRef distributionCategory {
+  }
+  boolean autoReorderPoint {
+  }
+  string storeDisplayName {
+  }
+  netsuite.file storeDisplayThumbnail {
+  }
+  netsuite.file storeDisplayImage {
+  }
+  string storeDescription {
+  }
+  string storeDetailedDescription {
+  }
+  netsuite.RecordRef storeItemTemplate {
+  }
+  string pageTitle {
+  }
+  string metaTagHtml {
+  }
+  boolean excludeFromSitemap {
+  }
+  string sitemapPriority {
+  }
+  string searchKeywords {
+  }
+  boolean isDonationItem {
+  }
+  boolean showDefaultDonationAmount {
+  }
+  number maxDonationAmount {
+  }
+  boolean dontShowPrice {
+  }
+  string noPriceMessage {
+  }
+  string outOfStockMessage {
+  }
+  boolean onSpecial {
+  }
+  string outOfStockBehavior {
+  }
+  string relatedItemsDescription {
+  }
+  string specialsDescription {
+  }
+  string featuredDescription {
+  }
+  string shoppingDotComCategory {
+  }
+  number shopzillaCategoryId {
+  }
+  string nexTagCategory {
+  }
+  string urlComponent {
+  }
+  netsuite.RecordRef customForm {
+  }
+  serviceid itemId {
+  }
+  string upcCode {
+  }
+  string displayName {
+  }
+  string vendorName {
+  }
+  netsuite.InventoryItem parent {
+  }
+  boolean isOnline {
+  }
+  boolean isHazmatItem {
+  }
+  string hazmatId {
+  }
+  string hazmatShippingName {
+  }
+  string hazmatHazardClass {
+  }
+  string hazmatPackingGroup {
+  }
+  string hazmatItemUnits {
+  }
+  number hazmatItemUnitsQty {
+  }
+  boolean isGcoCompliant {
+  }
+  boolean offerSupport {
+  }
+  boolean isInactive {
+  }
+  boolean availableToPartners {
+  }
+  netsuite.Department department {
+  }
+  netsuite.Classification class {
+  }
+  netsuite.Location location {
+  }
+  string costingMethod {
+  }
+  string currency {
+  }
+  number preferredStockLevel {
+  }
+  netsuite.PricingMatrix pricingMatrix {
+  }
+  netsuite.InventoryItemHierarchyVersionsList hierarchyVersionsList {
+  }
+  netsuite.ItemAccountingBookDetailList accountingBookDetailList {
+  }
+  netsuite.RecordRef purchaseTaxCode {
+  }
+  number defaultReturnCost {
+  }
+  netsuite.RecordRef supplyReplenishmentMethod {
+  }
+  netsuite.RecordRef alternateDemandSourceItem {
+  }
+  number fixedLotSize {
+  }
+  string periodicLotSizeType {
+  }
+  netsuite.RecordRef supplyType {
+  }
+  number demandTimeFence {
+  }
+  number supplyTimeFence {
+  }
+  number rescheduleInDays {
+  }
+  number rescheduleOutDays {
+  }
+  number periodicLotSizeDays {
+  }
+  netsuite.RecordRef supplyLotSizingMethod {
+  }
+  number forwardConsumptionDays {
+  }
+  netsuite.RecordRef demandSource {
+  }
+  number quantityBackOrdered {
+  }
+  number quantityCommitted {
+  }
+  number quantityAvailable {
+  }
+  number quantityOnHand {
+  }
+  number onHandValueMli {
+  }
+  number quantityOnOrder {
+  }
+  number rate {
+  }
+  number reorderPoint {
+  }
+  string quantityCommittedUnits {
+  }
+  netsuite.RecordRef salesTaxCode {
+  }
+  string quantityAvailableUnits {
+  }
+  string quantityOnHandUnits {
+  }
+  netsuite.Vendor vendor {
+  }
+  string quantityOnOrderUnits {
+  }
+  netsuite.ProductFeedList productFeedList {
+  }
+  "List<netsuite.Subsidiary>" subsidiaryList {
+  }
+  netsuite.ItemOptionsList itemOptionsList {
+  }
+  netsuite.ItemVendorList itemVendorList {
+  }
+  netsuite.SiteCategoryList siteCategoryList {
+  }
+  netsuite.TranslationList translationsList {
+  }
+  netsuite.InventoryItemBinNumberList binNumberList {
+  }
+  netsuite.InventoryItemLocationsList locationsList {
+  }
+  netsuite.MatrixOptionList matrixOptionList {
+  }
+  netsuite.PresentationItemList presentationItemList {
+  }
+  number futureHorizon {
+  }
+  netsuite.RecordRef consumptionUnit {
+  }
+  boolean enableCatchWeight {
+  }
+  netsuite.UnitsType secondaryUnitsType {
+  }
+  netsuite.RecordRef secondaryBaseUnit {
+  }
+  number conversionRate {
+  }
+  netsuite.RecordRef secondaryStockUnit {
+  }
+  netsuite.RecordRef secondarySaleUnit {
+  }
+  netsuite.RecordRef secondaryPurchaseUnit {
+  }
+  netsuite.RecordRef secondaryConsumptionUnit {
+  }
+  number lowerWarningLimit {
+  }
+  number upperWarningLimit {
+  }
+  string internalId {
+    isAttribute = true
+    _hidden_value = true
+  }
+  string externalId {
+    isAttribute = true
+  }
+  string custitem1 {
+    field_instance = netsuite.itemcustomfield.instance.custitem1.scriptid
+  }
+  string custitem_slt_category {
+    field_instance = netsuite.itemcustomfield.instance.custitem_slt_category.scriptid
+  }
+  string custitemhqcuitemfield02 {
+    field_instance = netsuite.itemcustomfield.instance.custitemhqcuitemfield02.scriptid
+  }
+  string custitemhqcuitemfieldid01 {
+    field_instance = netsuite.itemcustomfield.instance.custitemhqcuitemfieldid01.scriptid
+  }
+}

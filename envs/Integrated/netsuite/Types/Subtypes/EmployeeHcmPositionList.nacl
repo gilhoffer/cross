@@ -1,0 +1,11 @@
+type netsuite.EmployeeHcmPositionList {
+  annotations {
+    hidden_string source {
+    }
+  }
+  "List<netsuite.EmployeeHcmPosition>" employeeHcmPosition {
+  }
+  boolean replaceAll {
+    isAttribute = true
+  }
+}

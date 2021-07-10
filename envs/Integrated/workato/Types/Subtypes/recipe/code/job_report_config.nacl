@@ -1,0 +1,10 @@
+type workato.recipe__code__job_report_config {
+  string custom_column_1 {
+  }
+  string custom_column_2 {
+  }
+  string custom_column_4 {
+  }
+  string custom_column_3 {
+  }
+}

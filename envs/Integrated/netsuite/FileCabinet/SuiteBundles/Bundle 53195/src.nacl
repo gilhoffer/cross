@@ -1,0 +1,9 @@
+netsuite.folder SuiteBundles_Bundle_53195_src@dsd {
+  bundleable = true
+  isinactive = false
+  isprivate = false
+  path = "/SuiteBundles/Bundle 53195/src"
+  _parent = [
+    netsuite.folder.instance.SuiteBundles_Bundle_53195@ds,
+  ]
+}

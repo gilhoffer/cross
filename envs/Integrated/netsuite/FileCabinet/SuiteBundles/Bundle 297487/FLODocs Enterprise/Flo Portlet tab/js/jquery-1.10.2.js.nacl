@@ -1,0 +1,12 @@
+netsuite.file SuiteBundles_Bundle_297487_FLODocs_Enterprise_Flo_Portlet_tab_js_jquery_1_10_2_js@dsdsdssddbvvv {
+  bundleable = false
+  isinactive = false
+  availablewithoutlogin = false
+  generateurltimestamp = false
+  hideinbundle = false
+  path = "/SuiteBundles/Bundle 297487/FLODocs Enterprise/Flo Portlet tab/js/jquery-1.10.2.js"
+  content = file("netsuite/FileCabinet/SuiteBundles/Bundle 297487/FLODocs Enterprise/Flo Portlet tab/js/jquery-1.10.2.js")
+  _parent = [
+    netsuite.folder.instance.SuiteBundles_Bundle_297487_FLODocs_Enterprise_Flo_Portlet_tab_js@dsdsdssd,
+  ]
+}

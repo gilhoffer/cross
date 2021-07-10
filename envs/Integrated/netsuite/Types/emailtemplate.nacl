@@ -1,0 +1,45 @@
+type netsuite.emailtemplate {
+  serviceid scriptid {
+    _required = true
+    isAttribute = true
+    _restriction = {
+      regex = "^custemailtmpl[0-9a-z_]+"
+    }
+  }
+  string name {
+    _required = true
+    _restriction = {
+      max_length = 60
+    }
+  }
+  string mediaitem {
+  }
+  string description {
+    _restriction = {
+      max_length = 1000
+    }
+  }
+  netsuite.emailtemplate_recordtype recordtype {
+  }
+  boolean isinactive {
+  }
+  string subject {
+    _restriction = {
+      max_length = 199
+    }
+  }
+  boolean isprivate {
+  }
+  boolean addunsubscribelink {
+  }
+  boolean addcompanyaddress {
+  }
+  boolean usesmedia {
+  }
+  netsuite.fileContent content {
+    additionalFileSuffix = "html"
+  }
+  string _lastfetchtime {
+    _hidden_value = true
+  }
+}

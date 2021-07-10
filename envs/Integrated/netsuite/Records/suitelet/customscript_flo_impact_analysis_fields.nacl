@@ -1,0 +1,26 @@
+netsuite.suitelet customscript_flo_impact_analysis_fields {
+  scriptid = "customscript_flo_impact_analysis_fields"
+  defaultfunction = "impactAnalysisFields"
+  isinactive = false
+  name = "Strongpoint Impact Analysis Fields"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = "[/SuiteBundles/Bundle 297487/impactAnalysisFields.js]"
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy_flo_impact_analysis_fields"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        isdeployed = true
+        isonline = false
+        loglevel = "DEBUG"
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+        title = "Strongpoint Impact Analysis Fields"
+      },
+    ]
+  }
+}

@@ -1,0 +1,9 @@
+netsuite.folder SuiteBundles_Bundle_297487_FLODocs_Enterprise_Process_JSONs@dsdsds {
+  bundleable = false
+  isinactive = false
+  isprivate = false
+  path = "/SuiteBundles/Bundle 297487/FLODocs Enterprise/Process JSONs"
+  _parent = [
+    netsuite.folder.instance.SuiteBundles_Bundle_297487_FLODocs_Enterprise@dsds,
+  ]
+}

@@ -1,0 +1,618 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>FLO&trade; SuiteView&trade;</title>
+	<meta name="author" content="FLO Partners Inc.">
+	<!-- Date: 2014-01-10 -->
+	<link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+<style>
+.fa-10x {
+  font-size: 10em;
+}
+</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script>
+        var currentpid="";
+	var fadespeed=1000;
+	$(document).ready(function(){
+	    setTimeout(function(){
+	    $("#flologo").fadeIn(fadespeed);
+            setTimeout(function(){
+	    $("#flologo").fadeOut(fadespeed);},fadespeed*3);
+	    setTimeout(function(){
+	    $(".topicon").fadeIn(fadespeed);
+	    },fadespeed*5);
+        },1);
+	  
+	});
+	</script>
+	<script>
+	  //set default stage
+	  var stage="topicon";
+          var currentpid="";
+	  var laststage="";
+
+	  function showNav2(type)
+	  {
+               //This function operates the navigation of suiteview
+               //alert("Type:"+type)
+		$("."+stage).fadeOut();
+        //$(".backbutton").fadeIn(fadespeed);
+		//	$("."+type).fadeIn(fadespeed);
+		setTimeout(function(){
+		    $("."+type).fadeIn(fadespeed);
+	        $(".backbutton").fadeIn(fadespeed);
+		    },1000);
+                if(laststage.indexOf(type)>0)
+                {
+                    //alert("LS:"+laststage);
+laststage=laststage.substring(0,laststage.lastIndexOf(","+type));
+//alert(laststage);
+                }
+                else
+                {
+		 laststage+=","+stage;
+                }
+		stage=type;
+                if(type=="processframe" | type=="custframe")
+                {
+                  loadFrame(type);
+                  if(document.getElementById("processmapdiv").style.display="none")
+{document.getElementById("processmapdiv").style.display="inline";}
+                }
+
+                
+                  showControls(type);
+		
+	  }
+
+        function loadFrame(type)
+        {
+           //This function loads the main navigation frames.
+           if(type=="custframe" && document.getElementById("custmap").src)
+           {
+//document.getElementById("custmap").src="https://system.na1.netsuite.com/app/site/hosting/scriptlet.nl?script=customscript_flo_cust_viz&deploy=1&pid=1704";
+document.getElementById("custmap").src="https://system.na1.netsuite.com/app/site/hosting/scriptlet.nl?script=customscript_flo_cust_viz&deploy=1";
+document.getElementById("custdetail").src="https://system.na1.netsuite.com/app/common/custom/custrecordentry.nl?target=main:custrecord_flo_cust_parent&label=Parent&rectype=303&label=Parent&id=3";
+          }
+          if(type=="processframe" && document.getElementById("processframe").contentWindow.canvas==null)
+          {
+		
+document.getElementById("processframe").src="https://system.na1.netsuite.com/core/media/media.nl?id=7614&c=TSTDRV1049933&h=fbf0709df89685a7ed24&_xt=.html";
+          document.getElementById("processdetail").src="https://system.na1.netsuite.com/app/site/hosting/scriptlet.nl?script=customscript_process_asst&deploy=1";
+          }
+         
+        }
+
+         function showControls(icontype)
+         {
+            //This script shows the icons for the relevant process and customization displays
+          //icontype is the current view being displayed derived from the type parameter 
+          
+          if(icontype=="processframe")
+          {
+           $(".savebutton").fadeIn(fadespeed);
+           $(".copybutton").fadeIn(fadespeed);
+           $(".printbutton").fadeIn(fadespeed);
+           $(".toolbutton").fadeIn(fadespeed);
+           $(".newbutton").fadeIn(fadespeed);
+           $(".forwardbutton").fadeIn(fadespeed);
+           $(".flocrumb").fadeIn(fadespeed);
+           
+           }
+          else if(icontype=="newframe")
+          {
+           $(".savebutton").fadeOut(fadespeed);
+           $(".copybutton").fadeOut(fadespeed);
+           $(".printbutton").fadeOut(fadespeed);
+           $(".toolbutton").fadeIn(fadespeed);
+           $(".newbutton").display="none";
+           $(".forwardbutton").fadeIn(fadespeed);
+           $(".flocrumb").fadeIn(fadespeed);
+
+           }
+           else if(icontype=="custframe")
+          {
+           $(".savebutton").display="inline";
+           $(".printbutton").display="inline";
+           $(".newbutton").display="inline";
+           $(".forwardbutton").display="inline";
+           }
+           else
+           {
+           $(".savebutton").fadeOut("fast");
+           $(".copybutton").fadeOut("fast");
+           $(".printbutton").fadeOut("fast");
+           $(".toolbutton").fadeOut("fast");
+           $(".newbutton").display="none";
+           $(".forwardbutton").fadeOut("fast");
+           $(".flocrumb").fadeOut("fast");
+           }
+         }
+
+          function goHome()
+          {
+              //Jumps back to the home screen
+              //laststage=laststage.split(",")[0];
+              laststage="";
+              goBack(laststage);
+          }
+  
+          function goBack()
+          {
+               var thisType=laststage.substring(laststage.lastIndexOf(",")+1);
+               
+               if((stage=="processframe" && document.getElementById("processdetaildiv").style.display=='inline') |( stage=="custframe" && document.getElementById("detaildiv").style.display=='inline'))
+               {closeDetail();}
+               else
+               {showNav2(thisType);}
+           }
+
+          function closeDetail()
+          {
+              try
+              {
+              document.getElementById("detaildiv").style.display='none';
+               document.getElementById("processdiv").style.display='inline';
+               }catch(e){}
+               try
+               {
+document.getElementById("processdetaildiv").style.display='none';
+document.getElementById("processmapdiv").style.display='inline';
+               }catch(e){}
+                 
+          
+          }
+
+           function closeProcessDetail()
+          {
+              
+             // document.getElementById("detaildiv").style.display='none';
+               
+document.getElementById("processdetaildiv").style.display='none';
+document.getElementById("processmapdiv").style.display='inline';
+          }
+	
+function crumbAction(pid,crumbName)
+{
+            
+            //This function passes the process id (pid) from the breadcrumb div element created by updateBreadcrumbs(pid) to the drillDown function in the process map.   
+             
+              if(pid==currentpid)
+              {
+                 if(confirm("You are already on this page.  Click 'OK' to refresh the diagram.  All unsaved changes will be lost.  Press 'Cancel' to return to editing.")==true)
+               {document.getElementById("processframe").contentWindow.drillDown(pid);}
+              }
+              else
+              {
+             updateBreadcrumbs(pid,crumbName);
+document.getElementById("processframe").contentWindow.drillDown(pid);
+              }
+              
+}
+
+          function updateBreadcrumbs(pid,crumbName)
+          {
+              //update currentpid which tracks which process we are on.
+              currentpid=pid;
+              if(crumbName==null | crumbName=="")
+              {crumbName="Crumb"}
+              //This function writes the breadcrumbs
+              //the present breadcrumbs
+             var currentCrumbs=document.getElementById("flobreadcrumbs").innerHTML;
+             //The new breadcrumb text
+             var newCrumbs=currentCrumbs;
+
+             //check for existing crumb matching id, if so, truncate the list
+             //the index of the pid in the currentcrumbs
+             var crumbMatch=currentCrumbs.indexOf('id="'+pid+'"'); 
+            if(crumbMatch>0)
+             {
+   
+                 //this is the end of the crumb
+                var crumbEnd=currentCrumbs.indexOf("</div>",crumbMatch)+6;
+             
+newCrumbs=currentCrumbs.substring(0,crumbEnd);//reset the crumbs
+             }
+             else
+             {
+
+                //Add a crumb
+                var newCrumb='<div id="" class="flocrumb" style="display: block;">:</div><div id="'+pid+'" class="flocrumb" style="display: block;" onclick="crumbAction(this.id,this.innerHTML)">'+unescape(crumbName).toUpperCase()+'</div>';
+                
+                newCrumbs=currentCrumbs+newCrumb;
+                
+             }
+               //set new breadcrumbs 
+$("#flobreadcrumbs").html(newCrumbs);
+
+          }
+
+function saveProcess()
+{
+   document.getElementById("processframe").contentWindow.saveProcess();
+alert("Process Details Saved");
+}
+
+function printProcess(pid)
+{
+   printwindow=window.open("https://system.na1.netsuite.com/core/media/media.nl?id=7652&c=TSTDRV1049933&h=4aa65c796be4fce102e8&_xt=.html&pid="+pid,"printprocess"+pid)
+
+   //window.frames["processframe"].focus();
+   //window.frames["processframe"].print();
+}
+
+function copyProcess(pid)
+{
+   if(pid==null | pid=="")
+   {alert("You cannot copy the top level process"); return}
+   else
+   {
+      var copy=confirm("This will copy all processes and steps shown on the map below.\n - Press 'OK' to Create a Draft Process or 'Cancel' to Create a New Process with Duplicate Steps.");
+         document.getElementById("processframe").contentWindow.saveProcess(pid,copy);
+      
+   }
+}
+
+function processEvent(pid)
+{
+    window.open("https://system.na1.netsuite.com/app/crm/calendar/event.nl?whence=&pid="+pid,"activity","width=600,height=300");
+}
+
+function processTask(pid)
+{
+  window.open("https://system.na1.netsuite.com/app/crm/calendar/task.nl?whence=&pid="+pid,"activity","width=600,height=300");
+}
+
+function chooseNewProcess(pid)
+{
+   currentpid=pid;
+   document.getElementById("processmapdiv").style.display="none";
+   document.getElementById("processdetail").style.display="none";
+   //showNav2("newprocess");
+   showNav2("processframe");
+
+}
+
+function selectNewProcess(viewtype)
+{
+
+  //This function routes the user to the new process assistant or the swim lane based on the icon selected
+  if(viewtype=="asst")
+  { 
+
+       var nfsrc=document.getElementById("newframe").src;
+       alert(currentpid)
+       document.getElementById("newframe").src=nfsrc+"&pid="+currentpid;
+       showNav2("newframe");
+  }
+  else
+  {
+	document.getElementById("newprocesswrap").style.display="none";
+	document.getElementById("processframe").contentWindow.createHLPDiag(currentpid,currentud);
+     showNav2("processframe");
+     
+  }
+}
+
+function processIssue(pid)
+{
+   window.open("https://system.na1.netsuite.com/app/common/custom/custrecordentry.nl?rectype=309&whence=&pid="+pid+"&stage="+stage,"activity","width=600,height=300");
+}
+
+function newProcess(pid)
+{
+   document.getElementById("processmapdiv").style.display="none";
+   document.getElementById("processdetail").style.display="none";
+   asstsrc=document.getElementById("newframe").src.split("&pid=")[0]+"&pid="+currentpid;
+   asstsrc=asstsrc.replace("&newprocess=T","");
+   document.getElementById("newframe").src=asstsrc;
+   document.getElementById("newframe").style.display="inline";
+   showNav2("newframe");
+}
+
+function delProcessMap(pid)
+{
+   //This function deletes archives the saved process data from the process record and deletes the process image (SVG) and data from the process record
+   //It does not operate on the top level
+   if(pid=="")
+   {alert("You cannot delete the top level of your process map.   Right click on any individual process box to delete them one at a time."); return}
+   //On other levels confirm whether the user wants to delete the process completely or simply clear the saved map.
+   var delperm=confirm("THIS WILL DELETE THE PROCESS MAP AND IMAGE ONLY.  To delete the process itself, right click on the process in the parent view.  Click 'OK' to delete the map or 'Cancel' to return without deleting.")
+   if(delperm)
+   {
+       //Check for a map
+       if(window.processframe.processJSON!="")
+       {
+          var fields=["custrecord_flo_current_json","custrecord_flo_process_diag"];
+          var vals=["",""];
+           //alert(pid);
+           //top.contentWindow.nlapiSubmitField("customrecord_flo_process",pid,fields,vals);
+document.getElementById("processdetail").contentWindow.nlapiSubmitField("customrecord_flo_process",pid,fields,vals);
+           alert("Process maps are deleted.  Backup copies were stored in the archive on the process record.");
+           //refresh the drawing
+           document.getElementById("processframe").contentWindow.canvas.clear();
+document.getElementById("processframe").contentWindow.createHLPDiag(pid);
+       }
+       else
+      {alert("There is no saved process map")}
+   }
+
+   //if so, copy the process record, inactivate it and make the original the parent
+   //clear the saved
+}
+	</script>
+</head>
+<body>
+<style>
+
+
+.flologo
+{
+position:absolute;
+top:30%;
+left:30%;
+color: orange;
+}
+
+.navicons {
+	position:absolute;
+	top:25%;
+	left:15%;
+    padding: 5px 0 0 5px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.topicon {
+    margin-right: 30px;
+    margin-left: 30px;
+    display:none;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    float: left;
+    color: orange;
+
+}
+.viewicon {
+        position:relative;
+	left:10%;
+    margin-right: 30px;
+    margin-left: 30px;
+    display:none;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    float: left;
+    color: orange;
+
+}
+
+.spider {
+	position:absolute;
+	top:20%;
+	left:10%;
+	display:none;
+	color: orange;
+}
+
+.spiderform {
+	position:relative;
+	left:20%;
+	margin-right: 40px;
+	margin-left: 40px;
+	//display:none;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	float: left;
+	color: orange;
+}
+
+.spiderspin {
+		position:relative;
+	left:20%;
+	margin-right: 40px;
+	margin-left: 40px;
+	display:none;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	float: left;
+	color: orange;	
+}
+
+
+.newprocess {
+        position:relative;
+	left:20%;
+    margin-right: 40px;
+    margin-left: 40px;
+    display:none;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    float: left;
+    color: orange;
+
+}
+
+.controlbuttons {
+	position:relative;
+	top:5px;
+	left:5px;
+    padding: 5px 0 0 5px;
+    //width: 100%;
+    overflow: hidden;
+    color: orange;
+    margin-bottom: 10px;
+    //margin-top: 10px;
+
+}
+
+.navbutton {
+	color: black;
+        display:none;
+}
+
+.backbutton,.forwardbutton,.savebutton,.printbutton,.copybutton,.toolbutton,.issuebutton,.newbutton,.flocrumb{
+	color: orange;
+        display:none;
+            margin-right: 5px;
+    margin-left: 5px;
+    display:none;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    float: left;
+}
+
+.processframe { 
+        position:relative;
+	top:10px;
+	left:10px;
+
+}
+
+
+
+</style>
+<div id="controlbuttons" class="controlbuttons">
+   <div id="backbutton" class="backbutton"><i class="fa fa-backward" onclick="goBack(laststage)"></i></div>
+   <div id="homebutton" class="toolbutton"><i class="fa fa-home" onclick="goBack(laststage)"></i></div>
+   <div id="savebutton" class="savebutton"><i class="fa fa-save" onclick="saveProcess()"></i></div>
+   <div id="trashbutton" class="savebutton"><i class="fa fa-trash-o" onclick="delProcessMap(currentpid)"></i></div>
+   <div id="printbutton" class="printbutton"><i class="fa fa-print" onclick="printProcess(currentpid)"></i></div>
+   <div id="copybutton" class="copybutton"><i class="fa fa-copy" onclick="copyProcess(currentpid)"></i></div>
+   <div id="eventbutton" class="toolbutton"><i class="fa fa-calendar" onclick="processEvent(currentpid)"></i></div>
+   <div id="taskbutton" class="toolbutton"><i class="fa fa-list" onclick="processTask(currentpid)"></i></div>
+   <div id="issuebutton" class="toolbutton"><i class="fa fa-exclamation" onclick="processIssue(currentpid)"></i></div>
+   <div id="newbutton" class="newbutton"><i class="fa fa-plus" onclick="newProcess()"></i></div>
+   <div id="floHelp" class="toolbutton"><i class="fa fa-question" onclick="getFLOHelp(stage)"></i></div>
+<div id="flobreadcrumbs" class="flobreadcrumbs"><div id="" class="flocrumb" onclick="crumbAction(this.id,this.innerHTML)">TOP</div></div>
+</div>
+
+
+
+
+<div id="flologo" class="flologo"align="center" style="display:none"><img src="https://system.na1.netsuite.com/core/media/media.nl?id=7634&c=TSTDRV1049933&h=497ac41f66e183994b29"><h1>SUITEVIEW&trade;</h1></div>
+<div class="navicons" align="center">
+		
+	<div class="topicon" id="icon2" align="center"><i class="fa fa-gears fa-10x" onclick="showNav2('spider')"></i><h3>SPIDER</h3></div><div class="topicon" id="icon3" align="center" ><i class="fa fa-stethoscope fa-10x" onclick="showNav2('ASSESS')"></i><h3>ASSESS</h3></div><div class="topicon" id="icon1" align="center"><i class="fa fa-puzzle-piece fa-10x" onclick="showNav2('viewicon')"></i><br><h3>DOCUMENT</h3></div><div class="topicon" id="icon4" align="center"><i class="fa fa-star fa-10x"></i><h3>IMPROVE</h3></div>
+	<div class="viewicon" id="vicon1" align="center"><i class="fa fa-gear fa-10x" onclick="showNav2('processframe')"></i><br><h3>VIEW<br/>PROCESSES</h3></div><div class="viewicon" id="vicon2" align="center"><i class="fa fa-plus fa-10x" onclick="showNav2('newframe')" ></i><h3>PROCESS ASSISTANT</h3></div><div class="viewicon" id="vicon3" align="center" onclick="showNav2('custframe')" ><i class="fa fa-sitemap fa-10x"></i><h3>EXPLORE<br/>CUSTOMIZATIONS</h3></div>
+         <div id="newprocesswrap" align="center">
+       <div id="newbutton" class="newprocess"><i class="fa fa-plus fa-10x" onclick="selectNewProcess('asst')"></i><h3>Use the Process Assistant<br/>(Recommended)</h3></div>
+   <div id="swimlane" class="newprocess"><i class="fa fa-bars fa-10x" onclick="selectNewProcess('swim')"></i><h3>Swim Lane<br/>(Advanced Users)</h3></div>
+</div>	
+</div>
+<div id="maindiv" class="maindiv" width="1200" height="600">
+<table width="100%" ><tr><td id="processmapdiv" width="1200"><iframe id="processframe" class="processframe"  style="display:none" width="100%" height="600" src="https://system.na1.netsuite.com/core/media/media.nl?id=7635&c=TSTDRV1049933&h=a1189302d8ebf0186972&_xt=.html" seamless></iframe></td>
+	<td id="processdetaildiv" width="300" border="1" style="display:none" ><div id="hidedetail" class="navbutton"><i class="fa fa-angle-double-right " onclick="closeProcessDetail()"></i></div><iframe name="processdetail" id="processdetail" border="1" height="1000" width="100%" src="https://system.na1.netsuite.com/core/media/media.nl?id=7635&c=TSTDRV1049933&h=a1189302d8ebf0186972&_xt=.html"></iframe></td></tr></table>
+	
+	<div id="custframe" class="custframe" style="display:none" width="100%" height="100%">
+	<table width="100%" ><tr><td id="mapdiv" width="1200"><iframe name="custmap" id="custmap" border="0" height="1000" width="100%" src="https://system.na1.netsuite.com/core/media/media.nl?id=7635&c=TSTDRV1049933&h=a1189302d8ebf0186972&_xt=.html" seamless></iframe></td>
+	<td id="detaildiv" width="0" border="1"><div id="hidedetail" class="navbutton"><i class="fa fa-angle-double-right " onclick="closeDetail()"></i></div><iframe name="custdetail" id="custdetail" border="0" height="1000" width="100%" src="https://system.na1.netsuite.com/core/media/media.nl?id=7635&c=TSTDRV1049933&h=a1189302d8ebf0186972&_xt=.html" seamless></iframe></td></tr></table>
+	</div>
+	<iframe id="newframe" class="newframe"style="display:none" width="100%" height="1000" src="https://system.na1.netsuite.com/app/site/hosting/scriptlet.nl?script=customscript_process_asst&deploy=1&whence=&newprocess=T" seamless>New</iframe>
+</div>
+<div id="SPIDER" class="spider">
+  <div id="spiderlogo" class="spiderform"><i class="fa fa-gears fa-10x" ></i></div>
+  <div id="spiderspin" style="display:none" class="spiderspin"><i class="fa fa-gears fa-10x fa-spin" ></i></div>
+<div id="spiderform" class="spiderform">
+   <form name="spiderform" id="spiderform" action="https://system.na1.netsuite.com/app/site/hosting/scriptlet.nl" method="GET" target="spiderframe">
+	<input type="hidden" name="script" value="customscript_getfields"></input>
+	<input type="hidden" name="deploy" value="1"></input>
+
+	<table>
+		<tr>
+			<td colspan="2" width="200">Please select a record type to spider using the pull-down below.  It is recommended that you select them in the order listed during initial spidering.</td>
+		</tr>
+		<tr>
+			<td>Update or Respider?:</td>
+   			<td>
+				<select name="update">
+      				<option value="F" selected>Update Only - FAST</option>
+      				<option value="T">Respider All Records - SLOW</option>
+   				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>Select a Record Type:</td>
+			<td>
+   				<select id="targetRec" name="targetRec">
+      				<option value="entity field" selected>Custom Entity Fields</option>
+      				<option value="crm field">Custom CRM Fields</option>
+      				<option value="body field">Custom Body Fields</option>
+      				<option value="column field">Custom Column Fields</option>
+      				<option value="item field">Custom Item Fields</option>
+      				<option value="item options">Custom Item Options</option>
+      				<option value="item number field">Item Number Fields</option>
+      				<option value="list">Custom Lists</option>
+      				<option value="record">Custom Records</option>
+      				<option value= "custrec fields">Custom Record Fields</option>
+      				<option value="entry form">Custom Entry Forms</option>
+      				<option value="transaction form">Custom Transaction Forms</option>
+      				<option value="Saved Search">Custom Saved Searches</option>
+      				<option value="suitelet">Suitelet</option>
+      				<option value="restlet">RESTlet</option>
+      				<option value="user event">User Event Script</option>
+      				<option value="scheduled">Scheduled Script</option>
+      				<option value="client">Client Script</option>
+      				<option value="mass update script">Mass Update Script</option>
+      				<option value="portlet">Portlet Script</option>
+      				<option value="workflow action">Custom Workflow Action</option>
+      				<option value="bundle installation">Bundle Installation Script</option>
+      				<option value="mass update script">Mass Update Script</option>
+      				<option value="workflow">Workflow</option>
+      				<option value="searchfields">Search Fields and Formulas</option>
+      				<option value="formfields">Form Fields</option>
+      				<option value="scriptfields">Script Fields, Comments and Functions</option>
+      				<option value="joins">Joins Between Records</option>
+     			</select>
+      		</td>
+      </tr>
+      <tr>
+	  	<td/>
+	  	<td>
+     		<button type="button" onclick="startSpider()">Start Spider</button>
+      	</td>
+      </tr>
+      <div id="spiderresults" style="display:none">
+      <tr>
+	  	<td>Customization Processed:</td>
+	  	<td id="rectypelabel"></td>
+      </tr>
+      <tr>
+	  	<td>Records Processed:</td>
+	  	<td id="procnt"></td>
+      </tr>
+      <tr>
+	  	<td>New Records Created:</td>
+	  	<td id="newcnt"></td>
+      </tr>
+      <tr>
+	  	<td>Records Updated:</td>
+	  	<td id="updcnt"></td>
+      </tr>
+      </div>
+     </table>
+    </form>
+
+</div>
+<div>
+<iframe id="spiderframe" name="spiderframe" src="https://system.na1.netsuite.com/core/media/media.nl?id=7635&c=TSTDRV1049933&h=a1189302d8ebf0186972&_xt=.html"></iframe>
+</div>
+
+<script>
+function startSpider()
+{
+	//alert("here");
+	$('#spiderlogo').hide();
+	$('#spiderspin').show();
+	//$('#rectypelabel').innerHTML=document.forms["spiderform"].elements["targetRec"].value;
+	$('#spiderresults').show();
+	document.forms["spiderform"].submit();
+}
+</script>
+
+
+</body>
+</html>

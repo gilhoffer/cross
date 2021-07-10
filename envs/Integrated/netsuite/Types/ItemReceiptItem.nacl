@@ -1,0 +1,52 @@
+type netsuite.ItemReceiptItem {
+  annotations {
+    hidden_string source {
+    }
+  }
+  boolean itemReceive {
+  }
+  string jobName {
+  }
+  netsuite.RecordRef item {
+  }
+  number orderLine {
+  }
+  number line {
+  }
+  string itemName {
+  }
+  string description {
+  }
+  netsuite.Location location {
+  }
+  number onHand {
+  }
+  number quantityRemaining {
+  }
+  number quantity {
+  }
+  string unitsDisplay {
+  }
+  number unitCostOverride {
+  }
+  netsuite.InventoryDetail inventoryDetail {
+  }
+  string serialNumbers {
+  }
+  string binNumbers {
+  }
+  string expirationDate {
+  }
+  string rate {
+  }
+  string currency {
+  }
+  boolean restock {
+  }
+  string billVarianceStatus {
+  }
+  boolean isDropShipment {
+  }
+  netsuite.LandedCost landedCost {
+  }
+}

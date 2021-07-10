@@ -1,0 +1,12 @@
+type netsuite.JobPercentCompleteOverride {
+  annotations {
+    hidden_string source {
+    }
+  }
+  netsuite.RecordRef period {
+  }
+  number percent {
+  }
+  string comments {
+  }
+}

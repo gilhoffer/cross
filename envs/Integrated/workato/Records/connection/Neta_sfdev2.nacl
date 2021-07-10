@@ -1,0 +1,5 @@
+workato.connection Neta_sfdev2@s {
+  application = "salesforce"
+  id = 422891
+  name = "Neta sfdev2"
+}

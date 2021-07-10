@@ -1,0 +1,193 @@
+type netsuite.customsegment_segmentapplication {
+  netsuite.customsegment_segmentapplication_crm crm {
+  }
+  netsuite.customsegment_segmentapplication_customrecords customrecords {
+  }
+  netsuite.customsegment_segmentapplication_entities entities {
+  }
+  netsuite.customsegment_segmentapplication_items items {
+  }
+  netsuite.customsegment_segmentapplication_transactionbody transactionbody {
+  }
+  netsuite.customsegment_segmentapplication_transactionline transactionline {
+  }
+}
+type netsuite.customsegment_segmentapplication_transactionline {
+  string sourcelist {
+  }
+  netsuite.customsegment_segmentapplication_transactionline_applications applications {
+  }
+}
+type netsuite.customsegment_segmentapplication_transactionline_applications {
+  "List<netsuite.customsegment_segmentapplication_transactionline_applications_application>" application {
+  }
+}
+type netsuite.customsegment_segmentapplication_transactionline_applications_application {
+  string id {
+    _required = true
+  }
+  boolean isapplied {
+    _required = true
+  }
+}
+type netsuite.customsegment_segmentapplication_transactionbody {
+  string sourcelist {
+  }
+  netsuite.customsegment_segmentapplication_transactionbody_applications applications {
+  }
+}
+type netsuite.customsegment_segmentapplication_transactionbody_applications {
+  "List<netsuite.customsegment_segmentapplication_transactionbody_applications_application>" application {
+  }
+}
+type netsuite.customsegment_segmentapplication_transactionbody_applications_application {
+  string id {
+    _required = true
+  }
+  boolean isapplied {
+    _required = true
+  }
+}
+type netsuite.customsegment_segmentapplication_items {
+  netsuite.customsegment_items_subtype subtype {
+    _required = true
+  }
+  string sourcelist {
+  }
+  netsuite.customsegment_segmentapplication_items_applications applications {
+  }
+}
+type netsuite.customsegment_segmentapplication_items_applications {
+  "List<netsuite.customsegment_segmentapplication_items_applications_application>" application {
+  }
+}
+type netsuite.customsegment_segmentapplication_items_applications_application {
+  netsuite.customsegment_items_application_id id {
+    _required = true
+  }
+  boolean isapplied {
+    _required = true
+  }
+}
+type netsuite.customsegment_segmentapplication_entities {
+  string sourcelist {
+  }
+  netsuite.customsegment_segmentapplication_entities_applications applications {
+  }
+}
+type netsuite.customsegment_segmentapplication_entities_applications {
+  "List<netsuite.customsegment_segmentapplication_entities_applications_application>" application {
+  }
+}
+type netsuite.customsegment_segmentapplication_entities_applications_application {
+  netsuite.customsegment_entities_application_id id {
+    _required = true
+  }
+  boolean isapplied {
+    _required = true
+  }
+}
+type netsuite.customsegment_segmentapplication_customrecords {
+  netsuite.customsegment_segmentapplication_customrecords_applications applications {
+  }
+}
+type netsuite.customsegment_segmentapplication_customrecords_applications {
+  "List<netsuite.customsegment_segmentapplication_customrecords_applications_application>" application {
+  }
+}
+type netsuite.customsegment_segmentapplication_customrecords_applications_application {
+  string id {
+    _required = true
+  }
+  boolean isapplied {
+    _required = true
+  }
+  string sourcelist {
+  }
+}
+type netsuite.customsegment_segmentapplication_crm {
+  string sourcelist {
+  }
+  netsuite.customsegment_segmentapplication_crm_applications applications {
+  }
+}
+type netsuite.customsegment_segmentapplication_crm_applications {
+  "List<netsuite.customsegment_segmentapplication_crm_applications_application>" application {
+  }
+}
+type netsuite.customsegment_segmentapplication_crm_applications_application {
+  netsuite.customsegment_crm_application_id id {
+    _required = true
+  }
+  boolean isapplied {
+    _required = true
+  }
+}
+type netsuite.customsegment_permissions {
+  "List<netsuite.customsegment_permissions_permission>" permission {
+  }
+}
+type netsuite.customsegment_permissions_permission {
+  string role {
+    _required = true
+  }
+  netsuite.generic_permission_level valuemgmtaccesslevel {
+  }
+  netsuite.customsegment_access_search_level recordaccesslevel {
+  }
+  netsuite.customsegment_access_search_level searchaccesslevel {
+  }
+}
+type netsuite.customsegment {
+  serviceid scriptid {
+    _required = true
+    isAttribute = true
+    _restriction = {
+      regex = "^cseg[0-9a-z_]+"
+    }
+  }
+  string label {
+    _required = true
+    _restriction = {
+      max_length = 40
+    }
+  }
+  string recordtype {
+    _required = true
+  }
+  string filteredby {
+  }
+  netsuite.customsegment_fieldtype fieldtype {
+  }
+  string description {
+    _restriction = {
+      max_length = 999
+    }
+  }
+  string help {
+    _restriction = {
+      max_length = 999
+    }
+  }
+  boolean hasglimpact {
+  }
+  boolean ismandatory {
+  }
+  netsuite.customsegment_displaytype displaytype {
+  }
+  string defaultselection {
+  }
+  netsuite.customsegment_access_search_level defaultrecordaccesslevel {
+  }
+  netsuite.customsegment_access_search_level defaultsearchaccesslevel {
+  }
+  netsuite.customsegment_valuesdisplayorder valuesdisplayorder {
+  }
+  netsuite.customsegment_permissions permissions {
+  }
+  netsuite.customsegment_segmentapplication segmentapplication {
+  }
+  string _lastfetchtime {
+    _hidden_value = true
+  }
+}

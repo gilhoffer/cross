@@ -1,0 +1,5 @@
+workato.connection Neta_HTTP_connection_1@s {
+  application = "rest"
+  id = 422893
+  name = "Neta HTTP connection 1"
+}

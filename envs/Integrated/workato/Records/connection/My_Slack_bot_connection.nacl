@@ -1,0 +1,5 @@
+workato.connection My_Slack_bot_connection@s {
+  application = "slack_bot"
+  id = 447966
+  name = "My Slack bot connection"
+}

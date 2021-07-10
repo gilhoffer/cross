@@ -1,0 +1,11 @@
+type netsuite.SalesOrderItemList {
+  annotations {
+    hidden_string source {
+    }
+  }
+  "List<netsuite.SalesOrderItem>" item {
+  }
+  boolean replaceAll {
+    isAttribute = true
+  }
+}

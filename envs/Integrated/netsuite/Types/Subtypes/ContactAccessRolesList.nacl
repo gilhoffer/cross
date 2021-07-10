@@ -1,0 +1,11 @@
+type netsuite.ContactAccessRolesList {
+  annotations {
+    hidden_string source {
+    }
+  }
+  "List<netsuite.ContactAccessRoles>" contactRoles {
+  }
+  boolean replaceAll {
+    isAttribute = true
+  }
+}

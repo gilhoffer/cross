@@ -1,0 +1,9 @@
+netsuite.folder SuiteBundles_Bundle_297487_FLODocs_Enterprise_FLO_WFActions_Continuation@dsdsdss {
+  bundleable = false
+  isinactive = false
+  isprivate = false
+  path = "/SuiteBundles/Bundle 297487/FLODocs Enterprise/FLO WFActions Continuation"
+  _parent = [
+    netsuite.folder.instance.SuiteBundles_Bundle_297487_FLODocs_Enterprise@dsds,
+  ]
+}

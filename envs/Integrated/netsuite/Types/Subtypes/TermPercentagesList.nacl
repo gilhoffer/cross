@@ -1,0 +1,11 @@
+type netsuite.TermPercentagesList {
+  annotations {
+    hidden_string source {
+    }
+  }
+  "List<netsuite.TermPercentages>" termPercentages {
+  }
+  boolean replaceAll {
+    isAttribute = true
+  }
+}

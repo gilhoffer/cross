@@ -1,0 +1,44 @@
+netsuite.scheduledscript customscript_flo_custom_record_fld_list {
+  scriptid = "customscript_flo_custom_record_fld_list"
+  isinactive = false
+  name = "Strongpoint Cust Record Cust Fields List"
+  notifyadmins = false
+  notifyowner = true
+  scriptfile = "[/SuiteBundles/Bundle 297487/FLOCustomNegativeRecordFieldSpider.js]"
+  scriptcustomfields = {
+    scriptcustomfield = [
+      {
+        scriptid = "custscript_flo_fieldlist_lastindex"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        displaywidth = 40
+        fieldtype = "TEXT"
+        isformula = false
+        ismandatory = false
+        label = "searchId"
+        searchlevel = "2"
+        storevalue = true
+      },
+    ]
+  }
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy_flo_custom_record_fld_list"
+        isdeployed = true
+        loglevel = "AUDIT"
+        status = "NOTSCHEDULED"
+        title = "Strongpoint Custom Record Fields List"
+        recurrence = {
+          single = {
+            startdate = "2017-05-04"
+            starttime = "01:00:00Z"
+          }
+        }
+      },
+    ]
+  }
+}

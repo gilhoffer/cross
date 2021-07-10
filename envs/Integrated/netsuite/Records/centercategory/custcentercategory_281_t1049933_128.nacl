@@ -1,0 +1,52 @@
+netsuite.centercategory custcentercategory_281_t1049933_128 {
+  scriptid = "custcentercategory_281_t1049933_128"
+  center = "BASIC"
+  centertab = netsuite.centertab.instance.custcentertab_flo_strongpoint_lite.scriptid
+  label = "Customizations"
+  links = {
+    link = [
+      {
+        linklabel = "Customization List"
+        linkobject = netsuite.customrecordtype.instance.customrecord_flo_customization.scriptid
+        linktasktype = "LIST"
+        shortlist = false
+      },
+      {
+        linklabel = "Customization Impact Analysis"
+        linkobject = "[scriptid=customsearch_flo_cust_impact_srch_l_2]"
+        linktasktype = "SRCH_FORM"
+        shortlist = false
+      },
+      {
+        linklabel = "Customizations with Standard Scriptids"
+        linkobject = "[scriptid=customsearch_scripts_default_ids]"
+        linktasktype = "SRCH_RSLT"
+        shortlist = false
+      },
+      {
+        linklabel = "Customizations with Missing Descriptions"
+        linkobject = "[scriptid=customsearch_flo_custs_no_desc_ligh_2]"
+        linktasktype = "SRCH_RSLT"
+        shortlist = false
+      },
+      {
+        linklabel = "Customizations with Missing Active Owners"
+        linkobject = "[scriptid=customsearch_flo_cust_no_owner_ligh_2]"
+        linktasktype = "SRCH_RSLT"
+        shortlist = false
+      },
+      {
+        linklabel = "Fields with Missing Help Results"
+        linkobject = "[scriptid=customsearch_flo_custs_no_help_ligh_2]"
+        linktasktype = "SRCH_RSLT"
+        shortlist = false
+      },
+      {
+        linklabel = "Deleted Customizations"
+        linkobject = "[scriptid=customsearch_flo_deleted_custs_ligh_2]"
+        linktasktype = "SRCH_RSLT"
+        shortlist = false
+      },
+    ]
+  }
+}

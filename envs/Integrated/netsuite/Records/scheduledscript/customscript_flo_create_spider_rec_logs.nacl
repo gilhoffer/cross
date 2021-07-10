@@ -1,0 +1,35 @@
+netsuite.scheduledscript customscript_flo_create_spider_rec_logs {
+  scriptid = "customscript_flo_create_spider_rec_logs"
+  defaultfunction = "createSpiderLogs"
+  description = "Log the spider usage and record processed."
+  isinactive = false
+  name = "Strongpoint Create Spider Record Logs"
+  notifyadmins = false
+  notifyowner = true
+  scriptfile = "[/SuiteBundles/Bundle 297487/createSpiderLogs.js (2)]"
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy1"
+        isdeployed = true
+        loglevel = "AUDIT"
+        status = "SCHEDULED"
+        title = "Strongpoint Create Spider Record Logs"
+        recurrence = {
+          single = {
+            repeat = "PT1H"
+            startdate = "2015-02-18"
+            starttime = "20:00:00Z"
+          }
+        }
+      },
+    ]
+  }
+  libraries = {
+    library = [
+      {
+        scriptfile = netsuite.file.instance.SuiteBundles_Bundle_297487_FLOTimeWindow_js@dsdv.path
+      },
+    ]
+  }
+}

@@ -1,0 +1,5 @@
+workato.connection Neta_Zuora_for_Salesforce_sandbox@sbbs {
+  application = "zuora_forcecom"
+  id = 433023
+  name = "Neta Zuora-for-Salesforce sandbox"
+}

@@ -1,0 +1,1025 @@
+<!-- HTML loaded in customscript_flo_cust_viz to display ERD -->
+<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+	<head>
+		<title></title>
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="viewport" content="width=device-width, minimum-scale=1.0" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<base href="BASEPATH"/>
+		<style>
+			#loadingdatagif{
+				position: relative;
+				top: 50%;
+				transform: translateY(-50%);
+				align:center;
+			}
+
+			#mainlist,.attrwrapper{
+				position:absolute;
+				left:20px;
+				top:20px;
+				border:2px solid black;
+				align:center;
+				text-align: center;
+				
+			}
+
+			#svgdiv,#svg{
+				position:absolute;
+				left:0px;
+				top:0px;
+				background-color:FFFFFF;
+				
+			}
+
+			.listcell,.openlistcell{
+			 align:center;
+			 height:25px;
+			 min-width:250px;
+			 width: auto;
+			 background-color:CED8F6;
+			 border:1px solid gray;
+			 font-size:small;
+			 text-align: center;
+			}
+
+			.listcell{
+				cursor:pointer;
+			}
+
+			.openlistcell{
+				cursor:wait;
+			}
+
+			.listtext{
+				position: relative;
+				top: 50%;
+				transform: translateY(-50%);
+			}
+
+			.details{
+				word-wrap: break-word;
+			}
+
+			.attrlabel{
+			 align:center;
+			 height:25px;
+			 min-width:250px;
+			 width: auto;
+			 background-color:DDDDDD;
+			 border:1px solid black;
+			 font-size:small;
+			 font-weight:bold;
+			 text-align: center;
+			 vertical-align:text-bottom;
+			}
+
+			.scriptid{
+			 align:center;
+			 height:25px;
+			 min-width:250px;
+			 width: auto;
+			 background-color:CCCCCC;
+			 border:1px solid gray;
+			 font-size:small;
+			 text-align: center;
+			}
+
+			.tooltip {
+				width: 400px;
+				height: 300px;
+				border: 1px solid #ccc;
+				box-shadow: 0 0 3px rgba(0, 0, 0, .3);
+				-webkit-box-shadow: 0 0 3px rgba(0, 0, 0, .3);
+				border-radius: 3px;
+				-webkit-border-radius: 3px;
+				position: absolute;
+				top: 5px;
+				left: 50px;
+				display: none;
+                background-color: #F7F7F7;
+                overflow: auto;
+			}
+
+			.tooltip {
+				z-index: 100;
+			}
+
+			.link {
+				display: block;
+				width: 9%;
+                margin: 0 auto;
+                padding-top: 5px;
+			}
+
+			.link:hover+.tooltip {
+				display: block;
+			}
+
+			.tooltip:hover {
+				display: block;
+			}			
+
+		</style>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script>
+			function drillDown(id)
+			{
+			    id=id.match(/[0-9]+/)[0];
+			    //alert(id)
+			     windowloc=window.location.href;
+			     window.location.href=windowloc.substring(0,windowloc.indexOf("pid="))+"pid="+id;
+			}
+
+			function explodedView(id)
+			{
+
+			   if(id!=target)
+			   {
+			   setDetail(id);
+			   setTimeout(resizeDetail(id),250);
+			   }
+			  
+			}
+
+			function closeView(id)
+			{
+				if(target!="" && target!=id)
+				{
+					resizeDetail(id);
+					
+				}
+			}
+
+			function setDetail(id)
+			{
+
+			  if(isNaN(id))
+			  { 
+			  	id=id.match(/[0-9]+/)[0];
+			  }
+			  var detsrc=top.nlapiResolveURL("RECORD","customrecord_flo_customization",id);
+			  detsrc+="&target=main:custrecord_flo_cust_parent&label=Parent&l=T";
+			  parent.document.getElementById("custdetail").src=detsrc; 
+			}
+
+			var target="";
+			var lastY=0;
+			function resizeDetail(id)
+			{  
+
+			    if(target=="")
+			    {
+			        
+			        parent.document.getElementById("mapdiv").width='300';
+			        parent.document.getElementById("detaildiv").width='900';
+			        parent.document.getElementById("detaildiv").style.display='inline';
+			        target=id;
+			    }
+			    else 
+			   {
+			        target="";
+			        
+			        parent.document.getElementById("mapdiv").width='100%';
+			        parent.document.getElementById("detaildiv").style.display='none';
+			        parent.document.getElementById("custdetail").src="empty.html";
+			    }
+			}
+
+			function showDetail(thisObj,id,clear,scroll)
+			{
+
+				$("div").css("cursor","wait");
+				$(".details").hide();
+				if(clear!=null)
+				{
+					
+					openitems=[];
+					$(".attrwrapper").hide();
+					$(".FLOConnector").hide();
+					lastY=0;
+				}
+
+				//Remove children of siblings
+				thisClass=$("#"+id).attr("class");
+				classString="."+thisClass.replace(/ /g,".");
+				$(classString).not("[class='"+thisClass+"']").remove();
+				lastY=$("#"+id).parent().position().top+$("#"+id).position().top;
+				//remove lines
+				classString="."+thisClass.replace(/ /g,".");
+				classString=classString.replace("listcell","FLOConnector");
+				$(classString).not("[class='"+thisClass.replace("listcell","FLOConnector")+"']").remove();
+				//remove wrapper
+				classString="."+thisClass.replace(/ /g,".");
+				classString=classString.replace("listcell","attrwrapper");
+				$(classString).not("[class='"+thisClass.replace("listcell","attrwrapper")+"']").remove();
+					    
+				$("#detail"+id).show();
+				showRelatedObjects(id);
+				$("div").css("cursor","default");
+				$(".listcell").css("cursor","pointer");
+				$(".listtext").css("cursor","pointer");
+
+				if (scroll) {
+					$(document.body).animate({
+				    'scrollTop':   $('#'+id).offset().top
+					}, 2000);
+				}
+			}
+
+			function normalView(id)
+			{
+			  thisShape=custcanvas.getFigure(id);
+			  thisShape.setDimension(blockwidth,blockheight);
+			}
+
+			function getCustomizationTypes() {
+				var types = {};
+				try {
+					var custypes = top.nlapiSearchRecord('customlist_type_cust',null,null,[new top.nlobjSearchColumn('internalid'),new top.nlobjSearchColumn('name')]);
+					if(custypes) {
+						for(var i = 0; custypes[i] != null; i++) {
+							var typeid = custypes[i].getValue('internalid');
+							var typename = custypes[i].getValue('name');
+							types[typeid] = typename;
+						}
+					}
+				} catch(e) {
+					console.log(e);
+				}
+				return types;
+			}
+
+			$(document).ready(function(){parent.document.getElementById("mapdiv").insertAdjacentHTML('afterbegin','<div class="erdbackbutton"><input class="navbuttons" type="button" value="Back" onclick="go_Back()"></div>');
+			parent.document.getElementById("mapexternaldiv").insertAdjacentHTML('afterbegin','<div class="erdbackbutton"><input class="navbuttons" type="button" value="Back" onclick="go_Back()"></div>');});
+		</script>
+	</head>
+	<body>
+	
+
+
+		<svg id="svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xstyle="position:absolute;top:10px;left:270px;" height="10000" width="10000">Sorry, your browser does not support inline SVG.</svg>
+	
+		<div id="mainlist"><!--<div id="loadingdatagifx" style="display:none"><img src="Customization/flodocsloading.gif"/></div>--></div>
+			<script>
+				var customizationTypes = getCustomizationTypes();
+			  	var date1=new Date();
+			    var objloop=false;//used to prevent recursive calls to object data in getObj function in case of a communication error
+				var xmlhttp;//xmlhttp obj used to retrieve data
+				var lastObj="";//used to track the currently focused object in order to remove its children when matched.
+				var openitems=[];//track open items do avoid duplicates
+				var customizationid = null;
+				var recname = null;
+			    parent.document.getElementById("detaildiv").style.display='none';
+			    //Customization Data Place Holder
+				<data>
+
+
+				var recs=[];
+				var ti;
+				var tlpKeys = Object.keys(tlp); 
+			    //create container
+			    if(tlpKeys.length  == 0) {
+			    	$("#mainlist").append("<div>No results were found for your search.</div>");
+			    	$("#mainlist").css("border-style","hidden");
+			    } else {
+			    	$("#mainlist").append("<div id='"+pid+"' class='attrlabel' style='min-width:300px;width: auto;' onmouseover='closeView(0)'><div class='listtext'>"+recname+"</div></div>");
+			    }
+						
+			    ti=0;
+				var redata="";//related item data
+				
+				//++ NS-512 Sort List by Name
+				if(tlp) {
+					try{
+					
+						tlpKeys.sort(function(a,b) {
+							var x = tlp[a].name.toLowerCase();
+							var y = tlp[b].name.toLowerCase();
+							return x < y ? -1 : x > y ? 1 : 0;
+						});
+					} catch(e) {
+						console.log(e);
+					}
+				}
+				//-- NS-512
+		
+				for(i=0;tlpKeys[i]!=null;i++)
+				{
+					var cust = tlp[tlpKeys[i]];
+					if (cust) {
+
+	                    //skip non-fields
+	                    //only when not viewing ERD from Customization
+	                    var sid=cust.custrecord_flo_cust_id;
+	                    var custype=customizationTypes[cust.custrecord_flo_cust_type] || "";
+	                    
+	                    if (!customizationid && recname!="Search Form Results") {
+	                    	if((sid.indexOf("custbody")<0 && sid.indexOf("custentity")<0 && sid.indexOf("custevent")<0 && sid.indexOf("custcol")<0 && sid.indexOf("custrec")<0  && sid.indexOf("custitem")<0 && custype.indexOf('Field')<0) | cust.name=="" | cust.name=="undefined")
+	                    	{
+	                    		continue;
+	                    	}
+	                    }
+				  		
+				  		//Add a label
+				  		var pname=cust.name;
+			          	if(pname.length>30)
+			          	{
+			          		pname=pname.substring(0,pname.lastIndexOf(" "))+"\n"+pname.substring(pname.lastIndexOf(" ")+1);
+			          	}
+			       		
+			       		$("#mainlist").append("<div id='"+cust.internalid+"' onmouseover='closeView("+cust.internalid+")' onclick='showDetail(this,"+cust.internalid+",true)'  class='listcell'><div class='listtext'>"+pname+"</div></div>");
+			       		$("#mainlist").append("<div style='display:none;' id='detail"+cust.internalid+"' class='details'><table width='100%' style=''><tr><td>Scriptid:</td><td style=''>"+cust.custrecord_flo_cust_id+"</td></tr><tr><td>Owner:</td><td>"+cust.formulatext+"</td></tr><tr><td>Data Type:</td><td>"+cust.custrecord_flo_data_type.replace("undefined","")+"</td></tr><tr><td></td><td align='right'><input type='button'  name='open record' value='Open Record' onclick='explodedView("+cust.internalid+")'/></td></tr></table></div>");
+
+						$("#loadingdatagif").hide();
+
+			          	//Add attribute tables
+			          	if(cust.list_custrecord_flo_list!=null && cust.list_custrecord_flo_list!="")
+			          	{
+			          	
+							createContainer(cust.list_name,cust.list_internalid,2,400,$("#"+cust.internalid).position().top,"",cust.list_custrecord_flo_cust_id,1);
+				  			ti++;
+				            lastY=Math.max(Math.max($("#"+cust.internalid).position().top,70*ti),lastY)+10;
+				      	}
+
+			      	  	var bundlekeys = [];
+			      	  	if(customizationid) {
+				      	  	try {
+					      		var custkeys = Object.keys(cust);
+					      	  	bundlekeys = custkeys.filter(function(el){ return el.indexOf('bundle_') == 0; });
+					      	} catch(e) {
+
+					      	}
+				      	}
+			      		
+			      		//Load the related objects
+						redata+=","+cust.list_custrecord_flo_dependent_fields+","+cust.custrecord_flo_list+","+cust.custrecord_flo_scripts+","+cust.custrecord_flo_searches+","+cust.custrecord_flo_cust_forms+","+cust.custrecord_flo_data_source+","+cust.list_custrecord_flo_wflws+","+cust.list_custrecord_flo_deployments_list;
+						
+						if(bundlekeys.length > 0) {
+							for(var b = 0; b < bundlekeys.length; b++) {
+								redata+= ","+cust[bundlekeys[b]];
+							}
+						}
+					}
+
+				}
+						
+				redata=redata.replace(/[,]+/g,',').replace(/^,/,'').replace(/,$/,'');
+
+				if(redata!="")
+				{
+					idlist=[];//list of ids of customizations to get data for
+					redata=redata.split(",");
+					var arraycount = 0;
+					for(re=0;redata[re]!=null;re++)
+					{
+
+						if(getObj(redata[re],false)=="" )
+						{
+							arraycount++;
+							idlist.push(redata[re]);
+							
+						}
+						if(arraycount == 10) {
+							setTimeout(loadData(idlist),200);
+							arraycount = 0;
+							idlist=[];
+						}
+						
+					}
+					redata="";
+					if(idlist.length>0)
+					{setTimeout(loadData(idlist),200);}
+
+				}
+
+				//ShowDetail for ERD from Custo Record View
+				if (customizationid != null && customizationid.trim() != '') {
+					if (parentid)
+						showDetail(null,customizationid,true,true);
+					else
+						showDetail(null,customizationid,true);
+
+				}
+
+				function createContainer(name,id,attributes,pos1,pos2,origrec,thisIntId,count)
+				{
+
+					if(document.getElementById(id)!=null)
+					{
+						rec=document.getElementById(id);
+					} 
+					else
+					{
+						var newcont=false;
+				   	  	
+				        if($('#cont'+id+'-'+count).length==0)
+						{
+							newcont=true;
+				        	$("#mainlist").append('<div id="cont'+id+'-'+count+'" class="attrwrapper"  style="position:absolute;left:'+pos1+'px;top:'+pos2+'px;"></div>');
+				        	$('#cont'+id+'-'+count).append("<div id='intid"+id+"-"+count+"' onmouseover='closeView("+id+")' onclick='explodedView("+id+")' class='attrlabel'><div class='listtext'>"+name+"</div></div>");
+				    	}
+							
+						p=$('#'+id).position();
+						
+				        var svgNS = "http://www.w3.org/2000/svg";  
+						if(newcont)
+						{
+						    var myLine = document.createElementNS(svgNS,"polyline"); 
+						    myLine.setAttributeNS(null,"id","line"+id);
+						    myLine.setAttributeNS(null,"points","0,"+(p.top+blockheight)+" 150,"+(pos2+blockheight));
+					    } 
+					    else
+					    {
+							var myLine = document.createElementNS(svgNS,"polyline"); 
+							myLine.setAttributeNS(null,"id","line"+id);
+							myLine.setAttributeNS(null,"points","0,"+(pos2+blockheight)+" "+"450,"+(pos2+blockheight)+" "+"450,"+(p.top+blockheight)+" "+(p.left)+","+(p.top+blockheight));
+								
+						}
+						
+						myLine.setAttributeNS(null,"fill","black");
+						myLine.setAttributeNS(null,"style","fill:none;stroke:black;stroke-width:3");
+						document.getElementById("svg").appendChild(myLine);
+
+
+				        if(pos1==null |pos1=="")
+				        {
+				        	pos1=custcanvas.getWidth()/2;
+				            pos2=custcanvas.getHeight()/2;   
+						}
+				    }
+				}
+					
+				function showRelatedObjects(id)
+				{
+					
+					$("#mainlist").css('cursor', 'wait');
+					$("#"+id).css('cursor', 'wait');
+					foundObj=getObj(id);
+					
+					//get data for each of the objects
+					redata=foundObj.list_custrecord_flo_dependent_fields+","+foundObj.custrecord_flo_list+","+foundObj.custrecord_flo_scripts+","+foundObj.custrecord_flo_searches+","+foundObj.custrecord_flo_cust_forms+","+foundObj.custrecord_flo_data_source+","+foundObj.list_custrecord_flo_wflws+","+foundObj.list_custrecord_flo_deployments_list+","+foundObj.customlistfields;
+
+					var bundlekeys = [];
+					
+					if(foundObj.custrecord_flo_cust_type == '71') {
+						try {
+				      	  	var custkeys = Object.keys(foundObj);
+				      	  	bundlekeys = custkeys.filter(function(el){ return el.indexOf('bundle_') == 0; });
+				      	} catch(e) {
+
+				      	}
+					}
+		      	  	
+			      	if(bundlekeys.length > 0) {
+						for(var b = 0; b < bundlekeys.length; b++) {
+							redata+= ","+foundObj[bundlekeys[b]];
+						}
+					} 
+					
+					redata=redata.replace(/[,]+/g,',').replace(/^,/,'').replace(/,$/,'');
+					if(redata!="")
+					{
+						idlist=[];//list of ids of customizations to get data for
+						redata=redata.split(",");
+						
+						for(re=0;redata[re]!=null;re++)
+						{
+							
+							
+							if(tlp[redata[re]]===undefined)
+							{
+								idlist.push(redata[re]);
+							}
+							
+						}
+
+						redata="";
+						if(idlist.length>0)
+						{loadData(idlist);}
+						
+					}
+					
+					
+
+					//Add List element
+					objcount=0;
+
+					
+					if(!isNaN(foundObj.custrecord_flo_list) && foundObj.custrecord_flo_list!="")
+					{
+						createObjTable(foundObj,"LIST",foundObj.custrecord_flo_list,objcount);
+						writeConnector($("#"+id),$("#LIST"+foundObj.internalid),objcount);
+						objcount++;
+						
+					}
+
+					//Add List Fields element
+					if(foundObj.customlistfields!="")
+					{
+						createObjTable(foundObj,"FIELDS",foundObj.customlistfields,objcount);
+						writeConnector($("#"+id),$("#FIELDS"+foundObj.internalid),objcount);
+						objcount++;
+						
+					}
+					
+					//Add Script elements
+					if(foundObj.custrecord_flo_scripts!="")
+					{
+						createObjTable(foundObj,"SCRIPTS",foundObj.custrecord_flo_scripts,objcount);
+						writeConnector($("#"+id),$("#SCRIPTS"+foundObj.internalid),objcount);
+						objcount++;
+						
+					}
+									
+					//Add Search elements
+					if(foundObj.custrecord_flo_searches!="")
+					{
+						console.log("foundObj.custrecord_flo_searches" + foundObj.custrecord_flo_searches)
+						createObjTable(foundObj,"SEARCHES",foundObj.custrecord_flo_searches,objcount);
+						writeConnector($("#"+id),$("#SEARCHES"+foundObj.internalid),objcount);
+						objcount++;
+						
+					}
+					
+					//Add Form Elements
+					if(foundObj.custrecord_flo_cust_forms!="")
+					{
+						//loadData(foundObj.custrecord_flo_cust_forms);
+						createObjTable(foundObj,"FORMS",foundObj.custrecord_flo_cust_forms,objcount);
+						writeConnector($("#"+id),$("#FORMS"+foundObj.internalid),objcount);
+						objcount++;
+						
+					}
+					
+					//Add Source Elements
+					if(foundObj.custrecord_flo_data_source!="")
+					{
+						var segSources = segregateDFSF(foundObj.custrecord_flo_data_source);
+						if (segSources) {
+							if (segSources.sources) {
+								createObjTable(foundObj,"SOURCES",segSources.sources,objcount);
+								writeConnector($("#"+id),$("#SOURCES"+foundObj.internalid),objcount);
+								objcount++;
+							}
+							if (segSources.df) {
+								createObjTable(foundObj,"INTEGRATIONS",segSources.df,objcount);
+								writeConnector($("#"+id),$("#INTEGRATIONS"+foundObj.internalid),objcount);
+								objcount++;
+							}
+
+							if (segSources.sf) {
+								createObjTable(foundObj,"SOURCESSF",segSources.sf,objcount,"DARKSEAGREEN");
+								writeConnector($("#"+id),$("#SOURCESSF"+foundObj.internalid),objcount);
+								objcount++;						
+							}
+						}
+						
+					}
+
+					//Add Workflow Elements
+					if(foundObj.list_custrecord_flo_wflws!="")
+					{
+						createObjTable(foundObj,"WORKFLOW",foundObj.list_custrecord_flo_wflws,objcount);
+						writeConnector($("#"+id),$("#WORKFLOW"+foundObj.internalid),objcount);
+						objcount++;
+						
+					}
+
+					if(foundObj.list_custrecord_flo_dependent_fields!="")
+					{
+						var segDependentField = segregateExternalDependentFields(foundObj.list_custrecord_flo_dependent_fields);
+						if(segDependentField) {
+							if(segDependentField.external) {
+								createObjTable(foundObj,"EXTERNAL DEPENDENT FIELDS",segDependentField.external,objcount);
+								writeConnector($("#"+id),$("#EXTERNALDEPENDENTFIELDS"+foundObj.internalid),objcount);
+								objcount++;
+							}
+
+							if(segDependentField.internal) {
+								createObjTable(foundObj,"DEPENDENT FIELDS",segDependentField.internal,objcount);
+								writeConnector($("#"+id),$("#DEPENDENTFIELDS"+foundObj.internalid),objcount);
+								objcount++;
+							}
+						}
+						
+
+					}
+
+					//Deployments
+					if(foundObj.list_custrecord_flo_deployments_list != "") {
+						createObjTable(foundObj,"DEPLOYMENTS",foundObj.list_custrecord_flo_deployments_list,objcount);
+						writeConnector($("#"+id),$("#DEPLOYMENTS"+foundObj.internalid),objcount);
+						objcount++;
+					}
+					
+
+					if(bundlekeys.length > 0) {
+						for(var b = 0; b < bundlekeys.length; b++) {
+							console.log(bundlekeys[b]);
+							var listname = bundlekeys[b].replace('bundle_','').toUpperCase();
+							var listID = listname.replace(/\s/g,'') + foundObj.internalid;
+							console.log(listname);
+							createObjTable(foundObj,listname,foundObj[bundlekeys[b]],objcount);
+							writeConnector($("#"+id),$("#"+listID),objcount);
+							objcount++;
+
+						}
+					} 
+
+
+
+					$("#mainlist").css('cursor', 'default');
+					$("#"+id).css('cursor', 'pointer');
+				}
+				
+				
+				function getObj(id,skipload)
+				{
+					var foundObj = tlp[id];
+					if (foundObj == null && objloop == false && skipload == null) {
+						//console.log('load '+id);
+						loadData(id);
+						objloop=true;
+						foundObj=getObj(id);
+					}
+					objloop=false;
+					return foundObj;
+				}
+				
+				function loadData(id)
+				{
+					if (id.constructor !== Array)
+						id = id.toString().split(',');
+					
+					if (id) {
+						//request JSON
+						loadXMLDoc("/app/site/hosting/scriptlet.nl?script=customscript_flo_cust_data&deploy=1&pid="+id);
+				    	eval(xmlhttp.responseText);
+				    
+				    	//loop through data adding each object to object list
+					    if (data != null) {
+							redata = "";
+						    for(d=0;id[d]!=null;d++)
+						    {
+						    	var custId = id[d];
+						    	var cust = data[custId];
+						    	if (cust === undefined) {
+						    		tlp[custId] = {};
+						    	} else {
+							    	tlp[custId] = cust;
+									redata+=","+cust.list_custrecord_flo_dependent_fields+","+cust.custrecord_flo_list+","+cust.custrecord_flo_scripts+","+cust.custrecord_flo_searches+","+cust.custrecord_flo_cust_forms+","+cust.custrecord_flo_data_source+","+cust.list_custrecord_flo_wflws+","+cust.list_custrecord_flo_deployments_list+","+cust.customlistfields;
+									
+									var bundlekeys = [];
+									if(cust.custrecord_flo_cust_type == '71') {
+										try {
+								      	  	var custkeys = Object.keys(cust);
+								      	  	bundlekeys = custkeys.filter(function(el){ return el.indexOf('bundle_') == 0; });
+								      	} catch(e) {
+
+								      	}
+									}
+						      	  	
+							      	if(bundlekeys.length > 0) {
+										for(var b = 0; b < bundlekeys.length; b++) {
+											redata+= ","+cust[bundlekeys[b]];
+										}
+									} 
+								}
+							}
+
+							redata=redata.replace(/[,]+/g,',').replace(/^,/,'').replace(/,$/,'');
+
+							if(redata!="")
+							{
+								idlist=[];//list of ids of customizations to get data for
+								redata=redata.split(",");
+								var arraycount = 0;
+								for(re=0;redata[re]!=null;re++)
+								{
+
+									if(getObj(redata[re],false)=="")
+									{
+										idlist.push(redata[re]);
+										arraycount++;
+									}
+									if(arraycount == 10) {
+										setTimeout(loadData(idlist),200);
+										arraycount = 0;
+										idlist=[];
+									}
+								}
+				                redata="";
+								if(idlist.length>0)
+								{setTimeout(loadData(idlist),200);}
+
+							}
+						}
+					}
+				}
+				
+				function loadXMLDoc(url)
+				{
+				
+					if (window.XMLHttpRequest)
+				 	{// code for IE7+, Firefox, Chrome, Opera, Safari
+				 		xmlhttp=new XMLHttpRequest();
+				  	}
+					else
+				  	{// code for IE6, IE5
+				  		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+				  	}
+				
+					xmlhttp.open("GET",url,false);
+					xmlhttp.send();
+				}//end of loadXML function
+				
+				function createObjTable(currentObj,label,list,seq,titleColor)
+				{
+					
+					id=currentObj.internalid;
+					var labelid = label.replace(/\s/g,'') + id;
+					parentClassString=getParentClass($("#"+id));
+					var newy=parseInt(Math.max(Math.max($("#"+id).position().top,70*ti),lastY)-15);
+					if(seq==0){$("#"+id).position().top;}
+					console.log("labelid" + labelid);
+					if($('#'+labelid).length==0)
+					{
+						
+						objlist=list.split(",");
+						console.log("objlist" + objlist);
+						var maxrows = 10;
+						if(label == "COMPONENTS") {
+							maxrows = 500;
+						}
+						var bulkLoad = [];
+						var rows = 0;
+						var sortByName = [];
+						for(ol=0;objlist[ol]!=null && rows < maxrows;ol++)
+						{
+							var thisObj	= tlp[objlist[ol]];
+							if (thisObj === undefined) {
+								bulkLoad.push(objlist[ol]);
+							} else {
+								if (thisObj.name) {
+									rows++;
+									sortByName.push(thisObj.name + "_strongpoint_" + objlist[ol]);
+								}
+					    	}
+						}
+						console.log("bulkLoad" + bulkLoad);
+						if (bulkLoad.length > 0) {
+							loadData(bulkLoad);
+							for (var i = 0 ; bulkLoad[i] != null && rows < maxrows; i++) {
+								//console.log('bulkLoad[i] ' + bulkLoad[i]);
+								var thisObj	= tlp[bulkLoad[i]];
+								if (thisObj.name) { //dont create undefined objs / standard fields
+									rows++;
+									sortByName.push(thisObj.name + "_strongpoint_" + bulkLoad[i]);
+						    	}
+							}
+						}
+						console.log("sortByName" + sortByName);
+						if (sortByName.length > 0) {
+							$("#mainlist").append('<div id="'+labelid+'" class="attrwrapper'+parentClassString+'"  style="min-width:300px;width: auto;position:absolute;left:'+($("#"+id).parent().position().left+$("#"+id).position().left+$("#"+id).width()+150)+'px;top:'+newy+'px;"></div>');
+
+							if (label == "SOURCESSF" || label == "EXTERNAL DEPENDENT FIELDS" ) {
+								titleColor = 'DARKSEAGREEN';
+								$('#'+labelid).append("<div id='intid"+currentObj.list_internalid+"' class='attrlabel' style='background-color:"+titleColor+";'><div class='listtext'>"+label+"</div></div>");
+							} else {
+								$('#'+labelid).append("<div id='intid"+currentObj.list_internalid+"' class='attrlabel'><div class='listtext'>"+label+"</div></div>");
+							}
+
+							try{
+								if (sortByName.length > 1) {
+									sortByName.sort(function(a,b) {
+										var x = a.toLowerCase();
+										var y = b.toLowerCase();
+										return x < y ? -1 : x > y ? 1 : 0;
+									});
+								}
+							} catch(e) {
+
+							}
+							
+							for (var i=0; sortByName[i] != null; i++) {
+								var thisObjId = sortByName[i].split("_strongpoint_")[1];
+								console.log(thisObjId);
+								var thisObj = tlp[thisObjId];
+								console.log(thisObj);
+								if (thisObj && thisObj.name) {
+									//++ NS-775 Long names are cut and added ...
+									var thisName = thisObj.name.length > 40 ? thisObj.name.substr(0,40) + "..." : thisObj.name;
+									//$('#'+labelid).append("<div id='"+thisObjId+"' class='listcell"+parentClassString+"' onclick='showDetail(this,"+thisObjId+")'><div class='listtext'>"+thisObj.name+"</div></div>");
+									$('#'+labelid).append("<div id='"+thisObjId+"' class='listcell"+parentClassString+"' onclick='showDetail(this,"+thisObjId+")'><div class='listtext'>"+thisName+"</div></div>");
+									//-- NS-775
+									$('#'+labelid).append("<div style='display:none;' id='detail"+thisObj.internalid+"' class='details'><table><tr><td>Scriptid:</td><td style=''>"+thisObj.custrecord_flo_cust_id+"</td></tr><tr><td>Owner:</td><td>"+thisObj.formulatext+"</td></tr><tr><td>Data Type:</td><td>"+thisObj.custrecord_flo_data_type+"</td></tr><tr><td></td><td align='right'><input type='button'  name='open record' value='Open Record' onclick='explodedView("+thisObj.internalid+")'/></td></tr></table></div>");
+								}
+							}
+						}
+
+						var tableData = "";
+						var tableTitle = "";
+						
+						if(objlist != null && objlist.length > 0) {
+                            var objHeader = tlp[objlist[0]];
+                            var matches = objHeader.name.match(/\((.*?)\)/);
+                            if (matches) {
+                                var upperCasePlural = "";
+                                if(matches[1].includes("earch")) {
+                                    upperCasePlural = matches[1] + "ES";
+                                } else {
+                                    upperCasePlural = matches[1] + "S";
+                                }
+                                tableTitle = "<tr><td style='padding: 4px;border: 1px solid black;text-align: center;background-color: #DDDDDD;font-weight: bold;font-size: small;'>" + upperCasePlural.toUpperCase() +"</tr></td>";
+							}
+							var recJson = [];
+                            for(var j = 0; j < objlist.length; j++) {
+								var recObject = tlp[objlist[j]];
+								recJson.push({
+									internalid: recObject.internalid,
+									name: recObject.name
+								});
+							}
+
+							recJson.sort( function( a, b ) {
+								a = a.name.toLowerCase();
+								b = b.name.toLowerCase();
+
+								return a < b ? -1 : a > b ? 1 : 0;
+							});
+							
+							for(var k = 0; k < recJson.length; k++) {
+                                console.log("Object: " + JSON.stringify(recJson));
+                                tableData += "<tr><td style='padding: 4px !important;border: 1px solid gray;padding-top: 0px;padding-bottom: 0px;font-size: small;text-align: center;background-color: #CED8F6;cursor:pointer;' onclick='explodedView("+recJson[k].internalid+")'>"+recJson[k].name+"</td></tr>";
+							}
+                        }
+
+						if(objlist!=null && objlist.length > maxrows) {
+							$('#'+labelid).append("<div id='"+labelid+"more' class='listcell"+parentClassString+"'><div class='link'>More...</div><div class='tooltip'>"+
+                                    "<table style='border: 1px solid black;padding: 0px; border-spacing: 0px'>" + tableTitle + tableData +"</table></div></div>");
+						}
+					}
+
+				    parentClassString=parentClassString.replace(" ",".");
+					$('.attrwrapper'+parentClassString).show();
+					$('.listcell'+parentClassString).show();
+					
+					lastY=$('#'+labelid).position().top+$('#'+labelid).height()+155;				
+				}
+
+				//Segregates Salesforce and Data Flow type Sources
+				function segregateDFSF(sourcesList) {
+					var segObj = {sources:"",df:"",sf:""};
+					if (sourcesList) {
+
+						sourcesList = sourcesList.split(",");
+						var myBulkLoad = [];
+						var src = [];
+						var df = [];
+						var sf = [];
+						for (var i=0; sourcesList[i] != null; i++) {
+							var thisObj = tlp[sourcesList[i]];
+							if (thisObj === undefined)
+								myBulkLoad.push(sourcesList[i]);
+							else { 
+								var dtype = thisObj.custrecord_flo_data_type || "";
+								var ctype = thisObj.custrecord_flo_cust_type || "";
+								//console.log(ctype)
+								if (dtype || ctype) {
+									if (dtype.match(/data flow/i) != null || parseInt(ctype) == 48) {
+										df.push(sourcesList[i]);
+									} else if (dtype.match(/salesforce/i) != null) {
+										sf.push(sourcesList[i]);
+									} else {
+										src.push(sourcesList[i]);
+									}
+								}
+							}
+						}
+						
+						if (myBulkLoad.length > 0) {
+							loadData(myBulkLoad);
+							for (var ii = 0; myBulkLoad[ii] != null; ii++) {
+								var thisObj_ = tlp[myBulkLoad[ii]];
+								var dtype_ = thisObj_.custrecord_flo_data_type || "";
+								var ctype = thisObj_.custrecord_flo_cust_type || "";
+								if (dtype_ || ctype) {
+									if (dtype_.match(/data flow/i) != null || parseInt(ctype) == 48) {
+										df.push(myBulkLoad[ii]);
+									} else if (dtype_.match(/salesforce/i) != null) {
+										sf.push(myBulkLoad[ii]);
+									} else {
+										src.push(myBulkLoad[ii]);
+									}
+								}
+							}
+						}
+
+						segObj.sources = src.join();
+						segObj.df = df.join();
+						segObj.sf = sf.join();
+						
+					}
+					return segObj;
+				}
+
+				function segregateExternalDependentFields(depfieldsList) {
+					var segObj = {internal:"",external:""};
+					try {
+						if(depfieldsList) {
+							depfieldsList = depfieldsList.split(",");
+							var myBulkLoad = [];
+							var internal = [];
+							var external = [];
+							for (var i=0; depfieldsList[i] != null; i++) {
+								var thisObj = tlp[depfieldsList[i]];
+								if (thisObj === undefined)
+									myBulkLoad.push(depfieldsList[i]);
+								else { 
+									var ctype = thisObj.custrecord_flo_cust_type || "";
+									if (ctype) {
+										if (parseInt(ctype) == 62) {
+											external.push(depfieldsList[i]);
+										} else {
+											internal.push(depfieldsList[i]);
+										}
+									}
+								}
+							}
+							
+							if (myBulkLoad.length > 0) {
+								loadData(myBulkLoad);
+								for (var ii = 0; myBulkLoad[ii] != null; ii++) {
+									var thisObj_ = tlp[myBulkLoad[ii]];
+									var ctype = thisObj_.custrecord_flo_cust_type || "";
+									if (ctype) {
+										if (parseInt(ctype) == 62) {
+											external.push(depfieldsList[i]);
+										} else {
+											internal.push(depfieldsList[i]);
+										}
+									}
+								}
+							}
+
+							segObj.internal = internal.join();
+							segObj.external = external.join();
+						}
+					} catch(e) {
+
+					}
+
+					return segObj;
+				}
+				
+				function writeConnector(startObj,endObj,seq)
+				{
+					//This function writes the connector(s) between the source record and the destination record(s)
+					//The seq variable shifts the arrow shape to avoid overlaps
+					parentClassString=getParentClass(startObj);
+					
+					startx=startObj.parent().position().left+startObj.position().left+startObj.width();
+					
+					starty=startObj.parent().position().top+startObj.position().top+startObj.height()/5*seq+20;
+					if(startObj.parent().parent()!=null)
+					{starty=starty+startObj.parent().parent().position().top}
+
+					endy=endObj.parent().position().top+endObj.position().top+12.5;
+					endx=endObj.parent().position().left+endObj.position().left+5;
+					
+					if(seq==0  && (endy-starty)<20){endy=starty;midpoint=endx}
+					else
+					{midpoint=(endx-startx)*(1-(1/6)*(seq+1))+startObj.width()+startObj.parent().position().left+startObj.position().left;}
+					
+					var svgNS = "http://www.w3.org/2000/svg";  
+					
+					var myLine = document.createElementNS(svgNS,"polyline"); 
+					myLine.setAttributeNS(null,"id","line"+id);
+					myLine.setAttributeNS(null,"points",startx+","+starty+" "+midpoint+","+starty+" "+midpoint+","+endy+" "+endx+","+endy);
+					myLine.setAttributeNS(null,"class","FLOConnector"+parentClassString);
+					myLine.setAttributeNS(null,"fill","black");
+					myLine.setAttributeNS(null,"style","fill:none;stroke:black;stroke-width:2");
+					document.getElementById("svg").appendChild(myLine);
+				}
+
+				function getParentClass(thisClassObj)
+				{
+					id=thisClassObj.attr("id");
+					if(id=="undefined")
+					{
+						id=thisClassObj.parent().attr("id");
+						thisClassObj=hisClassObj.parent();
+					}
+
+					parentClassString=thisClassObj.attr("class");
+					parentClassString=parentClassString.replace("listcell","");
+					parentClassString+=" "+thisClassObj.attr("id");
+					
+					
+					return parentClassString;
+				}
+			</script>
+		</div>
+	</body>
+</html>

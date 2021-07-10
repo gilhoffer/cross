@@ -1,0 +1,14 @@
+type netsuite.CalendarEventAttendee {
+  annotations {
+    hidden_string source {
+    }
+  }
+  boolean sendEmail {
+  }
+  netsuite.RecordRef attendee {
+  }
+  string response {
+  }
+  string attendance {
+  }
+}

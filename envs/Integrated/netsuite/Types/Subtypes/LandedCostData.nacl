@@ -1,0 +1,10 @@
+type netsuite.LandedCostData {
+  annotations {
+    hidden_string source {
+    }
+  }
+  netsuite.CostCategory costCategory {
+  }
+  number amount {
+  }
+}

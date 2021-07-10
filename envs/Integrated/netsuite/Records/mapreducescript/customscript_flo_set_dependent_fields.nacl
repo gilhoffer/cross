@@ -1,0 +1,30 @@
+netsuite.mapreducescript customscript_flo_set_dependent_fields {
+  scriptid = "customscript_flo_set_dependent_fields"
+  isinactive = false
+  name = "Strongpoint Set Dependent Fields"
+  notifyadmins = false
+  notifyowner = true
+  scriptfile = netsuite.file.instance.SuiteBundles_Bundle_297487_FLOSetDependentFields_js@dsdv.path
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy_flo_set_dependent_fields"
+        buffersize = "1"
+        concurrencylimit = "1"
+        isdeployed = true
+        loglevel = "AUDIT"
+        queueallstagesatonce = true
+        runasrole = "ADMINISTRATOR"
+        status = "NOTSCHEDULED"
+        title = "Strongpoint Set Dependent Fields"
+        yieldaftermins = "60"
+        recurrence = {
+          single = {
+            startdate = "2020-07-08"
+            starttime = "01:00:00Z"
+          }
+        }
+      },
+    ]
+  }
+}

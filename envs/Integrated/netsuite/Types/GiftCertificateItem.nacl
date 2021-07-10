@@ -1,0 +1,133 @@
+type netsuite.GiftCertificateItem {
+  annotations {
+    hidden_string source {
+    }
+  }
+  string createdDate {
+  }
+  string lastModifiedDate {
+  }
+  netsuite.RecordRef customForm {
+  }
+  serviceid itemId {
+  }
+  string upcCode {
+  }
+  string displayName {
+  }
+  boolean includeChildren {
+  }
+  netsuite.GiftCertificateItem parent {
+  }
+  boolean isOnline {
+  }
+  boolean isGcoCompliant {
+  }
+  boolean offerSupport {
+  }
+  boolean isInactive {
+  }
+  boolean availableToPartners {
+  }
+  netsuite.Department department {
+  }
+  netsuite.Classification class {
+  }
+  netsuite.Location location {
+  }
+  "List<netsuite.Subsidiary>" subsidiaryList {
+  }
+  string salesDescription {
+  }
+  netsuite.Account incomeAccount {
+  }
+  netsuite.Account liabilityAccount {
+  }
+  number daysBeforeExpiration {
+  }
+  boolean isTaxable {
+  }
+  number rate {
+  }
+  string urlComponent {
+  }
+  netsuite.RecordRef salesTaxCode {
+  }
+  boolean pricesIncludeTax {
+  }
+  netsuite.RecordRef taxSchedule {
+  }
+  number costEstimate {
+  }
+  string costEstimateType {
+  }
+  netsuite.RecordRef billingSchedule {
+  }
+  netsuite.RecordRef issueProduct {
+  }
+  boolean isFulfillable {
+  }
+  string storeDisplayName {
+  }
+  netsuite.file storeDisplayThumbnail {
+  }
+  netsuite.file storeDisplayImage {
+  }
+  string storeDescription {
+  }
+  string storeDetailedDescription {
+  }
+  netsuite.RecordRef storeItemTemplate {
+  }
+  string pageTitle {
+  }
+  string metaTagHtml {
+  }
+  boolean excludeFromSitemap {
+  }
+  string sitemapPriority {
+  }
+  string searchKeywords {
+  }
+  boolean isDonationItem {
+  }
+  boolean showDefaultDonationAmount {
+  }
+  number maxDonationAmount {
+  }
+  boolean dontShowPrice {
+  }
+  string noPriceMessage {
+  }
+  string outOfStockMessage {
+  }
+  boolean onSpecial {
+  }
+  string outOfStockBehavior {
+  }
+  string specialsDescription {
+  }
+  string featuredDescription {
+  }
+  string relatedItemsDescription {
+  }
+  netsuite.PricingMatrix pricingMatrix {
+  }
+  netsuite.GiftCertificateItemAuthCodesList authCodesList {
+  }
+  netsuite.SiteCategoryList siteCategoryList {
+  }
+  netsuite.TranslationList translationsList {
+  }
+  netsuite.ItemOptionsList itemOptionsList {
+  }
+  netsuite.PresentationItemList presentationItemList {
+  }
+  string internalId {
+    isAttribute = true
+    _hidden_value = true
+  }
+  string externalId {
+    isAttribute = true
+  }
+}

@@ -1,0 +1,73 @@
+type netsuite.TimeBill {
+  annotations {
+    hidden_string source {
+    }
+  }
+  netsuite.RecordRef customForm {
+  }
+  netsuite.Employee employee {
+  }
+  string tranDate {
+  }
+  netsuite.RecordRef approvalStatus {
+  }
+  netsuite.Customer customer {
+  }
+  netsuite.RecordRef caseTaskEvent {
+  }
+  boolean isBillable {
+  }
+  netsuite.PayrollItem payrollItem {
+  }
+  boolean paidExternally {
+  }
+  netsuite.RecordRef workplace {
+  }
+  netsuite.RecordRef item {
+  }
+  netsuite.Department department {
+  }
+  netsuite.Classification class {
+  }
+  netsuite.Location location {
+  }
+  netsuite.Duration hours {
+  }
+  netsuite.Price price {
+  }
+  string timeType {
+  }
+  number rate {
+  }
+  boolean overrideRate {
+  }
+  netsuite.RecordRef temporaryLocalJurisdiction {
+  }
+  netsuite.RecordRef temporaryStateJurisdiction {
+  }
+  string memo {
+  }
+  string rejectionNote {
+  }
+  netsuite.Subsidiary subsidiary {
+  }
+  boolean supervisorApproval {
+  }
+  string createdDate {
+  }
+  string lastModifiedDate {
+  }
+  netsuite.TimeSheet timeSheet {
+  }
+  string status {
+  }
+  boolean timeModified {
+  }
+  string internalId {
+    isAttribute = true
+    _hidden_value = true
+  }
+  string externalId {
+    isAttribute = true
+  }
+}

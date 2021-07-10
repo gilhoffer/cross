@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>File Diff: <scriptidtoreplace></title>
+    <!-- Stylesheet
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <link rel="stylesheet" type="text/css" href="diff2html.min.css"> -->
+    <style type="text/css">
+		ins {
+			background-color: #dfd;
+			border-color: #b4e2b4;
+			text-decoration: none;
+		}
+		del {
+			background-color: #fee8e9;
+			border-color: #e9aeae;
+			text-decoration: none;
+		}
+		
+		#topdiv {
+			font-family: "Arial", sans;
+			font-size: 13px;
+			border-bottom: 1px solid gold;
+			padding: 0 0 2px 0;
+			margin: 0 0 2px 0;
+			height: 20px;
+			clear: both;
+			cursor: pointer;
+		}
+		#bottomdiv {
+			overflow-y: scroll;
+			clear:both;
+		}
+		pre {
+			font-family: "Courier New", monospace;
+			font-size: 13px;
+			margin:0px;
+			width:500px;
+
+		}
+		.tab {
+			white-space:pre;
+		}
+		.diff-ins{
+			background-color: #dfd;
+			border-color: #b4e2b4;
+		}
+		.diff-del{
+			background-color: #fee8e9;
+			border-color: #e9aeae;
+		}
+		.diff-number {
+			color:rgba(0,0,0,.3);
+			width: 80px;
+		}
+		.difffile {
+			font-family: "Courier New", monospace;
+			font-size: 13px;
+			width: 100%;
+		}
+
+		.bottomdiv  table {
+			width: 98%;
+		}
+
+		.linenum1{-webkit-box-sizing:border-box;box-sizing:border-box;float:left;width:40px;overflow:hidden;text-overflow:ellipsis;padding-left:3px}
+
+		.linenum2{-webkit-box-sizing:border-box;box-sizing:border-box;float:right;width:40px;overflow:hidden;text-overflow:ellipsis;padding-left:3px}
+
+		.plusminus {padding: 0 20px 0 5px;text-align: left;}
+
+	</style>
+
+    <!-- Javascripts -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<scriptreferencetoreplace>
+	 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/scala.min.js"></script>
+    <script src="diff2html.js"  type="text/javascript"></script>
+    <script src="diff2html-ui.js"  type="text/javascript"></script>
+    <script src="difflib-browser.js"  type="text/javascript"></script> -->
+    <script>
+        function exportToPDF() {
+                // replace spaces since PDF exporter ignores multiple spaces
+                $('pre').contents().filter(function(){
+                    return this.nodeType == 3 // Text node
+                }).each(function(){
+                    this.data = this.data.replace(/ /g, '\u00a0');
+                });
+
+                var tableData = document.getElementById("result").outerHTML;
+
+                $("#tableData").val(tableData);
+                $("#pdfExportForm").submit();
+	}
+
+    	$(document).ready(function() {
+    		var a = document.getElementById('a');
+			var b = document.getElementById('b');
+			var result = document.getElementById('result');
+    		var h = (window.innerHeight * .95) + 'px';
+    		var w = ((window.innerWidth * .95) - 100) + 'px';
+    		console.log(w);
+    		$('#bottomdiv').css('height',h);
+    		
+    		var diff = JsDiff.diffLines(a.textContent, b.textContent);
+    		//console.log(diff);
+			var fragment = document.createDocumentFragment();
+			var diffGroupCount = 1;
+			var lineCount2 = 1;
+			var lineCount1 = 1;
+			for (var i=0; i < diff.length; i++) {
+				
+				if (diff[i].added && diff[i + 1] && diff[i + 1].removed) {
+					var swap = diff[i];
+					diff[i] = diff[i + 1];
+					diff[i + 1] = swap;
+				}
+				
+
+				var node;
+				if (diff[i].removed) {
+
+					var deletedlines = diff[i].value.replace(/\r/g,'').split(/(\n)/);
+					var diffCount = diff[i].count;
+					var printCount = 0;
+					for(var j = 0; j < deletedlines.length && printCount < diffCount; j++) {
+						if(deletedlines[j] == '\n') {
+							continue;
+						}
+						printCount++;
+						var rownode = document.createElement('tr');
+						if(j == 0  && ((i != 0 && !diff[i - 1].added) || i==0)) {
+							rownode.id = 'diff_' + diffGroupCount;
+							diffGroupCount++;
+						}
+						var firstcol = document.createElement('td');
+						firstcol.className = "diff-number";
+						var linenumber1 = document.createElement('div');
+						linenumber1.className = "linenum1";
+						var linenumber2 = document.createElement('div');
+						linenumber2.className = "linenum2";
+						var secondcol = document.createElement('td');
+						secondcol.className='diff-del';
+						var precontainer = document.createElement('pre');
+						node = document.createElement('del');
+						node.appendChild(document.createTextNode('-    '+deletedlines[j]));
+						
+						linenumber1.appendChild(document.createTextNode(lineCount1));
+						lineCount1++;
+						firstcol.appendChild(linenumber1);
+						firstcol.appendChild(linenumber2);
+						rownode.appendChild(firstcol);
+						precontainer.appendChild(node);
+						secondcol.appendChild(precontainer);
+						rownode.appendChild(firstcol);
+						rownode.appendChild(secondcol);
+						fragment.appendChild(rownode);
+					}
+				} else if (diff[i].added) {
+
+					var addedlines = diff[i].value.replace(/\r/g,'').split(/(\n)/);
+					var diffCount = diff[i].count;
+					var printCount = 0;
+					for(var j = 0; j < addedlines.length && printCount < diffCount; j++) {
+						if(addedlines[j] == '\n') {
+							continue;
+						}
+						printCount++
+						var rownode = document.createElement('tr');
+						if(j == 0  && ((i != 0 && !diff[i - 1].removed) || i==0)) {
+							rownode.id = 'diff_' + diffGroupCount;
+							diffGroupCount++;
+						}
+
+						var firstcol = document.createElement('td');
+						firstcol.className = "diff-number";
+						var linenumber1 = document.createElement('div');
+						linenumber1.className = "linenum1";
+						var linenumber2 = document.createElement('div');
+						linenumber2.className = "linenum2";
+						var secondcol = document.createElement('td');
+						secondcol.className='diff-ins';
+						var precontainer = document.createElement('pre');
+
+						node = document.createElement('ins');
+						node.appendChild(document.createTextNode('+    '+addedlines[j]));
+						linenumber2.appendChild(document.createTextNode(lineCount2));
+						lineCount2++;
+						firstcol.appendChild(linenumber1);
+						firstcol.appendChild(linenumber2);
+						rownode.appendChild(firstcol);
+						precontainer.appendChild(node);
+						secondcol.appendChild(precontainer);
+						rownode.appendChild(firstcol);
+						rownode.appendChild(secondcol);
+						fragment.appendChild(rownode);
+					}
+
+				} else {
+					//console.log(diff[i].value);
+					var untouchedlines = diff[i].value.replace(/\r/g,'').split(/(\n)/);
+					var diffCount = diff[i].count;
+					var printCount = 0;
+					//console.log(untouchedlines);
+					for(var j = 0; j < untouchedlines.length && printCount < diffCount; j++) {
+						if(untouchedlines[j] == '\n') {
+							continue;
+						}
+						printCount++;
+						var rownode = document.createElement('tr');
+						var firstcol = document.createElement('td');
+						firstcol.className = "diff-number";
+						var linenumber1 = document.createElement('div');
+						linenumber1.className = "linenum1";
+						var linenumber2 = document.createElement('div');
+						linenumber2.className = "linenum2";
+						var secondcol = document.createElement('td');
+						var precontainer = document.createElement('pre');
+
+						node = document.createTextNode('     '+untouchedlines[j]);
+						linenumber2.appendChild(document.createTextNode(lineCount2));
+						linenumber1.appendChild(document.createTextNode(lineCount1));
+						lineCount2++;
+						lineCount1++;
+						firstcol.appendChild(linenumber1);
+						firstcol.appendChild(linenumber2);
+						rownode.appendChild(firstcol);
+						precontainer.appendChild(node);
+						secondcol.appendChild(precontainer);
+						rownode.appendChild(firstcol);
+						rownode.appendChild(secondcol);
+						fragment.appendChild(rownode);
+					}
+					
+				}
+				
+
+				
+				/*var node;
+				if (diff[i].removed) {
+					node = document.createElement('del');
+					node.appendChild(document.createTextNode(diff[i].value));
+				} else if (diff[i].added) {
+					node = document.createElement('ins');
+					node.appendChild(document.createTextNode(diff[i].value));
+				} else {
+					node = document.createTextNode(diff[i].value);
+
+				}
+				fragment.appendChild(node);*/
+				
+			}
+
+			result.textContent = '';
+			result.appendChild(fragment);
+
+			var diff2 = JsDiff.createTwoFilesPatch('sample.js', 'sample.js', a.textContent, b.textContent);
+			//console.log(diff2)
+			var idx = 0;
+			var diffCount = jQuery("#bottomdiv").find('tr[id^="diff_"]').length;
+			var offsetArr = [];
+			//initialize offsets
+			$("#bottomdiv").find('tr[id^="diff_"]').each(function(idx,elem){offsetArr.push(($(this).offset().top) - 40);});
+
+			$("#next_diff").click(function(){
+				idx = ++idx % diffCount;
+				$('#bottomdiv').animate({scrollTop: offsetArr[idx]},1000);
+			});
+			$("#prev_diff").click(function(){
+				idx--;
+				if (idx < 0)
+					idx = diffCount - 1;
+				$('#bottomdiv').animate({scrollTop: offsetArr[idx]},1000);
+			});
+
+
+    	});
+    </script>
+  </head>
+  <body>
+  	<div>
+		<!--TOPDIVSTART-->
+		<div id="topdiv" >
+			<div style="width: 10%;float:left;"><u id="next_diff">Go To Next Difference</u></div>
+			<div style="width: 10%;float:left;"><u id="prev_diff">Go To Previous Difference</u></div>
+                       <div style="width: 80%;float:left;text-align: right;">
+                              <form id="pdfExportForm" action="/app/site/hosting/scriptlet.nl?script=customscript_flo_download_diff&deploy=1" method="POST">
+                                      <input type="hidden" name="scriptid" value="<scriptidtoreplace>">
+                                      <input type="hidden" id="tableData" name="xml" value="" />
+                                      <a style="color: black" id="pdfExportLink" onClick="exportToPDF()" href="#">Export to PDF</a>
+                              </form>
+                      </div>
+		</div>
+		<!--TOPDIVEND-->
+		<div id="bottomdiv">
+			<tabletoreplace>
+		</div>
+	</div>
+  	
+  </body>
+</html>

@@ -1,0 +1,11 @@
+type netsuite.JobResourcesList {
+  annotations {
+    hidden_string source {
+    }
+  }
+  "List<netsuite.JobResources>" jobResources {
+  }
+  boolean replaceAll {
+    isAttribute = true
+  }
+}

@@ -1,0 +1,26 @@
+netsuite.workflowactionscript customscript_flo_set_base_record {
+  scriptid = "customscript_flo_set_base_record"
+  defaultfunction = "setBaseRecordView"
+  description = "Sets Base Record of Customization."
+  isinactive = false
+  name = "Strongpoint Set Base Record"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = netsuite.file.instance.SuiteBundles_Bundle_297487_FLOSetBaseRecordView_js@dsdv.path
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy_flo_set_base_record"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        isdeployed = true
+        loglevel = "AUDIT"
+        recordtype = netsuite.customrecordtype.instance.customrecord_flo_customization.scriptid
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+      },
+    ]
+  }
+}

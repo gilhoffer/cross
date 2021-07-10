@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>FLO&trade; SuiteView&trade;</title>
+	<meta name="author" content="FLO Partners Inc.">
+	<!-- Date: 2014-01-10 -->
+	<link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+<style>
+.fa-10x {
+  font-size: 10em;
+}
+</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>
+tlp=[];//stores the customization types
+<data>
+function createOptions()
+{
+	//This script builds the drop-down options for selecting records
+	if(tlp.length!=0)
+	{
+		for(t=0;tlp[t]!=null;t++)
+		{
+			//loop through records and build options
+			var reclist = document.getElementById("targetRec");
+			var option = document.createElement("option");
+			option.text = tlp[t].name;
+			option.value = tlp[t].internalid;
+                        reclist.add(option);
+		}
+	}
+}
+
+function goToRecord(pid,sname)
+{
+	
+    if(pid!="")
+   {
+	//This script refocuses the diagram on the relevant record
+	href=window.location.href.split("&pid=")[0];
+	href=href+"&pid="+pid+"&sname="+sname
+	window.location.href=href;
+    } else {
+		alert("Please enter saved search ID");
+	}
+}
+</script>
+</head>
+<body>
+
+<style>
+
+
+
+.cust {
+	position:absolute;
+	top:20%;
+	left:10%;
+	color: orange;
+}
+
+.custform {
+	position:relative;
+	left:20%;
+	margin-right: 40px;
+	margin-left: 40px;
+	//display:none;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	float: left;
+	color: orange;
+}
+</style>
+<div id="CUST" class="cust">
+  <div id="custlogo" class="custform"><i class="fa fa-sitemap fa-10x"></i></div>
+<div id="custform" class="custform">
+   <form name="custform" id="custform" action="https://system.na1.netsuite.com/app/site/hosting/scriptlet.nl" method="GET" target="">
+	<input type="hidden" name="script" value="customscript_flo_cust_viz_fr_search"></input>
+	<input type="hidden" name="deploy" value="1"></input>
+
+	<table>
+		<tr>
+			<td colspan="2" width="200">Please select a search to view using the pull-down below. </td>
+		</tr>
+
+		<tr>
+			<td>Enter Saved Search ID:</td>
+			<td>
+   				<select id="targetRec" name="pid" onChange="goToRecord(this.value,this.options[this.selectedIndex].innerHTML)">
+<option value="">- - - - - - - - - - - - </option>
+
+     			</select>
+      		</td>
+      </tr>
+      
+     </table>
+    </form>
+
+</div>
+<script>
+createOptions()
+</script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+workato.folder neta1_318283 {
+  id = 321886
+  name = "neta1"
+  parent_id = 318283
+}

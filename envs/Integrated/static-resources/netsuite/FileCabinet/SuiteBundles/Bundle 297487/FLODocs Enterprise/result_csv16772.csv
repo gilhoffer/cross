@@ -1,0 +1,335 @@
+Internalid,Name,Parent,Bundle,Data Sources,Forms,List,Process Step,SCRIPTS,SEARCHES / MASS UPDATES,WORKFLOWS,LINKS,CLEAN-UP STATUS 
+4503*** DP Items - Cash Sale (Search), , &nbsp;, Price Level (List),department (Standard Field),entityid (Standard Field),entityid (Standard Field), , , , , , , /app/common/search/search.nl?e=T&cu=T&id=275, , type, null, anyof, [CashSale],
+item, null, anyof, [696, 695, 698, 697, 694, 693, 656, 692, 691],
+accounttype, null, anyof, [Income],
+mainline, null, is, [F]
+4504*** DP Items - Invoice (Search), , &nbsp;, Price Level (List),department (Standard Field),entityid (Standard Field),entityid (Standard Field), , , , , , , /app/common/search/search.nl?e=T&cu=T&id=276, , type, null, anyof, [CustInvc],
+item, null, anyof, [696, 695, 698, 697, 694, 693, 656, 692, 691],
+mainline, null, is, [F],
+accounttype, null, anyof, [Income]
+4502*** DP Items - Item Receipt (Search), , &nbsp;, entityid (Standard Field),entityid (Standard Field), , , , , , , /app/common/search/search.nl?e=T&cu=T&id=274, , type, null, anyof, [ItemRcpt],
+item, null, anyof, [696, 695, 698, 697, 694, 693, 656, 692, 691],
+mainline, null, is, [F]
+4500*** DP Items - Opportunity (Search), , &nbsp;, Price Level (List), , , , , , , /app/common/search/search.nl?e=T&cu=T&id=272, , type, null, anyof, [Opprtnty],
+item, null, anyof, [699, 700, 703, 707]
+4510*** DP Items - Purchase Order (Components) (Search), , &nbsp;, Test 2.0 Transaction Column Field (Column Field),department (Standard Field),entityid (Standard Field),entityid (Standard Field), , , , , , , /app/common/search/search.nl?e=T&cu=T&id=296, , item, null, anyof, [704, 705],
+mainline, null, is, [F]
+4501*** DP Items - Purchase Order (Search), , &nbsp;, department (Standard Field),entityid (Standard Field),entityid (Standard Field), , , , , , , /app/common/search/search.nl?e=T&cu=T&id=273, , type, null, anyof, [PurchOrd],
+item, null, anyof, [696, 695, 698, 697, 694, 693, 656, 692, 691],
+mainline, null, is, [F]
+4542-Quotes for Approval (Search), , 16360, Requires Senior Executive Approval (Body Field),Senior Executive Approved (Body Field),Senior Executive Declined (Body Field), , , , , , , /app/common/search/search.nl?e=T&cu=T&id=534, , type, null, anyof, [Estimate],
+mainline, null, is, [T],
+custbody_fmt_req_senior_executive_app, null, anyof, [1],
+custbody_fmt_senior_executive_app, null, is, [F],
+custbody_fmt_senior_exec_declined, null, is, [F]
+4450Committed Work Orders (Search), , &nbsp;, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=150, , type, null, anyof, [WorkOrd],
+mainline, null, is, [T],
+createdfrom, null, noneof, [@NONE@]
+4463Completed Work Orders (Search), , 7887, Comments (Body Field),Failed inspection? (Body Field),Inspected By (Body Field),Inspection Date (Body Field),Inspection Test 1 (Body Field),Inspection Test 2 (Body Field), , , , , , , /app/common/search/search.nl?e=T&cu=T&id=178, 7, mainline, null, is, [T],
+type, null, anyof, [WorkOrd],
+status, null, anyof, [WorkOrd:G]
+4489Created Today - Fulfillments (Search), , &nbsp;, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=221, , datecreated, null, on, [today],
+mainline, null, is, [T],
+type, null, anyof, [ItemShip]
+4488Created Today - Invoices Billed (Search), , &nbsp;, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=220, , datecreated, null, on, [today],
+mainline, null, is, [T],
+type, null, anyof, [CustInvc]
+4493Created Today - Orders (Search), , &nbsp;, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=225, , datecreated, null, on, [today],
+mainline, null, is, [T],
+type, null, anyof, [SalesOrd]
+4491Created Today - Purchase Orders (Search), , &nbsp;, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=223, , datecreated, null, on, [today],
+mainline, null, is, [T],
+type, null, anyof, [PurchOrd]
+4492Created Today - Receipts (Search), , &nbsp;, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=224, , datecreated, null, on, [today],
+mainline, null, is, [T],
+type, null, anyof, [ItemRcpt]
+4490Created Today - Work Orders (Search), , &nbsp;, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=222, , datecreated, null, on, [today],
+mainline, null, is, [T],
+type, null, anyof, [WorkOrd]
+4572Custom Priced Orders Pending Approval (Search), , &nbsp;, -Contract Base (Body Field),Price Level (List),Pricing Cleared. (Body Field),Promise Date (Body Field), , , , , , , /app/common/search/search.nl?e=T&cu=T&id=630, , type, null, anyof, [SalesOrd],
+mainline, null, is, [F],
+pricelevel, null, noneof, [1, 5, 6, 3, 2],
+type, item, anyof, [Assembly, DwnLdItem, GiftCert, InvtPart, Group, Kit, NonInvtPart, Markup, OthCharge, Service]
+4571Custom Pricing Clearance Search (Search), , &nbsp;, Price Level (List),Pricing Cleared. (Body Field), , , , , , , /app/common/search/search.nl?e=T&cu=T&id=626, , type, null, anyof, [SalesOrd],
+quantity, null, greaterthanorequalto, [1],
+accounttype, null, anyof, [Income],
+pricelevel, null, noneof, [1, 5, 6, 3, 2],
+mainline, null, is, [F],
+custbody_pricing_cleared, null, is, [F]
+8383Custom Transaction Default View (Search), , &nbsp;, Promise Date (Body Field), , , , , , , /app/common/search/search.nl?e=T&cu=T&id=523, , mainline, null, is, [T]
+4541Custom Transaction Search (Search), , &nbsp;, Product Color (Item Option Field),Product Size (Item Option Field), , , , , , , /app/common/search/search.nl?e=T&cu=T&id=62, , item, null, anyof, [101, 103, 105, 104, 107, 109, 106]
+61794Custom Transaction Search (Search), , &nbsp;, Product Color (Item Option Field),Product Size (Item Option Field), , , , , , , /app/common/search/search.nl?e=T&cu=T&id=533, , type, null, anyof, [CustInvc],
+custcol_colors, null, noneof, [@NONE@],
+custcol_sizes, null, noneof, [@NONE@]
+59293Custom Transaction Search 2 (Search), , &nbsp;, -Contract (Body Field),Machine Shop (Body Field),Pricing Cleared. (Body Field),Priority test (Body Field),Promise Date (Body Field), , , , , , , /app/common/search/search.nl?e=T&cu=T&id=3355, , 
+61793Custom Transaction Search 3 (Search), , &nbsp;, -Contract (Body Field),-Contract Base (Body Field),Machine Shop (Body Field),Pricing Cleared. (Body Field),Priority test (Body Field),Promise Date (Body Field), , , , , , , /app/common/search/search.nl?e=T&cu=T&id=3357, , trandate, null, on, [today]
+59292Custom Transaction Search 3 (Search), , &nbsp;, -Contract Base (Body Field),Machine Shop (Body Field),Pricing Cleared. (Body Field),Priority test (Body Field),Promise Date (Body Field), , , , , , , /app/common/search/search.nl?e=T&cu=T&id=3452, , 
+4567Cycle Count - Item History (Search), , &nbsp;, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=606, , type, null, anyof, [InvCount],
+item, null, noneof, [@NONE@]
+4560Cycle Count - Items Started Counting (Search), , 29255&#44; 29022, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=597, , type, null, anyof, [InvCount],
+mainline, null, is, [F],
+status, null, anyof, [InvCount:B],
+transactionlinetype, null, anyof, [SNAPSHOTQUANTITY]
+4559Cycle Count - Items to Approve (Search), , 29255&#44; 29022, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=596, , type, null, anyof, [InvCount],
+mainline, null, is, [F],
+status, null, anyof, [InvCount:C],
+transactionlinetype, null, anyof, [ADJUSTEDQUANTITY]
+4558Cycle Count - Items to Count (Search), , 29255&#44; 29022, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=595, , type, null, anyof, [InvCount],
+mainline, null, is, [F],
+status, null, anyof, [InvCount:A],
+transactionlinetype, null, anyof, [SNAPSHOTQUANTITY]
+76019Discounts to Approve (Search), , &nbsp;, entityid (Standard Field), , , , , , , /app/common/search/search.nl?e=T&cu=T&id=94, , type, null, anyof, [SalesOrd],
+status, null, anyof, [SalesOrd:A],
+datecreated, null, within, [thisfiscalquarter]
+8379Download Orders This Quarter (Search), , &nbsp;, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=100, , mainline, null, is, [F],
+item, null, anyof, [628, 626]
+4535Ecomm Returns by Reason View (Search), , &nbsp;, Reason for Return (Body Field), , , , , , , /app/common/search/search.nl?e=T&cu=T&id=520, , mainline, null, is, [T]
+4603Enhanced Opportunity Search Form (Search), , 19656, title (Standard Field), , , , , , , /app/common/search/search.nl?e=T&cu=T&id=559, , 
+4543Enhanced Transaction Search Form (Search), , 19656, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=565, , 
+4465Estimated WIP (Search), , &nbsp;, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=183, , type, null, anyof, [WorkOrd],
+status, null, anyof, [WorkOrd:D, WorkOrd:B],
+mainline, null, is, [F]
+4499FAM - New Asset Search (internal) (Search), , 56120, entityid (Standard Field),entityid (Standard Field),internalid (Standard Field), , , , , , , /app/common/search/search.nl?e=T&cu=T&id=257, , voided, null, is, [F],
+debitamount, null, greaterthanorequalto, [0.00],
+memo, null, doesnotcontain, [(NC-FAM)],
+memo, null, doesnotcontain, [(FAM)]
+19265FLO Archive Transaction Search (Search), , &nbsp;, internalid (Standard Field), , , , , , , /app/common/search/search.nl?e=T&cu=T&id=819, , 
+4427FLO Search Spider WF (Workflow), FLO Customization (Record), &nbsp;, entityid (Standard Field),entityid (Standard Field), , , , , 50108, , /app/common/workflow/setup/workflowmanager.nl?id=94, , type, null, anyof, [SalesOrd],
+status, null, anyof, [SalesOrd:A],
+datecreated, null, within, [thisfiscalquarter],
+type, null, anyof, [SalesOrd]
+4527Fulfillment History (Search), , &nbsp;, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=497, , type, null, anyof, [ItemShip],
+accounttype, null, anyof, [OthCurrAsset]
+4430Gift Certificates &gt;$50 Sold This Month (Search), , &nbsp;, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=101, , mainline, null, is, [F],
+item, null, anyof, [627],
+amount, null, greaterthanorequalto, [50.00]
+4494Gross Profit (Search), , 13201, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=226, , type, null, anyof, [ItemShip],
+posting, null, is, [T],
+number, appliedtotransaction, isnotempty, []
+4507Gross Profit on Open Quotes &lt; 35%  (Search), , &nbsp;, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=290, , mainline, null, is, [T],
+type, null, anyof, [Estimate],
+status, null, anyof, [Estimate:A],
+tranestgrossprofitpct, null, lessthan, [35]
+4464Inspected Work Orders (Search), , 7887, Comments (Body Field),Failed inspection? (Body Field),Inspected By (Body Field),Inspection Date (Body Field),Inspection Test 1 (Body Field),Inspection Test 2 (Body Field), , , , , , , /app/common/search/search.nl?e=T&cu=T&id=179, 7, mainline, null, is, [T],
+type, null, anyof, [WorkOrd],
+status, null, noneof, [WorkOrd:G]
+4533Items on BackOrder (Search), , &nbsp;, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=512, , type, null, anyof, [SalesOrd],
+status, null, anyof, [SalesOrd:D, SalesOrd:E, SalesOrd:B],
+mainline, null, is, [F],
+accounttype, null, anyof, [Income],
+formulanumeric, null, greaterthan, [0], formula={quantity}-NVL({quantitycommitted},0)-NVL({quantityshiprecv},0)
+4460Items on Backorder (Search), , &nbsp;, Promise Date (Body Field), , , , , , , /app/common/search/search.nl?e=T&cu=T&id=174, 1, type, null, anyof, [SalesOrd],
+status, null, anyof, [SalesOrd:D, SalesOrd:E],
+location, null, anyof, [1]
+4532Items on Order (Search), , &nbsp;, entityid (Standard Field),entityid (Standard Field), , , , , , , /app/common/search/search.nl?e=T&cu=T&id=511, , type, null, anyof, [PurchOrd],
+status, null, anyof, [PurchOrd:D, PurchOrd:E, PurchOrd:B],
+account, null, anyof, [120]
+4597Key Opportunities To Close (Search), , &nbsp;, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=30, , projectedamount, null, greaterthan, [5000.00],
+status, null, anyof, [A, B]
+75916Key Opportunities To Close (Search), , &nbsp;, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=30, , projectedamount, null, greaterthan, [5000.00],
+status, null, anyof, [A, B]
+8382Kiko Transaction Default View (Search), , &nbsp;, Promise Date (Body Field), , , , , , , /app/common/search/search.nl?e=T&cu=T&id=489, , mainline, null, is, [T]
+4438Late Shipped Orders  (Search), , &nbsp;, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=128, , type, null, anyof, [SalesOrd],
+mainline, null, is, [T],
+status, null, anyof, [SalesOrd:F, SalesOrd:G],
+formulanumeric, null, greaterthan, [0], formula={actualshipdate}-{shipdate}
+4451Late Work Orders (Search), , &nbsp;, Promise Date (Body Field), , , , , , , /app/common/search/search.nl?e=T&cu=T&id=151, , type, null, anyof, [WorkOrd],
+mainline, null, is, [T],
+createdfrom, null, noneof, [@NONE@],
+status, null, anyof, [WorkOrd:G, WorkOrd:D, WorkOrd:B],
+formulanumeric, null, lessthanorequalto, [0], formula={trandate}-{custbody_promisedate_3}
+4461Late Work Orders Committed to a Customer (Search), , &nbsp;, Promise Date (Body Field), , , , , , , /app/common/search/search.nl?e=T&cu=T&id=175, , type, null, anyof, [WorkOrd],
+mainline, null, is, [T],
+createdfrom, null, noneof, [@NONE@],
+status, null, anyof, [WorkOrd:B],
+formulanumeric, null, lessthanorequalto, [0], formula={trandate}-{custbody_promisedate_3}
+4509Linked SOs and POs (Search), , &nbsp;, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=292, , mainline, null, is, [T],
+type, null, anyof, [PurchOrd],
+status, null, anyof, [PurchOrd:D, PurchOrd:E, PurchOrd:B, PurchOrd:A],
+createdfrom, null, noneof, [@NONE@]
+4544My Cash Sales (Search), , 19656, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=566, , mainline, null, is, [T],
+salesrep, null, anyof, [@CURRENT@],
+type, null, anyof, [CashSale]
+4553My Customers w/ Overdue Invoices: 30+ Days (Search), , 30163&#44; 28184, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=588, , mainline, null, is, [T],
+type, null, anyof, [@ALL@],
+duedate, null, before, [daysago1, daysago30],
+salesrep, null, anyof, [@CURRENT@]
+4552My Customers w/ Partially Fulfilled Sales Orders (Search), , 28184, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=587, , status, null, anyof, [SalesOrd:D, SalesOrd:E],
+mainline, null, is, [F],
+salesrep, null, anyof, [@CURRENT@],
+type, item, anyof, [Assembly, InvtPart, Group, Kit, NonInvtPart]
+4426My Open Estimates &gt; $20K (Search), , &nbsp;, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=91, , type, null, anyof, [Estimate],
+amount, null, greaterthan, [20000.00],
+mainline, null, is, [T]
+4421My Open Quotes &gt; $20K (Search), , &nbsp;, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=86, , type, null, anyof, [Estimate],
+totalamount, null, greaterthan, [20000.00],
+mainline, null, is, [T]
+4604My Opportunities (Search), , 19656, title (Standard Field), , , , , , , /app/common/search/search.nl?e=T&cu=T&id=560, , salesrep, null, anyof, [@CURRENT@]
+4601My Opportunities to Close (Search), , &nbsp;, title (Standard Field), , , , , , , /app/common/search/search.nl?e=T&cu=T&id=158, , salesrep, null, anyof, [@HIERARCHY@],
+status, null, anyof, [B, A]
+4545My Quotes (Search), , 19656, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=567, , mainline, null, is, [T],
+salesrep, null, anyof, [@CURRENT@],
+type, null, anyof, [Estimate]
+4546My Sales Orders (Search), , 19656, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=568, , mainline, null, is, [T],
+salesrep, null, anyof, [@CURRENT@],
+type, null, anyof, [SalesOrd]
+4432My Sales Team Membership This Month (Search), , &nbsp;, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=107, , type, null, anyof, [SalesOrd],
+trandate, null, within, [thismonth],
+mainline, null, is, [T],
+salesteammember, null, anyof, [@CURRENT@]
+4547My Transactions (Search), , 19656, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=569, , mainline, null, is, [T],
+salesrep, null, anyof, [@CURRENT@]
+8380myDIALS Billings Cost Transactions, , 8404, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=231, , mainline, null, is, [F],
+item, null, anyof, [628, 626]
+8381myDIALS Billings Transactions, , 8404, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=232, , mainline, null, is, [F],
+item, null, anyof, [628, 626]
+4530Number of Fulfillments (Search), , &nbsp;, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=500, , mainline, null, is, [T],
+type, null, anyof, [ItemShip]
+4531Number of Orders Received  (Search), , &nbsp;, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=501, , mainline, null, is, [T],
+type, null, anyof, [ItemRcpt]
+4412Open Invoices by Due Date (Search), , &nbsp;, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=48, , billingstatus, null, is, [T],
+mainline, null, is, [T],
+type, null, anyof, [CustInvc]
+4410Open Purchase Orders (Search), , &nbsp;, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=45, , billingstatus, null, is, [T],
+mainline, null, is, [T],
+type, null, anyof, [PurchOrd]
+4420Order Tracking (Search), , &nbsp;, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=85, , voided, null, is, [F]
+4411Orders Scheduled to Ship This Month (Search), , &nbsp;, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=47, , billingstatus, null, is, [T],
+mainline, null, is, [T],
+shipdate, null, within, [thismonth],
+type, null, anyof, [SalesOrd]
+3434Orders to Ship (Search), , &nbsp;, Company Size (List),Impressivo Customers (Search), Basic Customer Form (Entry Form),ESC Ramsey Customer Form (Entry Form),Ramsey Customer Form w Bundle Tabs (Entry Form),Ramsey Default Customer Form (Entry Form),Ramsey Individual Form (Entry Form),Z - Lead Form. (Entry Form), 114718, , , 4733, , /app/common/search/search.nl?e=T&cu=T&id=32, 5, billingstatus, null, is, [T],
+mainline, null, is, [T],
+type, null, anyof, [SalesOrd],
+status, null, anyof, [SalesOrd:B]
+4422Overdue Invoices: 30+ days overdue (Search), , &nbsp;, Collection Notes (Entity Field), , , , , , , /app/common/search/search.nl?e=T&cu=T&id=87, , mainline, null, is, [T],
+type, null, anyof, [CustInvc],
+duedate, null, before, [daysago1, daysago30]
+4549Partially Received PO's (Search), , &nbsp;, entityid (Standard Field),entityid (Standard Field), , , , , , , /app/common/search/search.nl?e=T&cu=T&id=579, , status, null, anyof, [PurchOrd:D, PurchOrd:E],
+mainline, null, is, [F],
+duedate, null, isnotempty, []
+4548Pivot: Sales by Color by Size (Search), , &nbsp;, Product Color (Item Option Field),Product Size (Item Option Field), , , , , , , /app/common/search/search.nl?e=T&cu=T&id=574, , type, null, anyof, [CustInvc],
+custcol_colors, null, noneof, [@NONE@]
+4414PO's Received - Not Paid (Search), , &nbsp;, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=68, , mainline, null, is, [T],
+status, null, anyof, [PurchOrd:A, PurchOrd:C, PurchOrd:D, PurchOrd:E, PurchOrd:F]
+4417POs Pending Receipt (Search), , &nbsp;, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=81, , mainline, null, is, [T],
+type, null, anyof, [PurchOrd],
+status, null, anyof, [PurchOrd:B]
+4467Quotes to Approve &gt; $10k (Search), , 8701, Sales Manager Approved (Body Field),Senior Executive Approved (Body Field),Senior Executive Declined (Body Field), , , , , , , /app/common/search/search.nl?e=T&cu=T&id=190, , type, null, anyof, [Estimate],
+mainline, null, is, [T],
+custbody_fmt_sales_manager_app, null, is, [T],
+custbody_fmt_senior_executive_app, null, is, [F],
+custbody_fmt_senior_exec_declined, null, is, [F]
+4466Quotes to Approve &gt; $5k (Search), , 8701, Requires Sales Manager Approval (Body Field),Sales Manager Approved (Body Field),Sales Manager Declined (Body Field), , , , , , , /app/common/search/search.nl?e=T&cu=T&id=189, , type, null, anyof, [Estimate],
+mainline, null, is, [T],
+custbody_fmt_req_sales_manager_app, null, is, [T],
+custbody_fmt_sales_manager_app, null, is, [F],
+custbody_fmt_sales_manager_declined, null, is, [F]
+4506Ramsey PO History w Highlighting (Search), , &nbsp;, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=288, , type, null, anyof, [PurchOrd],
+mainline, null, is, [T]
+4538Rebate Items For Credit (Search), , 17636, Customer (Custom Record Field),Customer (Custom Record Field),Rebate Amount (Column Field),Rebate Contract (Column Field),Rebate Credit Applied (Column Field),Vendor (Custom Record Field), , , , , , , /app/common/search/search.nl?e=T&cu=T&id=527, , mainline, null, is, [F],
+custcol_rebate_credit_applied, null, is, [F],
+custcol_rebate_contract, null, noneof, [@NONE@],
+type, null, anyof, [CustInvc]
+4528Receipt History (Search), , &nbsp;, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=498, , type, null, anyof, [ItemRcpt],
+accounttype, null, anyof, [OthCurrAsset]
+4508Returns by Reason View (Search), , &nbsp;, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=291, , mainline, null, is, [T]
+4518RM Transaction Sublist (for Job) (Search), , &nbsp;, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=449, , mainline, null, is, [T]
+4471Sales (Search), , 8930, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=195, , type, null, anyof, [SalesOrd]
+4470Sales Order Count (Search), , 8930, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=194, , type, null, anyof, [SalesOrd]
+8384Sales Order Drip Campaign (Search), , &nbsp;, -Contract Base (Body Field),Pricing Cleared. (Body Field),Promise Date (Body Field), , , , , , , /app/common/search/search.nl?e=T&cu=T&id=665, , type, null, anyof, [SalesOrd],
+datecreated, null, within, [today],
+mainline, null, is, [T]
+4468Sales Order Pending Credit Check (Search), , 8699, Finance Approved (Body Field),Finance Declined (Body Field),Requires Finance Approval (Body Field), , , , , , , /app/common/search/search.nl?e=T&cu=T&id=191, , type, null, anyof, [SalesOrd],
+mainline, null, is, [T],
+custbody_fmt_req_financial_app, null, is, [T],
+custbody_fmt_finance_app, null, is, [F],
+custbody_fmt_finance_declined, null, is, [F]
+4442Sales Order Search by Serial Number (Search), , &nbsp;, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=136, , type, null, anyof, [SalesOrd]
+4551Sales Rep Quote Conversion Rate (Search), , 30163&#44; 28184, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=586, , type, null, anyof, [Estimate],
+mainline, null, is, [T]
+4485SD Number of Customer Returns (Search), , 10291, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=214, , mainline, null, is, [T],
+type, null, anyof, [RtnAuth]
+4482SD Number of Fulfillments (Search), , 10291, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=211, , mainline, null, is, [T],
+type, null, anyof, [ItemShip]
+4413Today's Open Orders (Search), , &nbsp;, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=67, , mainline, null, is, [T],
+type, null, anyof, [SalesOrd],
+status, null, anyof, [SalesOrd:D, SalesOrd:B]
+4443Transaction Search (Search), , &nbsp;, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=139, , type, null, anyof, [SalesOrd],
+mainline, null, is, [F]
+4570Unfulfilled Orders with 0 Items Committed (Search), , &nbsp;, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=611, , mainline, null, is, [F],
+status, null, anyof, [SalesOrd:B],
+type, item, anyof, [Assembly, InvtPart],
+formulanumeric, null, equalto, [0], summary=sum, formula=NVL({quantitycommitted},0)
+4566Vendor Bill PO Amount Check (Search), , 16707, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=605, , type, null, anyof, [VendBill],
+mainline, null, is, [F],
+formulanumeric, null, equalto, [1], formula=case when ({amount}>0 and {amount} > {appliedtotransaction.amount} and {appliedtotransaction.type} = 'Purchase Order') then 1 when ({amount}<0 and abs({amount}) > abs({appliedtotransaction.amount}) and {appliedtotransaction.type} = 'Purchase Order') then 1 else 0 end,
+status, null, anyof, [VendBill:D]
+4565Vendor Bill PO Partial Rcpt Amt Check (Search), , 16707, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=604, , type, null, anyof, [VendBill],
+mainline, null, is, [F],
+formulanumeric, null, equalto, [1], formula=case when ({appliedtotransaction.amount} - {appliedtotransaction.amountpaid} < 0) and {appliedtotransaction.type} = 'Purchase Order' then 1 else 0 end,
+status, null, anyof, [VendBill:D]
+4564Vendor Bill PO Partial Rcpt Qty Check (Search), , 16707, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=603, , type, null, anyof, [VendBill],
+mainline, null, is, [F],
+formulanumeric, null, equalto, [1], formula=case when (abs({appliedtotransaction.quantity}) - abs({appliedtotransaction.quantityshiprecv})) != 0 and {appliedtotransaction.type} = 'Purchase Order' then 1 else 0 end,
+status, null, anyof, [VendBill:D]
+4563Vendor Bill PO Quantity Check (Search), , 16707, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=602, , type, null, anyof, [VendBill],
+mainline, null, is, [F],
+formulanumeric, null, equalto, [1], formula=case when ({quantity}>0 and {quantity} > {appliedtotransaction.quantity} and {appliedtotransaction.type} = 'Purchase Order') then 1 when ({quantity}<0 and abs({quantity}) > abs({appliedtotransaction.quantity}) and {appliedtotransaction.type} = 'Purchase Order') then 1 else 0 end,
+status, null, anyof, [VendBill:D]
+4562Vendor Bill Standalone (Search), , 16707, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=601, , type, null, anyof, [VendBill],
+mainline, null, is, [F],
+formulanumeric, null, equalto, [1], formula=case when (abs({amount})>0 and {appliedtotransaction.amount}=0) then 1 else 0 end,
+status, null, anyof, [VendBill:D]
+4539Vendor Rebates Applied (Search), , &nbsp;, Rebate Amount (Column Field),Rebate Contract (Column Field),Rebate Credit Applied (Column Field),Vendor Credit (Column Field), , , , , , , /app/common/search/search.nl?e=T&cu=T&id=531, , type, null, anyof, [CustInvc],
+custcol_ife_rebate_vendor_credit, null, noneof, [@NONE@]
+4540Vendor Rebates Outstanding (Search), , &nbsp;, Rebate Amount (Column Field),Rebate Contract (Column Field),Rebate Credit Applied (Column Field), , , , , , , /app/common/search/search.nl?e=T&cu=T&id=532, , type, null, anyof, [CustInvc],
+custcol_rebate_amount, null, greaterthan, [0.00],
+custcol_rebate_credit_applied, null, is, [F]
+4437Vendor RMAs Search Form (Search), , &nbsp;, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=127, , type, null, anyof, [VendAuth],
+mainline, null, is, [T]
+4434Vendor RMAs to be Approved (Search), , &nbsp;, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=124, , type, null, anyof, [VendAuth],
+status, null, anyof, [VendAuth:A],
+mainline, null, is, [T]
+4435Vendor RMAs to be Shipped (Search), , &nbsp;, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=125, , type, null, anyof, [VendAuth],
+status, null, anyof, [VendAuth:B],
+mainline, null, is, [T]
+4474VPI - Number of Orders (Search), , 10291, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=203, , mainline, null, is, [T],
+type, null, anyof, [PurchOrd]
+4511VPI - Number of Orders (Vendor Record) (Search), , &nbsp;, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=301, , mainline, null, is, [T],
+type, null, anyof, [PurchOrd]
+4480VPI - Number of Orders Received  (Search), , 10291, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=209, , mainline, null, is, [T],
+type, null, anyof, [ItemRcpt]
+4512VPI - Number of Orders Received (Vendor Record) (Search), , &nbsp;, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=302, , mainline, null, is, [T],
+type, null, anyof, [ItemRcpt]
+4475VPI - Number of Returns (Search), , 10291, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=204, , mainline, null, is, [T],
+type, null, anyof, [VendAuth]
+4514VPI - Number of Returns (Vendor Record) (Search), , &nbsp;, , , , , , , , /app/common/search/search.nl?e=T&cu=T&id=304, , mainline, null, is, [T],
+type, null, anyof, [VendAuth]
+4477VPI - On Time Deliveries - All Receipts (Search), , 10291, entityid (Standard Field),entityid (Standard Field), , , , , , , /app/common/search/search.nl?e=T&cu=T&id=206, , type, null, anyof, [ItemRcpt],
+mainline, null, is, [T]
+4476VPI - On Time Deliveries - Average Days (Search), , 10291, entityid (Standard Field),entityid (Standard Field), , , , , , , /app/common/search/search.nl?e=T&cu=T&id=205, , type, null, anyof, [PurchOrd],
+account, null, anyof, [120],
+formulanumeric, null, lessthan, [0], formula={duedate}-{applyingtransaction.trandate}
+4517VPI - On Time Deliveries - Average Days (Vendor Record) (Search), , &nbsp;, entityid (Standard Field),entityid (Standard Field), , , , , , , /app/common/search/search.nl?e=T&cu=T&id=307, , type, null, anyof, [PurchOrd],
+account, null, anyof, [120],
+formulanumeric, null, lessthan, [0], formula={duedate}-{applyingtransaction.trandate}
+4478VPI - On Time Deliveries - Late Count (Search), , 10291, entityid (Standard Field),entityid (Standard Field), , , , , , , /app/common/search/search.nl?e=T&cu=T&id=207, , type, null, anyof, [PurchOrd],
+account, null, anyof, [120],
+formulanumeric, null, lessthan, [0], formula={duedate}-{applyingtransaction.trandate}
+4516VPI - On Time Deliveries - Late Count (Vendor Record) (Search), , &nbsp;, entityid (Standard Field),entityid (Standard Field), , , , , , , /app/common/search/search.nl?e=T&cu=T&id=306, , type, null, anyof, [PurchOrd],
+account, null, anyof, [120],
+formulanumeric, null, lessthan, [0], formula={duedate}-{applyingtransaction.trandate}
+4448Work Orders Built (Search), , 7887, Comments (Body Field),Failed inspection? (Body Field),Inspected By (Body Field),Inspection Date (Body Field),Promise Date (Body Field), , , , , , , /app/common/search/search.nl?e=T&cu=T&id=148, 7, type, null, anyof, [WorkOrd],
+mainline, null, is, [T],
+status, null, anyof, [WorkOrd:G]
+4449Work Orders Partially Built (Search), , &nbsp;, Promise Date (Body Field), , , , , , , /app/common/search/search.nl?e=T&cu=T&id=149, , type, null, anyof, [WorkOrd],
+mainline, null, is, [T],
+status, null, anyof, [WorkOrd:D]
+4447Work Orders Pending Build (Search), , &nbsp;, Promise Date (Body Field), , , , , , , /app/common/search/search.nl?e=T&cu=T&id=147, , type, null, anyof, [WorkOrd],
+mainline, null, is, [T],
+status, null, anyof, [WorkOrd:B]
+4462Work Orders that Failed Inspection (Search), , 7887, Comments (Body Field),Failed inspection? (Body Field),Inspected By (Body Field),Inspection Date (Body Field),Inspection Test 1 (Body Field),Inspection Test 2 (Body Field), , , , , , , /app/common/search/search.nl?e=T&cu=T&id=177, 7, mainline, null, is, [T],
+type, null, anyof, [WorkOrd],
+status, null, noneof, [WorkOrd:G],
+custbody5, null, is, [T]

@@ -1,0 +1,215 @@
+type netsuite.Estimate {
+  annotations {
+    hidden_string source {
+    }
+  }
+  string createdDate {
+  }
+  string lastModifiedDate {
+  }
+  netsuite.Nexus nexus {
+  }
+  netsuite.RecordRef subsidiaryTaxRegNum {
+  }
+  boolean taxRegOverride {
+  }
+  boolean taxDetailsOverride {
+  }
+  netsuite.RecordRef entity {
+  }
+  netsuite.Job job {
+  }
+  string tranDate {
+  }
+  string tranId {
+  }
+  netsuite.RecordRef entityTaxRegNum {
+  }
+  string taxPointDate {
+  }
+  string source {
+  }
+  netsuite.RecordRef customForm {
+  }
+  netsuite.Currency currency {
+  }
+  string title {
+  }
+  netsuite.RecordRef entityStatus {
+  }
+  number probability {
+  }
+  boolean includeInForecast {
+  }
+  netsuite.RecordRef forecastType {
+  }
+  netsuite.Opportunity opportunity {
+  }
+  netsuite.Department department {
+  }
+  netsuite.Classification class {
+  }
+  netsuite.Term terms {
+  }
+  string dueDate {
+  }
+  netsuite.Location location {
+  }
+  netsuite.Subsidiary subsidiary {
+  }
+  netsuite.RecordRef billingSchedule {
+  }
+  string status {
+  }
+  netsuite.RecordRef salesRep {
+  }
+  netsuite.Partner partner {
+  }
+  string contribPct {
+  }
+  netsuite.LeadSource leadSource {
+  }
+  string expectedCloseDate {
+  }
+  string otherRefNum {
+  }
+  string memo {
+  }
+  string endDate {
+  }
+  string startDate {
+  }
+  number totalCostEstimate {
+  }
+  number estGrossProfit {
+  }
+  number estGrossProfitPercent {
+  }
+  netsuite.RecordRef createdFrom {
+  }
+  number exchangeRate {
+  }
+  string currencyName {
+  }
+  netsuite.RecordRef promoCode {
+  }
+  netsuite.DiscountItem discountItem {
+  }
+  string discountRate {
+  }
+  boolean isTaxable {
+  }
+  netsuite.RecordRef taxItem {
+  }
+  number taxRate {
+  }
+  string vatRegNum {
+  }
+  boolean toBePrinted {
+  }
+  boolean toBeEmailed {
+  }
+  string email {
+  }
+  boolean toBeFaxed {
+  }
+  string fax {
+  }
+  boolean visibleToCustomer {
+  }
+  netsuite.RecordRef messageSel {
+  }
+  string message {
+  }
+  netsuite.Address billingAddress {
+  }
+  netsuite.RecordRef billAddressList {
+  }
+  netsuite.Address shippingAddress {
+  }
+  boolean shipIsResidential {
+  }
+  netsuite.RecordRef shipAddressList {
+  }
+  string fob {
+  }
+  string shipDate {
+  }
+  netsuite.RecordRef shipMethod {
+  }
+  number shippingCost {
+  }
+  number shippingTax1Rate {
+  }
+  netsuite.RecordRef shippingTaxCode {
+  }
+  string shippingTax2Rate {
+  }
+  netsuite.RecordRef handlingTaxCode {
+  }
+  number handlingTax1Rate {
+  }
+  number handlingCost {
+  }
+  string trackingNumbers {
+  }
+  string handlingTax2Rate {
+  }
+  string linkedTrackingNumbers {
+  }
+  netsuite.RecordRef salesGroup {
+  }
+  boolean syncSalesTeams {
+  }
+  number altSalesTotal {
+  }
+  boolean canHaveStackable {
+  }
+  number oneTime {
+  }
+  number recurWeekly {
+  }
+  number recurMonthly {
+  }
+  number recurQuarterly {
+  }
+  number recurAnnually {
+  }
+  number subTotal {
+  }
+  number discountTotal {
+  }
+  number taxTotal {
+  }
+  number altShippingCost {
+  }
+  number altHandlingCost {
+  }
+  number total {
+  }
+  number tax2Total {
+  }
+  netsuite.EstimateItemList itemList {
+  }
+  netsuite.AccountingBookDetailList accountingBookDetailList {
+  }
+  netsuite.EstimateSalesTeamList salesTeamList {
+  }
+  boolean syncPartnerTeams {
+  }
+  netsuite.EstimatePartnersList partnersList {
+  }
+  netsuite.PromotionsList promotionsList {
+  }
+  netsuite.EstimateShipGroupList shipGroupList {
+  }
+  netsuite.TaxDetailsList taxDetailsList {
+  }
+  string internalId {
+    isAttribute = true
+    _hidden_value = true
+  }
+  string externalId {
+    isAttribute = true
+  }
+}

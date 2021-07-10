@@ -1,0 +1,18 @@
+type netsuite.SerializedAssemblyItemBillOfMaterials {
+  annotations {
+    hidden_string source {
+    }
+  }
+  netsuite.RecordRef billOfMaterials {
+  }
+  string currentRevision {
+  }
+  boolean masterDefault {
+  }
+  netsuite.RecordRefList defaultForLocationList {
+  }
+  string inactive {
+  }
+  string memo {
+  }
+}

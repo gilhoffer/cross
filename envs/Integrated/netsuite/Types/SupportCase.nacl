@@ -1,0 +1,93 @@
+type netsuite.SupportCase {
+  annotations {
+    hidden_string source {
+    }
+  }
+  string escalationMessage {
+  }
+  string lastReopenedDate {
+  }
+  string endDate {
+  }
+  string incomingMessage {
+  }
+  netsuite.Solution insertSolution {
+  }
+  string outgoingMessage {
+  }
+  string searchSolution {
+  }
+  boolean emailForm {
+  }
+  string newSolutionFromMsg {
+  }
+  boolean internalOnly {
+  }
+  netsuite.RecordRef customForm {
+  }
+  string title {
+  }
+  string caseNumber {
+  }
+  string startDate {
+  }
+  string createdDate {
+  }
+  string lastModifiedDate {
+  }
+  string lastMessageDate {
+  }
+  netsuite.RecordRef company {
+  }
+  netsuite.RecordRef profile {
+  }
+  netsuite.Subsidiary subsidiary {
+  }
+  netsuite.Contact contact {
+  }
+  string email {
+  }
+  string phone {
+  }
+  netsuite.RecordRef product {
+  }
+  netsuite.RecordRef module {
+  }
+  netsuite.RecordRef item {
+  }
+  netsuite.RecordRef serialNumber {
+  }
+  string inboundEmail {
+  }
+  netsuite.Issue issue {
+  }
+  netsuite.Status status {
+  }
+  boolean isInactive {
+  }
+  netsuite.RecordRef priority {
+  }
+  netsuite.RecordRef origin {
+  }
+  netsuite.RecordRef category {
+  }
+  netsuite.RecordRef assigned {
+  }
+  boolean helpDesk {
+  }
+  netsuite.EmailEmployeesList emailEmployeesList {
+  }
+  netsuite.SupportCaseEscalateToList escalateToList {
+  }
+  netsuite.SupportCaseTimeItemList timeItemList {
+  }
+  netsuite.SupportCaseSolutionsList solutionsList {
+  }
+  string internalId {
+    isAttribute = true
+    _hidden_value = true
+  }
+  string externalId {
+    isAttribute = true
+  }
+}

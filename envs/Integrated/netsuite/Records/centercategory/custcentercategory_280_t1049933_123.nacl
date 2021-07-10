@@ -1,0 +1,46 @@
+netsuite.centercategory custcentercategory_280_t1049933_123 {
+  scriptid = "custcentercategory_280_t1049933_123"
+  center = "BASIC"
+  centertab = netsuite.centertab.instance.custcentertab_flo_strongpoint_lite.scriptid
+  label = "Tools"
+  links = {
+    link = [
+      {
+        linklabel = "Spider"
+        linkobject = netsuite.suitelet.instance.customscript_flo_enterprise_suitelet.scriptdeployments.scriptdeployment.4.scriptid
+        linktasktype = "SCRIPT"
+        shortlist = false
+      },
+      {
+        linklabel = "ERD"
+        linkobject = netsuite.suitelet.instance.customscript_flo_enterprise_suitelet.scriptdeployments.scriptdeployment.1.scriptid
+        linktasktype = "SCRIPT"
+        shortlist = false
+      },
+      {
+        linklabel = "Standard Field Impact Analysis"
+        linkobject = netsuite.suitelet.instance.customscript_flo_impact_analysis_fields.scriptdeployments.scriptdeployment.0.scriptid
+        linktasktype = "SCRIPT"
+        shortlist = false
+      },
+      {
+        linklabel = "SQL Library"
+        linkobject = "[scriptid=customsearch_flo_sql_library]"
+        linktasktype = "SRCH_RSLT"
+        shortlist = false
+      },
+      {
+        linklabel = "Deleted Records"
+        linkobject = "[scriptid=customsearch_flo_deleted_records_2_2]"
+        linktasktype = "SRCH_RSLT"
+        shortlist = false
+      },
+      {
+        linklabel = "Undelivered Emails"
+        linkobject = "[scriptid=customsearch_flo_undelivered_emails_2]"
+        linktasktype = "SRCH_RSLT"
+        shortlist = false
+      },
+    ]
+  }
+}

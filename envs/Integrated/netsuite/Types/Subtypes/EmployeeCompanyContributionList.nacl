@@ -1,0 +1,11 @@
+type netsuite.EmployeeCompanyContributionList {
+  annotations {
+    hidden_string source {
+    }
+  }
+  "List<netsuite.EmployeeCompanyContribution>" employeeCompanyContribution {
+  }
+  boolean replaceAll {
+    isAttribute = true
+  }
+}

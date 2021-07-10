@@ -1,0 +1,10 @@
+type netsuite.PromotionCodePartners {
+  annotations {
+    hidden_string source {
+    }
+  }
+  netsuite.Partner partner {
+  }
+  string code {
+  }
+}

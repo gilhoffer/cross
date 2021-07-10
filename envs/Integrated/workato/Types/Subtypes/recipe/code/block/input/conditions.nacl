@@ -1,0 +1,10 @@
+type workato.recipe__code__block__input__conditions {
+  string operand {
+  }
+  string lhs {
+  }
+  string rhs {
+  }
+  string uuid {
+  }
+}

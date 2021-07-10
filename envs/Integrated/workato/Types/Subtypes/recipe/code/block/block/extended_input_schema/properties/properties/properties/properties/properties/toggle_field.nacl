@@ -1,0 +1,26 @@
+type workato.recipe__code__block__block__extended_input_schema__properties__properties__properties__properties__properties__toggle_field {
+  string control_type {
+  }
+  string label {
+  }
+  string toggle_hint {
+  }
+  boolean optional {
+  }
+  string toggle_to_primary_hint {
+  }
+  string toggle_to_secondary_hint {
+  }
+  string ns_ref {
+  }
+  string ns_content_type {
+  }
+  string ns_tag {
+  }
+  string type {
+  }
+  string name {
+  }
+  string parent {
+  }
+}

@@ -1,0 +1,75 @@
+type netsuite.BillingSchedule {
+  annotations {
+    hidden_string source {
+    }
+  }
+  string scheduleType {
+  }
+  string name {
+  }
+  string recurrencePattern {
+  }
+  netsuite.RecordRef project {
+  }
+  string initialAmount {
+  }
+  netsuite.RecordRef initialTerms {
+  }
+  string frequency {
+  }
+  netsuite.RecurrenceDowMaskList recurrenceDowMaskList {
+  }
+  string yearMode {
+  }
+  string yearDowim {
+  }
+  string yearDow {
+  }
+  string yearDowimMonth {
+  }
+  string yearMonth {
+  }
+  number yearDom {
+  }
+  string monthMode {
+  }
+  string monthDowim {
+  }
+  string monthDow {
+  }
+  number monthDom {
+  }
+  number dayPeriod {
+  }
+  string repeatEvery {
+  }
+  boolean billForActuals {
+  }
+  number numberRemaining {
+  }
+  boolean inArrears {
+  }
+  netsuite.Term recurrenceTerms {
+  }
+  boolean isPublic {
+  }
+  boolean applyToSubtotal {
+  }
+  netsuite.RecordRef transaction {
+  }
+  boolean isInactive {
+  }
+  string seriesStartDate {
+  }
+  netsuite.BillingScheduleRecurrenceList recurrenceList {
+  }
+  netsuite.BillingScheduleMilestoneList milestoneList {
+  }
+  string internalId {
+    isAttribute = true
+    _hidden_value = true
+  }
+  string externalId {
+    isAttribute = true
+  }
+}

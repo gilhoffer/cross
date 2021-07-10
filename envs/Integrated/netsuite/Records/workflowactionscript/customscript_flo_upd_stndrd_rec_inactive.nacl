@@ -1,0 +1,29 @@
+netsuite.workflowactionscript customscript_flo_upd_stndrd_rec_inactive {
+  scriptid = "customscript_flo_upd_stndrd_rec_inactive"
+  description = '''
+FloCustomInactiveStandardRecord
+
+If there's a Custom FLO.record type = Record exist for the standard record with the same name, the standard record will be set to inactive
+'''
+  isinactive = false
+  name = "Strongpoint Cust Standard Record Inactv"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = "[/SuiteBundles/Bundle 297487/FloCustomInactiveStandardRecord.js]"
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy_flo_upd_stndrd_rec_deplymnt"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        isdeployed = true
+        loglevel = "AUDIT"
+        recordtype = netsuite.customrecordtype.instance.customrecord_flo_customization.scriptid
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+      },
+    ]
+  }
+}

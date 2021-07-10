@@ -1,0 +1,9 @@
+netsuite.folder SuiteBundles_Bundle_297487_FLODocs_Enterprise_FLO_CSV_Import_Folder@dsdsdsss {
+  bundleable = false
+  isinactive = false
+  isprivate = false
+  path = "/SuiteBundles/Bundle 297487/FLODocs Enterprise/FLO CSV Import Folder"
+  _parent = [
+    netsuite.folder.instance.SuiteBundles_Bundle_297487_FLODocs_Enterprise@dsds,
+  ]
+}

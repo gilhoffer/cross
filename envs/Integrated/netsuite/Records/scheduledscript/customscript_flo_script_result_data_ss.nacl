@@ -1,0 +1,140 @@
+netsuite.scheduledscript customscript_flo_script_result_data_ss {
+  scriptid = "customscript_flo_script_result_data_ss"
+  defaultfunction = "auditTagResultSS"
+  description = "Gather scripts usage data from the server logs"
+  isinactive = false
+  name = "Strongpoint Script Monitor ResultData SS"
+  notifyadmins = false
+  notifyowner = true
+  scriptfile = netsuite.file.instance.SuiteBundles_Bundle_297487_FLOauditTagResultSS_js@dsdv.path
+  scriptcustomfields = {
+    scriptcustomfield = [
+      {
+        scriptid = "custscript_flo_audittag_index"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "INTEGER"
+        isformula = false
+        ismandatory = false
+        label = "Last Index"
+        searchlevel = "2"
+        storevalue = true
+      },
+      {
+        scriptid = "custscript_flo_audittag_index2"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "INTEGER"
+        isformula = false
+        ismandatory = false
+        label = "Log Index"
+        searchlevel = "2"
+        storevalue = true
+      },
+      {
+        scriptid = "custscript_flo_audittag_totalcount"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        defaultvalue = "0"
+        displaytype = "NORMAL"
+        fieldtype = "TEXT"
+        isformula = false
+        ismandatory = false
+        label = "Count"
+        searchlevel = "2"
+        storevalue = true
+      },
+      {
+        scriptid = "custscript_flo_create_process_issue"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "When set all script errors will be recorded as process issues."
+        displaytype = "NORMAL"
+        fieldtype = "CHECKBOX"
+        help = "When set all script errors will be recorded as process issues."
+        isformula = false
+        ismandatory = false
+        label = "Log Errors"
+        searchlevel = "2"
+        storevalue = true
+      },
+      {
+        scriptid = "custscript_flo_audittag_starttime"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "TIMEOFDAY"
+        isformula = false
+        ismandatory = false
+        label = "Start Time"
+        searchlevel = "2"
+        storevalue = true
+      },
+      {
+        scriptid = "custscript_flo_audittag_endtime"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "TIMEOFDAY"
+        isformula = false
+        ismandatory = false
+        label = "End Time"
+        searchlevel = "2"
+        storevalue = true
+      },
+      {
+        scriptid = "custscript_flo_audittag_avgtime"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "TEXT"
+        isformula = false
+        ismandatory = false
+        label = "Last Average Time"
+        searchlevel = "2"
+        storevalue = true
+      },
+    ]
+  }
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy_flo_script_utilisation_data"
+        isdeployed = true
+        loglevel = "AUDIT"
+        status = "NOTSCHEDULED"
+        title = "Strongpoint Script Monitor Result Data SS"
+        recurrence = {
+          daily = {
+            everyxdays = 1
+            startdate = "2015-05-30"
+            starttime = "01:00:00Z"
+          }
+        }
+      },
+    ]
+  }
+  libraries = {
+    library = [
+      {
+        scriptfile = netsuite.file.instance.SuiteBundles_Bundle_297487_FLOTimeWindow_js@dsdv.path
+      },
+    ]
+  }
+}

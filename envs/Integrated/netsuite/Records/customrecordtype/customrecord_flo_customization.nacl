@@ -1,0 +1,4437 @@
+netsuite.customrecordtype customrecord_flo_customization {
+  scriptid = "customrecord_flo_customization"
+  accesstype = "NONENEEDED"
+  allowattachments = true
+  allowinlinedeleting = false
+  allowinlinedetaching = false
+  allowinlineediting = false
+  allowmobileaccess = true
+  allownumberingoverride = false
+  allowquickadd = true
+  allowquicksearch = false
+  allowuiaccess = true
+  description = "This record is used to track customizations in the account and tie them to processes."
+  enabledle = true
+  enablekeywords = false
+  enablemailmerge = true
+  enablenametranslation = false
+  enablenumbering = false
+  enableoptimisticlocking = false
+  enablesystemnotes = true
+  hierarchical = false
+  iconbuiltin = true
+  includeinsearchmenu = true
+  includename = true
+  isinactive = false
+  isordered = false
+  recordname = "Customization"
+  showcreationdate = false
+  showcreationdateonlist = false
+  showid = false
+  showlastmodified = true
+  showlastmodifiedonlist = true
+  shownotes = true
+  showowner = true
+  showownerallowchange = true
+  showowneronlist = true
+  customrecordcustomfields = {
+    customrecordcustomfield = [
+      {
+        scriptid = "custrecord_flo_cust_type"
+        accesslevel = "2"
+        allowquickadd = true
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the type of customization."
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "SELECT"
+        globalsearch = false
+        help = "This is the type of customization"
+        isformula = false
+        ismandatory = true
+        isparent = false
+        label = "Type"
+        onparentdelete = "NO_ACTION"
+        rolerestrict = false
+        searchlevel = "2"
+        selectrecordtype = "[scriptid=customlist_type_cust]"
+        showinlist = false
+        storevalue = true
+      },
+      {
+        scriptid = "custrecord_flo_cust_parent"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "Parent customization, ex: record in which the field is present."
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "MULTISELECT"
+        globalsearch = false
+        help = "Parent customization, ex: record in which the field is present."
+        isformula = false
+        ismandatory = false
+        isparent = true
+        label = "Parent"
+        onparentdelete = "SET_NULL"
+        parentsubtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.11.scriptid
+        rolerestrict = false
+        searchlevel = "2"
+        selectrecordtype = netsuite.customrecordtype.instance.customrecord_flo_customization.scriptid
+        showinlist = false
+        storevalue = true
+        customfieldfilters = {
+          customfieldfilter = [
+            {
+              fldfilter = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.0.scriptid
+              fldfiltercomparetype = "EQ"
+              fldfilternotnull = false
+              fldfilternull = false
+              fldfiltersel = "[scriptid=customlist_type_cust.value_2_t1049933_417]|[scriptid=customlist_type_cust.value_24_t1049933_417]"
+            },
+          ]
+        }
+      },
+      {
+        scriptid = "custrecord_flo_int_id"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "Nestuite object internal id.."
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "INTEGER"
+        globalsearch = false
+        help = "Nestuite object internal id."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Internal Id"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+      },
+      {
+        scriptid = "custrecord_flo_cust_id"
+        accesslevel = "2"
+        allowquickadd = true
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the scriptid of the customization"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "TEXT"
+        globalsearch = true
+        help = "This is the scriptid of the customization"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "ScriptId"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+      },
+      {
+        scriptid = "custrecord_flo_description"
+        accesslevel = "2"
+        allowquickadd = true
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the description from the customization record."
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "TEXTAREA"
+        globalsearch = false
+        help = "This is the description from the customization record."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Description"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+      },
+      {
+        scriptid = "custrecord_sp_personal_data"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "CHECKBOX"
+        globalsearch = false
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Personal Data Field (GDPR Privacy regulations)"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+      },
+      {
+        scriptid = "custrecord_flo_help"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is customer-specific help for each field."
+        displaytype = "STATICTEXT"
+        encryptatrest = false
+        fieldtype = "TEXTAREA"
+        globalsearch = true
+        help = "Help text found in the script file."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Help"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+      },
+      {
+        scriptid = "custrecord_flo_custz_link"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        defaultvalue = "NVL2({custrecord_flo_external_url},{custrecord_flo_external_url},CASE WHEN INSTR({custrecord_flo_cust_type},'Script Dep')&gt;0 THEN  CONCAT('/app/common/scripting/scriptrecord.nl?id=',{custrecord_flo_int_id}) WHEN REGEXP_INSTR({custrecord_flo_cust_type},'(Library|File|WebApp Script)')&gt;0 THEN  CONCAT('/app/common/media/mediaitem.nl?id=',{custrecord_flo_int_id}) WHEN INSTR({custrecord_flo_cust_type},'Script')&gt;0 OR INSTR({custrecord_flo_cust_type},'SSP Application')&gt;0 THEN  CONCAT('/app/common/scripting/script.nl?id=',{custrecord_flo_int_id}) WHEN INSTR({custrecord_flo_cust_type},'Mass Update')&gt;0 THEN  CONCAT('/app/common/bulk/bulkop.nl?e=T&id=',{custrecord_flo_int_id})  WHEN INSTR({custrecord_flo_cust_type},'User Role')&gt;0 THEN  CONCAT('/app/setup/role.nl?id=',{custrecord_flo_int_id}) WHEN INSTR({custrecord_flo_cust_type},'Custom Report')&gt;0 THEN  CONCAT('/app/reporting/reportsearchredirect.nl?id=',{custrecord_flo_int_id}) WHEN INSTR({custrecord_flo_cust_type},'Entry Form')&gt;0 OR INSTR({custrecord_flo_cust_type},'Setup Preference')&gt;0 OR INSTR({custrecord_flo_cust_type},'Transaction Form')&gt;0 THEN  REPLACE(REGEXP_SUBSTR({custrecord_flo_customization}, 'Link:[ [:alnum:] | \\? | = | & | / | \\.]*'),'Link:') WHEN INSTR({custrecord_flo_cust_type},'Online Customer Form')&gt;0  THEN CONCAT('/app/crm/sales/leadform.nl?id=',{custrecord_flo_int_id}) WHEN INSTR({custrecord_flo_cust_type},'Group')&gt;0  THEN  CONCAT('/app/crm/common/crmgroup.nl?id=',{custrecord_flo_int_id})  WHEN INSTR({custrecord_flo_cust_type},'Department')&gt;0  THEN  CONCAT('/app/common/otherlists/departmenttype.nl?id=',{custrecord_flo_int_id}) WHEN INSTR({custrecord_flo_cust_type},'Email Template')&gt;0  THEN  CONCAT('/app/crm/common/merge/emailtemplate.nl?id=',{custrecord_flo_int_id}) WHEN INSTR({custrecord_flo_cust_type},'Subsidiary')&gt;0  THEN  CONCAT('/app/common/otherlists/subsidiarytype.nl?id=',{custrecord_flo_int_id}) WHEN INSTR({custrecord_flo_cust_type},'Location')&gt;0  THEN  CONCAT('/app/common/otherlists/locationtype.nl?id=',{custrecord_flo_int_id})  WHEN INSTR({custrecord_flo_cust_type},'Class')&gt;0  THEN  CONCAT('/app/common/otherlists/classtype.nl?id=',{custrecord_flo_int_id}) WHEN INSTR({custrecord_flo_cust_type},'List')&gt;0 AND NVL({custrecord_flo_cust_id},'0') != '0' AND INSTR({custrecord_flo_cust_id},'customlist') = 0  THEN  CONCAT('/app/common/otherlists/accountingotherlists.nl?tname=',{custrecord_flo_cust_id}) WHEN INSTR({custrecord_flo_cust_type},'Bundle')&gt;0  THEN  CONCAT(CONCAT('/app/setup/assistants/bundlebuilder.nl?recid=',{custrecord_flo_int_id}),'&config=F&feature=&viewonly=T') WHEN INSTR({custrecord_flo_cust_type},'Inventory Number')&gt;0  THEN  CONCAT('/app/accounting/transactions/inventory/inventorynumberrecord.nl?id=',{custrecord_flo_int_id}) ELSE CONCAT(CONCAT('/app/common/', DECODE({custrecord_flo_cust_type},'Body Field','custom/bodycustfield.nl?id=','Column Field','custom/columncustfield.nl?id=','Record','custom/custrecord.nl?id=','Custom Record Field',CONCAT(CONCAT('custom/custreccustfield.nl?e=T&rectype=',{custrecord_flo_cust_parent.custrecord_flo_int_id}),'&id='),'Item Field','custom/itemcustfield.nl?id=','CRM Field','custom/eventcustfield.nl?id=','Entity Field','custom/entitycustfield.nl?id=','Item Option Field','custom/itemoption.nl?id=','Item Number Field','custom/itemnumbercustfield.nl?id=','Other Field','custom/othercustfield.nl?id=','Subtab','custom/custfieldtab.nl?id=','List','custom/custlist.nl?id=','Workflow','workflow/setup/workflowmanager.nl?id=','Search','search/search.nl?e=T&cu=T&id=','Custom Transaction','custom/customtransaction.nl?id=','Custom Segments','custom/segments/segment.nl?id=','Bill of Materials','item/item.nl?id=')),{custrecord_flo_int_id})  END)"
+        description = "URL to the netsuite object."
+        displaytype = "STATICTEXT"
+        encryptatrest = false
+        fieldtype = "URL"
+        globalsearch = false
+        help = "URL to the netsuite object."
+        isformula = true
+        ismandatory = false
+        isparent = false
+        label = "Link"
+        linktext = "Go To Record--&gt;"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = true
+        storevalue = false
+      },
+      {
+        scriptid = "custrecord_flo_external_sys"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "External systems definition, the  external system is the system which is integrated with netsuite using this customization as touch point."
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "SELECT"
+        globalsearch = false
+        help = "External systems definition, the  external system is the system which is integrated with netsuite using this customization as touch point."
+        isformula = false
+        ismandatory = false
+        isparent = true
+        label = "External System"
+        onparentdelete = "SET_NULL"
+        rolerestrict = false
+        searchlevel = "2"
+        selectrecordtype = netsuite.customrecordtype.instance.customrecord_flo_customization.scriptid
+        showinlist = false
+        storevalue = true
+        customfieldfilters = {
+          customfieldfilter = [
+            {
+              fldfilter = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.0.scriptid
+              fldfiltercomparetype = "EQ"
+              fldfilternotnull = false
+              fldfilternull = false
+              fldfiltersel = "[scriptid=customlist_type_cust.value_47_t1049933_417]|[scriptid=customlist_type_cust.value_48_t1049933_417]"
+            },
+          ]
+        }
+      },
+      {
+        scriptid = "custrecord_flo_external_url"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This URL is used to connect with an external system."
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "URL"
+        globalsearch = false
+        help = "This URL is used to connect with an external system."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "External URL"
+        linktext = "Go To External Resource"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+      },
+      {
+        scriptid = "custrecord_flo_apply_related"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This checkbox causes the process for the selected object to be added to the processes for each of the related objects.  This must be manually reversed."
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "CHECKBOX"
+        globalsearch = false
+        help = "This checkbox causes the process for the selected object to be added to the processes for each of the related objects.  This must be manually reversed."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Apply to Related Objects"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+      },
+      {
+        scriptid = "custrecord_flo_incomplete_approved"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "Checked when Customization approval is incomplete"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "CHECKBOX"
+        globalsearch = false
+        help = "Checked when Customization approval is incomplete"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Incomplete Approved"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+      },
+      {
+        scriptid = "custrecord_flo_proc_bundle_comp"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "Indicates updates were made to the bundle, and bundle components need to be processed."
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "CHECKBOX"
+        globalsearch = false
+        help = "Indicates updates were made to the bundle, and bundle components need to be processed."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Process Bundle Components"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+      },
+      {
+        scriptid = "custrecord_flo_cust_subs"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the list of sudsidiaries of the Customization record"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "MULTISELECT"
+        globalsearch = false
+        help = "This is the list of sudsidiaries of the Customization record"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Subsidiary"
+        onparentdelete = "NO_ACTION"
+        rolerestrict = false
+        searchlevel = "2"
+        selectrecordtype = netsuite.customrecordtype.instance.customrecord_flo_customization.scriptid
+        showinlist = false
+        storevalue = true
+      },
+      {
+        scriptid = "custrecord_flo_extsystemid"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the internal ID for an external system"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "TEXT"
+        globalsearch = false
+        help = "This is the internal ID for an external system"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Internal ID External System"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+      },
+      {
+        scriptid = "custrecord_flo_mapped_ns_field_2"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the mapped NS fields for th Data Sources and Integration customization"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "MULTISELECT"
+        globalsearch = false
+        help = "This is the mapped NS fields for th Data Sources and Integration customization"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Mapped NS Field"
+        onparentdelete = "NO_ACTION"
+        rolerestrict = false
+        searchlevel = "2"
+        selectrecordtype = netsuite.customrecordtype.instance.customrecord_flo_customization.scriptid
+        showinlist = false
+        storevalue = true
+      },
+      {
+        scriptid = "custrecord_flo_object_json"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "Holds the object data in json format"
+        displaytype = "HIDDEN"
+        encryptatrest = false
+        fieldtype = "CLOBTEXT"
+        globalsearch = false
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Object JSON"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+      },
+      {
+        scriptid = "custrecord_flo_object_hash"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "Object Hash that will be used in Environment Compare."
+        displaytype = "HIDDEN"
+        encryptatrest = false
+        fieldtype = "TEXT"
+        globalsearch = false
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Object Hash"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+      },
+      {
+        scriptid = "custrecord_flo_orig_name"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "Original Name of the Customization Record."
+        displaytype = "HIDDEN"
+        encryptatrest = false
+        fieldtype = "TEXT"
+        globalsearch = false
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Original Name"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+      },
+      {
+        scriptid = "custrecord_strongpoint_popup_customizati"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "STATICTEXT"
+        encryptatrest = false
+        fieldtype = "INLINEHTML"
+        globalsearch = false
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Strongpoint Html Popup"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = false
+      },
+      {
+        scriptid = "custrecord_flo_depobjects_html"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "HTML Container for the Dependent Objects  Summary"
+        displaytype = "STATICTEXT"
+        encryptatrest = false
+        fieldtype = "INLINEHTML"
+        globalsearch = false
+        help = "HTML Container for the Dependent Objects  Summary"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Dependent Objects Summary HTML"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = false
+      },
+      {
+        scriptid = "custrecord_fio_srcnlist_html"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "Container HTML of Data Sources and Lists"
+        displaytype = "STATICTEXT"
+        encryptatrest = false
+        fieldtype = "INLINEHTML"
+        globalsearch = false
+        help = "Container HTML of Data Sources and Lists"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Data Sources and List HTML"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = false
+      },
+      {
+        scriptid = "custrecord_flo_inline_baserecord"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "STATICTEXT"
+        encryptatrest = false
+        fieldtype = "TEXTAREA"
+        globalsearch = false
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Base Record (Inline)"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = false
+      },
+      {
+        scriptid = "custrecord_flo_dls"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the date that this customization was last used."
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "DATE"
+        globalsearch = false
+        help = "This is the date that this customization was last used."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Date Last Used"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.0.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_num_vals"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = true
+        checkspelling = false
+        defaultchecked = false
+        description = "The number of different values for this field in the last 3 months"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "INTEGER"
+        globalsearch = false
+        help = "The number of different values for this field in the last 3 months"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "# of Values"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.0.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_data_type"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "TEXT"
+        globalsearch = false
+        help = "This is the data type of any custom field"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Data Type"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.0.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_list"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "Custom/Standard List used as data source by the customization."
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "SELECT"
+        globalsearch = false
+        help = "Custom/Standard List used as data source by the customization."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "List"
+        onparentdelete = "SET_NULL"
+        parentsubtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.0.scriptid
+        rolerestrict = false
+        searchlevel = "2"
+        selectrecordtype = netsuite.customrecordtype.instance.customrecord_flo_customization.scriptid
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.0.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_list_data"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the spidered data about the list.  It is used server-side to make the join."
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "TEXT"
+        globalsearch = true
+        help = "This is the spidered data about the list.  It is used server-side to make the join."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "ListData"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.0.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_employees_cust"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "These are the employees using this customization (trailing 1 year)"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "MULTISELECT"
+        globalsearch = false
+        help = "These are the employees using this customization (trailing 1 year)"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Employees Using Customization"
+        onparentdelete = "SET_NULL"
+        rolerestrict = false
+        searchlevel = "2"
+        selectrecordtype = "-4"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.0.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_depts_cust"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "These are the departments using this customization (trailing 1 year)"
+        displaytype = "STATICTEXT"
+        encryptatrest = false
+        fieldtype = "MULTISELECT"
+        globalsearch = false
+        help = "These are the departments using this customization (trailing 1 year)"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Departments Using Customization"
+        onparentdelete = "SET_NULL"
+        rolerestrict = false
+        searchlevel = "2"
+        selectrecordtype = "-102"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.0.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_loc_cust"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "Company location in which this customization is implemented/used."
+        displaytype = "STATICTEXT"
+        encryptatrest = false
+        fieldtype = "MULTISELECT"
+        globalsearch = false
+        help = "Company location in which this customization is implemented/used."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Locations Using Customization"
+        onparentdelete = "SET_NULL"
+        rolerestrict = false
+        searchlevel = "2"
+        selectrecordtype = "-103"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.0.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_store_value"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This tracks the Store Value checkbox from the relevant customization record.  Set by the metadata mass update script."
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "CHECKBOX"
+        globalsearch = false
+        help = "This tracks the Store Value checkbox from the relevant customization record.  Set by the metadata mass update script."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Store Value"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.0.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_system"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is checked when Metadata is used by system"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "CHECKBOX"
+        globalsearch = false
+        help = "This is checked when Metadata is used by system"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Used By System"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.0.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_by_type"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the list of use by record types for Metadata"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "MULTISELECT"
+        globalsearch = false
+        help = "This is the list of use by record types for Metadata"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Use By Type:"
+        onparentdelete = "NO_ACTION"
+        rolerestrict = false
+        searchlevel = "2"
+        selectrecordtype = "-123"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.0.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_ext_users"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This field tracks whether the customization is used by external users."
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "CHECKBOX"
+        globalsearch = false
+        help = "This field tracks whether the customization is used by external users such as customers, vendors or partners.  It is determined based on Script log and system notes analysis by the Strongpoint documentation tools."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Used By External Users"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.0.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_bundlink"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "Link to the Bundle customization object"
+        displaytype = "LOCKED"
+        encryptatrest = false
+        fieldtype = "MULTISELECT"
+        globalsearch = false
+        help = "Link to the Bundle customization object"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Bundle Link"
+        onparentdelete = "NO_ACTION"
+        rolerestrict = false
+        searchlevel = "2"
+        selectrecordtype = netsuite.customrecordtype.instance.customrecord_flo_customization.scriptid
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.0.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_script_comments"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "These are the comments in the script file."
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "TEXTAREA"
+        globalsearch = false
+        help = "These are the comments in the script file."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Script Comments"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.1.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_functions_view"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "List of functions used in the script"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "TEXTAREA"
+        globalsearch = false
+        help = "List of functions used in the script"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Functions"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.1.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_script_comment_line"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = true
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the ratio of comments to lines which is an indicator or the quality of the documentation."
+        displaytype = "STATICTEXT"
+        encryptatrest = false
+        fieldtype = "FLOAT"
+        globalsearch = false
+        help = "This is the ratio of comments to lines which is an indicator or the quality of the documentation."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Comment / Line Ratio"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.1.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_scripts"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "These are scripts that change or read this field"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "MULTISELECT"
+        globalsearch = false
+        help = "These are scripts that change or read this field"
+        isformula = false
+        ismandatory = false
+        isparent = true
+        label = "Scripts"
+        onparentdelete = "SET_NULL"
+        parentsubtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.1.scriptid
+        rolerestrict = false
+        searchlevel = "2"
+        selectrecordtype = netsuite.customrecordtype.instance.customrecord_flo_customization.scriptid
+        showinlist = true
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.1.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_script_file_date"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "Script File last modified date"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "TEXT"
+        globalsearch = false
+        help = "Script File last modified date"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Script File Date"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.1.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_script_file"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the primary script file for this script customization."
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "DOCUMENT"
+        globalsearch = false
+        help = "This is the primary script file for this script customization."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Script File"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.1.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_lib_script"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "File used as script library in the current customization."
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "DOCUMENT"
+        globalsearch = false
+        help = "File used as script library in the current customization"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Library Script File"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.1.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_audit_logging"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = '''
+This field tracks whether there are audit tags in the data.  Ideally, these conform to the Strongpoint standard:
+
+First operational line: nlapiLogExecution("AUDIT","startime",new Date());
+
+Last Operational Line (and any other return-based end points):
+nlapiLogExecution("AUDIT","startime",new Date());
+
+If these are not present, the first and last non-remmed out debug logs are used.  These are less reliable since they may not appear at all or may not be unique.
+'''
+        displaytype = "STATICTEXT"
+        encryptatrest = false
+        fieldtype = "TEXT"
+        globalsearch = false
+        help = '''
+This field tracks whether there are audit tags in the data.  Ideally, these conform to the Strongpoint standard:
+
+First operational line: nlapiLogExecution("AUDIT","startime",new Date());
+
+Last Operational Line (and any other return-based end points):
+nlapiLogExecution("AUDIT","startime",new Date());
+
+If these are not present, the first and last non-remmed out debug logs are used.  These are less reliable since they may not appear at all or may not be unique.
+'''
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Audit Tags"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.1.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_script_avg_run_time"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = true
+        checkspelling = false
+        defaultchecked = false
+        description = "This value is calculated from the execution logs if available.  If the standard audit logs are available, these are used.  If not, an attempt is made based on the existing debug logs."
+        displaytype = "STATICTEXT"
+        encryptatrest = false
+        fieldtype = "INTEGER"
+        globalsearch = false
+        help = "This value is calculated from the execution logs if available.  If the standard audit logs are available, these are used.  If not, an attempt is made based on the existing debug logs."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Script Average Run Time"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.1.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_script_raw_metadata"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This field is used to check whether the metadata has changed."
+        displaytype = "HIDDEN"
+        encryptatrest = false
+        fieldtype = "CLOBTEXT"
+        globalsearch = false
+        help = "This field is used to check whether the metadata has changed."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Script Raw Metdata"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.1.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_script_archive"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This field stores the last version of the code detected by the script parsing spiders each evening.  Older versions are under the files tab."
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "DOCUMENT"
+        globalsearch = false
+        help = "This field stores the last version of the code detected by the script parsing spiders each evening.  Older versions are under the files tab."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Script Archive File"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.1.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_daily_script_us"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = true
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the number of times the script executes per day - calculated by the advanced script monitoring."
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "INTEGER"
+        globalsearch = false
+        help = "This is the number of times the script executes per day - calculated by the advanced script monitoring."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "# of Daily Script Executions"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.1.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_daily_script_users"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = true
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "INTEGER"
+        globalsearch = false
+        help = "This field tracks the number of users who triggered the script in the last 24 hours based on available script server logs."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "# of Daily Script Users"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.1.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_scripts_fields_view"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "These are the fields that appear in the relevant script file."
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "TEXTAREA"
+        globalsearch = false
+        help = "These are the fields that appear in the relevant script file."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Script Fields"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.1.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_script_apis"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "There are all the Netsuite API functions used in the current script"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "TEXTAREA"
+        globalsearch = false
+        help = "There are all the Netsuite API functions used in the current script"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "API Calls"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.1.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_attempt"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = true
+        checkspelling = false
+        defaultchecked = false
+        defaultvalue = "0"
+        description = "The attempt number of the Script customization"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "INTEGER"
+        globalsearch = false
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Attempt #"
+        minvalue = "0"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.1.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_retrieval_error"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the error retrieved of the Scripts customization"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "TEXT"
+        globalsearch = false
+        help = "This is the error retrieved of the Scripts customization"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Retrieval Error"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.1.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_meta_cleanup_done"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is checked if the script metadata cleanup is already done"
+        displaytype = "HIDDEN"
+        encryptatrest = false
+        fieldtype = "CHECKBOX"
+        globalsearch = false
+        help = "This is checked if the script metadata cleanup is already done"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Script Metadata Cleanup Done"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.1.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_script_filebytes"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "LOCKED"
+        encryptatrest = false
+        fieldtype = "TEXT"
+        globalsearch = false
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "File Size (Bytes)"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.1.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_script_file_size"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the file size of the script of the Script Customization"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "TEXT"
+        globalsearch = false
+        help = "This is the file size of the script of the Script Customization"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Script File Size (KB)"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.1.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_script_filecontent_hash"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the hash of the file content of the Searches customization"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "TEXT"
+        globalsearch = false
+        help = "This is the hash of the file content of the Searches customization"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "File Content Hash"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.1.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_search_fields_name"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This field lists the fields appearing in the search by name."
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "CLOBTEXT"
+        globalsearch = false
+        help = "This field lists the fields appearing in the search by name."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Search Fields by Name"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.2.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_searches"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "These are the searches that depend upon this field"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "MULTISELECT"
+        globalsearch = false
+        help = "These are the searches that depend upon this field."
+        isformula = false
+        ismandatory = false
+        isparent = true
+        label = "Searches / Mass Updates"
+        onparentdelete = "SET_NULL"
+        parentsubtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.2.scriptid
+        rolerestrict = false
+        searchlevel = "2"
+        selectrecordtype = netsuite.customrecordtype.instance.customrecord_flo_customization.scriptid
+        showinlist = true
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.2.scriptid
+        customfieldfilters = {
+          customfieldfilter = [
+            {
+              fldfilter = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.0.scriptid
+              fldfiltercomparetype = "EQ"
+              fldfilternotnull = false
+              fldfilternull = false
+              fldfiltersel = "[scriptid=customlist_type_cust.value_8_t1049933_417]|[scriptid=customlist_type_cust.value_9_t1049933_417]"
+            },
+          ]
+        }
+      },
+      {
+        scriptid = "custrecord_flo_search_cust_rec"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the custom record id of the relevant custom record for this search - used to join a search to a custom record."
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "TEXT"
+        globalsearch = true
+        help = "This is the custom record id of the relevant custom record for this search - used to join a search to a custom record."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Custom Record ID"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.2.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_search_formulas"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "These are the formulas that appear in the search"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "CLOBTEXT"
+        globalsearch = false
+        help = "These are the formulas that appear in the search"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Search Formulas"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.2.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_search_filters"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "These are the filters that appear in the search"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "CLOBTEXT"
+        globalsearch = false
+        help = "These are the filters that appear in the search"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Search Filters"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.2.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_search_fields_view"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "These are the fields used in filter criteria or columns for this search."
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "TEXTAREA"
+        globalsearch = false
+        help = "These are the fields used in filter criteria or columns for this search."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Search Fields"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.2.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_cust_forms"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "List of forms in which the customization appear or is used. These can be forms where the fields are mandatory."
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "MULTISELECT"
+        globalsearch = false
+        help = "List of forms in which the customization appear or is used. These can be forms where the fields are mandatory."
+        isformula = false
+        ismandatory = false
+        isparent = true
+        label = "Forms"
+        onparentdelete = "SET_NULL"
+        parentsubtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.3.scriptid
+        rolerestrict = false
+        searchlevel = "2"
+        selectrecordtype = netsuite.customrecordtype.instance.customrecord_flo_customization.scriptid
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.3.scriptid
+        customfieldfilters = {
+          customfieldfilter = [
+            {
+              fldfilter = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.0.scriptid
+              fldfiltercomparetype = "EQ"
+              fldfilternotnull = false
+              fldfilternull = false
+              fldfiltersel = "[scriptid=customlist_type_cust.value_6_t1049933_417]|[scriptid=customlist_type_cust.value_7_t1049933_417]|[scriptid=customlist_type_cust.val_163243_t1049933_412]"
+            },
+          ]
+        }
+      },
+      {
+        scriptid = "custrecord_flo_restricted_forms"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "List of Customizations of the Restricted Forms"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "MULTISELECT"
+        globalsearch = false
+        help = "List of Customizations of the Restricted Forms"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Restricted Forms"
+        onparentdelete = "NO_ACTION"
+        rolerestrict = false
+        searchlevel = "2"
+        selectrecordtype = netsuite.customrecordtype.instance.customrecord_flo_customization.scriptid
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.3.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_avail_forms"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "List of forms in which the customization appear or is used."
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "MULTISELECT"
+        globalsearch = false
+        help = "List of forms in which the customization appear or is used."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Available Forms"
+        onparentdelete = "NO_ACTION"
+        rolerestrict = false
+        searchlevel = "2"
+        selectrecordtype = netsuite.customrecordtype.instance.customrecord_flo_customization.scriptid
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.3.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_avail_form_fields"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "List of fields used in a form type customization."
+        displaytype = "NORMAL"
+        displaywidth = 300
+        encryptatrest = false
+        fieldtype = "CLOBTEXT"
+        globalsearch = false
+        help = "List of fields used in a form type customization."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Available Form Fields"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.3.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_wflws"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "These are the workflows related to this customization."
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "MULTISELECT"
+        globalsearch = false
+        help = "These are the workflows related to this customization."
+        isformula = false
+        ismandatory = false
+        isparent = true
+        label = "Workflows"
+        onparentdelete = "SET_NULL"
+        parentsubtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.4.scriptid
+        rolerestrict = false
+        searchlevel = "2"
+        selectrecordtype = netsuite.customrecordtype.instance.customrecord_flo_customization.scriptid
+        showinlist = true
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.4.scriptid
+        customfieldfilters = {
+          customfieldfilter = [
+            {
+              fldfilter = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.0.scriptid
+              fldfiltercomparetype = "EQ"
+              fldfilternotnull = false
+              fldfilternull = false
+              fldfiltersel = "[scriptid=customlist_type_cust.value_10_t1049933_417]"
+            },
+          ]
+        }
+      },
+      {
+        scriptid = "custrecord_flo_wflw_obj"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "These are the objects (fields, searches, scripts) used in the workflow."
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "TEXT"
+        globalsearch = false
+        help = "These are the objects (fields, searches, scripts) used in the workflow."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Workflow Objects"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.4.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_wf_states"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the different states of the Workflow customization"
+        displayheight = 100
+        displaytype = "NORMAL"
+        displaywidth = 100
+        encryptatrest = false
+        fieldtype = "TEXTAREA"
+        globalsearch = false
+        help = "This is the different states of the Workflow customization"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "States"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.4.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_wf_actions"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "These are the workflow actions detected in the workflow by the Strongpoint documentation engine."
+        displayheight = 100
+        displaytype = "NORMAL"
+        displaywidth = 100
+        encryptatrest = false
+        fieldtype = "CLOBTEXT"
+        globalsearch = false
+        help = "These are the workflow actions detected in the workflow by the Strongpoint documentation engine."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Actions"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.4.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_wf_conditions"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "These are the conditions in the workflow organized by stage or action."
+        displayheight = 100
+        displaytype = "NORMAL"
+        displaywidth = 100
+        encryptatrest = false
+        fieldtype = "CLOBTEXT"
+        globalsearch = false
+        help = "These are the conditions in the workflow organized by stage or action."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Conditions"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.4.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_wf_scheduled"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the schedule of the Workflow customization"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "TEXT"
+        globalsearch = false
+        help = "This is the schedule of the Workflow customization"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Scheduled"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.4.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_workflow_field"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the workflow fields of the Workflow customization"
+        displayheight = 100
+        displaytype = "NORMAL"
+        displaywidth = 20
+        encryptatrest = false
+        fieldtype = "TEXTAREA"
+        globalsearch = false
+        help = "This is the workflow fields of the Workflow customization"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Workflow Fields"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.4.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_wf_trigger_type"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the trigger type of the Workflow customization"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "TEXT"
+        globalsearch = false
+        help = "This is the trigger type of the Workflow customization"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Trigger Type"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.4.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_improvement_comments"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "Use this field to make notes during clean-up and improvements."
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "TEXT"
+        globalsearch = false
+        help = "Use this field to make notes during clean-up and improvements."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Improvement Comments"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.5.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_create_cr"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This field is used to create change requests in bulk during cleanup or change processes.  When populated, the script first checks if there is an existing, open change request of the same name.  If so, it attaches it, if not, it creates it."
+        displaytype = "HIDDEN"
+        encryptatrest = false
+        fieldtype = "TEXT"
+        globalsearch = false
+        help = "This field is used to create change requests in bulk during cleanup or change processes.  When populated, the script first checks if there is an existing, open change request of the same name.  If so, it attaches it, if not, it creates it."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Create Change Request"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.5.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_assigned_cust_imp"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the person assigned to implement this customization"
+        displaytype = "NORMAL"
+        dynamicdefault = "ME"
+        encryptatrest = false
+        fieldtype = "SELECT"
+        globalsearch = false
+        help = "This is the person assigned to implement this customization"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Assigned Implementer"
+        onparentdelete = "SET_NULL"
+        rolerestrict = false
+        searchlevel = "2"
+        selectrecordtype = "-9"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.5.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_clean_up_classification"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This field shows an overview of the clean-up classification"
+        displaytype = "STATICTEXT"
+        encryptatrest = false
+        fieldtype = "TEXT"
+        globalsearch = false
+        help = "This field shows an overview of the clean-up classification"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Clean-up Classification"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.5.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_quick_add_select"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "List of process ids (coma separated) to be linked to the customization."
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "TEXTAREA"
+        globalsearch = false
+        help = "List of process ids (coma separated) to be linked to the customization."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "QuickAdd Process Text"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.6.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_role_permission_tbl"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the permission table for the Role customization"
+        displaytype = "STATICTEXT"
+        encryptatrest = false
+        fieldtype = "INLINEHTML"
+        globalsearch = false
+        help = "This is the permission table for the Role customization"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Permission List"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = false
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.7.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_center_type"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the center type of the Roles customization"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "TEXT"
+        globalsearch = false
+        help = "This is the center type of the Roles customization"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "CENTER TYPE"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.7.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_do_not_employee"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "Do not restrict Employee when checked in the Roles customization"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "CHECKBOX"
+        globalsearch = false
+        help = "Do not restrict Employee when checked in the Roles customization"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "DO NOT RESTRICT EMPLOYEE FIELDS"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.7.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_allow_cross"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "Allow cross-subsidiary records viewing when checked"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "CHECKBOX"
+        globalsearch = false
+        help = "Allow cross-subsidiary records viewing when checked"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "ALLOW CROSS-SUBSIDIARY RECORD VIEWING"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.7.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_restrict_time_and_expense"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This restricts the time and expenses of the Roles customization"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "CHECKBOX"
+        globalsearch = false
+        help = "This restricts the time and expenses of the Roles customization"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "RESTRICT TIME AND EXPENSES"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.7.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_sales_roles"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is checked when sales role is selected of the Roles customization"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "CHECKBOX"
+        globalsearch = false
+        help = "This is checked when sales role is selected of the Roles customization"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "SALES ROLE"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.7.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_support_role"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is checked if the role is a support fole of the Roles customization"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "CHECKBOX"
+        globalsearch = false
+        help = "This is checked if the role is a support fole of the Roles customization"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "SUPPORT ROLE"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.7.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_web_services_only_role"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is checked when Role is web services only"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "CHECKBOX"
+        globalsearch = false
+        help = "This is checked when Role is web services only"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "WEB SERVICES ONLY ROLE"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.7.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_sso_only"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is checked if the single sign-only is enabled"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "CHECKBOX"
+        globalsearch = false
+        help = "This is checked if the single sign-only is enabled"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "SINGLE SIGN-ON ONLY"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.7.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_partner_role"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "When checked the Roles customization role is as a partner"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "CHECKBOX"
+        globalsearch = false
+        help = "When checked the Roles customization role is as a partner"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "PARTNER ROLE"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.7.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_employee_restrictions"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This the employee restrictions of the Roles customization"
+        displaytype = "HIDDEN"
+        encryptatrest = false
+        fieldtype = "CHECKBOX"
+        globalsearch = false
+        help = "This the employee restrictions of the Roles customization"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "EMPLOYEE RESTRICTION"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.7.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_department_restrictions"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the department restrictions of the Roles customization"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "TEXT"
+        globalsearch = false
+        help = "This is the department restrictions of the Roles customization"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "DEPARTMENT RESTRICTIONS"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.7.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_class_restrictions"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the class restrictions of the Roles customization"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "TEXT"
+        globalsearch = false
+        help = "This is the class restrictions of the Roles customization"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "CLASS RESTRICTIONS"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.7.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_location_restrictions"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the location restrictions of the Roles customization"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "TEXT"
+        globalsearch = false
+        help = "This is the location restrictions of the Roles customization"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "LOCATION RESTRICTIONS"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.7.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_employee_restrictions_txt"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "TEXT"
+        globalsearch = false
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "EMPLOYEE RESTRICTIONS"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.7.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_role_permisions"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the permissions of the Role customization"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "CLOBTEXT"
+        globalsearch = false
+        help = "This is the permissions of the Role customization"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Permissions"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.7.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_related_user_roles"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "Related User Role FLO Customization"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "SELECT"
+        globalsearch = false
+        help = "Related User Role FLO Customization"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Related User Roles"
+        onparentdelete = "NO_ACTION"
+        rolerestrict = false
+        searchlevel = "2"
+        selectrecordtype = netsuite.customrecordtype.instance.customrecord_flo_customization.scriptid
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.7.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_selected_all_user_roles"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "Selected all User Roles for the Deployment"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "CHECKBOX"
+        globalsearch = false
+        help = "Selected all User Roles for the Deployment"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "All Roles"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.7.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_user_roles"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "Selected User Roles for the Deployment"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "MULTISELECT"
+        globalsearch = false
+        help = "Selected User Roles for the Deployment"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "User Roles"
+        onparentdelete = "NO_ACTION"
+        rolerestrict = false
+        searchlevel = "2"
+        selectrecordtype = netsuite.customrecordtype.instance.customrecord_flo_customization.scriptid
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.7.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_schedule_type"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the schedule type of the Deployment customization"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "SELECT"
+        globalsearch = false
+        help = "This is the schedule type of the Deployment customization"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Schedule Type"
+        onparentdelete = "NO_ACTION"
+        rolerestrict = false
+        searchlevel = "2"
+        selectrecordtype = netsuite.customlist.instance.customlist_flo_schedule_type.scriptid
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.8.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_audience"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "The list of audiences for the Deployment customization"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "MULTISELECT"
+        globalsearch = false
+        help = "The list of audiences for the Deployment customization"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Audience"
+        onparentdelete = "SET_NULL"
+        rolerestrict = false
+        searchlevel = "2"
+        selectrecordtype = "-4"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.8.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_execute_as_admin"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This executes deployment as Admin when checked"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "CHECKBOX"
+        globalsearch = false
+        help = "This executes deployment as Admin when checked"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Execute as Admin"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.8.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_event_type"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "The Event Type for the Deployment customization"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "SELECT"
+        globalsearch = false
+        help = "The Event Type for the Deployment customization"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Event Type"
+        onparentdelete = "NO_ACTION"
+        rolerestrict = false
+        searchlevel = "2"
+        selectrecordtype = netsuite.customlist.instance.customlist_flo_event_type.scriptid
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.8.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_log_level"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This the log level of the Deployment customization"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "SELECT"
+        globalsearch = false
+        help = "This the log level of the Deployment customization"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Log Level"
+        onparentdelete = "NO_ACTION"
+        rolerestrict = false
+        searchlevel = "2"
+        selectrecordtype = netsuite.customlist.instance.customlist_flo_log_level.scriptid
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.8.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_parameters"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This the deployment parameters for the custom record"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "TEXTAREA"
+        globalsearch = false
+        help = "This the deployment parameters for the custom record"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "parameters"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.8.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_release_testing"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the Release/Testing records of the Deployment customization"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "SELECT"
+        globalsearch = false
+        help = "This is the Release/Testing records of the Deployment customization"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Release/Testing"
+        onparentdelete = "NO_ACTION"
+        rolerestrict = false
+        searchlevel = "2"
+        selectrecordtype = netsuite.customlist.instance.customlist_flo_release_testing.scriptid
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.8.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_is_online"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "When cheked the Deployment customization is online"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "CHECKBOX"
+        globalsearch = false
+        help = "When cheked the Deployment customization is online"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Is Online"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.8.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_base_record"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "Refers to the base Customization record"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "SELECT"
+        globalsearch = false
+        help = "Refers to the base Customization record"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Applies To"
+        onparentdelete = "NO_ACTION"
+        rolerestrict = false
+        searchlevel = "2"
+        selectrecordtype = netsuite.customrecordtype.instance.customrecord_flo_customization.scriptid
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.8.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_script_deployment"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the script to execute of the Deployment customization"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "SELECT"
+        globalsearch = false
+        help = "This is the script to execute of the Deployment customization"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Script"
+        onparentdelete = "SET_NULL"
+        rolerestrict = false
+        searchlevel = "2"
+        selectrecordtype = netsuite.customrecordtype.instance.customrecord_flo_customization.scriptid
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.8.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_deployments_list"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the list of deployments of the Deployment customization"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "MULTISELECT"
+        globalsearch = false
+        help = "This is the list of deployments of the Deployment customization"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Deployments"
+        onparentdelete = "SET_NULL"
+        rolerestrict = false
+        searchlevel = "2"
+        selectrecordtype = netsuite.customrecordtype.instance.customrecord_flo_customization.scriptid
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.8.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_deployments_list_2"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "store the list of deployments used by an script"
+        displaytype = "HIDDEN"
+        encryptatrest = false
+        fieldtype = "MULTISELECT"
+        globalsearch = false
+        help = "store the list of deployments used by an script"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Deployments (deprecated)"
+        onparentdelete = "SET_NULL"
+        rolerestrict = false
+        searchlevel = "2"
+        selectrecordtype = netsuite.customrecordtype.instance.customrecord_flo_customization.scriptid
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.8.scriptid
+        customfieldfilters = {
+          customfieldfilter = [
+            {
+              fldfilter = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.0.scriptid
+              fldfiltercomparetype = "EQ"
+              fldfilternotnull = false
+              fldfilternull = false
+              fldfiltersel = "[scriptid=customlist_type_cust.value_51_t1049933_417]"
+            },
+          ]
+        }
+      },
+      {
+        scriptid = "custrecord_flo_control_assignee"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This field allows a control to be assigned to someone other than the owner.  If blank, the control alerts the owner."
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "SELECT"
+        globalsearch = false
+        help = "When set, will be included as recipient of the alert, and will be the owner of the Task and/or Process Issue (depending on the Control Behavior)."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Control Assignee"
+        onparentdelete = "SET_NULL"
+        rolerestrict = false
+        searchlevel = "2"
+        selectrecordtype = "-4"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.9.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_control"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "Determine if the customization is a control"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "CHECKBOX"
+        globalsearch = false
+        help = "Determine if the customization is a control"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Control"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.9.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_search_control_type"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "Type of the Control"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "TEXT"
+        globalsearch = false
+        help = "Type of the Control"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Control Type"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.9.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_track_control_duplicates"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This field specifies whether duplicate issues are to be tracked or not.  If checked, a record will be created each time that a given record is recorded.  If unchecked, the system will check to ensure that there are no duplicates."
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "CHECKBOX"
+        globalsearch = false
+        help = "This field specifies whether duplicate issues are to be tracked or not.  If checked, a record will be created each time that a given record is recorded.  If unchecked, the system will check to ensure that there are no duplicates."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Track Duplicates"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.9.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_alert_process_owner"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = true
+        description = "This checkbox alerts the process owner whenever an incident is detected"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "CHECKBOX"
+        globalsearch = false
+        help = "This checkbox alerts the process owner whenever an incident is detected"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Alert Process Owner"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.9.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_alert_control_owner"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "Alerts the owner of the control"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "CHECKBOX"
+        globalsearch = false
+        help = "When checked, sends any detected results to owner of the control."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Alert Control Owner"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.9.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_group_results"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = true
+        description = "This field controls the grouping of results in an alert."
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "CHECKBOX"
+        globalsearch = false
+        help = "When checked, the Control Results are grouped into a single alert and log (default).  When unchecked, each Control Result is sent as an alert and logged separately (maximum of 10 logs/alerts)."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Group Results in Alert"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.9.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_control_message"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the message to be set on the task or the alert generated by the control"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "TEXT"
+        globalsearch = false
+        help = "Enter the message you want sent to the assignees on tasks or the recipients of alerts.  If blank, the message will be CONTROL INCIDENT: {name of control}"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Alert / Task Message"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.9.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_last_control_run_date"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the last date that the control was run."
+        displaytype = "STATICTEXT"
+        encryptatrest = false
+        fieldtype = "DATETIMETZ"
+        globalsearch = false
+        help = "Date and time of the last check of the control."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Last Control Run Date"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.9.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_next_control_date"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the date and time that the control is next to be checked."
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "DATETIMETZ"
+        globalsearch = false
+        help = "Date and time of the next check of the control."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Next Control Date/Time"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.9.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_control_status"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the current status of the control.  The default value is \"Not Started\".  If an error occurs, it the error message will display here."
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "TEXT"
+        globalsearch = false
+        help = "This is the current status of the control.  The default value is \"Not Started\".  If an error occurs, it the error message will display here."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Control Status"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.9.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_cust_control_count"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = true
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the control count of the Customization record"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "INTEGER"
+        globalsearch = false
+        help = "When COUNT is selected as the Control Behavior, this field will display the number of results."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Control Count"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.9.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_instruction_for_res"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the instructions for resolution of the Control customization"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "TEXTAREA"
+        globalsearch = false
+        help = "Instructions for Resolution text in the alert email.  The user may input a description of the instruction to resolve the incident."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Instructions for Resolution"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.9.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_store_actual_obj"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "Store search result objects in a file"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "CHECKBOX"
+        globalsearch = false
+        help = "Check this box to store search result objects in a file"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Store Result Objects"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.9.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_sent_by_owner"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = true
+        description = "Alert is sent by Control Owner"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "CHECKBOX"
+        globalsearch = false
+        help = "When checked, alerts are sent by the Control Owner"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Sent By Owner"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.9.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_sent_by_proc_owner"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "Alert is sent by Process Owner"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "CHECKBOX"
+        globalsearch = false
+        help = "When checked, alerts are sent by the Process Owner."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Sent By Process Owner"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.9.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_sent_by_employee"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "Alert is sent by a selected Employee"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "CHECKBOX"
+        globalsearch = false
+        help = "When checked, alerts are sent by the Employee selected in the Choose Employee dropdown."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Sent By Employee"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.9.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_employee_sender"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "Alerts will be sent by selected employee of this field."
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "SELECT"
+        globalsearch = false
+        help = "Alerts are sent by selected Employee of this field."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Choose Employee"
+        onparentdelete = "SET_NULL"
+        rolerestrict = false
+        searchlevel = "2"
+        selectrecordtype = "-4"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.9.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_control_warning"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "Displays errors or warnings of the control"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "TEXT"
+        globalsearch = false
+        help = "Error(s) / Warning(s) encountered when the Control was run. If blank, there were no problems encountered."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Control Error / Warning"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.9.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_cross_match_control"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "Cross Match Control is a saved search used to extend the search filter capabilities of the Control search.  The search result of Cross Match Control will be used to join results of this Control Search.  To do this, an intersecting field between this Control Search and the Cross Match Control search needs to be defined in the Cross Match Field."
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "SELECT"
+        globalsearch = false
+        help = "Cross Match Control is a saved search used to extend the search filter capabilities of the Control search.  The search result of Cross Match Control will be used to join results of this Control Search.  To do this, an intersecting field between this Control Search and the Cross Match Control search needs to be defined in the Cross Match Field."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Cross Match Control"
+        onparentdelete = "NO_ACTION"
+        rolerestrict = false
+        searchlevel = "2"
+        selectrecordtype = netsuite.customrecordtype.instance.customrecord_flo_customization.scriptid
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.9.scriptid
+        customfieldfilters = {
+          customfieldfilter = [
+            {
+              fldfilter = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.112.scriptid
+              fldfilterchecked = true
+              fldfiltercomparetype = "EQ"
+              fldfilternotnull = false
+              fldfilternull = false
+            },
+            {
+              fldfilter = "STDRECORDISINACTIVE"
+              fldfilterchecked = false
+              fldfiltercomparetype = "EQ"
+              fldfilternotnull = false
+              fldfilternull = false
+            },
+            {
+              fldfilter = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.0.scriptid
+              fldfiltercomparetype = "EQ"
+              fldfilternotnull = false
+              fldfilternull = false
+              fldfiltersel = "[scriptid=customlist_type_cust.value_8_t1049933_417]"
+            },
+          ]
+        }
+      },
+      {
+        scriptid = "custrecord_flo_cross_match_field"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = '''
+Cross Match Field is the intersecting (join) field between this Control Saved Search and the selected Cross Match Control search.  It needs to have the same data type of the Cross Match Control search.  
+
+For example, when the Cross Match Control search is an Employee search type, the Cross Match Field needs to be a searchable field of this Control Saved Search (e.g System Notes : Set By). 
+
+The Cross Match Field needs to be in a Script ID format (e.g. The Script ID format of System Notes : Set By is systemnotes.name).
+'''
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "TEXT"
+        globalsearch = false
+        help = '''
+Cross Match Field is the intersecting (join) field between this Control Saved Search and the selected Cross Match Control search.  It needs to have the same data type of the Cross Match Control search.  
+
+For example, when the Cross Match Control search is an Employee search type, the Cross Match Field needs to be a searchable field of this Control Saved Search (e.g System Notes : Set By). 
+
+The Cross Match Field needs to be in a Script ID format (e.g. The Script ID format of System Notes : Set By is systemnotes.name).
+'''
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Cross Match Field"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.9.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_dependent_fields"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "Fields that use the current customization as data source."
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "MULTISELECT"
+        globalsearch = false
+        help = "Fields that use the current customization as data source"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Dependent Fields"
+        onparentdelete = "SET_NULL"
+        rolerestrict = false
+        searchlevel = "2"
+        selectrecordtype = netsuite.customrecordtype.instance.customrecord_flo_customization.scriptid
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.10.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_data_source"
+        accesslevel = "2"
+        allowquickadd = true
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is one or more Customization record representing the data source(s) for this field."
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "MULTISELECT"
+        globalsearch = false
+        help = "This is one or more Customization record representing the data source(s) for this field."
+        isformula = false
+        ismandatory = false
+        isparent = true
+        label = "Data Source(es)"
+        onparentdelete = "SET_NULL"
+        parentsubtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.10.scriptid
+        rolerestrict = false
+        searchlevel = "2"
+        selectrecordtype = netsuite.customrecordtype.instance.customrecord_flo_customization.scriptid
+        showinlist = true
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.10.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_data_source_fields"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "These are the field scriptids for the data source.  This displays standard field sources as well as custom."
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "TEXT"
+        globalsearch = false
+        help = "These are the field scriptids for the data source.  This displays standard field sources as well as custom."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Data Source Fields"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.10.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_customization_old"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the old customization string from the last spider session"
+        displaytype = "STATICTEXT"
+        displaywidth = 100
+        encryptatrest = false
+        fieldtype = "CLOBTEXT"
+        globalsearch = false
+        help = "This is the old customization string from the last spider session"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Customization String Old"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.10.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_field_string"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        defaultvalue = "CONCAT(CONCAT(CONCAT(CONCAT(CONCAT({custrecord_flo_data_source_fields},{custrecord_flo_cust_form_fields}),CONCAT({custrecord_flo_script_fields},{custrecord_flo_search_fields})),{custrecord_flo_wflw_obj}),{custrecord_flo_cust_form_fields}),',')"
+        description = "List of fields used in the customization, for example all the fields used in a form."
+        displaytype = "STATICTEXT"
+        encryptatrest = false
+        fieldtype = "CLOBTEXT"
+        globalsearch = false
+        help = "List of fields used in the customization, for example all the fields used in a form."
+        isformula = true
+        ismandatory = false
+        isparent = false
+        label = "Field String"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = false
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.10.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_mapped_ns_fields"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "List of netsuite fields used by the integration as input/output of data."
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "TEXT"
+        globalsearch = false
+        help = "List of netsuite fields used by the integration as input/output of data."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Mapped NS Fields"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.10.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_orig_owner"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "Owner appearing in the netsuite object, whithout validate if is inactive or not."
+        displaytype = "STATICTEXT"
+        encryptatrest = false
+        fieldtype = "TEXT"
+        globalsearch = false
+        help = "Owner appearing in the netsuite object, whithout validate if is inactive or not."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Original Owner"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = true
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.10.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_autospider_found"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is checked when an auto spider is found"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "CHECKBOX"
+        globalsearch = false
+        help = "This is checked when an auto spider is found"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Respider"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.11.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_last_spider_date"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "Last date in which the spider run and evaluate the current customization."
+        displaytype = "NORMAL"
+        dynamicdefault = "NOW"
+        encryptatrest = false
+        fieldtype = "DATE"
+        globalsearch = false
+        help = "Last date in which the spider run and evaluate the current customization."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Last Spider Date"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.11.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_make_join_date"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the make join date for the Raw Data record"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "DATE"
+        globalsearch = false
+        help = "This is the make join date for the Raw Data record"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Make Join Date"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.11.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_make_join_proc"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the make join proc for the Raw Data record"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "CHECKBOX"
+        globalsearch = false
+        help = "This is the make join proc for the Raw Data record"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Make Join Proc"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.11.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_script_functions"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "These are the functions in the script file"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "TEXTAREA"
+        globalsearch = true
+        help = "These are the functions in the script file"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Functions (Raw)"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.11.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_workflow_field_raw"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the raw data workflow fields"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "CLOBTEXT"
+        globalsearch = false
+        help = "This is the raw data workflow fields"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Workflow Fields (Raw)"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.11.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_wf_scripts_raw"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "The raw workflow scripts"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "CLOBTEXT"
+        globalsearch = false
+        help = "The raw workflow scripts"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Workflow Scripts (Raw)"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.11.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_ignore_customization"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "Customization Ignored by the back-end spider due an issue detected when the usage data is retrieved."
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "CHECKBOX"
+        globalsearch = false
+        help = "Customization Ignored by the back-end spider due an issue detected when the usage data is retrieved."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Ignore (Field Update Script)"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.11.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_cust_in_use"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is checked when Customization is in use"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "CHECKBOX"
+        globalsearch = false
+        help = "This is checked when Customization is in use"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "In Use"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.11.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_incomplete_object"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "Checked when Customization object is incomplete"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "CHECKBOX"
+        globalsearch = false
+        help = "Checked when Customization object is incomplete"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Incomplete Object"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.11.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_incomplete_reason"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "Checked when Customization reason is incomplete"
+        displaytype = "STATICTEXT"
+        encryptatrest = false
+        fieldtype = "TEXT"
+        globalsearch = false
+        help = "Checked when Customization reason is incomplete"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Incomplete Reason"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.11.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_change_detected"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "Flag the customization as changed, this is before the change is actually evaluated."
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "CHECKBOX"
+        globalsearch = false
+        help = "Flag the customisation as changed, this is before the change is actually evaluated."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Change Detected"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.11.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_last_change_dat"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the last date of change of the Raw Data customization"
+        displaytype = "HIDDEN"
+        encryptatrest = false
+        fieldtype = "DATE"
+        globalsearch = false
+        help = "This is the last date of change of the Raw Data customization"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Last Date Change"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.11.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_json_configuration"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the JSON representation of the customization or where applicable, its values (eg list)"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "CLOBTEXT"
+        globalsearch = false
+        help = "This is the JSON representation of the customization or where applicable, its values (eg list)"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "JSON Configuration"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.11.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_search_data_complete"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "flag if the search data is completed process"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "CHECKBOX"
+        globalsearch = false
+        help = "flag if the search data is completed process"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Search Data Complete"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.11.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_suppress_log"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "Prevent changes to be created"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "CHECKBOX"
+        globalsearch = false
+        help = "Prevent changes to be created"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Suppress Change Log"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.11.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_xml_page_actions"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the xml representation of the page for the customization.  Used to set some detailed fields."
+        displaytype = "STATICTEXT"
+        encryptatrest = false
+        fieldtype = "TEXTAREA"
+        globalsearch = false
+        help = "This is the xml representation of the page for the customization.  Used to set some detailed fields."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "XML Page (actions)"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.11.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_record_json"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the recorded JSON data of the Customization record"
+        displaytype = "HIDDEN"
+        encryptatrest = false
+        fieldtype = "CLOBTEXT"
+        globalsearch = false
+        help = "This is the recorded JSON data of the Customization record"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Record JSON"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.11.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_json_ext"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "Extension field for JSON data. Primarily used for environment compare."
+        displaytype = "HIDDEN"
+        encryptatrest = false
+        fieldtype = "CLOBTEXT"
+        globalsearch = false
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "JSON (Extension)"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.11.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_json_ext2"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "Extension field (2nd) for JSON data. Primarily used for environment compare."
+        displaytype = "HIDDEN"
+        encryptatrest = false
+        fieldtype = "CLOBTEXT"
+        globalsearch = false
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "JSON (Extension 2)"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.11.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_respidering"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "Set to T if the record is currently running Respider now"
+        displaytype = "HIDDEN"
+        encryptatrest = false
+        fieldtype = "CHECKBOX"
+        globalsearch = false
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Respidering Now"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.11.scriptid
+      },
+      {
+        scriptid = "custrecord_skip_rec_log"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "Set to T (by scripts only) to disable record log creation from current save"
+        displaytype = "HIDDEN"
+        encryptatrest = false
+        fieldtype = "CHECKBOX"
+        globalsearch = false
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Skip Change Log (From Script)"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.11.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_search_fields_names"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "CLOBTEXT"
+        globalsearch = false
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Search Field Names"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.11.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_custxml_set"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This field is used in Respider Now to determine processing of make join logs."
+        displaytype = "HIDDEN"
+        encryptatrest = false
+        fieldtype = "CHECKBOX"
+        globalsearch = false
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Process Make Join Logs"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.11.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_test_date_customization"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the test date for Testing"
+        displaytype = "HIDDEN"
+        encryptatrest = false
+        fieldtype = "DATE"
+        globalsearch = false
+        help = "This is the test date for Testing"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Test Date"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.13.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_bundle"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the bundle the customization originated from."
+        displaytype = "LOCKED"
+        encryptatrest = false
+        fieldtype = "TEXT"
+        globalsearch = false
+        help = "This is the bundle the customization originated from."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Bundle"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.14.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_manage_bundle"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "Flag if the bundle associated to the customization is a managed one."
+        displaytype = "LOCKED"
+        encryptatrest = false
+        fieldtype = "CHECKBOX"
+        globalsearch = false
+        help = "Flag if the bundle associated to the customization is a managed one."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Manage Bundle"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = true
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.14.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_bundle_update_date"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "Last update date of the Bundle"
+        displaytype = "LOCKED"
+        encryptatrest = false
+        fieldtype = "DATETIMETZ"
+        globalsearch = false
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Bundle Update Date"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.14.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_sod_status"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "Display the SoD Violation Status, if any."
+        displaytype = "HIDDEN"
+        encryptatrest = false
+        fieldtype = "RICHTEXT"
+        globalsearch = false
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "SoD Status"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.15.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_base_record_view"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "Base Record of the Customization"
+        displaytype = "STATICTEXT"
+        encryptatrest = false
+        fieldtype = "TEXTAREA"
+        globalsearch = false
+        help = "Base Record of the Customization"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Base Record"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.10.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_html_execution_logs"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "CLOBTEXT"
+        globalsearch = false
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "HTML Execution Logs"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.11.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_indirect_dep"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "MULTISELECT"
+        globalsearch = false
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Indirect Dependencies"
+        onparentdelete = "NO_ACTION"
+        rolerestrict = false
+        searchlevel = "2"
+        selectrecordtype = netsuite.customrecordtype.instance.customrecord_flo_customization.scriptid
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.10.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_hide_nav_script"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        defaultvalue = '''
+<script>
+function floHideNav()
+{
+//alert(window.location.href+"--"+top.location.href)
+ //Hide the navigation if this window is not the top frame
+ if(window.location.href!=top.location.href && top.location.href.indexOf("scriptlet")>0 && window.location.href.indexOf("&l=T")<0)
+ {
+     window.location.href=window.location.href+"&l=T";
+ }
+}
+floHideNav();
+
+
+//This script reloads the assistant after a new customization is spec'd
+if(window.location.href.indexOf("?id=")>0 | window.location.href.indexOf("&id=")>0 && window.name=="newcust")
+{
+  //alert(window.opener.location.href)
+  window.opener.location.reload();
+  window.close();
+}
+
+</script>
+'''
+        displaytype = "STATICTEXT"
+        encryptatrest = false
+        fieldtype = "INLINEHTML"
+        globalsearch = false
+        help = "This field is used to store scripts that execute when the form is displayed."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Hide Nav Script"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = false
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.1.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_customization"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the raw data gathered by the spider, used to run type-specific workflows and scripts."
+        displayheight = 100
+        displaytype = "NORMAL"
+        displaywidth = 100
+        encryptatrest = false
+        fieldtype = "CLOBTEXT"
+        globalsearch = false
+        help = "This is the raw data gathered by the spider, used to run type-specific workflows and scripts."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Customization String"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.10.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_script_fields"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "These are the fields that appear in the relevant script file."
+        displayheight = 100
+        displaytype = "NORMAL"
+        displaywidth = 100
+        encryptatrest = false
+        fieldtype = "CLOBTEXT"
+        globalsearch = false
+        help = "These are the fields that appear in the relevant script file."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Script Fields (Raw)"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.11.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_search_fields"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "These are the fields used in filter criteria or columns for this search."
+        displayheight = 100
+        displaytype = "NORMAL"
+        displaywidth = 100
+        encryptatrest = false
+        fieldtype = "CLOBTEXT"
+        globalsearch = false
+        help = "These are the fields used in filter criteria or columns for this search."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Search Fields (Raw)"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.11.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_cust_form_fields"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "List of (mandatory) fields used in a form type customization."
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "CLOBTEXT"
+        globalsearch = false
+        help = "List of (mandatory) fields used in a form type customization."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Form Fields"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.0.scriptid
+      },
+      {
+        scriptid = "custrecord_flo_cust_page_xml"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the xml representation of the page for the customization"
+        displayheight = 100
+        displaytype = "NORMAL"
+        displaywidth = 100
+        encryptatrest = false
+        fieldtype = "CLOBTEXT"
+        globalsearch = false
+        help = "This is the xml representation of the page for the customization.  Used to set some detailed fields."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "XML Page"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = false
+        storevalue = true
+        subtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.11.scriptid
+      },
+    ]
+  }
+  permissions = {
+    permission = [
+      {
+        permittedlevel = "FULL"
+        permittedrole = netsuite.role.instance.customrole_flo_developer_role.scriptid
+      },
+      {
+        permittedlevel = "FULL"
+        permittedrole = netsuite.role.instance.customrole_flo_flashlight.scriptid
+      },
+    ]
+  }
+  links = {
+    link = [
+      {
+        linkcategory = "STOREMANAGERSETUPOTHERSETUP"
+        linktasktype = "LIST"
+      },
+      {
+        linkcategory = "SUPPORTCENTERSETUPOTHERSETUP"
+        linktasktype = "LIST"
+      },
+      {
+        linkcategory = "SALESCENTERCUSTOMERSOTHERLISTS"
+        linktasktype = "LIST"
+      },
+      {
+        linkcategory = "SHIPPINGCENTERSETUPOTHERSETUP"
+        linktasktype = "LIST"
+      },
+      {
+        linkcategory = "ACCOUNTCENTERSETUPOTHERSETUP"
+        linktasktype = "LIST"
+      },
+      {
+        linkcategory = "SYSADMINCENTERSETUPOTHERLISTS"
+        linktasktype = "LIST"
+      },
+      {
+        linkcategory = "EMPLOYEEHOMECUSTOM"
+        linktasktype = "LIST"
+      },
+      {
+        linkcategory = "EXECUTIVESETUPOTHERSETUP"
+        linktasktype = "LIST"
+      },
+      {
+        linkcategory = "PARTNERCENTERSETUPOTHERSETUP"
+        linktasktype = "LIST"
+      },
+    ]
+  }
+  subtabs = {
+    subtab = [
+      {
+        scriptid = "tab_222_t1049933_133"
+        tabtitle = "Metadata"
+      },
+      {
+        scriptid = "tab_223_t1049933_133"
+        tabtitle = "Scripts"
+      },
+      {
+        scriptid = "tab_224_t1049933_133"
+        tabtitle = "Searches"
+      },
+      {
+        scriptid = "tab_225_t1049933_133"
+        tabtitle = "Forms"
+      },
+      {
+        scriptid = "tab_229_t1049933_133"
+        tabtitle = "Workflows"
+      },
+      {
+        scriptid = "tab_226_t1049933_133"
+        tabtitle = "Improvement"
+      },
+      {
+        scriptid = "tab_211_t1049933_133"
+        tabtitle = "Processes"
+      },
+      {
+        scriptid = "tab_259_t1049933_133"
+        tabtitle = "Roles"
+      },
+      {
+        scriptid = "tab_258_t1049933_133"
+        tabtitle = "Deployments"
+      },
+      {
+        scriptid = "tab_233_t1049933_133"
+        tabtitle = "Controls"
+      },
+      {
+        scriptid = "tab_228_t1049933_133"
+        tabtitle = "Data Sources and Integration"
+      },
+      {
+        scriptid = "tab_221_t1049933_133"
+        tabtitle = "Raw Data"
+      },
+      {
+        scriptid = "tab_248_t1049933_133"
+        tabtitle = "Change Log"
+      },
+      {
+        scriptid = "tab_260_t1049933_133"
+        tabtitle = "Testing"
+      },
+      {
+        scriptid = "tab_281_t1049933_607"
+        tabtitle = "Bundle"
+      },
+      {
+        scriptid = "tab_286_t1049933_886"
+        tabtitle = "SoD"
+      },
+    ]
+  }
+  recordsublists = {
+    recordsublist = [
+      {
+        scriptid = "sublist_54_t1049933_484"
+        recorddescr = "Bundle Customizations"
+        recordsearch = "[scriptid=customsearch_flo_bundled_customizations]"
+        recordtab = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.14.scriptid
+      },
+    ]
+  }
+}

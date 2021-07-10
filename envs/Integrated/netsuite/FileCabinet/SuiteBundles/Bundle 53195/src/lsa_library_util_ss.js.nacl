@@ -1,0 +1,12 @@
+netsuite.file SuiteBundles_Bundle_53195_src_lsa_library_util_ss_js@dsdduuuv {
+  bundleable = false
+  isinactive = false
+  availablewithoutlogin = false
+  generateurltimestamp = false
+  hideinbundle = false
+  path = "/SuiteBundles/Bundle 53195/src/lsa_library_util_ss.js"
+  content = file("netsuite/FileCabinet/SuiteBundles/Bundle 53195/src/lsa_library_util_ss.js")
+  _parent = [
+    netsuite.folder.instance.SuiteBundles_Bundle_53195_src@dsd,
+  ]
+}

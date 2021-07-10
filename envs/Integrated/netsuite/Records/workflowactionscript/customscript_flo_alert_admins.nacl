@@ -1,0 +1,33 @@
+netsuite.workflowactionscript customscript_flo_alert_admins {
+  scriptid = "customscript_flo_alert_admins"
+  defaultfunction = "alertAdmins"
+  description = "Sends an email alert to administrators after spider finishes"
+  isinactive = false
+  name = "Strongpoint Alert Admins"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = netsuite.file.instance.SuiteBundles_Bundle_297487_FLOAlertAdmins_js@dsdv.path
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy1"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        isdeployed = true
+        loglevel = "AUDIT"
+        recordtype = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.scriptid
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+      },
+    ]
+  }
+  libraries = {
+    library = [
+      {
+        scriptfile = netsuite.file.instance.SuiteBundles_Bundle_297487_FlashlightPortlet_Library_js@dsduv.path
+      },
+    ]
+  }
+}

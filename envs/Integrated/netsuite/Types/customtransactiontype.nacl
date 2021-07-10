@@ -1,0 +1,110 @@
+type netsuite.customtransactiontype_statuses {
+  "List<netsuite.customtransactiontype_statuses_status>" status {
+  }
+}
+type netsuite.customtransactiontype_statuses_status {
+  serviceid scriptid {
+    _required = true
+    isAttribute = true
+  }
+  string description {
+    _required = true
+    _restriction = {
+      max_length = 480
+    }
+  }
+  netsuite.customtransactiontype_statuses_id id {
+    _required = true
+  }
+  boolean isposting {
+  }
+}
+type netsuite.customtransactiontype_segments {
+  netsuite.customtransactiontype_classification_position classposition {
+  }
+  boolean isclassmandatory {
+  }
+  netsuite.customtransactiontype_classification_position departmentposition {
+  }
+  boolean isdepartmentmandatory {
+  }
+  netsuite.customtransactiontype_classification_position locationposition {
+  }
+  boolean islocationmandatory {
+  }
+}
+type netsuite.customtransactiontype_permissions {
+  "List<netsuite.customtransactiontype_permissions_permission>" permission {
+  }
+}
+type netsuite.customtransactiontype_permissions_permission {
+  string permittedrole {
+    _required = true
+  }
+  netsuite.generic_permission_level permittedlevel {
+    _required = true
+  }
+}
+type netsuite.customtransactiontype_links {
+  "List<netsuite.customtransactiontype_links_link>" link {
+  }
+}
+type netsuite.customtransactiontype_links_link {
+  netsuite.generic_centercategory linkcategory {
+    _required = true
+  }
+  netsuite.customtransactiontype_tasktype linktasktype {
+  }
+  string linklabel {
+  }
+}
+type netsuite.customtransactiontype_accounting {
+  boolean specifyaccountontransaction {
+  }
+  boolean filterbyaccounttypeall {
+  }
+  netsuite.customtransactiontype_filterbyaccounttype filterbyaccounttype {
+  }
+}
+type netsuite.customtransactiontype {
+  serviceid scriptid {
+    _required = true
+    isAttribute = true
+    _restriction = {
+      regex = "^(customtransaction|customsale|custompurchase)[0-9a-z_]+"
+    }
+  }
+  string name {
+    _required = true
+    _restriction = {
+      max_length = 96
+    }
+  }
+  netsuite.customtransactiontype_subliststyle subliststyle {
+  }
+  netsuite.customtransactiontype_subliststyle transactionstyle {
+  }
+  boolean iscredit {
+  }
+  boolean isposting {
+  }
+  boolean showstatus {
+  }
+  boolean isvoidable {
+  }
+  boolean cancloseorder {
+  }
+  netsuite.customtransactiontype_accounting accounting {
+  }
+  netsuite.customtransactiontype_links links {
+  }
+  netsuite.customtransactiontype_permissions permissions {
+  }
+  netsuite.customtransactiontype_segments segments {
+  }
+  netsuite.customtransactiontype_statuses statuses {
+  }
+  string _lastfetchtime {
+    _hidden_value = true
+  }
+}

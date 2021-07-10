@@ -1,0 +1,1125 @@
+<html> <head> <title> </title>
+	 <meta http - equiv = "Content-Type"
+content = "text/html; charset=utf-8"/>
+
+<link type = "CSS/css" rel = "stylesheet" href = "CSS/example.css"/> 
+<link type = "text/css" rel = "stylesheet" href = "css/contextmenu.css"/> 
+<SCRIPT src = "lib/shifty.js"> </SCRIPT>
+	<SCRIPT src="lib/raphael.js"></SCRIPT>
+	<SCRIPT src="lib/jquery-1.8.1.min.js"></SCRIPT>
+<SCRIPT src = "lib/jquery-ui-1.8.23.custom.min.js"> </SCRIPT>
+	<SCRIPT src="lib/jquery.layout.js"></SCRIPT>
+	<SCRIPT src="lib/jquery.autoresize.js"></SCRIPT>
+<SCRIPT src = "lib/jquery-touch_punch.js"> </SCRIPT>
+	<SCRIPT src="lib/jquery.contextmenu.js"></SCRIPT>
+	<SCRIPT src="lib/rgbcolor.js"></SCRIPT>
+<SCRIPT src = "lib/canvg.js"> </SCRIPT>
+
+	<SCRIPT src="lib/Class.js"></SCRIPT>
+	<SCRIPT src="lib/json2.js"></SCRIPT>
+<SCRIPT src = "src/draw2d.js"> </SCRIPT>
+    <SCRIPT src="https://system.na1.netsuite.com/app/site/hosting/scriptlet.nl?script=customscript_flo_process_data&deploy=1"></SCRIPT>
+<SCRIPT xsrc="
+https://system.na1.netsuite.com/core/media/media.nl?id=7617&c=TSTDRV1049933&h=f4a31e14b958f5f6b88e&_xt=.js"></SCRIPT>
+<SCRIPT xsrc = "https://system.na1.netsuite.com/core/media/media.nl?id=7629&c=TSTDRV1049933&h=3fcdb659baf300ebdad3&_xt=.js">
+
+	
+	// declare the namespace for this example
+	var example = {};
+
+	/**
+	 * 
+	 * The **GraphicalEditor** is responsible for layout and dialog handling.
+	 * 
+	 * @author Andreas Herz
+	 * @extends draw2d.ui.parts.GraphicalEditor
+	 */
+	example.Application = Class.extend(
+	{
+	    NAME : "example.Application", 
+
+	    /**
+	     * @constructor
+	     * 
+	     * @param {String} canvasId the id of the DOM element to use as paint container
+	     */
+	    init : function()
+	    {
+
+
+		     this.view = new draw2d.Canvas("gfx_holder");
+                     //this.view = new FLOCanvas("gfx_holder");
+                         this.view.installEditPolicy(new draw2d.policy.canvas.BoundingboxSelectionPolicy());
+			 this.view.installEditPolicy(new draw2d.policy.canvas.FadeoutDecorationPolicy());
+		      this.view.defaultRouterClassName = "draw2d.layout.connection.ManhattanConnectionRouter";
+	          this.view.defaultRouter = new draw2d.layout.connection.ManhattanConnectionRouter();
+	          //this.toolbar = new example.Toolbar("toolbar", this, this.view );
+	          //this.view.setScrollArea("#canvas");
+             
+
+
+		},
+
+		/**
+		 * Load the JSON data into the view/canvas
+		 */
+		/*load: function(jsonDocument){
+		    this.view.clear();
+
+		    // unmarshal the JSON document into the canvas
+		    // (load)
+		    var reader = new draw2d.io.json.Reader();
+		    reader.unmarshal(this.view, jsonDocument);
+
+		},*/
+
+		/*setDefaultRouterClassName: function(  defaultRouterClassName){
+		    this.defaultRouterClassName=  defaultRouterClassName;
+	        this.defaultRouter = eval("new "+this.defaultRouterClassName+"()");
+		},*/
+
+		createConnection : function(startPort,endPort){
+		   // var conn = new draw2d.Connection();
+                   //alert("App:LabelConnection")
+                    var conn = new LabelConnection();
+		    //conn.setRouter(this.defaultRouter);
+		    conn.setTargetDecorator(new draw2d.decoration.connection.ArrowDecorator(8,8));
+		    conn.setStroke(2);
+                    
+                   
+		    return conn;
+		},
+
+
+	});
+</SCRIPT>
+<SCRIPT xsrc="https://system.na1.netsuite.com/core/media/media.nl?id=7630&c=TSTDRV1049933&h=1fe43cd9a30775be7a0a&_xt=.js "></SCRIPT>
+<SCRIPT src="https://system.na1.netsuite.com/c.TSTDRV1160859/suitebundle35922/FLO Social Process Improvement/FLOProcessShapes2.js  "></SCRIPT>
+<SCRIPT src="https://system.na1.netsuite.com/c.TSTDRV1160859/suitebundle35922/FLO Social Process Improvement/FLOProcessActions.js"></SCRIPT>
+
+
+<SCRIPT>
+
+function calcShapeOrder(steps)
+{
+     //This function calculates the shapes to be added to a diagram
+     //set params
+     //blockwidth=150;//will be reset once the # of step positions is calculated
+     //blockheight=60;//will be reset based on above.
+     canvasheight=canvas.getHeight()*.8;
+     canvaswidth=canvas.getWidth()*.9;
+     firstshape=null;
+     lastshape=null;
+
+     //set edit policy
+     canvas.installEditPolicy(new draw2d.policy.canvas.BoundingboxSelectionPolicy());
+
+     //get lanes
+     ulanes="##";//unique participant names
+     mpcounter=0;//counts multi-participant steps
+     lanerel=[];//used to store lane relationships
+
+     laneerror=""; //unable to match lanes
+     //alert(steps.length)
+     //sort the steps by subitem number
+   
+     //steps.sort(function(a,b){return parseInt(a.custrecord_flo_number.substring(a.custrecord_flo_number.lastIndexOf(".")))-parseInt(b.custrecord_flo_number.substring(b.custrecord_flo_number.lastIndexOf(".")))})
+     for(s=0;steps[s]!=null;s++)
+     {
+
+
+	   //columns=steps[s].getAllColumns();
+	    
+	    steps[s].roles=unescape(steps[s].custrecord_flo_process_participants);
+	    if(steps[s].roles==""){steps[s].roles="Unassigned Role "+s}
+ 		var parts=steps[s].roles.split(",");
+        var indparts=[];//sorted steps
+        lastlane=""; //used to track the last lane
+        if(parts.length==1 && steps[s].custrecord_flo_step_type!=6 && steps[s].custrecord_flo_step_type!=8)
+        {indparts=parts}
+        else if(steps[s].custrecord_flo_step_type==6)
+        {indparts=[];}//skip lanes for supporting processes.
+        else
+        {
+	    	mpcounter++
+	    	//re-sort lanes to put existing relationships first
+        	for(ip=0;parts[ip]!=null;ip++)
+        	{
+	       		if(lanerel.indexOf(parts[ip])>=0)
+	       		{
+		      		indparts.unshift(parts[ip]);
+ 	       		}
+           		else
+           		{indparts.push(parts[ip])}
+           //alert("indparts"+indparts.join())
+	    	}
+        }
+        for(ip=0;indparts[ip]!=null;ip++)
+  		{
+	        if(steps[s].custrecord_flo_step_type==6){ip++}//skip supporting processes
+	        if(indparts[ip]==""){indparts[ip]="Unassigned Role "+ip;}
+			if(ulanes.indexOf("##"+indparts[ip]+"##")<0 )
+			{
+				ulanes+=indparts[ip]+"##";
+				
+			}
+			if(lanerel.indexOf(indparts[ip])<0)
+			{
+			if(lastlane=="")
+			{lanerel.push(indparts[ip])}
+			else if(lanerel.indexOf(lastlane)==lanerel.length-1)
+			{lanerel.push(indparts[ip])}
+			else if(mpcounter==1)
+			{lanerel.splice(lanerel.indexOf(lastlane),0,indparts[ip])}
+			else
+			{lanerel.splice(Math.max(lanerel.indexOf(lastlane)-1,0),0,indparts[ip])}
+			}
+			else
+			{
+
+				if(lastlane!="" && Math.abs(lanerel.indexOf(indparts[ip])-lanerel.indexOf(lastlane))!=1 && lastlane!=indparts[ip] && indparts.length!=1)
+				{
+					//check if it can be inserted
+					/*if(steps[s].roles.indexOf(",")>0)
+					{lanerel.splice(lanerel.indexOf(lastlane),0,indparts[ip])}
+					else
+					{*/
+					//alert(s+"--"+indparts.length+"Creating Error"+ lastlane+":"+indparts[ip])
+					laneerror+=lastlane+":"+indparts[ip];
+				//}
+				}
+			}
+			lastlane=indparts[ip];
+			//alert(lanerel.join())
+			//alert(laneerror)
+		}
+	   
+		 
+       
+     }
+     //alert(ulanes)
+     //alert(lanerel.join())
+     //alert(laneerror)
+     sortval1=0;
+     uarray=ulanes.split("##");
+     
+     
+     if(uarray.indexOf(lanerel[lanerel.length-1])<lanerel[0])
+     {lanerel=lanerel.reverse()}
+     
+
+     lanes=lanerel;
+     lanes.unshift("");
+     numlanes=lanes.length-1;
+     //write lanes
+     	for (i = 1; lanes[i]!=null && lanes[i]!=""; i++) {
+	        
+			label = rowLabel(canvas, lanes[i], (background.getWidth() * .1)/2-lanes[i].length/2, (background.getHeight() * .8)/numlanes * (i-0.5));
+			if(i<numlanes)
+			{
+			line = new FLOLaneLine();
+                         line.setDashArray(". ");
+                         line.setStroke(Math.max(strokesize*.75,1));
+			line.setStartPoint(2, background.getHeight() * .8/numlanes * i);
+			line.setEndPoint(background.getWidth() - 1, background.getHeight() * .8/numlanes * i);
+			line.setId("Line::"+lanes[i]);
+			canvas.addFigure(line);
+
+			//label = rowLabel(canvas, lanes[i], (background.getWidth() * .1)/2-lanes[i].length/2, (background.getHeight() * .8)/numlanes * (numlanes * i - 1.2));
+
+         //alert(i+"--"+lanes[i])
+         	}//end of numlanes check
+			}//end of lane loop
+
+     //calculate positions
+
+     countpos=1;//holds # of positions
+     for(s=1;steps[s]!=null;s++)
+     {
+	     //calc # of horizontal positions
+	     if(steps[s].roles==steps[s-1].roles | steps[s].roles.indexOf(",")>0 | steps[s-1].roles.indexOf(",")>0 |(s>2 && steps[s].roles==steps[s-2].roles && steps[s].roles!=steps[s-1].roles))
+	     {countpos++}
+	   
+	     //alert(countpos)
+  
+	 }
+	
+	 spread=(canvaswidth-(countpos+1)*blockwidth)/(countpos+1);
+	 //alert(spread)
+	
+	 //position steps
+	 var pos=1;//lateral position
+	 var laststep;//the last step added
+	 var shapes=[];
+	 for(s=0;steps[s]!=null;s++)
+     {
+       if( s!=0 && (steps[s].roles==steps[s-1].roles | steps[s].roles.indexOf(",")>0) | steps[s-1].roles.indexOf(",")>0 | (s>2 && steps[s].roles==steps[s-2].roles && steps[s].roles!=steps[s-1].roles) && steps[s].custrecord_flo_step_type!=6 && steps[s].custrecord_flo_step_type!=8)
+	    {
+		 pos++;
+
+	    }
+
+	    x=parseInt(pos)*parseInt(blockwidth)+parseInt(pos-1)*parseInt(spread);
+	    y=getYPos(steps[s].roles);
+	    //if(s==1){x=spread}
+	    //if(canvas.getBestFigure(x,y) !=null && canvas.getBestFigure(x,y).getX()==x && canvas.getBestFigure(x,y).getY()==y)
+	    //if(s>2 && x==canvas.getFigure(s-2).getX() && y==canvas.getFigure(s-2).getY())
+	    if(s>=2 && x==shapes[s-2].x && y==shapes[s-2].y)
+	    {x=x+parseInt(blockwidth)+parseInt(spread)}
+	    height=blockheight;
+	    if(steps[s].roles.split(",").length>1)
+	    {y=y+.5}
+	    if(steps[s].roles.split(",").length>2)
+	    {height=steps[s].roles.split(",").length*blockheight-blockheight/2}
+	
+        shapes[s]={"x":x,"y":y};
+	    //alert("name:"+steps[s].name+" x:"+x+" lane:"+(y+1)*(canvas.getHeight()*.8)/(uarray.length-1)+" height:"+height)
+	    //alert(JSON.stringify(steps[s]))
+	    //var step = new FLOStep(blockwidth, height, unescape(steps[s].name), true, fontsize, strokesize);
+	    if(steps[s].custrecord_flo_step_type==3)
+	    {
+	       var step = new FLODecision(blockwidth, height, unescape(steps[s].name), true, fontsize, strokesize, "#FF0000", null,steps[s],pid,steps[s].internalid);
+	       
+        }
+        else if(steps[s].custrecord_flo_step_type==4)
+        {
+			var step = new FLOProcess(blockwidth, height, unescape(steps[s].name), true, fontsize, strokesize, null, null,steps[s],pid,steps[s].internalid)
+	        
+		}
+		else if(steps[s].custrecord_flo_step_type==6)
+        {
+			var step = new FLOSuppProcess(blockwidth, height, unescape(steps[s].name), true, fontsize, strokesize,steps[s],pid,steps[s].internalid)
+	        
+		}
+		else if(steps[s].custrecord_flo_step_type==7)
+        {
+			var step = new FLONextPage(blockwidth, height, unescape(steps[s].name), true, fontsize, strokesize,steps[s],pid,steps[s].internalid)
+			   
+		}
+		else
+		{
+			var step = new FLOStep(blockwidth, height, unescape(steps[s].name), true, fontsize, strokesize, null, null,steps[s],pid,steps[s].internalid)
+	        
+		}
+       
+	    step.setId(steps[s].internalid);
+	    step.label.setId("label"+steps[s].internalid)
+	    if(steps[s].custrecord_flo_step_type!=6 && steps[s].custrecord_flo_step_type!=8)
+	    {canvas.addFigure(step, x+canvas.getWidth()*.1, (y+.5)*((canvas.getHeight()*.8)/(uarray.length-2))-blockheight/2);}
+	    else //insert supporting processes
+	    {
+		   //alert((canvas.getWidth()*.1+si*blockwidth+10*(si+1))+"--"+(canvas.getHeight()*.8+10))
+                   if(steps[s].custrecord_flo_step_type==6)
+		   {canvas.addFigure(step, canvas.getWidth()*.1+si*blockwidth+10*(si+1), canvas.getHeight()*.8+10);}
+                   else
+                  {
+                      canvas.addFigure(step, canvas.getWidth()-(sb++)*(blockwidth+10), canvas.getHeight()*.8+10);
+				   }
+
+		}
+	    if(firstshape==null){firstshape=step};
+	    if(steps[s+1]==null && steps[s].custrecord_flo_step_type!=6  && steps[s].custrecord_flo_step_type!=8){lastshape=step};
+	    
+	    //draw connection
+	    if(laststep!=null && steps[s].custrecord_flo_step_type!=6 && steps[s].custrecord_flo_step_type!=8)
+	    {
+		  //below laststep
+		 if(laststep.getX()==step.getX())
+		  {
+			if(laststep.getY()<step.getY())
+			{
+		//	//alert(laststep.hybridPorts.length)
+			startport=laststep.getHybridPort(1);
+			//alert(startport.getName())
+			endport=step.getHybridPort(0);
+			//alert(endport.getName())
+		    }
+		    else
+		    {
+			  	startport=laststep.getHybridPort(0);
+				//alert(startport.getName())
+				endport=step.getHybridPort(1);
+		    }
+		  }
+		 else if(laststep.getY()==step.getY())
+		  {
+			startport=laststep.getOutputPort("output");
+			//alert(startport.getName())
+			endport=step.getInputPort("input");
+			//alert(startport.getName())
+		  }
+
+		   else if(laststep.getY()>step.getY())
+		  {
+			//below left
+			startport=laststep.getOutputPort("output");
+			endport=step.getInputPort("input")
+		  }
+		  //above left
+		  else if(laststep.getY()<step.getY())
+		  {
+			startport=laststep.getOutputPort("output");
+			endport=step.getInputPort("input")
+		  }
+		
+		  connect= new draw2d.Connection();
+		  	connect.setTargetDecorator(new draw2d.decoration.connection.ArrowDecorator(8, 8));
+			connect.setStroke(Math.max(strokesize*.75,1));
+		  
+		  //alert(startport.getX()+":"+startport.getY())
+		  connect.setSource(startport);
+		  connect.setTarget(endport);
+		  canvas.addFigure(connect);
+		  //laststep=step;
+	    }
+	    if(step.custrecord_flo_step_type!=6 && step.custrecord_flo_step_type!=8)
+	    {laststep=step;}
+	     
+     }//end of shape positioning loop
+    
+     return uarray
+}
+
+
+function getYPos(roles)
+{
+	//alert(roles+"  "+lanerel.join())
+	rolelist=roles.split(",");
+	topPos=lanerel.length-2;
+	for(r=0;rolelist[r]!=null;r++)
+	{
+	    topPos=Math.min(topPos,lanerel.indexOf(rolelist[r])-1)
+	}
+	return topPos
+}
+
+function cleanText(thetext,splitlen) {
+        //This function splits the text into rows to fit it in the shape
+	//var pname=unescape(tlp[i].name);
+	if(splitlen==null | splitlen=="")
+	{splitlen=15}
+	thetext = unescape(thetext);
+	words = thetext.split(" ");
+        if(thetext.length>splitlen)
+        {
+	if (words.length> 3) {
+		//middle = Math.ceil(words.length/2);
+		var thetext = words[0];
+		for (w = 1; words[w] != null; w++) {
+                     if (w/2!=Math.floor(w/2)) {
+				thetext += "\n"+words[w];
+			}
+                        else
+			{thetext += " " + words[w];}
+			
+		}
+             }
+           else
+           {thetext=thetext.replace(" ","\n")}
+           }//end of reformatting
+		return thetext
+	}
+
+
+	function createImage() {
+		//create a SVG image string and save to NS
+		var writer = new draw2d.io.svg.Writer();
+		var thisSvg = writer.marshal(canvas);
+		//change the svg attributes so it can be scaled easily
+		thisSvg = '<svg width="400px" height="216px" preserveAspectRatio="x100Y100 meet" viewBox="0 0 1090 590" id="svg' + pid + '" version="1.1" xmlns="https://www.w3.org/2000/svg" style="overflow: hidden; position: absolute;">' + thisSvg.substring(thisSvg.indexOf("<desc"));
+		thisSvg = '<div id="img' + pid + '">' + thisSvg + '</div>';
+		return thisSvg
+	}
+
+
+	function saveProcess() {
+
+		//JSONdoc=getMap();
+		//Create a JSON writer and convert it into a JSON-String representation.
+		//
+		var writer = new draw2d.io.json.Writer();
+		var JSONdoc = writer.marshal(canvas);
+		var JSONText = JSON.stringify(JSONdoc)
+		//Check if there are any auto-generated objects on the page
+		if (!checkUDs(JSONText)) {
+			//alert("This diagram has default items on it.  Please edit or delete any default items before saving.");
+			return false
+		}
+		//create svg image
+		thisSVG = createImage();
+		//Check whether the user has permission to edit the record or not - if not allow them to save a draft
+		if (checkPermissions(pid)) {
+			JSONText = JSONText.replace(/draw2d\.Connection/ig, 'LabelConnection');
+			top.nlapiSubmitField("customrecord_flo_process", pid, "custrecord_flo_current_json", JSONText);
+			//window.parent.document.getElementById("processdetail").contentDocument.nlapiSubmitField("customrecord_flo_process", pid, "custrecord_flo_current_json", JSONText);
+			//alert(JSON.stringify(writer.marshal(canvas),null,2));
+			//submit SVG to NS
+			top.nlapiSubmitField("customrecord_flo_process", pid, "custrecord_flo_process_diag", thisSVG);
+			//window.parent.document.getElementById("processdetail").contentDocument.nlapiSubmitField("customrecord_flo_process", pid, "custrecord_flo_process_diag", thisSVG);
+		} else if (confirm("You do not have permission to update this process.  You can, however, save a draft process.  Click 'OK' to save a draft process or 'Cancel' to return to the draft.")) {
+			createDraft(JSONText, thisSVG)
+		}
+	}
+
+	function checkUDs(JSONText) {
+
+		//This function checks the JSONText for incomplete objects
+		var JSONObs = JSONText.split("},{")
+		var noUDFlag = true;//this flag tracks the status of the JSON UDs
+		for (var j = 0; JSONObs[j] != null && noUDFlag == true; j++) {
+			//if there is a FLO Object with no userdata
+			if (JSONObs[j].indexOf("FLO")> 0 && JSONObs[j].indexOf("FLOEnd") <0 && JSONObs[j].indexOf("FLOStart") <0 && JSONObs[j].indexOf("Connection") <0 && JSONObs[j].indexOf("Label") <0 && JSONObs[j].indexOf("Quick") <0 && JSONObs[j].indexOf("Line") <0 && JSONObs[j].indexOf('userData":null')> 0) {
+
+				noUDFlag = false;
+			}
+		}
+
+		//return noUDFlag
+		//alert("checkUDs disabled");
+		return true
+	}
+
+	function checkPermissions(id) {
+
+		//this function checks whether the user is permitted to edit a process based on the owner and process editor settings for that function
+		//tlp editing is restricted to admin or full access
+		if (id == null | id == "") {
+			if (roleid == "4" | roleid == "3") {
+				return true
+			}
+			return false
+		}
+
+		var thisProcData;
+		for (tp = 0; tlp[tp] != null && thisProcData == null; tp++) {
+			if (tlp[tp].internalid == id) {
+				thisProcData = tlp[tp];
+			}
+		}
+		
+		if(thisProcData==null)
+		{
+			for (tp = 0; steps[tp] != null && thisProcData == null; tp++) {
+				if (steps[tp].internalid == id) {
+					thisProcData = tlp[tp];
+				}
+			}
+		}
+
+
+		if (thisProcData != null) {
+			//userid=thisProcData.formulatext;
+			owner = thisProcData.owner;
+			//alert(userid+"##"+owner+"##"+roleid)
+			if (userid == owner | roleid == "administrator" | roleid == "3") {
+				return true
+			}
+			editors = thisProcData.custrecord_flo_process_editors;
+			if (editors != null && editors != "") {
+				editors = editors.split(",");
+				for (e = 0; editors[e] != null; e++) {
+					if (editors[e] == userid) {
+						return true
+					}
+				}
+			}
+			return false
+		}
+		return true
+	}
+
+	function createDraft(JSONText, svg) {
+		//alert("Creating Draft")
+	}
+
+	function createLines(background) {
+
+		var sline = new FLOLine();//sline is the supporting process line at the bottom of the diagram
+		sline.setStartPoint(0, background.getHeight() * .8);
+		sline.setStroke(3);
+		sline.setEndPoint(background.getWidth() - 1, background.getHeight() * .8);
+		sline.installEditPolicy(new draw2d.policy.figure.VerticalEditPolicy());
+
+
+		var rline = new FLOLine();//rline is the swimlane label column at the side of the diagram
+		rline.setStartPoint(background.getWidth() * .1, 0);
+		rline.setStroke(3);
+		rline.setEndPoint(background.getWidth() * .1, background.getHeight() - 1);
+		rline.installEditPolicy(new draw2d.policy.figure.HorizontalEditPolicy());
+
+
+		//...add them to the canvas 
+		canvas.addFigure(sline);
+		canvas.addFigure(rline);
+		try {
+
+			//window.parent.afterLoading(); //this sets the process assistant up to be ready and loaded
+		} catch (e) {}
+	}
+
+
+function createHLPDiag(pid, parentdata,hlpflag) 
+{
+
+        //alert(pid+"=="+JSON.stringify(parentdata)+"=="+parent.currentpid+"=="+JSON.stringify(parent.currentud))
+		//initialize stepcounter - used to set UID for next step -- incremented as steps are added.
+		var stepcounter = 0;
+		parentLength = 0;
+		processJSON = "";
+		pi=0;//zero the top row counter
+		si=0;//zero the supporting process counter
+                sb=0;//zero the sandbox process counter
+		//get parent userdata
+		if(parentdata==null)
+		{parentdata=parent.currentud;}
+		else
+		{parent.currentud=parentdata}
+		//alert(pid+"--"+JSON.stringify(parentdata))
+		//This function writes the High level process diagram
+		//calculate the width of each object
+		//Check how many top level nodes we have
+
+		for (i = 0; i <tlp.length; i++) 
+		{
+			if (tlp[i].custrecord_flo_process_parent == pid && tlp[i].custrecord_flo_step_type!=6 && tlp[i].custrecord_flo_step_type!=8) 
+			{
+				if(parentLength<15){
+					//alert(tlp[i].name+"::"+tlp[i].custrecord_flo_step_type)
+				}
+				parentLength++
+			}
+
+		}
+        //alert(parentLength)
+        if(canvas.getWidth()==0)
+        {
+                    //alert(0+"--"+document.getElementById("gfx_holder").width);
+                   
+                    canvas=null;
+                    canvas = new FLOCanvas("gfx_holder");
+                    canvas.installEditPolicy(new draw2d.policy.canvas.BoundingboxSelectionPolicy());
+			 		canvas.installEditPolicy(new draw2d.policy.canvas.FadeoutDecorationPolicy());
+		      		canvas.defaultRouterClassName = "draw2d.layout.connection.ManhattanConnectionRouter";
+	          		canvas.defaultRouter = new draw2d.layout.connection.ManhattanConnectionRouter();
+                    
+        }
+		//calculate the size of the blocks based on the number of parent nodes
+		//if loading a process diagram from memory or a detailed step map from data, this will be overwritten
+		blockwidth = Math.min(canvas.getWidth() * .9/parentLength/1.15, 120);
+		if (blockwidth == null) {
+			blockwidth = 100
+		}
+
+		//var blockheight=Math.min(canvas.getHeight()*.8/parentLength/1.2,150);
+		blockheight = blockwidth/2;
+
+
+		fontsize = blockwidth/150 * 14;//This is the size of the font
+		strokesize = canvas.getWidth()/1500 * 3;//This is the heaviness of the line
+
+
+		//create background - if there are no parent nodes, use HLP layout
+		hlp = false;//hlp is High Level Process - a diagram with no swimlanes (usually) and no arrows (always)
+		
+		if (parentLength> 0 | hlpflag==true | (parentdata!=null && parentdata.custrecord_flo_step_type==8)) {
+			hlp = true;//set hlp to true if we have top-level processes
+			
+		}
+
+		//Create Background
+		background = new Background(canvas.getWidth() - 3, canvas.getHeight() - 2, hlp);//the background is used to enable us to control the appearance of the diagram.	
+		canvas.addFigure(background, 2, 2);
+		//set id of background and userdata representing parent process if pid!=""
+		if (pid != "") 
+		{
+			background.setId(pid);
+			background.setUserData(parentdata);
+		}
+
+
+		//Create Lines      
+		createLines(background);
+
+		//alert("added lines")
+		//check for an existing diagram to load -- saved diagrams override this logic
+		if (pid != null && pid != "") 
+		{
+			//alert("retrieving JSON - pid is:"+pid)
+		
+				processJSON = top.nlapiLookupField("customrecord_flo_process", pid, "custrecord_flo_current_JSON");
+				//processJSON="";
+				
+		
+      
+			if (processJSON != null && processJSON != "") 
+			{
+				canvas.clear();
+				canvas.installEditPolicy(new draw2d.policy.canvas.BoundingboxSelectionPolicy());
+				canvas.createConnection = function() {
+					var conn = new draw2d.Connection();
+					//conn.setRouter(this.defaultRouter);
+					conn.setTargetDecorator(new draw2d.decoration.connection.ArrowDecorator(8, 8));
+					conn.setStroke(2);
+					return conn;
+				}
+				var reader = new draw2d.io.json.Reader();
+				reader.unmarshal(canvas, eval(processJSON));
+
+
+				//createLines(background)
+				//getSteps();
+				return
+			}//end of JSON check
+		}//end of pid check
+	    
+		if (parentLength == 0 && hlp==false) 
+		{
+ 
+			//add default swimlanes
+			var line = [];
+			var label = [];
+			
+			
+			
+			var lanes;//an array of lanes
+            //alert("Steps:  "+steps.length+"  pid:"+pid+"  loadedpid:"+loadedpid)
+			if((steps==null | steps.length==0) && pid!=loadedpid && hlp!=true)
+			{
+				//get steps data
+				var xmlhttp;
+				
+
+				//load the default process diagram or update the existing process diagram
+				hlp=getSteps();
+				function getSteps()
+				{
+				    
+					loadXMLDoc('https://system.na1.netsuite.com/app/site/hosting/scriptlet.nl?script=customscript_flo_process_data&deploy=1&pid='+pid)
+					var stepsdata=xmlhttp.responseText;
+					stepsdata=stepsdata.split("steps=")[1];
+					//alert(stepsdata)
+				    eval(xmlhttp.responseText);
+				    if(steps!=null && steps[0]!=null)
+				    {
+					    if(processJSON==null | processJSON=="")
+					    {lanes=calcShapeOrder(steps);}
+					    else
+					    {checkSteps(steps)}
+					}
+					else if(hlp!=true)
+					{
+						//check type of interface
+						diagtype=confirm("There are no steps available for this process.\n\n- Press 'OK' to create a blank swimlane diagram.\nPress 'Cancel' to create a high level process diagram.") 
+						
+						if(diagtype==false)
+						{
+						
+							//canvas.clear();
+							//createHLPDiag(pid, parentdata,true);
+							return true //set the hlp flag to true
+						}
+							
+
+					}
+				    return false  //keep the hlp flag false
+				}//end of getSteps function
+				
+				function loadXMLDoc(url)
+				{
+				//alert(url)
+				if (window.XMLHttpRequest)
+				  {// code for IE7+, Firefox, Chrome, Opera, Safari
+				  xmlhttp=new XMLHttpRequest();
+				  }
+				else
+				  {// code for IE6, IE5
+				  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+				  }
+				//xmlhttp.onreadystatechange=function(){  //alert(xmlhttp.readyState+"=="+xmlhttp.status)}
+				xmlhttp.open("GET",url,false);
+				xmlhttp.send();
+				}//end of loadXML function
+				
+				function checkSteps(steps)
+				{
+					//This function checks whether all steps are rendered in the diagram.
+					missingSteps=[];//Array used to store missing steps
+					//loop through steps
+					for(s=0;steps[s]!=null;s++)
+					{
+						//check if there is a matching object
+						thisStep=canvas.getFigure(steps[s].internalid);
+						//alert(steps[s].name)
+						if(thisStep==null)
+						{missingSteps.push(steps[s])}
+						else
+						{
+							//Check and update label
+							thisLabel=canvas.getFigure("label"+steps[s].internalid);
+							if(thisLabel!=null && thisLabel.getText()!=steps[s].custrecord_flo_number+" "+steps[s].custrecord_flo_name)
+							{thisLabel.setText(steps[s].custrecord_flo_number+" "+steps[s].custrecord_flo_name)}
+						}
+						
+					}//end of loop
+					
+					if(missingSteps.length>0)
+					{
+						addmessage="";
+						for(ms=0;missingSteps[ms]!=null;ms++)
+						{addmessage+=" - "+unescape(missingSteps[ms].name)+"\n"}
+						//Check whether the missing steps should be added now
+						addflag=confirm("There are steps in this process that are not show on this diagram.\n  They are:\n\n"+addmessage+"\nPress 'OK' to update the diagram or 'Cancel' to ignore them for now. You can delete them in the Process Assistant (Press the '+' sign above.)" );
+						if(addflag)
+						{
+							//Check whether the map should be rewritten completely.
+							rewriteflag=confirm("Press 'OK' to automatically rewrite the map (a backup copy will be saved)\n\n - OR - \n\nPress 'Cancel' to add them and then place them in positions manually");
+							if(rewriteflag)
+							{
+								//delete process map and store in archive
+								parent.delProcessMap(pid);
+							}
+							else
+							{
+								textNodes=document.getElementsByTagName("text");
+								textNodes=$("text");
+								//loop through the missingSteps
+								for(ms=0;missingSteps[ms]!=null;ms++)
+								{
+									//add any supporting process or process sandbox
+									if(missingSteps[ms].custrecord_flo_step_type==6 | unescape(missingsteps[ms].name).toLowerCase().indexOf("process sandbox")>=0)
+									{
+										
+										var step = new FLOSuppProcess(blockwidth, height, unescape(missingSteps[ms].name), true, fontsize, strokesize, null, null,missingSteps[ms],pid,missingSteps[ms].internalid);
+										y=canvas.getHeight()*.9+10;
+										//calculate X
+										x=canvas.getWidth()*.10+10+si*(blockwidth+10);
+										step.setId(missingSteps[ms].internalid);
+									    step.label.setId("label"+missingSteps[ms].internalid)
+									    canvas.addFigure(step, x, y);
+										alert("added:"+missingSteps[ms].name)
+
+										
+									}// end of supporting process insertion
+									else
+									{
+									  //add remaining process steps
+									matched=false;
+									//loop through the text nodes to located the relevant lanes
+									for(tn=0;textNodes[tn] && matched==false;tn++)
+									{
+										
+										//extract text
+										var textNodeHTML=textNodes[tn].innerHTML;
+										
+										words=textNodeHTML.split(">");
+										role="";
+										for(w=1;words[w]!=null;w++)
+										{
+											thisword=words[w].split("<")[0];
+											if(thisword.indexOf("tspan")<0)
+											{role+=" "+thisword;}
+										}
+										role=role.substring(1);
+										if(role.charAt(role.length-1)==" ")
+										{role=role.substring(0,role.length-1)}
+										
+										
+										//check match
+										
+										if(unescape(missingSteps[ms].custrecord_flo_process_participants).indexOf(role)>=0)
+										{
+											matched=true;
+											//get y
+											y=textNodes[tn].getAttribute("transform");
+											y=y.split(",")[5].split(")")[0];
+											//alert(y);
+											//alert(blockheight)
+											if(missingSteps[ms].custrecord_flo_step_type==3)
+										    {
+										       var step = new FLODecision(blockwidth, blockheight, unescape(missingSteps[ms].name), true, fontsize, strokesize, "#FF0000", null,missingSteps[ms],pid,missingSteps[ms].internalid);
+
+									        }
+									        else if(missingSteps[ms].custrecord_flo_step_type==4)
+									        {
+												var step = new FLOProcess(blockwidth, blockheight, unescape(missingSteps[ms].name), true, fontsize, strokesize, null, null,missingSteps[ms],pid,missingSteps[ms].internalid)
+
+											}
+											else
+											{
+												var step = new FLOStep(blockwidth, blockheight, unescape(missingSteps[ms].name), true, fontsize, strokesize, null, null,missingSteps[ms],pid,missingSteps[ms].internalid)
+
+											}
+											
+											
+											//calculate X
+											x=0;
+											for(sx=canvas.getWidth()*.1+blockwidth+10;(sx+blockwidth+20)<canvas.getWidth() && x==0;sx=sx+blockwidth+20)
+											{
+												closestFigure=canvas.getBestFigure(sx,y);
+												//alert(Math.abs(closestFigure.getAbsoluteX()-sx)+"--"+Math.abs(closestFigure.getAbsoluteY()-y))
+												if(Math.abs(closestFigure.getAbsoluteY()-y)<25 && Math.abs(closestFigure.getAbsoluteX()-sx)>=blockwidth+20)
+												{x=sx}
+											}
+											//alert(x);
+
+										    step.setId(missingSteps[ms].internalid);
+										    step.label.setId("label"+missingSteps[ms].internalid)
+										    canvas.addFigure(step, x, y-blockheight/2);
+											
+										}// end of inserting steps
+									}
+									}
+								}
+
+							}
+						}
+					}
+			
+					
+				}
+				
+			}
+			else if(hlp==false)
+			{
+				//generate the process map
+				lanes=calcShapeOrder(steps);
+			}
+			steps=[];
+			//alert("Lanes:"+lanes.join())
+			if(hlp==false)//generate swimlane
+			{
+			if(lanes!=null)
+			{numlanes=lanes.length-2}
+			else
+			{
+				//alert("hlp"+hlp)
+				lanes=[];lanes[0]="Role 1";lanes[1]="Role 2";
+                var numlanes=lanes.length;
+            
+            //alert("nl"+numlanes)
+			for (i = 0; lanes[i]!=null && lanes[i]!=""; i++) {
+				
+				label = rowLabel(canvas, lanes[i], (background.getWidth() * .1)/2-lanes[i].length/2, (background.getHeight() * .8)/(numlanes) * (i+.5));
+				if(i<numlanes)
+				{
+				line = new FLOLaneLine();
+                                line.setDashArray(". ");
+                                line.setStroke(1);
+				line.setStartPoint(2, background.getHeight() * .8/numlanes * i);
+				line.setEndPoint(background.getWidth() - 1, background.getHeight() * .8/numlanes * i);
+				line.setId("Line::"+lanes[i]);
+				canvas.addFigure(line);
+
+				//label = rowLabel(canvas, lanes[i], (background.getWidth() * .1)/2-lanes[i].length/2, (background.getHeight() * .8)/numlanes * (numlanes * i - 1.2));
+				
+                //alert(i+"--"+lanes[i])
+                	}//end of numlanes check
+				}//end of lane loop
+		    }
+			
+			//alert("adding steps")
+			var start = new FLOStart(50, 30, "Start", true, fontsize, strokesize);
+			var end = new FLOEnd(50, 30, "End", true, fontsize, strokesize);
+			/*var step = new FLOStep(blockwidth, blockheight, "This is a step", true, fontsize, strokesize);
+			var dec = new FLODecision(blockwidth, blockheight, "This is a decision", true, fontsize, strokesize);
+			var process = new FLOProcess(blockwidth, blockheight, "This is a subprocess", true, fontsize, strokesize);*/
+			canvas.addFigure(start, background.getWidth() * .1 + 20, background.getHeight()*.8/numlanes/2-start.getHeight()/2);
+			
+			try{
+			endport=firstshape.getInputPort(0);
+			startport=start.getOutputPort(0);
+			
+			//alert(startport.getName())
+			//alert(endport.getName())
+			connect= new draw2d.Connection();
+			connect.setTargetDecorator(new draw2d.decoration.connection.ArrowDecorator(8, 8));
+			connect.setStroke(Math.max(strokesize*.75,1));
+			connect.setSource(startport);
+			connect.setTarget(endport);
+			canvas.addFigure(connect);
+		 	}catch(e){}
+			
+			/*canvas.addFigure(step, 250, background.getHeight() * .8/2 - 40);
+			canvas.addFigure(dec, 450, background.getHeight() * .8/2 - 40);
+			canvas.addFigure(process, 650, background.getHeight() * .8/2 - 40)*/
+
+			canvas.addFigure(end, background.getWidth() -20-end.getWidth(), background.getHeight() * .8 - background.getHeight()*.8/numlanes/2-end.getHeight()/2 + 1);
+			try{
+			startport=lastshape.getOutputPort(0);
+			endport=end.getInputPort(0)
+			
+			connect= new draw2d.Connection();
+			connect.setTargetDecorator(new draw2d.decoration.connection.ArrowDecorator(8, 8));
+			connect.setStroke(Math.max(strokesize*.75,1));
+			connect.setSource(startport);
+			connect.setTarget(endport);
+			canvas.addFigure(connect);
+			}catch(e){}
+			
+			//Add supporting process line label
+			slable = rowLabel(canvas, "Supporting\nProcesses", (background.getWidth() * .1)/5, (background.getHeight() * .9));
+        	}//end of hlp check
+		}//end of new process layout
+		
+		    if(hlp==true)
+		    {
+			//alert("pl>0 - adding corelabel")
+			corelabel = rowLabel(canvas, "Core\nProcesses", (background.getWidth() * .1)/5, (background.getHeight() * .8)/2);
+			//Add supporting process line label
+			slable = rowLabel(canvas, "Supporting\nProcesses", (background.getWidth() * .1)/5, (background.getHeight() * .9));
+
+
+
+			//Create the diagram
+
+
+			for (i = 0; tlp[i] != null; i++) {
+				//default to first process box
+
+				pname = cleanText(tlp[i].name);
+	                        //pname=tlp[i].name;
+				rec = new FLOHLProcess(blockwidth, blockheight, pname, false, fontsize, strokesize, tlp[i]);
+				rec.setId(tlp[i].internalid)
+				rec.label.setId("label" + rec.getId())
+
+				//default to first process box
+				if (pi == 0 && parentLength> 0) {
+					selectedStep = rec;
+					//explodedView(rec.getUserData());
+				}
+				//select processes that match the pid and are not supporting or sandbox
+				if (tlp[i].custrecord_flo_process_parent == pid && tlp[i].custrecord_flo_number.indexOf("S") <0 && tlp[i].custrecord_flo_step_type!=6  && tlp[i].custrecord_flo_step_type!=8) {
+
+					//select only those that match the pid 
+					if (tlp[i].custrecord_flo_process_parent == pid) {
+
+						//Create top level row element (in gray)
+						canvas.addFigure(rec, canvas.getWidth() * .1 + 10 + blockwidth * (pi) + 10 * pi, 20)
+						rec.count = 1;
+						//canvas.addFigure(rec,i*10,i*10)
+						rec.setBackgroundColor("#DDDDDD");
+						rec.label.setBackgroundColor("#DDDDDD");
+						rec.label.setColor("#000000");
+						rec.label.setBold("bold");
+						rec.setId(tlp[i].internalid);
+						rec.label.setId("label" + rec.getId())
+					}//end of top level
+
+					pi++
+				}//end of top level test
+				else if ((tlp[i].custrecord_flo_number.indexOf("S")>= 0 | tlp[i].custrecord_flo_step_type==6 | tlp[i].custrecord_flo_step_type==8) && (tlp[i].custrecord_flo_process_parent==pid | tlp[i].custrecord_flo_process_parent.split(",").indexOf(pid)>=0)) {
+				        
+					//create supporting process elements
+					rec.setBackgroundColor("#FFFFFF");
+					rec.setId(tlp[i].internalid);
+					rec.label.setId("label" + rec.getId())
+                                        if(tlp[i].custrecord_flo_step_type!=8)
+					{canvas.addFigure(rec, canvas.getWidth() * .1 + 10 + blockwidth * (si) + 10 * si, canvas.getHeight() * .8 + 10);
+					//canvas.addFigure(rec,i*blockwidth,20);
+					si++}
+                                        else
+                                        {
+  											sb++;
+											canvas.addFigure(rec, canvas.getWidth()  - 10 - (sb) *(blockwidth +10 ), canvas.getHeight() * .8 + 10);
+                                        }
+				} else if (tlp[i].custrecord_flo_number.indexOf("S")>= 0 && tlp[i].custrecord_flo_process_parent != "") {
+					//Do nothing
+				} else {
+					try {
+						//canvas.getFigure("cont"+tlp[i].custrecord_flo_process_parent).addFigure(rec);
+						if (canvas.getFigure(tlp[i].custrecord_flo_process_parent).getY() == 20) {
+							canvas.addFigure(rec, canvas.getFigure(tlp[i].custrecord_flo_process_parent).getX(), 20 + (blockheight + 10) * (canvas.getFigure(tlp[i].custrecord_flo_process_parent).count));
+							canvas.getFigure(tlp[i].custrecord_flo_process_parent).count++;
+						}
+
+					} catch (e) {
+						//This traps unmatched process steps
+					}
+				}
+				//canvas.addFigure(rec,150,75)
+				rec.setId(tlp[i].internalid);
+				rec.label.setId("label" + rec.getId())
+
+
+
+			}
+		}//end of hlp layout
+	}//end of hlp function
+	
+	</SCRIPT>
+	
+<script type="text/javascript">
+//initialize the variables
+var app;//this is the container object for the diagram
+var al;//afterload flag used to confirm that editing interface is ready
+var blockwidth=150;//default width of standard shape
+var blockheight=blockwidth/2;
+var fontsize=blockwidth/150*14;//This is the size of the font
+var strokesize=1000/1500*3;//This is the heaviness of the line
+var changedFlag=false;//tracks if any edits were made
+var currentUserData="";//stores current user data object
+var currentID=""//stores id of current object being edited.
+var hlp=false;//stores the type of diagram: High Level Process (hlp=true) or Swim Lane
+var parentLength=0;//used to track the top level hlps
+var background;//this will hold the background element
+var processJSON="";//JSON map loaded from the process record
+var newpid="";//This stores the id of any newly created process or step so that we can use it to set the id of the object (and thereby tie changes to the object to the backend.
+var firstshape;//used to store the first shape in a diagram
+var lastshape;//used to store the last shape in a diagram
+var loadedpid="";//used to store the last pid for which steps data was loaded
+var recs = [];
+var si = 0;//count supporting processes
+var pi = 0;//count parent processes
+var selectedStep = "";
+//var originalXY="0,0";//this is the original position of a shape prior to being dragged 
+var targetNode;//This is the shape that a user is dragging or copying onto
+
+
+$(window).load(function () {
+     //alert(screen.width)
+     document.getElementById("gfx_holder").style.width=screen.width*.9;
+     document.getElementById("gfx_holder").style.height=600;
+
+    //Create the paint area. The id in the constructor must be
+    //an existing DIV 
+	//var canvas = new FLOCanvas("gfx_holder ");
+	 
+	 
+	app  = new example.Application();
+	draw2d.Connection.createConnection=function(sourcePort, targetPort){
+	  //return my special kind of connection
+	    
+	   return app.createConnection(sourcePort, targetPort);
+	};
+       
+
+    canvas=app.view;
+    
+   
+
+          if(pid!=null)
+          {
+               createHLPDiag(pid);
+               if(!checkPermissions(pid))
+               {
+                    canvas.installEditPolicy(new draw2d.policy.canvas.ReadOnlySelectionPolicy);
+               }
+               
+               
+          }
+         
+
+	 
+	 $("body").scrollTop(0).scrollLeft(0);
+});
+</script>
+
+</head>
+
+<body>
+
+   <div  onselectstart=" javascript:/*IE8 hack*/ return false " id="gfx_holder" style="width: 1200;height: 564;"></div>
+
+
+</body>
+</html>

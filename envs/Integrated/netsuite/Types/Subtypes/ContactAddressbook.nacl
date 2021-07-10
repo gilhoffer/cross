@@ -1,0 +1,17 @@
+type netsuite.ContactAddressbook {
+  annotations {
+    hidden_string source {
+    }
+  }
+  boolean defaultShipping {
+  }
+  boolean defaultBilling {
+  }
+  string label {
+  }
+  netsuite.Address addressbookAddress {
+  }
+  string internalId {
+    _hidden_value = true
+  }
+}

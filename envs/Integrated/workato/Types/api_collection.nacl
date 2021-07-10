@@ -1,0 +1,16 @@
+type workato.api_collection {
+  number id {
+  }
+  string name {
+  }
+  string version {
+  }
+  string url {
+  }
+  string api_spec_url {
+  }
+  string created_at {
+  }
+  string updated_at {
+  }
+}

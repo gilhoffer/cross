@@ -1,0 +1,33 @@
+netsuite.suitelet customscript_flo_cust_viz {
+  scriptid = "customscript_flo_cust_viz"
+  defaultfunction = "FLOCustomizationSuite"
+  description = "This script renders the Visualization Portlet ERD View"
+  isinactive = false
+  name = "Strongpoint Customization Visualization"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = "[/SuiteBundles/Bundle 297487/FLOCustomizationSuite.js]"
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy_flo_cust_viz"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        isdeployed = true
+        isonline = false
+        loglevel = "AUDIT"
+        status = "RELEASED"
+        title = "Strongpoint Customization Visualization"
+      },
+    ]
+  }
+  libraries = {
+    library = [
+      {
+        scriptfile = "[/SuiteBundles/Bundle 297487/FLOValidateLicense.js]"
+      },
+    ]
+  }
+}

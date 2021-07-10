@@ -1,0 +1,49 @@
+type netsuite.PaymentItem {
+  annotations {
+    hidden_string source {
+    }
+  }
+  string createdDate {
+  }
+  string lastModifiedDate {
+  }
+  string description {
+  }
+  netsuite.PaymentMethod paymentMethod {
+  }
+  boolean undepFunds {
+  }
+  boolean includeChildren {
+  }
+  netsuite.RecordRef issueProduct {
+  }
+  netsuite.Account account {
+  }
+  netsuite.RecordRef customForm {
+  }
+  serviceid itemId {
+  }
+  string displayName {
+  }
+  boolean isInactive {
+  }
+  boolean availableToPartners {
+  }
+  netsuite.Department department {
+  }
+  netsuite.Classification class {
+  }
+  netsuite.Location location {
+  }
+  "List<netsuite.Subsidiary>" subsidiaryList {
+  }
+  netsuite.TranslationList translationsList {
+  }
+  string internalId {
+    isAttribute = true
+    _hidden_value = true
+  }
+  string externalId {
+    isAttribute = true
+  }
+}

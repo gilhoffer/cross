@@ -1,0 +1,12 @@
+netsuite.file SuiteBundles_Bundle_297487_FLODocs_Enterprise_FLO_Control_Folder_Custom_Customer_Search__Search__1511812579578_csv@dsdsdssdsssjkuv {
+  bundleable = false
+  isinactive = false
+  availablewithoutlogin = false
+  generateurltimestamp = false
+  hideinbundle = false
+  path = "/SuiteBundles/Bundle 297487/FLODocs Enterprise/FLO Control Folder/Custom Customer Search (Search)_1511812579578.csv"
+  content = file("netsuite/FileCabinet/SuiteBundles/Bundle 297487/FLODocs Enterprise/FLO Control Folder/Custom Customer Search (Search)_1511812579578.csv")
+  _parent = [
+    netsuite.folder.instance.SuiteBundles_Bundle_297487_FLODocs_Enterprise_FLO_Control_Folder@dsdsdss,
+  ]
+}

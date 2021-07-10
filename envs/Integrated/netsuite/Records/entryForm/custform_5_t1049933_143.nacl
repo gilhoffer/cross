@@ -1,0 +1,2166 @@
+netsuite.entryForm custform_5_t1049933_143 {
+  scriptid = "custform_5_t1049933_143"
+  standard = "STANDARDCUSTOMRECORD_FLO_CUSTOMIZATIONFORM"
+  name = "Custom Customization Form"
+  recordType = netsuite.customrecordtype.instance.customrecord_flo_customization.scriptid
+  inactive = false
+  preferred = false
+  storedWithRecord = false
+  mainFields = {
+    defaultFieldGroup = {
+      fields = [
+        {
+          position = "MIDDLE"
+          field = [
+            {
+              id = "CUSTOMFORM"
+              label = "Custom Form"
+              visible = true
+              mandatory = true
+              displayType = "NORMAL"
+              columnBreak = false
+              sameRowAsPrevious = false
+              quickAdd = false
+            },
+            {
+              id = "NAME"
+              label = "Name"
+              visible = true
+              mandatory = true
+              displayType = "NORMAL"
+              columnBreak = false
+              sameRowAsPrevious = false
+              quickAdd = true
+            },
+            {
+              id = "RECORDID"
+              label = "ID"
+              visible = true
+              mandatory = true
+              displayType = "NORMAL"
+              columnBreak = false
+              sameRowAsPrevious = false
+              quickAdd = false
+            },
+            {
+              id = "OWNER"
+              label = "Owner"
+              visible = true
+              mandatory = true
+              displayType = "NORMAL"
+              columnBreak = false
+              sameRowAsPrevious = false
+              quickAdd = false
+            },
+            {
+              id = "CREATED"
+              label = "Date Created"
+              visible = true
+              mandatory = true
+              displayType = "NORMAL"
+              columnBreak = false
+              sameRowAsPrevious = false
+              quickAdd = false
+            },
+            {
+              id = "LASTMODIFIED"
+              label = "Last Modified"
+              visible = true
+              mandatory = true
+              displayType = "NORMAL"
+              columnBreak = false
+              sameRowAsPrevious = false
+              quickAdd = false
+            },
+            {
+              id = "ISINACTIVE"
+              label = "Inactive"
+              visible = true
+              mandatory = false
+              displayType = "NORMAL"
+              columnBreak = false
+              sameRowAsPrevious = false
+              quickAdd = false
+            },
+            {
+              id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.0.scriptid
+              label = "Type"
+              visible = true
+              mandatory = true
+              displayType = "NORMAL"
+              columnBreak = false
+              sameRowAsPrevious = false
+              quickAdd = false
+            },
+            {
+              id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.3.scriptid
+              label = "ScriptId"
+              visible = true
+              mandatory = false
+              displayType = "NORMAL"
+              columnBreak = false
+              sameRowAsPrevious = false
+              quickAdd = false
+            },
+            {
+              id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.4.scriptid
+              label = "Description"
+              visible = true
+              mandatory = false
+              displayType = "NORMAL"
+              columnBreak = false
+              sameRowAsPrevious = false
+              quickAdd = false
+            },
+            {
+              id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.2.scriptid
+              label = "Internal Id"
+              visible = true
+              mandatory = false
+              displayType = "NORMAL"
+              columnBreak = false
+              sameRowAsPrevious = false
+              quickAdd = false
+            },
+            {
+              id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.1.scriptid
+              label = "Parent"
+              visible = true
+              mandatory = false
+              displayType = "NORMAL"
+              columnBreak = false
+              sameRowAsPrevious = false
+              quickAdd = false
+            },
+            {
+              id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.7.scriptid
+              label = "Link"
+              visible = true
+              mandatory = false
+              displayType = "NORMAL"
+              columnBreak = false
+              sameRowAsPrevious = false
+              quickAdd = false
+            },
+            {
+              id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.10.scriptid
+              label = "Apply to Related Objects"
+              visible = true
+              mandatory = false
+              displayType = "NORMAL"
+              columnBreak = false
+              sameRowAsPrevious = false
+              quickAdd = false
+            },
+            {
+              id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.8.scriptid
+              label = "External System"
+              visible = true
+              mandatory = false
+              displayType = "NORMAL"
+              columnBreak = false
+              sameRowAsPrevious = false
+              quickAdd = false
+            },
+            {
+              id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.9.scriptid
+              label = "External URL"
+              visible = true
+              mandatory = false
+              displayType = "NORMAL"
+              columnBreak = false
+              sameRowAsPrevious = false
+              quickAdd = false
+            },
+            {
+              id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.6.scriptid
+              label = "Help"
+              visible = true
+              mandatory = false
+              displayType = "NORMAL"
+              columnBreak = false
+              sameRowAsPrevious = false
+              quickAdd = false
+            },
+            {
+              id = "PARENT"
+              label = "Parent"
+              visible = false
+              mandatory = false
+              displayType = "NORMAL"
+              columnBreak = false
+              sameRowAsPrevious = false
+              quickAdd = false
+            },
+            {
+              id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.11.scriptid
+              label = "Incomplete Approved"
+              visible = true
+              mandatory = false
+              displayType = "NORMAL"
+              columnBreak = false
+              sameRowAsPrevious = false
+              quickAdd = false
+            },
+            {
+              id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.12.scriptid
+              label = "Process Bundle Components"
+              visible = true
+              mandatory = false
+              displayType = "NORMAL"
+              columnBreak = false
+              sameRowAsPrevious = false
+              quickAdd = false
+            },
+            {
+              id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.13.scriptid
+              label = "Subsidiary"
+              visible = true
+              mandatory = false
+              displayType = "NORMAL"
+              columnBreak = false
+              sameRowAsPrevious = false
+              quickAdd = false
+            },
+            {
+              id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.14.scriptid
+              label = "Internal ID External System"
+              visible = true
+              mandatory = false
+              displayType = "NORMAL"
+              columnBreak = false
+              sameRowAsPrevious = false
+              quickAdd = false
+            },
+            {
+              id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.15.scriptid
+              label = "Mapped NS Field"
+              visible = true
+              mandatory = false
+              displayType = "NORMAL"
+              columnBreak = false
+              sameRowAsPrevious = false
+              quickAdd = false
+            },
+            {
+              id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.5.scriptid
+              label = "Personal Data Field (GDPR Privacy regulations)"
+              visible = true
+              mandatory = false
+              displayType = "NORMAL"
+              columnBreak = false
+              sameRowAsPrevious = false
+              quickAdd = false
+            },
+            {
+              id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.19.scriptid
+              label = "Strongpoint Html Popup"
+              visible = true
+              mandatory = false
+              displayType = "INLINETEXT"
+              columnBreak = false
+              sameRowAsPrevious = false
+              quickAdd = false
+            },
+            {
+              id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.20.scriptid
+              label = "Dependent Objects Summary HTML"
+              visible = true
+              mandatory = false
+              displayType = "INLINETEXT"
+              columnBreak = false
+              sameRowAsPrevious = false
+              quickAdd = false
+            },
+            {
+              id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.21.scriptid
+              label = "Data Sources and List HTML"
+              visible = true
+              mandatory = false
+              displayType = "INLINETEXT"
+              columnBreak = false
+              sameRowAsPrevious = false
+              quickAdd = false
+            },
+            {
+              id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.22.scriptid
+              label = "Base Record"
+              visible = false
+              mandatory = false
+              displayType = "INLINETEXT"
+              columnBreak = false
+              sameRowAsPrevious = false
+              quickAdd = false
+            },
+          ]
+        },
+      ]
+    }
+  }
+  tabs = {
+    tab = [
+      {
+        id = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.0.scriptid
+        label = "Metadata"
+        visible = true
+        fieldGroups = {
+          defaultFieldGroup = {
+            fields = [
+              {
+                position = "MIDDLE"
+                field = [
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.23.scriptid
+                    label = "Date Last Used"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.24.scriptid
+                    label = "# of Values"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.25.scriptid
+                    label = "Data Type"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.26.scriptid
+                    label = "List"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.31.scriptid
+                    label = "Store Value"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.28.scriptid
+                    label = "Employees Using Customization"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.29.scriptid
+                    label = "Departments Using Customization"
+                    visible = true
+                    mandatory = false
+                    displayType = "INLINETEXT"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.30.scriptid
+                    label = "Locations Using Customization"
+                    visible = true
+                    mandatory = false
+                    displayType = "INLINETEXT"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.34.scriptid
+                    label = "Used By External Users"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.32.scriptid
+                    label = "Used By System"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.33.scriptid
+                    label = "Use By Type:"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.27.scriptid
+                    label = "ListData"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.35.scriptid
+                    label = "Bundle Link"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                ]
+              },
+              {
+                position = "BOTTOM"
+                field = [
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.175.scriptid
+                    label = "Form Fields"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                ]
+              },
+            ]
+          }
+        }
+      },
+      {
+        id = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.1.scriptid
+        label = "Scripting"
+        visible = true
+        fieldGroups = {
+          defaultFieldGroup = {
+            fields = [
+              {
+                position = "MIDDLE"
+                field = [
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.36.scriptid
+                    label = "Script Comments"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.38.scriptid
+                    label = "Comment / Line Ratio"
+                    visible = true
+                    mandatory = false
+                    displayType = "INLINETEXT"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.43.scriptid
+                    label = "Audit Tags"
+                    visible = true
+                    mandatory = false
+                    displayType = "INLINETEXT"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.44.scriptid
+                    label = "Script Average Run Time"
+                    visible = true
+                    mandatory = false
+                    displayType = "INLINETEXT"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.46.scriptid
+                    label = "Script Archive File"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.39.scriptid
+                    label = "Scripts"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.41.scriptid
+                    label = "Script File"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.42.scriptid
+                    label = "Library Script File"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.37.scriptid
+                    label = "Functions"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.48.scriptid
+                    label = "# of Daily Script Users"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.49.scriptid
+                    label = "Script Fields"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.47.scriptid
+                    label = "# of Daily Script Execution"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.50.scriptid
+                    label = "API CALLS 2"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.40.scriptid
+                    label = "Script File Date"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.51.scriptid
+                    label = "Attempt #"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.52.scriptid
+                    label = "Retrieval Error"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.55.scriptid
+                    label = "Script File Size (KB)"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.56.scriptid
+                    label = "File Content Hash"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.54.scriptid
+                    label = "File Size (Bytes)"
+                    visible = true
+                    mandatory = false
+                    displayType = "DISABLED"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                ]
+              },
+              {
+                position = "BOTTOM"
+                field = [
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.171.scriptid
+                    label = "Hide Nav Script"
+                    visible = true
+                    mandatory = false
+                    displayType = "INLINETEXT"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                ]
+              },
+            ]
+          }
+        }
+        subItems = {
+          subList = [
+            {
+              id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.39.scriptid
+              label = "Customizations"
+              visible = true
+              neverEmpty = false
+            },
+          ]
+        }
+      },
+      {
+        id = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.11.scriptid
+        label = "Children"
+        visible = true
+        fieldGroups = {
+          defaultFieldGroup = {
+            fields = [
+              {
+                position = "MIDDLE"
+                field = [
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.139.scriptid
+                    label = "Respider"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.140.scriptid
+                    label = "Last Spider Date"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.141.scriptid
+                    label = "Make Join Date"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.143.scriptid
+                    label = "Functions"
+                    visible = true
+                    mandatory = false
+                    displayType = "INLINETEXT"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.144.scriptid
+                    label = "Workflow Fields (Raw)"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.142.scriptid
+                    label = "Make Join Proc"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.145.scriptid
+                    label = "Workflow Scripts (Raw)"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.146.scriptid
+                    label = "Ignore (Field Update Script)"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.147.scriptid
+                    label = "In Use"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.148.scriptid
+                    label = "Incomplete Object"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.149.scriptid
+                    label = "Incomplete Reason"
+                    visible = true
+                    mandatory = false
+                    displayType = "INLINETEXT"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.150.scriptid
+                    label = "Change Detected"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.152.scriptid
+                    label = "JSON Configuration"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.153.scriptid
+                    label = "Search Data Complete"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.154.scriptid
+                    label = "Suppress Change Log"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.155.scriptid
+                    label = "XML Page (actions)"
+                    visible = true
+                    mandatory = false
+                    displayType = "INLINETEXT"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.161.scriptid
+                    label = "Search Field Names"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.169.scriptid
+                    label = "HTML Execution Logs"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                ]
+              },
+              {
+                position = "BOTTOM"
+                field = [
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.176.scriptid
+                    label = "XML Page"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.173.scriptid
+                    label = "Script Fields"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.174.scriptid
+                    label = "Search Fields"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                ]
+              },
+            ]
+          }
+        }
+        subItems = {
+          subList = [
+            {
+              id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.1.scriptid
+              label = "Customizations"
+              visible = true
+              neverEmpty = false
+            },
+          ]
+        }
+      },
+      {
+        id = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.6.scriptid
+        label = "Processes"
+        visible = true
+        fieldGroups = {
+          defaultFieldGroup = {
+            fields = [
+              {
+                position = "MIDDLE"
+                field = [
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.79.scriptid
+                    label = "QuickAdd Process Text"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                ]
+              },
+            ]
+          }
+        }
+      },
+      {
+        id = "RECORDNOTES"
+        label = "Notes"
+        visible = true
+        subItems = {
+          subList = [
+            {
+              id = "RECORDUSERNOTES"
+              label = "User Notes"
+              visible = true
+              neverEmpty = false
+            },
+            {
+              id = "RECORDSYSTEMNOTES"
+              label = "System Notes"
+              visible = true
+              neverEmpty = false
+            },
+          ]
+        }
+      },
+      {
+        id = "RECORDMEDIA"
+        label = "Files"
+        visible = true
+        subItems = {
+          subList = [
+            {
+              id = "RECORDMEDIAITEM"
+              label = "Files"
+              visible = true
+              neverEmpty = false
+            },
+          ]
+        }
+      },
+      {
+        id = "RECORDTRANSLATION"
+        label = "Translation"
+        visible = false
+        subItems = {
+          subList = [
+            {
+              id = "RECORDTRANSLATIONS"
+              label = "Translation"
+              visible = true
+              neverEmpty = false
+            },
+          ]
+        }
+      },
+      {
+        id = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.4.scriptid
+        label = "Related Workflows"
+        visible = true
+        fieldGroups = {
+          defaultFieldGroup = {
+            fields = [
+              {
+                position = "MIDDLE"
+                field = [
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.67.scriptid
+                    label = "Workflows"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.68.scriptid
+                    label = "Workflow Objects"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.69.scriptid
+                    label = "States"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.70.scriptid
+                    label = "Actions"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.71.scriptid
+                    label = "Conditions"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.72.scriptid
+                    label = "Scheduled"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.73.scriptid
+                    label = "Workflow Fields"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.74.scriptid
+                    label = "Trigger Type"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                ]
+              },
+            ]
+          }
+        }
+        subItems = {
+          subList = [
+            {
+              id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.67.scriptid
+              label = "Customization"
+              visible = true
+              neverEmpty = false
+            },
+          ]
+        }
+      },
+      {
+        id = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.2.scriptid
+        label = "Searches"
+        visible = true
+        fieldGroups = {
+          defaultFieldGroup = {
+            fields = [
+              {
+                position = "MIDDLE"
+                field = [
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.58.scriptid
+                    label = "Searches"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.59.scriptid
+                    label = "Custom Record ID"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.60.scriptid
+                    label = "Search Formulas"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.61.scriptid
+                    label = "Search Filters"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.62.scriptid
+                    label = "Search Fields"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.57.scriptid
+                    label = "Search Fields by Name"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                ]
+              },
+            ]
+          }
+        }
+        subItems = {
+          subList = [
+            {
+              id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.58.scriptid
+              label = "Customization"
+              visible = true
+              neverEmpty = false
+            },
+          ]
+        }
+      },
+      {
+        id = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.3.scriptid
+        label = "Forms"
+        visible = true
+        fieldGroups = {
+          defaultFieldGroup = {
+            fields = [
+              {
+                position = "MIDDLE"
+                field = [
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.63.scriptid
+                    label = "Forms"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.64.scriptid
+                    label = "Restricted Forms"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.65.scriptid
+                    label = "Available Forms"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.66.scriptid
+                    label = "Available Form Fields"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                ]
+              },
+            ]
+          }
+        }
+        subItems = {
+          subList = [
+            {
+              id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.63.scriptid
+              label = "Customization"
+              visible = true
+              neverEmpty = false
+            },
+          ]
+        }
+      },
+      {
+        id = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.5.scriptid
+        label = "Improvement"
+        visible = true
+        fieldGroups = {
+          defaultFieldGroup = {
+            fields = [
+              {
+                position = "MIDDLE"
+                field = [
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.77.scriptid
+                    label = "Assigned Implementer"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.75.scriptid
+                    label = "Clean-up Comments"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.78.scriptid
+                    label = "Clean-up Classification"
+                    visible = true
+                    mandatory = false
+                    displayType = "INLINETEXT"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                ]
+              },
+            ]
+          }
+        }
+      },
+      {
+        id = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.10.scriptid
+        label = "Data Sources and Integration"
+        visible = true
+        fieldGroups = {
+          defaultFieldGroup = {
+            fields = [
+              {
+                position = "MIDDLE"
+                field = [
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.133.scriptid
+                    label = "Data Source"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.134.scriptid
+                    label = "Data Source Fields"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.135.scriptid
+                    label = "Customization String Old"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.136.scriptid
+                    label = "Field String"
+                    visible = true
+                    mandatory = false
+                    displayType = "INLINETEXT"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.137.scriptid
+                    label = "Mapped NS Fields"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.138.scriptid
+                    label = "Original Owner"
+                    visible = true
+                    mandatory = false
+                    displayType = "INLINETEXT"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.132.scriptid
+                    label = "Dependent Fields"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.168.scriptid
+                    label = "Base Record"
+                    visible = true
+                    mandatory = false
+                    displayType = "INLINETEXT"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.170.scriptid
+                    label = "Indirect Dependencies"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                ]
+              },
+              {
+                position = "BOTTOM"
+                field = [
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.172.scriptid
+                    label = "Customization String"
+                    visible = true
+                    mandatory = false
+                    displayType = "INLINETEXT"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                ]
+              },
+            ]
+          }
+        }
+        subItems = {
+          subList = [
+            {
+              id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.133.scriptid
+              label = "Customization"
+              visible = true
+              neverEmpty = false
+            },
+          ]
+        }
+      },
+      {
+        id = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.9.scriptid
+        label = "Controls"
+        visible = true
+        fieldGroups = {
+          defaultFieldGroup = {
+            fields = [
+              {
+                position = "MIDDLE"
+                field = [
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.114.scriptid
+                    label = "Track Duplicates"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.111.scriptid
+                    label = "Control Assignee"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.112.scriptid
+                    label = "Control"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.115.scriptid
+                    label = "Alert Process Owner"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.116.scriptid
+                    label = "Alert Control Owner"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.117.scriptid
+                    label = "Group Results in Alert"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.118.scriptid
+                    label = "Alert / Task Message"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.119.scriptid
+                    label = "Last Control Run Date"
+                    visible = true
+                    mandatory = false
+                    displayType = "INLINETEXT"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.120.scriptid
+                    label = "Next Control Date/Time"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.121.scriptid
+                    label = "Control Status"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.122.scriptid
+                    label = "Control Count"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.113.scriptid
+                    label = "Type"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.124.scriptid
+                    label = "Store Result Objects"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.123.scriptid
+                    label = "Instructions for Resolution"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.125.scriptid
+                    label = "Sent By Owner"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.126.scriptid
+                    label = "Sent By Process Owner"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.127.scriptid
+                    label = "Sent By Employee"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.128.scriptid
+                    label = "Choose Employee"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.129.scriptid
+                    label = "Control Error / Warning"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.130.scriptid
+                    label = "Cross Match Control"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.131.scriptid
+                    label = "Cross Match Field"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                ]
+              },
+            ]
+          }
+        }
+      },
+      {
+        id = "RECORDWORKFLOW"
+        label = "Workflow"
+        visible = true
+        subItems = {
+          subList = [
+            {
+              id = "RECORDACTIVEWORKFLOWS"
+              label = "Active Workflows"
+              visible = true
+              neverEmpty = false
+            },
+            {
+              id = "RECORDWORKFLOWHISTORY"
+              label = "Workflow History"
+              visible = true
+              neverEmpty = false
+            },
+          ]
+        }
+      },
+      {
+        id = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.12.scriptid
+        label = "Change Log"
+        visible = false
+      },
+      {
+        id = "RECORDCUSTOM"
+        label = "Custom"
+        visible = false
+        subItems = {
+          subList = [
+            {
+              id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.8.scriptid
+              label = "Customization"
+              visible = true
+              neverEmpty = false
+            },
+          ]
+        }
+      },
+      {
+        id = "RECORDMERGE"
+        label = "Mail Merge"
+        visible = true
+        subItems = {
+          subList = [
+            {
+              id = "RECORDMESSAGES"
+              label = "Messages"
+              visible = true
+              neverEmpty = false
+            },
+          ]
+        }
+      },
+      {
+        id = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.8.scriptid
+        label = "Deployments"
+        visible = true
+        fieldGroups = {
+          defaultFieldGroup = {
+            fields = [
+              {
+                position = "MIDDLE"
+                field = [
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.99.scriptid
+                    label = "Schedule Type"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.100.scriptid
+                    label = "Audience"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.101.scriptid
+                    label = "Execute as Admin"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.102.scriptid
+                    label = "Event Type"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.103.scriptid
+                    label = "Log Level"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.104.scriptid
+                    label = "parameters"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.105.scriptid
+                    label = "Release/Testing"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.106.scriptid
+                    label = "Is Online"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.107.scriptid
+                    label = "Applies To"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.108.scriptid
+                    label = "Script"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.109.scriptid
+                    label = "Deployments"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                ]
+              },
+            ]
+          }
+        }
+      },
+      {
+        id = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.7.scriptid
+        label = "Roles"
+        visible = true
+        fieldGroups = {
+          defaultFieldGroup = {
+            fields = [
+              {
+                position = "MIDDLE"
+                field = [
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.81.scriptid
+                    label = "CENTER TYPE"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.82.scriptid
+                    label = "DO NOT RESTRICT EMPLOYEE FIELDS"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.83.scriptid
+                    label = "ALLOW CROSS-SUBSIDIARY RECORD VIEWING"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.84.scriptid
+                    label = "RESTRICT TIME AND EXPENSES"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.85.scriptid
+                    label = "SALES ROLE"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.86.scriptid
+                    label = "SUPPORT ROLE"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.87.scriptid
+                    label = "WEB SERVICES ONLY ROLE"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.88.scriptid
+                    label = "SINGLE SIGN-ON ONLY"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.89.scriptid
+                    label = "PARTNER ROLE"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.91.scriptid
+                    label = "DEPARTMENT RESTRICTIONS"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.92.scriptid
+                    label = "CLASS RESTRICTIONS"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.93.scriptid
+                    label = "LOCATION RESTRICTIONS"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.94.scriptid
+                    label = "EMPLOYEE RESTRICTIONS"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.95.scriptid
+                    label = "Permissions"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.80.scriptid
+                    label = "Permission Table"
+                    visible = true
+                    mandatory = false
+                    displayType = "INLINETEXT"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.96.scriptid
+                    label = "Related User Roles"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.97.scriptid
+                    label = "Selected All User Roles"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.98.scriptid
+                    label = "User Roles"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                ]
+              },
+            ]
+          }
+        }
+      },
+      {
+        id = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.13.scriptid
+        label = "Test"
+        visible = true
+      },
+      {
+        id = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.14.scriptid
+        label = "Bundle"
+        visible = true
+        fieldGroups = {
+          defaultFieldGroup = {
+            fields = [
+              {
+                position = "MIDDLE"
+                field = [
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.164.scriptid
+                    label = "Bundle"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.165.scriptid
+                    label = "Manage Bundle"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_customization.customrecordcustomfields.customrecordcustomfield.166.scriptid
+                    label = "Bundle Update Date"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                ]
+              },
+            ]
+          }
+        }
+        subItems = {
+          subList = [
+            {
+              id = netsuite.customrecordtype.instance.customrecord_flo_customization.recordsublists.recordsublist.0.scriptid
+              label = "Bundle Customizations"
+              visible = true
+              neverEmpty = false
+            },
+          ]
+        }
+      },
+      {
+        id = netsuite.customrecordtype.instance.customrecord_flo_customization.subtabs.subtab.15.scriptid
+        label = "SoD"
+        visible = true
+      },
+    ]
+  }
+  actionbar = {
+    menu = {
+      menuitem = [
+        {
+          id = "DELETE"
+          label = "Delete"
+          visible = true
+        },
+        {
+          id = "MAKECOPY"
+          label = "Make Copy"
+          visible = true
+        },
+        {
+          id = "NEW"
+          label = "New"
+          visible = true
+        },
+        {
+          id = "PRINT"
+          label = "Print"
+          visible = true
+        },
+        {
+          id = "SUBMITCOPY"
+          label = "Save & Copy"
+          visible = true
+        },
+        {
+          id = "SUBMITNEW"
+          label = "Save & New"
+          visible = true
+        },
+        {
+          id = "SUBMITNEXT"
+          label = "Save & Next"
+          visible = true
+        },
+        {
+          id = "SUBMITAS"
+          label = "Save As"
+          visible = true
+        },
+      ]
+    }
+  }
+  editingInList = true
+}

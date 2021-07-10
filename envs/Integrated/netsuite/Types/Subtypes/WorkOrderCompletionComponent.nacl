@@ -1,0 +1,18 @@
+type netsuite.WorkOrderCompletionComponent {
+  annotations {
+    hidden_string source {
+    }
+  }
+  netsuite.RecordRef item {
+  }
+  number operationSequenceNumber {
+  }
+  number quantityPer {
+  }
+  number quantity {
+  }
+  netsuite.InventoryDetail componentInventoryDetail {
+  }
+  number lineNumber {
+  }
+}

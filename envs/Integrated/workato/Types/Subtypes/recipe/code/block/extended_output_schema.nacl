@@ -1,0 +1,16 @@
+type workato.recipe__code__block__extended_output_schema {
+  string type {
+  }
+  string name {
+  }
+  string label {
+  }
+  string of {
+  }
+  "List<workato.recipe__code__block__extended_output_schema__properties>" properties {
+  }
+  string control_type {
+  }
+  string parse_output {
+  }
+}

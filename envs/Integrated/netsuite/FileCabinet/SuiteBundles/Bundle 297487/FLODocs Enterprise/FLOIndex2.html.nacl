@@ -1,0 +1,13 @@
+netsuite.file SuiteBundles_Bundle_297487_FLODocs_Enterprise_FLOIndex2_html@dsdsdv {
+  description = "https://system.na1.netsuite.com/c.TSTDRV1049933/suitebundle36969/FLOIndex2.html"
+  bundleable = false
+  isinactive = false
+  availablewithoutlogin = true
+  generateurltimestamp = false
+  hideinbundle = false
+  path = "/SuiteBundles/Bundle 297487/FLODocs Enterprise/FLOIndex2.html"
+  content = file("netsuite/FileCabinet/SuiteBundles/Bundle 297487/FLODocs Enterprise/FLOIndex2.html")
+  _parent = [
+    netsuite.folder.instance.SuiteBundles_Bundle_297487_FLODocs_Enterprise@dsds,
+  ]
+}

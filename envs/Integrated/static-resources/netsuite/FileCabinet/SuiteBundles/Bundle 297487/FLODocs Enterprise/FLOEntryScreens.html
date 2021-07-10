@@ -1,0 +1,655 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>FLO&trade; SuiteView&trade;</title>
+  <meta name="author" content="FLO Partners Inc.">
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+  <!-- Date: 2014-01-10 -->
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<style>
+.fa-10x {
+  font-size: 10em;
+}
+</style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="FLOEntryScripts.js"></script>
+    <script>
+    var startsessionid =  getCookie('JSESSIONID');
+    var currentpid="";
+    var fadespeed=1000;
+    var intervalID = 0;
+
+    function getCookie(cname) {
+          var name = cname + "=";
+          var decodedCookie = decodeURIComponent(document.cookie);
+          var ca = decodedCookie.split(';');
+          for(var i = 0; i <ca.length; i++) {
+              var c = ca[i];
+              while (c.charAt(0) == ' ') {
+                  c = c.substring(1);
+              }
+              if (c.indexOf(name) == 0) {
+                  return c.substring(name.length, c.length);
+              }
+          }
+          return "";
+      }
+
+      function checkSession() {
+         var sessionidnow = getCookie("JSESSIONID");
+         if(sessionidnow == "" || sessionidnow != startsessionid) {
+            document.getElementById("spiderframe").src="empty.html";
+            document.getElementById('spiderlogo').style.display='inline';
+            document.getElementById('spiderspin').style.display='none';
+            //clearInterval(intervalID);
+            alert("Your Strongpoint spider was interrupted. This occurs when the Front End Spider is running and the session is interrupted by the Admin switching roles, accounts or closing the window. In order to document your account, please login into the account that you are spidering and go to Strongpoint>Tools>Strongpoint Spider and restart your spider.");
+
+         }
+      }
+
+      function setConfigurationStats() {
+        //Set Configuration Fields
+        var filesinspiderfolder = top.nlapiSearchRecord(null,"customsearch_flo_spider_files");
+        var filescount = 0;
+        if(filesinspiderfolder != null && filesinspiderfolder.length > 0) {
+           filescount = filesinspiderfolder.length;
+        }
+
+        var qfilters = [];
+        qfilters.push(new top.nlobjSearchFilter('name', 'script','startswith', "Strongpoint "));
+        qfilters.push(new top.nlobjSearchFilter('queueid', null,'notequalto', "1"));
+        qfilters.push(new top.nlobjSearchFilter('isdeployed', null,'is', "T"));
+        qfilters.push(new top.nlobjSearchFilter('formulatext', 'null','is', "SCHEDULED"));
+        qfilters[3].setFormula('{script.scripttype}')
+        var queuenot1 =  top.nlapiSearchRecord('scriptdeployment',null, qfilters);
+        var hasqueuenot1 = "F";
+        if(queuenot1 != null && queuenot1.length > 0) {
+           hasqueuenot1 = "T";
+        }
+
+
+
+        var notflofilters = [];
+        notflofilters.push(new top.nlobjSearchFilter('name', 'script','doesnotstartwith', "Strongpoint "));
+        notflofilters.push(new top.nlobjSearchFilter('enddate', null,'isempty'));
+        var schedulednotflo = top.nlapiSearchRecord('scheduledscriptinstance',null, notflofilters);
+        var schedulednotflocount = 0;
+        if(schedulednotflo != null && schedulednotflo.length > 0) {
+          schedulednotflocount = schedulednotflo.length;
+        }
+        var listsegmentpreference = top.nlapiGetContext().getPreference('LISTSEGMENTSIZE');
+        var listsegmentok = "T";
+        if(isNaN(listsegmentpreference) || parseInt(listsegmentpreference) < 1000) {
+          listsegmentok = "F";
+        }
+        var fields = ["custrecord_flo_files_pending_to_process","custrecord_flo_script_queues_set","custrecord_flo_number_flodocs_ss_running","custrecord_flo_segment_sets"]
+        var values = [filescount,hasqueuenot1,schedulednotflocount,listsegmentok]
+
+        top.nlapiSubmitField("customrecord_flo_spider_configuration",1,fields,values);
+        //check list segment preference
+
+        if(listsegmentok == "F") {
+           alert("Unable to start Strongpoint Spider, incomplete set up. Please set your NUMBER OF ROWS IN LIST SEGMENTS to 1000, to do this go to : Home > Set Preferences");
+        }
+      }
+
+    $(document).ready(function(){
+
+            //Go directly to correct stage if STAGE specified in URL;
+            if(window.location.href.indexOf("STAGE=")>0 && window.location.href.indexOf("?t=")<0)
+            {
+
+        thisStage=window.location.href.split("STAGE=")[1].split("&")[0];
+
+        routableStages="spider,custframe,processframe,custexternal";
+        if(routableStages.indexOf(thisStage)>=0)
+        {
+          $("#flologo").hide();
+          $(".topicon").hide();
+          showNav2(thisStage);
+        }
+        try {
+          if(thisStage=="spider") {
+            var lastcompleted = window.location.href.split("lastcompleted=")[1].split("&")[0];
+            var warning = window.location.href.split("warning=")[1].split("&")[0];
+            //console.log(warning+" " + window.location.href.split("warning=")[1])
+            if(lastcompleted) {
+                $("#completed").html(unescape(lastcompleted) );
+                $("#completed").parent().show();
+            }
+
+            if(warning) {
+               warning = unescape(warning);
+               warning = warning.replace(/,\s/g,"<br>");
+               $("#attention").html("Unexpected error occured in the last spider.<br>Indexing of the following record types did not finish:<br>"+ warning);
+               //$("#attention").parent().show();
+            }
+
+
+
+
+            setConfigurationStats()
+            //intervalID = setInterval(function(){ checkSession() }, 300000);
+          }
+        } catch(ee) {
+          console.log(ee);
+        }
+
+      }
+      else
+      {
+      //Skip logo if home button was used
+
+      if(window.location.href.indexOf("?t=")>0)
+        {
+        $("#flologo").hide();
+        $(".topicon").fadeIn(fadespeed);
+        }
+       else
+      {
+      //fade in the logo
+        setTimeout(function(){
+
+        $("#flologo").fadeIn(fadespeed);
+              setTimeout(function(){
+        $("#flologo").fadeOut(fadespeed);},fadespeed*3);
+        setTimeout(function(){
+        $(".topicon").fadeIn(fadespeed);
+        },fadespeed*5);
+          },1);
+          }
+      }
+
+      $('[name=custmap]').load(function(){
+        //console.log('laod the iframe');
+        //console.log($(this).contents().find('form'));
+        $(this).contents().find('form').on('change', '#targetRec', function() {
+          overwriteLastStage("custframe");
+          console.log('change');
+        });
+      });
+    });
+
+    function go_Back() {
+     // console.log('href ' + window.location.href);
+      if(window.location.href.indexOf('customizationid=') > -1) {
+        //console.log('here');
+        var custoId = window.location.href.split('customizationid=')[1];
+        window.top.location.href=top.nlapiResolveURL("RECORD","customrecord_flo_customization",custoId);
+      } else {
+        //window.history.back();
+        var scriptdeployment = 'customdeploy_flo_erd_entry';
+        try {
+          var ERDStage=window.location.href.split("STAGE=")[1].split("&")[0];
+          if(ERDStage == 'custexternal') {
+            scriptdeployment = 'customdeploy_flo_erd_external_sys';
+          }
+        } catch(e) {
+
+        }
+        
+        
+        window.top.location.href=top.nlapiResolveURL("SUITELET","customscript_flo_enterprise_suitelet",scriptdeployment);
+
+
+      }
+    }
+    </script>
+</head>
+<body viewsource="no">
+  <iframe name="autospider" id="autospider" frameborder="0" height="10" width="10" src="" seamless></iframe>
+
+<style>
+
+
+.flologo
+{
+position:absolute;
+top:30%;
+left:30%;
+color: orange;
+}
+
+.navicons {
+  position:absolute;
+  top:25%;
+  left:15%;
+    padding: 5px 0 0 5px;
+    width: 100%;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.topicon {
+    margin-right: 30px;
+    margin-left: 30px;
+    display:none;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    float: left;
+    color: orange;
+    cursor: pointer;
+
+}
+.viewicon {
+        position:relative;
+  left:10%;
+    margin-right: 30px;
+    margin-left: 30px;
+    display:none;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    float: left;
+    color: orange;
+    cursor:pointer;
+
+}
+
+.spider {
+  position:absolute;
+  top:10%;
+  left:10%;
+  display:none;
+  color: orange;
+  cursor: pointer;
+}
+
+.spiderform {
+  position:relative;
+  left:15%;
+/**  margin-left: 40px;
+  display:none;*/
+  margin-bottom: 10px;
+  margin-top: 10px;
+  float: left;
+  color: orange;
+}
+
+.spiderspin {
+    position:relative;
+  left:15%;
+  margin-right: 80px;
+  display:none;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  float: left;
+  color: orange;
+}
+
+
+.newprocess {
+        position:relative;
+  left:20%;
+    margin-right: 40px;
+    margin-left: 40px;
+    display:none;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    float: left;
+    color: orange;
+    cursor: pointer;
+
+}
+
+.controlbuttons {
+  position:absolute;
+  top:5px;
+  right:5px;
+    padding: 5px 0 0 5px;
+    //width: 100%;
+    overflow: hidden;
+    color: orange;
+    float:right;
+    margin-bottom: 10px;
+    //margin-top: 10px;
+    //cursor: pointer;
+
+}
+
+.navbuttons {
+  position:relative;
+  top:5px;
+  left:5px;
+    padding: 5px 0 0 5px;
+    //width: 100%;
+    overflow: hidden;
+    float:left;
+    color: orange;
+    margin-bottom: 10px;
+    //margin-top: 10px;
+    //cursor: pointer;
+
+}
+
+.navbutton {
+  color: black;
+        display:none;
+    cursor: pointer;
+}
+
+.backbutton,.forwardbutton,.savebutton,.printbutton,.copybutton,.toolbutton,.issuebutton,.newbutton{
+  color: orange;
+        display:none;
+            margin-right: 5px;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    float: left;
+    cursor: pointer;
+}
+
+.savebutton,.printbutton,.copybutton,.toolbutton,.homebutton,.issuebutton,.newbutton,{
+  color: orange;
+        display:none;
+    position:relative;
+    margin-right: 5px;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    float: right;
+    cursor: pointer;
+}
+
+.homebutton,.processlisticon,.flobreadcrumbs{
+  color: orange;
+    display:none;
+    position:relative;
+    margin-right: 5px;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    float: left;
+    cursor: pointer;
+  //top: 50%;
+  //transform: translateY(-50%);
+}
+
+.flocrumb{
+  position:relative;
+  float: left;
+  margin-right: 5px;
+    margin-left: 5px;
+}
+
+
+
+.processframe {
+        position:relative;
+  top:10px;
+  left:10px;
+
+}
+
+#spiderinstructions {
+  word-break: break-word; 
+  width: 80%;
+  color: black;
+}
+
+#spiderinstructions ol li {
+  margin: 10px 0px;
+}
+
+</style>
+<div id="navbuttons" class="navbuttons">
+   <!-- <div id="backbutton" class="backbutton"><i class="fa fa-backward" onclick="goBack(laststage)"></i></div> -->
+  <!-- <div id="homebutton2" class="homebutton" style="display:none!;"><i title="Home" class="fa fa-home"></i></div> -->
+  <!--<div id="processlisticon" class="processlisticon"><i title="Process List" class="fa fa-list-ol" onClick="showNav2('processlist')"></i></div>-->
+   <div id="flobreadcrumbs" class="flobreadcrumbs"><div id="" title="Click To Go To This Process" class="flocrumb" onClick="crumbAction(this.id,this.innerHTML)">TOP</div></div>
+   <!--<div id="floHelp" class="toolbutton"><i class="fa fa-question" onclick="getFLOHelp(stage)"></i></div>-->
+</div>
+<div id="controlbuttons" class="controlbuttons">
+  <div id="newbutton" class="newbutton"><i title="Process Assistant" onClick="newProcess()">A</i></div>
+    <div id="savebutton" class="savebutton" ><i title="Save This Process" class="fa fa-save" onClick="saveProcess()"></i></div>
+    <div id="trashbutton" class="savebutton"><i title="Delete Saved Process Diagram" class="fa fa-trash-o" onClick="delProcessMap(currentpid)"></i></div>
+    <div id="printbutton" class="printbutton"><i title="Print Process Documentation" class="fa fa-print" onClick="printProcess(currentpid)"></i></div>
+    <!--<div id="copybutton" class="copybutton" style="display:none"><i class="fa fa-copy" onclick="copyProcess(currentpid)"></i></div>-->
+    <div id="eventbutton" class="toolbutton"><i title="Set A Meeting About This Process" class="fa fa-calendar" onClick="processEvent(currentpid)"></i></div>
+    <div id="taskbutton" class="toolbutton"><i title="Assign A Task Regarding This Process" class="fa fa-list" onClick="processTask(currentpid)"></i></div>
+  <div id="issuebutton" class="toolbutton"><i title="Log An Issue With This Process" class="fa fa-exclamation" onClick="processIssue(currentpid)"></i></div>
+</div>
+
+
+
+
+
+
+
+
+<div id="flologo" class="flologo"align="center" style="display:none"><img src="Strongpoint_primarystacked.png"></div>
+<div class="navicons" align="center">
+
+  <div class="topicon" id="icon2" align="center"><i title="Go To The Spider" class="fa fa-gears fa-10x" id="spidericon" onClick="showNav2('spider')"></i><h3>SPIDER</h3></div><div class="topicon" id="icon3" align="center" ><i title="Assess Your Account - COMING SOON!" class="fa fa-stethoscope fa-10x" onClick="showNav2('ASSESS')"></i><h3>ASSESS</h3></div><div class="topicon" id="icon1" align="center"><i title="Process and Customization Documentation"class="fa fa-puzzle-piece fa-10x" onClick="showNav2('viewicon')"></i><br><h3>DOCUMENT</h3></div><div class="topicon" id="icon4" align="center"><i title="Review Issues and Plan Improvements - COMING SOON!"class="fa fa-star fa-10x"></i><h3>IMPROVE</h3></div>
+  <div class="viewicon" id="vicon1" align="center"><i class="fa fa-gear fa-10x" onClick="showNav2('processframe')"></i><br><h3>VIEW<br/>PROCESSES</h3></div><div class="viewicon" id="vicon2" align="center"><i class="fa-10x" onClick="showNav2('processdetail')" >A</i><h3>PROCESS ASSISTANT</h3></div><div class="viewicon" id="vicon3" align="center" onClick="showNav2('custframe')" ><i class="fa fa-sitemap fa-10x"></i><h3>EXPLORE<br/>CUSTOMIZATIONS</h3></div>
+         <div id="newprocesswrap" align="center">
+       <div id="newbutton" class="newprocess"><i class="fa fa-plus fa-10x" onClick="selectNewProcess('asst')"></i><h3>Use the Process Assistant<br/>(Recommended)</h3></div>
+   <div id="swimlane" class="newprocess"><i class="fa fa-bars fa-10x" onClick="selectNewProcess('swim')"></i><h3>Swim Lane<br/>(Advanced Users)</h3></div>
+</div>
+</div>
+<div id="maindiv" class="maindiv" width="100%" height="600">
+<!--<table width="100%" ><tr>
+  <td id="processmapdiv" class="processframe" width="100%"><iframe id="processframe" class="processframe"  style="display:none" width="100%" height="1200" src="empty.html" frameborder="0"></iframe></td>
+  <td id="processlistdiv" class="processlist" width="100%"><iframe id="processlist" class="processlist"  style="display:none" width="100%" height="1200" src="empty.html" frameborder="0"></iframe></td>
+  <td id="processdetaildiv" class="processdetail" width="100%" border="1" style="display:none"><div id="hidedetail" class="navbutton"><i class="fa fa-angle-double-right " onClick="closeProcessDetail()"></i></div><iframe name="processdetail" class="processdetail" id="processdetail" border="1" height="1200" width="100%" src="empty.html"></iframe></td></tr></table>-->
+<div id="processmapdiv" class="processframe" width="100%"><iframe id="processframe" class="processframe"  style="display:none" width="100%" height="1200" src="empty.html" frameborder="0"></iframe></div>
+    <div id="processlistdiv" class="processlist" width="100%"><iframe id="processlist" class="processlist"  style="display:none" width="100%" height="1200" src="empty.html" frameborder="0"></iframe></div>
+    <div id="processdetaildiv" class="processdetail" width="100%" border="1" style="display:none"><div id="hidedetail" class="navbutton"><i class="fa fa-angle-double-right " onClick="closeProcessDetail()"></i></div><iframe name="processdetail" class="processdetail" id="processdetail" border="1" height="1200" width="100%" src="empty.html"></iframe></div>
+
+  <div id="custframe" class="custframe" style="display:none" width="100%" height="100%">
+  <table width="100%" ><tr><td id="mapdiv" width="100%"><iframe name="custmap" id="custmap" border="0" height="1000" width="100%" src="empty.html" frameborder="0"></iframe></td>
+  <td id="detaildiv" width="0" border="1"><div id="hidedetail" class="navbutton"><i class="fa fa-angle-double-right " onClick="closeDetail()"></i></div><iframe name="custdetail" id="custdetail" border="0" height="1000" width="100%" src="empty.html" frameborder="0"></iframe></td></tr></table>
+  </div>
+  <!--<iframe id="newframe" class="newframe"style="display:none" width="100%" height="1000" src="/app/site/hosting/scriptlet.nl?script=customscript_process_asst&deploy=1&whence=&newprocess=T" frameborder="0">New</iframe>-->
+
+   <!-- <div id="processmapdiv" class="processframe" width="100%"><iframe id="processframe" class="processframe"  style="display:none" width="100%" height="1200" src="empty.html" frameborder="0"></iframe></div>
+    <div id="processlistdiv" class="processlist" width="100%"><iframe id="processlist" class="processlist"  style="display:none" width="100%" height="1200" src="empty.html" frameborder="0"></iframe></div>
+    <div id="processdetaildiv" class="processdetail" width="100%" border="1" style="display:none"><div id="hidedetail" class="navbutton"><i class="fa fa-angle-double-right " onClick="closeProcessDetail()"></i></div><iframe name="processdetail" class="processdetail" id="processdetail" border="1" height="1200" width="100%" src="empty.html"></iframe></div>-->
+
+    <div id="custframe" class="custframe" style="display:none" width="100%" height="100%">
+    <table width="100%" ><tr><td id="mapdiv" width="100%"><iframe name="custmap" id="custmap" border="0" height="1000" width="100%" src="empty.html" frameborder="0"></iframe></td>
+    <td id="detaildiv" width="0" border="1"><div id="hidedetail" class="navbutton"><i class="fa fa-angle-double-right " onClick="closeDetail()"></i></div><iframe name="custdetail" id="custdetail" border="0" height="1000" width="100%" src="empty.html" frameborder="0"></iframe></td></tr></table>
+    </div>
+<!-- ADDED FOR EXTERNAL SYSTEM ERD -->
+    <div id="custexternal" class="custexternal" style="display:none" width="100%" height="100%">
+    <table width="100%" ><tr><td id="mapexternaldiv" width="100%"><iframe name="custmapexternal" id="custmapexternal" border="0" height="1000" width="100%" src="empty.html" frameborder="0"></iframe></td>
+    <td id="detailexternaldiv" width="0" border="1"><div id="hidedetail" class="navbutton"><i class="fa fa-angle-double-right " onClick="closeDetail()"></i></div><iframe name="custdetailexternal" id="custdetailexternal" border="0" height="1000" width="100%" src="empty.html" frameborder="0"></iframe></td></tr></table>
+    </div>
+</div>
+
+<div id="SPIDER" class="spider">
+  <div id="spiderlogo" class="spiderform" style="width:10%;margin-right:80px"><i class="fa fa-gears fa-10x" style="margin-top: 60%;"></i></div>
+  <div id="spiderspin" style="display:none;width:10%;margin-right:80px" class="spiderspin"><i class="fa fa-gears fa-10x fa-spin" style="margin-top: 60%;"></i></div>
+<div id="spiderform" class="spiderform"  style="width:55%">
+
+  <form name="sfcopy" id="sfcopy" action="/app/site/hosting/scriptlet.nl" method="GET" target="spiderframe">
+      <input type="hidden" name="script" value="customscript_getfields_server_side"></input>
+  <input type="hidden" name="deploy" value="1"></input>
+        <input type="hidden" name="update" value=""></input>
+        <input type="hidden" name="itemNum" value="0"></input>
+        <input type="hidden" name="pageNum" value="0"></input>
+        <input type="hidden" name="targetRec" value=""></input>
+        <input type="hidden" name="namefilter" value="0"></input>
+        <input type="hidden" name="recsProcessed" value="0"></input>
+        <input type="hidden" name="recsCreated" value="0" ></input>
+        <input type="hidden" name="recsUpdated" value="0"></input>
+      </form>
+
+   <form name="spiderform" id="spiderform" action="/app/site/hosting/scriptlet.nl" method="GET" target="spiderframe">
+  <input type="hidden" name="script" value="customscript_getfields_server_side"></input>
+  <input type="hidden" name="deploy" value="1"></input>
+  <div id="spiderinstructions" >
+    <span style="text-decoration: underline;">Instructions, read carefully:</span>
+    <ol>
+        <li style="margin: 10px 0px;">If this is your first spider, select "Respider All Records - SLOW".</li>
+        <li>If this is an update spider, select "Update Only - FAST".</li>
+        <li>After starting, DO NOT CLOSE THIS TAB OR SWITCH ROLES UNTIL THE GEARS STOP SPINNING or the spider will not complete properly and  will need to be re-started.</li>
+    </ol>
+  </div>
+  <table style="margin: 20px;">
+    <tr>
+      <td colspan="2" width="200"></td>
+    </tr>
+    <tr>
+      <td>Update or Respider?:</td>
+        <td>
+        <select name="update">
+              <option value="F" selected>Update Only - FAST</option>
+              <option value="T">Respider All Records - SLOW</option>
+          </select>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">Select a Record Type:</td>
+      <td>
+          <select id="targetRec" name="targetRec" multiple>
+              <option value="all" selected>All</option>
+              <option value="entity field">Custom Entity Fields</option>
+              <option value="crm field">Custom CRM Fields</option>
+              <option value="body field">Custom Body Fields</option>
+              <option value="column field">Custom Column Fields</option>
+              <option value="item field">Custom Item Fields</option>
+              <option value="item option field">Custom Item Options</option>
+              <option value="item number field">Item Number Fields</option>
+              <option value="other field">Other Fields</option>
+              <option value="list">Custom Lists</option>
+              <option value="record">Custom Records</option>
+              <option value= "custom record field">Custom Record Fields</option>
+              <option value="entry form">Custom Entry Forms</option>
+              <option value="transaction form">Custom Transaction Forms</option>
+              <option value="Saved Search">Searches</option>
+          <option value="mass update">Mass Updates</option>
+              <option value="suitelet">Suitelet</option>
+              <option value="restlet">RESTlet</option>
+              <option value="user event">User Event Script</option>
+              <option value="scheduled">Scheduled Script</option>
+              <option value="client">Client Script</option>
+              <option value="mass update script">Mass Update Script</option>
+              <option value="portlet">Portlet Script</option>
+              <option value="workflow action">Custom Workflow Action</option>
+              <option value="bundle installation">Bundle Installation Script</option>
+              <option value="map reduce">Map/Reduce Script</option>
+              <option value="plug-in script">Plug-In</option>
+              <option value="script deployments">Script Deployments</option>
+              <option value="workflow">Workflow</option>
+              <option value="User Roles">User Roles</option>
+              <option value="custom report">Custom Report</option>
+               <option value="bundle">Bundle</option>
+	       <option value="online customer form">Online Customer Form</option>
+               <option value="custom record form">Custom Record Forms</option>
+               <option value="group">Group</option>
+              <!--<option value="searchfields">Search Fields and Formulas</option>
+              <option value="formfields">Form Fields</option>
+              <option value="scriptfields">Script Fields, Comments and Functions</option>
+              <option value="joins">Joins Between Records</option>-->
+          </select>
+          </td>
+      </tr>
+<tr>
+      <td valign="top">Name Filter:</td>
+      <td>
+        <input type="text" name="namefilter"></input><br>Enter all or part of the name of the customization to restrict the spider. <br>To search within the name use the wildcard "%" at the beginning of the text.
+        </td>
+      </tr>
+      <tr>
+      <td/>
+      <td>
+        <button type="button" onClick="startSpider()">Start Spider</button>
+        </td>
+      </tr>
+      <div id="spiderresults" style="display:none">
+      <tr>
+      <td>Customization Processed:</td>
+      <td id="rectypelabel"></td>
+      </tr>
+      <tr>
+      <td>Records Processed:</td>
+      <td id="procnt"></td>
+      </tr>
+      <tr style="display:none">
+      <td>Last Completed Spider:</td>
+      <td id="completed"></td>
+      </tr><tr style="display:none">
+      <td style="vertical-align:top"><b>ATTENTION</b>:</td>
+      <td id="attention"></td>
+      </tr>
+      <tr style="display:none">
+      <td>New Records Created:</td>
+      <td id="newcnt" style="display:none" ></td>
+      </tr>
+      <tr style="display:none" >
+      <td>Records Updated:</td>
+      <td id="updcnt" style="display:none"></td>
+      </tr>
+      </div>
+     </table>
+    </form>
+
+</div>
+
+<div width="100%">
+<iframe id="spiderframe" name="spiderframe" src="empty.html" style="display:none" width="100%" height="400"></iframe>
+</div>
+
+<script>
+function startSpider()
+{
+  //alert("here");
+
+
+  //$('#rectypelabel').innerHTML=document.forms["spiderform"].elements["targetRec"].value;
+  var listsegmentpreference = top.nlapiGetContext().getPreference('LISTSEGMENTSIZE');
+  var listsegmentok = "T";
+  if(isNaN(listsegmentpreference) || parseInt(listsegmentpreference) < 1000) {
+    listsegmentok = "F";
+  }
+  if(listsegmentok == "F") {
+    alert("Unable to start Strongpoint Spider, incomplete set up. Please set your NUMBER OF ROWS IN LIST SEGMENTS to 1000, to do this go to : Home > Set Preferences");
+  } else if($("#targetRec option:selected").length > 0) {
+    //++NS-1986 Run start script every time manual spider is run
+    try {
+      var startScriptURL = top.nlapiResolveURL('SUITELET', 'customscript_flo_stop_schedule_scripts', 'customdeploy_flo_stop_schedule_scpts_s');
+      console.log("startScriptURL="+startScriptURL)
+      $.get(startScriptURL);
+    } catch(e) {
+      console.log(e)
+    }
+    //--NS-1986
+    try {
+      var userid = top.nlapiGetContext().getName();
+
+	  // NS-76: Temporarily disable Sessions Lost feature
+      // var fields = ["custrecord_flo_session_lost","custrecord_flo_las_manual_trigger_user","custrecord_flo_las_manual_trigger_date"];
+	  var fields = ["custrecord_flo_las_manual_trigger_user","custrecord_flo_las_manual_trigger_date"];
+      var datetimenow = top.nlapiLoadRecord('customrecord_flo_spider_configuration', 1).getDateTimeValue('custrecord_flo_current_server_time');
+	  // NS-76: Temporarily disable Sessions Lost feature
+	  // var values = [datetimenow,userid,datetimenow];
+	  var values = [userid,datetimenow];
+
+      top.nlapiSubmitField("customrecord_flo_spider_configuration",1,fields,values);
+    } catch(e) {
+        console.log(e)
+    }
+    if(top.location.href.indexOf("sframe")>0){$('#spiderframe').show();}
+    $('#spiderlogo').hide();
+
+    $('#spiderspin').html('<i class="fa fa-gears fa-10x fa-spin" style="margin-top: 60%;"></i>');
+
+    $('#spiderspin').show();
+
+    $('#rectypelabel').html("");
+    $('#rectypelabel').html("");
+    $('#procnt').html("");
+    $('#spiderresults').show();
+    document.forms["spiderform"].submit();
+  } else {
+
+    alert("Please select a record type.");
+  }
+
+}
+</script>
+

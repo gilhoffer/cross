@@ -1,0 +1,135 @@
+type netsuite.savedcsvimport_recordmappings {
+  "List<netsuite.savedcsvimport_recordmappings_recordmapping>" recordmapping {
+  }
+}
+type netsuite.savedcsvimport_recordmappings_recordmapping {
+  string record {
+    _required = true
+  }
+  number line {
+  }
+  netsuite.savedcsvimport_recordmappings_recordmapping_fieldmappings fieldmappings {
+  }
+}
+type netsuite.savedcsvimport_recordmappings_recordmapping_fieldmappings {
+  "List<netsuite.savedcsvimport_recordmappings_recordmapping_fieldmappings_fieldmapping>" fieldmapping {
+  }
+}
+type netsuite.savedcsvimport_recordmappings_recordmapping_fieldmappings_fieldmapping {
+  string field {
+    _required = true
+  }
+  string value {
+  }
+  netsuite.savedcsvimport_recordmappings_recordmapping_fieldmappings_fieldmapping_columnreference columnreference {
+  }
+}
+type netsuite.savedcsvimport_recordmappings_recordmapping_fieldmappings_fieldmapping_columnreference {
+  string file {
+    _required = true
+  }
+  string column {
+    _required = true
+  }
+  netsuite.csvimport_referencetype type {
+  }
+}
+type netsuite.savedcsvimport_filemappings {
+  "List<netsuite.savedcsvimport_filemappings_filemapping>" filemapping {
+  }
+}
+type netsuite.savedcsvimport_filemappings_filemapping {
+  string file {
+    _required = true
+  }
+  string primarykey {
+  }
+  string foreignkey {
+  }
+}
+type netsuite.savedcsvimport_audience {
+  boolean ispublic {
+  }
+  boolean globaledit {
+  }
+  boolean allemployees {
+  }
+  boolean allpartners {
+  }
+  boolean allroles {
+  }
+  string roles {
+  }
+}
+type netsuite.savedcsvimport {
+  serviceid scriptid {
+    _required = true
+    isAttribute = true
+    _restriction = {
+      regex = "^custimport[0-9a-z_]+"
+    }
+  }
+  netsuite.csvimport_recordtypes recordtype {
+    _required = true
+  }
+  string importname {
+    _required = true
+    _restriction = {
+      max_length = 64
+    }
+  }
+  netsuite.csvimport_datahandling datahandling {
+    _required = true
+  }
+  netsuite.csvimport_decimaldelimiter decimaldelimiter {
+    _required = true
+  }
+  netsuite.csvimport_columndelimiter columndelimiter {
+    _required = true
+  }
+  string entryform {
+  }
+  string transactionform {
+  }
+  string customrecord {
+  }
+  string customtransaction {
+  }
+  netsuite.csvimport_encoding charencoding {
+  }
+  boolean logsystemnotescustfields {
+  }
+  boolean overwritemissingfields {
+  }
+  boolean validatemandatorycustfields {
+  }
+  boolean overwritesublists {
+  }
+  boolean ignorereadonly {
+  }
+  boolean preventduplicates {
+  }
+  boolean usemultithread {
+  }
+  boolean runserversuitescript {
+  }
+  string multiselectdelimiter {
+    _restriction = {
+      max_length = 1
+    }
+  }
+  string description {
+    _restriction = {
+      max_length = 499
+    }
+  }
+  netsuite.savedcsvimport_audience audience {
+  }
+  netsuite.savedcsvimport_filemappings filemappings {
+  }
+  netsuite.savedcsvimport_recordmappings recordmappings {
+  }
+  string _lastfetchtime {
+    _hidden_value = true
+  }
+}

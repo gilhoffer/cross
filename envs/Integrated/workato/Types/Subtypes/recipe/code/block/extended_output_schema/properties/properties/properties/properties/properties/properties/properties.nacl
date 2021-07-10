@@ -1,0 +1,16 @@
+type workato.recipe__code__block__extended_output_schema__properties__properties__properties__properties__properties__properties__properties {
+  string control_type {
+  }
+  string label {
+  }
+  boolean optional {
+  }
+  string ns_content_type {
+  }
+  string ns_tag {
+  }
+  string type {
+  }
+  string name {
+  }
+}

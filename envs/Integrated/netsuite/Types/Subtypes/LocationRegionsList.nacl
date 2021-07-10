@@ -1,0 +1,11 @@
+type netsuite.LocationRegionsList {
+  annotations {
+    hidden_string source {
+    }
+  }
+  "List<netsuite.LocationRegions>" locationRegions {
+  }
+  boolean replaceAll {
+    isAttribute = true
+  }
+}

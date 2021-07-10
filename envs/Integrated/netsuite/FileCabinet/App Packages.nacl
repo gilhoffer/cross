@@ -1,0 +1,7 @@
+netsuite.folder App_Packages@s {
+  description = "App Packages Folder"
+  bundleable = false
+  isinactive = false
+  isprivate = false
+  path = "/App Packages"
+}

@@ -1,0 +1,57 @@
+netsuite.scheduledscript customscript_flo_custom_fld_neg_spider {
+  scriptid = "customscript_flo_custom_fld_neg_spider"
+  isinactive = false
+  name = "Strongpoint Std Rec Cust Flds Neg Spider"
+  notifyadmins = false
+  notifyowner = true
+  scriptfile = netsuite.file.instance.SuiteBundles_Bundle_297487_FLOCustomFieldNegativeSpider_js@dsdv.path
+  scriptcustomfields = {
+    scriptcustomfield = [
+      {
+        scriptid = "custscript_flo_neg_file_last_index"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "TEXT"
+        isformula = false
+        ismandatory = false
+        label = "File Index"
+        searchlevel = "2"
+        storevalue = true
+      },
+      {
+        scriptid = "custscript_flo_neglast_cust_index"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "TEXT"
+        isformula = false
+        ismandatory = false
+        label = "Cust Index"
+        searchlevel = "2"
+        storevalue = true
+      },
+    ]
+  }
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeployflo_custom_fld_neg_spider"
+        isdeployed = true
+        loglevel = "AUDIT"
+        status = "NOTSCHEDULED"
+        title = "Strongpoint Standard Record Custom Negative Spider"
+        recurrence = {
+          single = {
+            startdate = "2017-05-17"
+            starttime = "01:00:00Z"
+          }
+        }
+      },
+    ]
+  }
+}

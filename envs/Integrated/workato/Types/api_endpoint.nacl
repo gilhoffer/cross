@@ -1,0 +1,28 @@
+type workato.api_endpoint {
+  number id {
+  }
+  number api_collection_id {
+  }
+  number flow_id {
+  }
+  string name {
+  }
+  string method {
+  }
+  string url {
+  }
+  unknown legacy_url {
+  }
+  string base_path {
+  }
+  string path {
+  }
+  boolean active {
+  }
+  boolean legacy {
+  }
+  string created_at {
+  }
+  string updated_at {
+  }
+}

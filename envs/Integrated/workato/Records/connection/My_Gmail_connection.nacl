@@ -1,0 +1,5 @@
+workato.connection My_Gmail_connection@s {
+  application = "gmail"
+  id = 422889
+  name = "My Gmail connection"
+}

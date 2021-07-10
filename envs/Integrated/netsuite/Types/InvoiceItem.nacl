@@ -1,0 +1,128 @@
+type netsuite.InvoiceItem {
+  annotations {
+    hidden_string source {
+    }
+  }
+  netsuite.Job job {
+  }
+  netsuite.RecordRef item {
+  }
+  number line {
+  }
+  string description {
+  }
+  number amount {
+  }
+  boolean isTaxable {
+  }
+  netsuite.RecordRef subscriptionLine {
+  }
+  boolean deferRevRec {
+  }
+  number quantity {
+  }
+  number currentPercent {
+  }
+  netsuite.RecordRef units {
+  }
+  netsuite.InventoryDetail inventoryDetail {
+  }
+  string serialNumbers {
+  }
+  string binNumbers {
+  }
+  netsuite.Price price {
+  }
+  string rate {
+  }
+  number percentComplete {
+  }
+  number quantityOnHand {
+  }
+  number quantityAvailable {
+  }
+  number quantityOrdered {
+  }
+  number quantityRemaining {
+  }
+  number quantityFulfilled {
+  }
+  number amountOrdered {
+  }
+  netsuite.Department department {
+  }
+  number orderLine {
+  }
+  string licenseCode {
+  }
+  netsuite.Classification class {
+  }
+  netsuite.Location location {
+  }
+  netsuite.RecordRef revRecSchedule {
+  }
+  string revRecStartDate {
+  }
+  string revRecEndDate {
+  }
+  number grossAmt {
+  }
+  string costEstimateType {
+  }
+  number costEstimate {
+  }
+  string taxDetailsReference {
+  }
+  boolean excludeFromRateRequest {
+  }
+  netsuite.RecordRef catchUpPeriod {
+  }
+  number tax1Amt {
+  }
+  netsuite.RecordRef taxCode {
+  }
+  number taxRate1 {
+  }
+  number taxRate2 {
+  }
+  string giftCertFrom {
+  }
+  string giftCertRecipientName {
+  }
+  string giftCertRecipientEmail {
+  }
+  string giftCertMessage {
+  }
+  number taxAmount {
+  }
+  string giftCertNumber {
+  }
+  number shipGroup {
+  }
+  boolean itemIsFulfilled {
+  }
+  netsuite.RecordRef shipAddress {
+  }
+  netsuite.RecordRef shipMethod {
+  }
+  string vsoeSopGroup {
+  }
+  boolean vsoeIsEstimate {
+  }
+  number vsoePrice {
+  }
+  number vsoeAmount {
+  }
+  number vsoeAllocation {
+  }
+  string vsoeDeferral {
+  }
+  string vsoePermitDiscount {
+  }
+  boolean vsoeDelivered {
+  }
+  netsuite.RecordRef chargeType {
+  }
+  "List<netsuite.Charge>" chargesList {
+  }
+}

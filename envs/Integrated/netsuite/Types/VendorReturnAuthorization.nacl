@@ -1,0 +1,77 @@
+type netsuite.VendorReturnAuthorization {
+  annotations {
+    hidden_string source {
+    }
+  }
+  string createdDate {
+  }
+  string lastModifiedDate {
+  }
+  netsuite.Nexus nexus {
+  }
+  netsuite.RecordRef subsidiaryTaxRegNum {
+  }
+  boolean taxRegOverride {
+  }
+  boolean taxDetailsOverride {
+  }
+  netsuite.RecordRef customForm {
+  }
+  string tranId {
+  }
+  netsuite.RecordRef createdFrom {
+  }
+  netsuite.RecordRef entity {
+  }
+  string orderStatus {
+  }
+  string tranDate {
+  }
+  number userTotal {
+  }
+  netsuite.Currency currency {
+  }
+  string currencyName {
+  }
+  netsuite.Address billingAddress {
+  }
+  netsuite.RecordRef billAddressList {
+  }
+  string memo {
+  }
+  number exchangeRate {
+  }
+  netsuite.RecordRef entityTaxRegNum {
+  }
+  string taxPointDate {
+  }
+  number userTaxTotal {
+  }
+  netsuite.Department department {
+  }
+  netsuite.Classification class {
+  }
+  netsuite.Location location {
+  }
+  netsuite.Subsidiary subsidiary {
+  }
+  netsuite.RecordRef intercoTransaction {
+  }
+  string intercoStatus {
+  }
+  netsuite.VendorReturnAuthorizationExpenseList expenseList {
+  }
+  netsuite.VendorReturnAuthorizationItemList itemList {
+  }
+  netsuite.AccountingBookDetailList accountingBookDetailList {
+  }
+  netsuite.TaxDetailsList taxDetailsList {
+  }
+  string internalId {
+    isAttribute = true
+    _hidden_value = true
+  }
+  string externalId {
+    isAttribute = true
+  }
+}

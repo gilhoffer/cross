@@ -1,0 +1,5 @@
+workato.folder f1_nested2_321886@vu {
+  id = 321887
+  name = "f1.nested2"
+  parent_id = workato.folder.instance.neta1_318283
+}

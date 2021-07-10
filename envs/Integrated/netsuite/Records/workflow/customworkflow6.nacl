@@ -1,0 +1,29 @@
+netsuite.workflow customworkflow6 {
+  scriptid = "customworkflow6"
+  initcontexts = "ACTION"
+  initeventtypes = "APPROVE"
+  initoncreate = false
+  initonvieworupdate = true
+  inittriggertype = "AFTERSUBMIT"
+  isinactive = false
+  islogenabled = false
+  keephistory = "ONLYWHENTESTING"
+  name = "Approve Currency changes"
+  recordtypes = "CURRENCY"
+  releasestatus = "TESTING"
+  runasadmin = true
+  initcondition = {
+    type = "VISUAL_BUILDER"
+  }
+  workflowstates = {
+    workflowstate = [
+      {
+        scriptid = "workflowstate428"
+        donotexitworkflow = false
+        name = "State 1"
+        positionx = 243
+        positiony = 133
+      },
+    ]
+  }
+}

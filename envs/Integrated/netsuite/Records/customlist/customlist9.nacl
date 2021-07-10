@@ -1,0 +1,30 @@
+netsuite.customlist customlist9 {
+  scriptid = "customlist9"
+  description = "List of possible values for customer's active status"
+  isinactive = false
+  ismatrixoption = false
+  isordered = true
+  name = "Customer_Active_List"
+  customvalues = {
+    customvalue = [
+      {
+        scriptid = "val_51703_t2257815_384"
+        abbreviation = "A"
+        isinactive = false
+        value = "Active"
+      },
+      {
+        scriptid = "val_51704_t2257815_720"
+        abbreviation = "C"
+        isinactive = false
+        value = "Churned"
+      },
+      {
+        scriptid = "val_51705_t2257815_964"
+        abbreviation = "F"
+        isinactive = false
+        value = "FreeTrial"
+      },
+    ]
+  }
+}

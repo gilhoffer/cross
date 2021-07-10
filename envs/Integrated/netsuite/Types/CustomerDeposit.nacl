@@ -1,0 +1,129 @@
+type netsuite.CustomerDeposit {
+  annotations {
+    hidden_string source {
+    }
+  }
+  string createdDate {
+  }
+  string lastModifiedDate {
+  }
+  string status {
+  }
+  netsuite.Customer customer {
+  }
+  netsuite.SalesOrder salesOrder {
+  }
+  netsuite.RecordRef customForm {
+  }
+  number payment {
+  }
+  netsuite.Currency currency {
+  }
+  string tranDate {
+  }
+  netsuite.RecordRef postingPeriod {
+  }
+  netsuite.PaymentMethod paymentMethod {
+  }
+  boolean ccIsPurchaseCardBin {
+  }
+  string memo {
+  }
+  boolean ccProcessAsPurchaseCard {
+  }
+  string currencyName {
+  }
+  number exchangeRate {
+  }
+  string checkNum {
+  }
+  netsuite.RecordRef creditCardProcessor {
+  }
+  netsuite.RecordRef creditCard {
+  }
+  string ccSecurityCode {
+  }
+  string ccNumber {
+  }
+  netsuite.Subsidiary subsidiary {
+  }
+  netsuite.Department department {
+  }
+  netsuite.Classification class {
+  }
+  netsuite.Location location {
+  }
+  netsuite.RecordRef paymentOption {
+  }
+  string inputAuthCode {
+  }
+  string inputReferenceCode {
+  }
+  string checkNumber {
+  }
+  string paymentCardCsc {
+  }
+  netsuite.RecordRef paymentProcessingProfile {
+  }
+  string handlingMode {
+  }
+  string outputAuthCode {
+  }
+  string outputReferenceCode {
+  }
+  string paymentOperation {
+  }
+  string dynamicDescriptor {
+  }
+  string ccExpireDate {
+  }
+  string debitCardIssueNo {
+  }
+  string validFrom {
+  }
+  string ccName {
+  }
+  string ccStreet {
+  }
+  string ccZipCode {
+  }
+  boolean chargeIt {
+  }
+  boolean ccApproved {
+  }
+  string pnRefNum {
+  }
+  string authCode {
+  }
+  string ccAvsStreetMatch {
+  }
+  string softDescriptor {
+  }
+  string ccAvsZipMatch {
+  }
+  boolean isRecurringPayment {
+  }
+  string ccSecurityCodeMatch {
+  }
+  string threeDStatusCode {
+  }
+  boolean ignoreAvs {
+  }
+  netsuite.Account account {
+  }
+  boolean undepFunds {
+  }
+  string tranId {
+  }
+  netsuite.CustomerDepositApplyList applyList {
+  }
+  netsuite.AccountingBookDetailList accountingBookDetailList {
+  }
+  string internalId {
+    isAttribute = true
+    _hidden_value = true
+  }
+  string externalId {
+    isAttribute = true
+  }
+}

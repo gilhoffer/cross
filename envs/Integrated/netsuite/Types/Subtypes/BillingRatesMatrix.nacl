@@ -1,0 +1,11 @@
+type netsuite.BillingRatesMatrix {
+  annotations {
+    hidden_string source {
+    }
+  }
+  "List<netsuite.BillingRates>" billingRates {
+  }
+  boolean replaceAll {
+    isAttribute = true
+  }
+}

@@ -1,0 +1,60 @@
+netsuite.scheduledscript customscript_deprecate_customizations {
+  scriptid = "customscript_deprecate_customizations"
+  defaultfunction = "inactiveDeprecatedCustomizations"
+  isinactive = true
+  name = "Strongpoint Inactive Customizations"
+  notifyadmins = false
+  notifyowner = true
+  scriptfile = netsuite.file.instance.SuiteBundles_Bundle_297487_FloinactiveCustomizations_js@dsdv.path
+  scriptcustomfields = {
+    scriptcustomfield = [
+      {
+        scriptid = "custscript_spiderrss_join"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        displaywidth = 40
+        fieldtype = "TEXT"
+        isformula = false
+        ismandatory = false
+        label = "join deprecation"
+        searchlevel = "2"
+        storevalue = true
+      },
+      {
+        scriptid = "custscript_spiderrss_last_record"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        displaywidth = 40
+        fieldtype = "TEXT"
+        isformula = false
+        ismandatory = false
+        label = "last record process"
+        searchlevel = "2"
+        storevalue = true
+      },
+    ]
+  }
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy1"
+        isdeployed = false
+        loglevel = "AUDIT"
+        status = "NOTSCHEDULED"
+        title = "Strongpoint Inactive Customizations"
+        recurrence = {
+          single = {
+            startdate = "2014-10-04"
+            starttime = "01:00:00Z"
+          }
+        }
+      },
+    ]
+  }
+}

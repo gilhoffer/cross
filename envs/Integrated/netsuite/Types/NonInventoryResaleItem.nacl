@@ -1,0 +1,331 @@
+type netsuite.NonInventoryResaleItem {
+  annotations {
+    hidden_string source {
+    }
+  }
+  string createdDate {
+  }
+  string lastModifiedDate {
+  }
+  string purchaseDescription {
+  }
+  boolean copyDescription {
+  }
+  number cost {
+  }
+  string costUnits {
+  }
+  netsuite.Account expenseAccount {
+  }
+  netsuite.RecordRef intercoExpenseAccount {
+  }
+  string salesDescription {
+  }
+  boolean includeChildren {
+  }
+  netsuite.Account incomeAccount {
+  }
+  netsuite.Account intercoIncomeAccount {
+  }
+  boolean isTaxable {
+  }
+  string matrixType {
+  }
+  netsuite.RecordRef taxSchedule {
+  }
+  netsuite.Account dropshipExpenseAccount {
+  }
+  boolean deferRevRec {
+  }
+  netsuite.RecordRef revenueRecognitionRule {
+  }
+  netsuite.RecordRef revRecForecastRule {
+  }
+  netsuite.RecordRef revenueAllocationGroup {
+  }
+  netsuite.RecordRef createRevenuePlansOn {
+  }
+  boolean directRevenuePosting {
+  }
+  boolean isDropShipItem {
+  }
+  boolean isSpecialOrderItem {
+  }
+  number shippingCost {
+  }
+  string shippingCostUnits {
+  }
+  number handlingCost {
+  }
+  string handlingCostUnits {
+  }
+  string costEstimateType {
+  }
+  number costEstimate {
+  }
+  number weight {
+  }
+  string weightUnit {
+  }
+  string weightUnits {
+  }
+  string costEstimateUnits {
+  }
+  netsuite.UnitsType unitsType {
+  }
+  netsuite.RecordRef purchaseUnit {
+  }
+  netsuite.RecordRef saleUnit {
+  }
+  netsuite.RecordRef issueProduct {
+  }
+  netsuite.RecordRef billingSchedule {
+  }
+  netsuite.Account deferredRevenueAccount {
+  }
+  netsuite.RecordRef revRecSchedule {
+  }
+  netsuite.RecordRef deferralAccount {
+  }
+  netsuite.RecordRef amortizationTemplate {
+  }
+  string residual {
+  }
+  number amortizationPeriod {
+  }
+  string stockDescription {
+  }
+  boolean producer {
+  }
+  string manufacturer {
+  }
+  string mpn {
+  }
+  boolean multManufactureAddr {
+  }
+  string manufacturerAddr1 {
+  }
+  string manufacturerCity {
+  }
+  string manufacturerState {
+  }
+  string manufacturerZip {
+  }
+  string countryOfManufacture {
+  }
+  number purchaseOrderQuantity {
+  }
+  number purchaseOrderAmount {
+  }
+  number purchaseOrderQuantityDiff {
+  }
+  number receiptQuantity {
+  }
+  number receiptAmount {
+  }
+  number receiptQuantityDiff {
+  }
+  string manufacturerTaxId {
+  }
+  string scheduleBNumber {
+  }
+  number scheduleBQuantity {
+  }
+  string scheduleBCode {
+  }
+  string manufacturerTariff {
+  }
+  string preferenceCriterion {
+  }
+  number minimumQuantity {
+  }
+  boolean enforceMinQtyInternally {
+  }
+  number maximumQuantity {
+  }
+  string softDescriptor {
+  }
+  netsuite.RecordRef shipPackage {
+  }
+  boolean shipIndividually {
+  }
+  boolean isFulfillable {
+  }
+  boolean generateAccruals {
+  }
+  netsuite.CostCategory costCategory {
+  }
+  boolean pricesIncludeTax {
+  }
+  netsuite.RecordRef quantityPricingSchedule {
+  }
+  boolean useMarginalRates {
+  }
+  string overallQuantityPricingType {
+  }
+  netsuite.PricingGroup pricingGroup {
+  }
+  string minimumQuantityUnits {
+  }
+  number vsoePrice {
+  }
+  string vsoeSopGroup {
+  }
+  string vsoeDeferral {
+  }
+  string vsoePermitDiscount {
+  }
+  boolean vsoeDelivered {
+  }
+  netsuite.RecordRef itemRevenueCategory {
+  }
+  string storeDisplayName {
+  }
+  netsuite.file storeDisplayThumbnail {
+  }
+  netsuite.file storeDisplayImage {
+  }
+  string storeDescription {
+  }
+  string storeDetailedDescription {
+  }
+  netsuite.RecordRef storeItemTemplate {
+  }
+  string pageTitle {
+  }
+  string metaTagHtml {
+  }
+  boolean excludeFromSitemap {
+  }
+  string sitemapPriority {
+  }
+  string searchKeywords {
+  }
+  boolean isDonationItem {
+  }
+  boolean showDefaultDonationAmount {
+  }
+  number maxDonationAmount {
+  }
+  boolean dontShowPrice {
+  }
+  string noPriceMessage {
+  }
+  string outOfStockMessage {
+  }
+  boolean onSpecial {
+  }
+  string outOfStockBehavior {
+  }
+  string relatedItemsDescription {
+  }
+  string specialsDescription {
+  }
+  string featuredDescription {
+  }
+  string shoppingDotComCategory {
+  }
+  number shopzillaCategoryId {
+  }
+  string nexTagCategory {
+  }
+  netsuite.ProductFeedList productFeedList {
+  }
+  string urlComponent {
+  }
+  netsuite.RecordRef customForm {
+  }
+  serviceid itemId {
+  }
+  string upcCode {
+  }
+  string displayName {
+  }
+  string vendorName {
+  }
+  netsuite.NonInventoryResaleItem parent {
+  }
+  boolean isOnline {
+  }
+  boolean isHazmatItem {
+  }
+  string hazmatId {
+  }
+  string hazmatShippingName {
+  }
+  string hazmatHazardClass {
+  }
+  string hazmatPackingGroup {
+  }
+  string hazmatItemUnits {
+  }
+  number hazmatItemUnitsQty {
+  }
+  boolean isGcoCompliant {
+  }
+  boolean offerSupport {
+  }
+  boolean isInactive {
+  }
+  string matrixItemNameTemplate {
+  }
+  boolean availableToPartners {
+  }
+  netsuite.Department department {
+  }
+  netsuite.Classification class {
+  }
+  netsuite.Location location {
+  }
+  netsuite.RecordRef defaultItemShipMethod {
+  }
+  string itemCarrier {
+  }
+  netsuite.RecordRefList itemShipMethodList {
+  }
+  "List<netsuite.Subsidiary>" subsidiaryList {
+  }
+  string currency {
+  }
+  netsuite.ItemOptionsList itemOptionsList {
+  }
+  netsuite.MatrixOptionList matrixOptionList {
+  }
+  netsuite.ItemVendorList itemVendorList {
+  }
+  netsuite.PricingMatrix pricingMatrix {
+  }
+  netsuite.ItemAccountingBookDetailList accountingBookDetailList {
+  }
+  netsuite.RecordRef purchaseTaxCode {
+  }
+  number rate {
+  }
+  netsuite.RecordRef salesTaxCode {
+  }
+  netsuite.SiteCategoryList siteCategoryList {
+  }
+  netsuite.TranslationList translationsList {
+  }
+  netsuite.Vendor vendor {
+  }
+  netsuite.PresentationItemList presentationItemList {
+  }
+  netsuite.NonInventoryResaleItemHierarchyVersionsList hierarchyVersionsList {
+  }
+  netsuite.RecordRef consumptionUnit {
+  }
+  string internalId {
+    isAttribute = true
+    _hidden_value = true
+  }
+  string externalId {
+    isAttribute = true
+  }
+  string custitemhq_clone_itemfield01 {
+    field_instance = netsuite.itemcustomfield.instance.custitemhq_clone_itemfield01.scriptid
+  }
+  string custitemhqcuitemfield02 {
+    field_instance = netsuite.itemcustomfield.instance.custitemhqcuitemfield02.scriptid
+  }
+}

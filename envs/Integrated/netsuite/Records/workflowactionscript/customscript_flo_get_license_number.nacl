@@ -1,0 +1,26 @@
+netsuite.workflowactionscript customscript_flo_get_license_number {
+  scriptid = "customscript_flo_get_license_number"
+  defaultfunction = "getNumber"
+  description = "Retrieve the correspondent license number for the account where is executed."
+  isinactive = false
+  name = "Strongpoint Get License Number"
+  notifyadmins = false
+  notifyowner = false
+  notifyuser = false
+  scriptfile = "[/SuiteBundles/Bundle 297487/FLOgetLicenseNumber.js]"
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy_flo_get_license_number_lm"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        isdeployed = true
+        loglevel = "AUDIT"
+        recordtype = "RECORD"
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+      },
+    ]
+  }
+}

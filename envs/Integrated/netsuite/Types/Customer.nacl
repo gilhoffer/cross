@@ -1,0 +1,309 @@
+type netsuite.Customer {
+  annotations {
+    hidden_string source {
+    }
+  }
+  netsuite.RecordRef customForm {
+  }
+  serviceid entityId {
+  }
+  string altName {
+  }
+  boolean isPerson {
+  }
+  string phoneticName {
+  }
+  string salutation {
+  }
+  string firstName {
+  }
+  string middleName {
+  }
+  string lastName {
+  }
+  string companyName {
+  }
+  netsuite.RecordRef entityStatus {
+  }
+  netsuite.Customer parent {
+  }
+  string phone {
+  }
+  string fax {
+  }
+  string email {
+  }
+  string url {
+  }
+  string defaultAddress {
+  }
+  boolean isInactive {
+  }
+  netsuite.RecordRef category {
+  }
+  string title {
+  }
+  string printOnCheckAs {
+  }
+  string altPhone {
+  }
+  string homePhone {
+  }
+  string mobilePhone {
+  }
+  string altEmail {
+  }
+  string language {
+  }
+  string comments {
+  }
+  string numberFormat {
+  }
+  string negativeNumberFormat {
+  }
+  string dateCreated {
+  }
+  netsuite.file image {
+  }
+  string emailPreference {
+  }
+  netsuite.Subsidiary subsidiary {
+  }
+  netsuite.Subsidiary representingSubsidiary {
+  }
+  netsuite.RecordRef salesRep {
+  }
+  netsuite.RecordRef territory {
+  }
+  string contribPct {
+  }
+  netsuite.Partner partner {
+  }
+  netsuite.RecordRef salesGroup {
+  }
+  string vatRegNumber {
+  }
+  string accountNumber {
+  }
+  boolean taxExempt {
+  }
+  netsuite.Term terms {
+  }
+  number creditLimit {
+  }
+  string creditHoldOverride {
+  }
+  string monthlyClosing {
+  }
+  boolean overrideCurrencyFormat {
+  }
+  string displaySymbol {
+  }
+  string symbolPlacement {
+  }
+  number balance {
+  }
+  number overdueBalance {
+  }
+  number daysOverdue {
+  }
+  number unbilledOrders {
+  }
+  number consolUnbilledOrders {
+  }
+  number consolOverdueBalance {
+  }
+  number consolDepositBalance {
+  }
+  number consolBalance {
+  }
+  number consolAging {
+  }
+  number consolAging1 {
+  }
+  number consolAging2 {
+  }
+  number consolAging3 {
+  }
+  number consolAging4 {
+  }
+  number consolDaysOverdue {
+  }
+  netsuite.PriceLevel priceLevel {
+  }
+  netsuite.Currency currency {
+  }
+  netsuite.RecordRef prefCCProcessor {
+  }
+  number depositBalance {
+  }
+  boolean shipComplete {
+  }
+  boolean taxable {
+  }
+  netsuite.RecordRef taxItem {
+  }
+  string resaleNumber {
+  }
+  number aging {
+  }
+  number aging1 {
+  }
+  number aging2 {
+  }
+  number aging3 {
+  }
+  number aging4 {
+  }
+  string startDate {
+  }
+  string alcoholRecipientType {
+  }
+  string endDate {
+  }
+  number reminderDays {
+  }
+  netsuite.RecordRef shippingItem {
+  }
+  string thirdPartyAcct {
+  }
+  string thirdPartyZipcode {
+  }
+  string thirdPartyCountry {
+  }
+  boolean giveAccess {
+  }
+  number estimatedBudget {
+  }
+  netsuite.RecordRef accessRole {
+  }
+  boolean sendEmail {
+  }
+  netsuite.RecordRef assignedWebSite {
+  }
+  string password {
+  }
+  string password2 {
+  }
+  boolean requirePwdChange {
+  }
+  netsuite.CampaignCategory campaignCategory {
+  }
+  netsuite.RecordRef sourceWebSite {
+  }
+  netsuite.LeadSource leadSource {
+  }
+  netsuite.RecordRef receivablesAccount {
+  }
+  netsuite.Account drAccount {
+  }
+  netsuite.Account fxAccount {
+  }
+  number defaultOrderPriority {
+  }
+  string webLead {
+  }
+  string referrer {
+  }
+  string keywords {
+  }
+  string clickStream {
+  }
+  string lastPageVisited {
+  }
+  number visits {
+  }
+  string firstVisit {
+  }
+  string lastVisit {
+  }
+  boolean billPay {
+  }
+  number openingBalance {
+  }
+  string lastModifiedDate {
+  }
+  string openingBalanceDate {
+  }
+  netsuite.Account openingBalanceAccount {
+  }
+  string stage {
+  }
+  boolean emailTransactions {
+  }
+  boolean printTransactions {
+  }
+  boolean faxTransactions {
+  }
+  netsuite.RecordRef defaultTaxReg {
+  }
+  boolean syncPartnerTeams {
+  }
+  boolean isBudgetApproved {
+  }
+  string globalSubscriptionStatus {
+  }
+  netsuite.RecordRef salesReadiness {
+  }
+  netsuite.CustomerSalesTeamList salesTeamList {
+  }
+  netsuite.RecordRef buyingReason {
+  }
+  netsuite.CustomerDownloadList downloadList {
+  }
+  netsuite.RecordRef buyingTimeFrame {
+  }
+  netsuite.CustomerAddressbookList addressbookList {
+  }
+  netsuite.SubscriptionsList subscriptionsList {
+  }
+  netsuite.ContactAccessRolesList contactRolesList {
+  }
+  netsuite.CustomerCurrencyList currencyList {
+  }
+  netsuite.CustomerCreditCardsList creditCardsList {
+  }
+  netsuite.CustomerPartnersList partnersList {
+  }
+  netsuite.CustomerGroupPricingList groupPricingList {
+  }
+  netsuite.CustomerItemPricingList itemPricingList {
+  }
+  netsuite.CustomerTaxRegistrationList taxRegistrationList {
+  }
+  string internalId {
+    isAttribute = true
+    _hidden_value = true
+  }
+  string externalId {
+    isAttribute = true
+  }
+  boolean custentity10 {
+    field_instance = netsuite.entitycustomfield.instance.custentity10.scriptid
+  }
+  string custentity11 {
+    field_instance = netsuite.entitycustomfield.instance.custentity11.scriptid
+  }
+  number custentity13 {
+    field_instance = netsuite.entitycustomfield.instance.custentity13.scriptid
+  }
+  string custentity2edited {
+    field_instance = netsuite.entitycustomfield.instance.custentity2edited.scriptid
+  }
+  number custentity_slt_tax_reg {
+    field_instance = netsuite.entitycustomfield.instance.custentity_slt_tax_reg.scriptid
+  }
+  boolean custentitycust_active {
+    field_instance = netsuite.entitycustomfield.instance.custentitycust_active.scriptid
+  }
+  string custentitydemosaltofield {
+    field_instance = netsuite.entitycustomfield.instance.custentitydemosaltofield.scriptid
+  }
+  string custentityproduct_type {
+    field_instance = netsuite.entitycustomfield.instance.custentityproduct_type.scriptid
+  }
+  unknown custentitytier {
+    field_instance = netsuite.entitycustomfield.instance.custentitytier.scriptid
+    select_type_id = netsuite.customlist.instance.customlistcustomer_tiers.scriptid
+  }
+}

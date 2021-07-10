@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<!-- saved from url=(0054)https://jqueryui.com/resources/demos/tabs/default.html -->
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<title>Tabs</title>
+	    <!--Netsuite Library-->
+	<script type='text/javascript' src='/javascript/NLUtil.jsp__NS_VER=2015.2.0&locale=en_CA.nlqs'></script>
+	<script type='text/javascript' src='/javascript/NLUtil.js?NS_VER=2015.2.0&minver=38'></script>
+	<script type='text/javascript' src='/javascript/NLAPI.jsp?NS_VER=2015.2.0&locale=en_US'></script>
+	<!--End-->
+	<!--jquery ui-->
+	<link rel="stylesheet" href="css/jquery-ui.css">
+	<!--jquery ui-->
+
+	<!--bootstrap-->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/jquery.tagsinput.css" />
+    <!--bootstrap-->
+
+    <!--jquery ui-->
+	<script src="js/jquery-1.10.2.js"></script>
+	<script src="js/jquery-ui.js"></script>
+	<script src="js/scripts.js"></script>
+
+	<!--jquery ui-->
+	<script>
+	$(function() {
+		$( "#tabs" ).tabs();
+	});
+	</script>
+	<script>
+	  $(function() {
+	    $( ".datepicker" ).datepicker();
+	  });
+  </script>
+</head>
+<body>
+
+<div id="tabs" class="ui-tabs ui-widget ui-widget-content ui-corner-all" style="width: 65%;">
+	<ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all" role="tablist">
+		<li class="ui-state-default ui-corner-top ui-tabs-active ui-state-active" role="tab" tabindex="0" aria-controls="tabs-1" aria-labelledby="ui-id-1" aria-selected="true" aria-expanded="true"><a href="#tabs-1" class="ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-1">Spider</a></li>
+		<li class="ui-state-default ui-corner-top" role="tab" tabindex="-1" aria-controls="tabs-2" aria-labelledby="ui-id-2" aria-selected="false" aria-expanded="false"><a href="#tabs-2" class="ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-2">Make Join</a></li>
+		<li class="ui-state-default ui-corner-top" role="tab" tabindex="-1" aria-controls="tabs-3" aria-labelledby="ui-id-3" aria-selected="false" aria-expanded="false"><a href="#tabs-3" class="ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-3">Script Parser</a></li>
+		<li class="ui-state-default ui-corner-top" role="tab" tabindex="-1" aria-controls="tabs-4" aria-labelledby="ui-id-4" aria-selected="false" aria-expanded="false"><a href="#tabs-4" class="ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-4">Usage</a></li>
+	</ul>
+
+	<div id="tabs-2" aria-labelledby="ui-id-2" class="ui-tabs-panel ui-widget-content ui-corner-bottom" role="tabpanel" aria-hidden="false" style="display: block;">
+		<div class="">
+			<div class="row">
+				<div class="col-md-4">
+					<div class="form-group">
+				          <label>Record process:</label>
+				          <label id="joinRecordProcess" class="label_results"></label>
+				  	</div>
+				  	<div class="form-group">
+				          <label>Total Records:</label>
+				          <label id="joinRecordTotal" class="label_results"></label>
+				  	</div>
+				  	<div class="form-group">
+				          <label>Complete %:</label>
+				          <label id="joinRecordComplete" class="label_results"></label>
+				  	</div>
+				  	<div class="form-group">
+				          <label>Estimate Time:</label>
+				          <label id="estimatedTime" class="label_results"></label>
+				  	</div>
+
+				  	<div class="form-group">
+				          <button type="button" class="btn btn-primary" onClick="runNow('customscript_customizations_make_joinss','customdeploy_customizations_make_joinss')">Run Now</button>
+				  	</div>
+				  	
+				  	<div class="form-group date_content">
+				          <label>Date:</label>
+				          <input id="joinStartDate" type="text" class="form-control datepicker">
+				  	</div>
+
+				  	<div class="form-group time_content">
+				          <label>Time:</label>
+				          <select id="joinStartTime" class="form-control" placeholder="Time" name="time"></select>
+				  	</div>
+
+				  	<div class="form-group schedule_button">
+				          <button type="button" class="btn btn-primary" onClick="setSchedule('customdeploy_customizations_make_joinss2',document.getElementById('joinStartDate').value,document.getElementById('joinStartTime').value)">Schedule</button>
+				  	</div>
+
+			  	</div>
+
+			  	<div class="col-md-8">
+					<div class="form-group">
+              			<label class="label_width">Notes:</label>
+              			<textarea class="form-control" name="notes" rows="3"></textarea>
+          			</div>
+          			<div class="form-group">
+				          <button type="button" class="btn btn-primary" onClick="setToMinQueue('customdeploy_customizations_make_joinss');"><span class="glyphicon glyphicon-pencil"></span> Set Queue</button>
+				  	</div>
+			  	</div>
+
+		  	</div>
+      	</div>
+	</div>
+
+	<div id="tabs-1" aria-labelledby="ui-id-1" class="ui-tabs-panel ui-widget-content ui-corner-bottom" role="tabpanel" aria-hidden="true" style="display: none;">
+
+		<p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut tempus eros massa ut dolor. Aenean aliquet fringilla sem. Suspendisse sed ligula in ligula suscipit aliquam. Praesent in eros vestibulum mi adipiscing adipiscing. Morbi facilisis. Curabitur ornare consequat nunc. Aenean vel metus. Ut posuere viverra nulla. Aliquam erat volutpat. Pellentesque convallis. Maecenas feugiat, tellus pellentesque pretium posuere, felis lorem euismod felis, eu ornare leo nisi vel felis. Mauris consectetur tortor et purus.</p>
+
+	</div>
+
+	<div id="tabs-3" aria-labelledby="ui-id-3" class="ui-tabs-panel ui-widget-content ui-corner-bottom" role="tabpanel" aria-hidden="true" style="display: none;">
+	<div class="">
+			<div class="row">
+				<div class="col-md-4">
+					<div class="form-group">
+				          <label>Record process:</label>
+				          <label id="parserRecordProcess" class="label_results"></label>
+				  	</div>
+				  	<div class="form-group">
+				          <label>Total Records:</label>
+				          <label id="parserRecordTotal" class="label_results"></label>
+				  	</div>
+				  	<div class="form-group">
+				          <label>Complete %:</label>
+				          <label id="parserRecordComplete" class="label_results"></label>
+				  	</div>
+				  	<div class="form-group">
+				          <label>Estimate Time:</label>
+				          <label id="parserRecordestimate" class="label_results"></label>
+				  	</div>
+				  	<div class="form-group">
+				          <button type="button" class="btn btn-primary" onClick="runNow('customscript_flo_script_parser','customdeploy_flo_script_parser_od')">Run Now</button>
+				  	</div>
+				  	
+				  	<div class="form-group date_content">
+				          <label>Date:</label>
+				          <input type="text" class="form-control datepicker">
+				  	</div>
+
+				  	<div class="form-group time_content">
+				          <label>Time:</label>
+				          <select class="form-control" placeholder="Time" name="time"></select>
+				  	</div>
+
+				  	<div class="form-group schedule_button">
+				          <button type="button" class="btn btn-primary">Schedule</button>
+				  	</div>
+
+			  	</div>
+
+			  	<div class="col-md-8">
+					<div class="form-group">
+              			<label class="label_width">Notes:</label>
+              			<textarea class="form-control" name="notes" rows="3"></textarea>
+          			</div>
+          			<div class="form-group">
+				          <button type="button" class="btn btn-primary" onClick="setToMinQueue('customdeploy_flo_script_parser_od');"><span class="glyphicon glyphicon-pencil"></span> Set Queue</button>
+				  	</div>
+			  	</div>
+
+		  	</div>
+      	</div>
+
+	</div>
+
+	<div id="tabs-4" aria-labelledby="ui-id-4" class="ui-tabs-panel ui-widget-content ui-corner-bottom" role="tabpanel" aria-hidden="true" style="display: none;">
+
+			<div class="">
+			<div class="row">
+				<div class="col-md-4">
+					<div class="form-group">
+				          <label>Record process:</label>
+				          <label id="usageRecordProcess" class="label_results"></label>
+				  	</div>
+				  	<div class="form-group">
+				          <label>Total Records:</label>
+				          <label id="usageRecordTotal" class="label_results"></label>
+				  	</div>
+				  	<div class="form-group">
+				          <label>Complete %:</label>
+				          <label id="usageRecordCompelete" class="label_results"></label>
+				  	</div>
+				  	<div class="form-group">
+				          <label>Estimate Time:</label>
+				          <label id="usageRecordEstimated" class="label_results"></label>
+				  	</div>
+				  	<div class="form-group">
+				          <button type="button" class="btn btn-primary" onClick="runNow('customscript_update_field_metadata','customdeploy_update_field_metadata')">Run Now</button>
+				  	</div>
+				  
+				  	<div class="form-group date_content">
+				          <label>Date:</label>
+				          <input type="text" class="form-control datepicker">
+				  	</div>
+
+				  	<div class="form-group time_content">
+				          <label>Time:</label>
+				          <select class="form-control" placeholder="Time" name="time"></select>
+				  	</div>
+
+				  	<div class="form-group schedule_button">
+				          <button type="button" class="btn btn-primary">Schedule</button>
+				  	</div>
+
+			  	</div>
+
+			  	<div class="col-md-8">
+					<div class="form-group">
+              			<label class="label_width">Notes:</label>
+              			<textarea class="form-control" name="notes" rows="3"></textarea>
+          			</div>
+          			<div class="form-group">
+				          <button type="button" class="btn btn-primary" onClick="setToMinQueue('customdeploy_update_field_metadata');"><span class="glyphicon glyphicon-pencil"></span> Set Queue</button>
+				  	</div>
+			  	</div>
+
+		  	</div>
+      	</div>
+
+	</div>
+
+</div>
+
+</body>
+</html>

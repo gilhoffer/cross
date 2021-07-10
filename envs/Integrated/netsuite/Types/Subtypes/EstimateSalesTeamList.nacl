@@ -1,0 +1,11 @@
+type netsuite.EstimateSalesTeamList {
+  annotations {
+    hidden_string source {
+    }
+  }
+  "List<netsuite.EstimateSalesTeam>" salesTeam {
+  }
+  boolean replaceAll {
+    isAttribute = true
+  }
+}

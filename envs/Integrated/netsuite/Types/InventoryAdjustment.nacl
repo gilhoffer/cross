@@ -1,0 +1,47 @@
+type netsuite.InventoryAdjustment {
+  annotations {
+    hidden_string source {
+    }
+  }
+  netsuite.RecordRef postingPeriod {
+  }
+  string tranDate {
+  }
+  string createdDate {
+  }
+  string tranId {
+  }
+  string lastModifiedDate {
+  }
+  netsuite.Subsidiary subsidiary {
+  }
+  netsuite.Account account {
+  }
+  netsuite.RecordRef customForm {
+  }
+  number estimatedTotalValue {
+  }
+  netsuite.Customer customer {
+  }
+  netsuite.Department department {
+  }
+  netsuite.Classification class {
+  }
+  netsuite.Location adjLocation {
+  }
+  netsuite.Location location {
+  }
+  string memo {
+  }
+  netsuite.InventoryAdjustmentInventoryList inventoryList {
+  }
+  netsuite.AccountingBookDetailList accountingBookDetailList {
+  }
+  string internalId {
+    isAttribute = true
+    _hidden_value = true
+  }
+  string externalId {
+    isAttribute = true
+  }
+}

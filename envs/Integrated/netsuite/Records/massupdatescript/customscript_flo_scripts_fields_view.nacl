@@ -1,0 +1,25 @@
+netsuite.massupdatescript customscript_flo_scripts_fields_view {
+  scriptid = "customscript_flo_scripts_fields_view"
+  defaultfunction = "floScriptSearchFieldsView"
+  description = "Clean the search fields field to make it readable, adding new lines and spaces."
+  isinactive = false
+  name = "Strongpoint Script Search Fields View"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = netsuite.file.instance.SuiteBundles_Bundle_297487_FLOScriptSearchFieldsView_js@dsdv.path
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy1"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        isdeployed = true
+        loglevel = "AUDIT"
+        recordtype = netsuite.customrecordtype.instance.customrecord_flo_customization.scriptid
+        status = "RELEASED"
+      },
+    ]
+  }
+}

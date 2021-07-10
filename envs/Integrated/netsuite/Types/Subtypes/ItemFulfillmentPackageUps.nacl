@@ -1,0 +1,38 @@
+type netsuite.ItemFulfillmentPackageUps {
+  annotations {
+    hidden_string source {
+    }
+  }
+  number packageWeightUps {
+  }
+  string packageDescrUps {
+  }
+  string packageTrackingNumberUps {
+  }
+  string packagingUps {
+  }
+  boolean useInsuredValueUps {
+  }
+  number insuredValueUps {
+  }
+  string reference1Ups {
+  }
+  string reference2Ups {
+  }
+  number packageLengthUps {
+  }
+  number packageWidthUps {
+  }
+  number packageHeightUps {
+  }
+  boolean additionalHandlingUps {
+  }
+  boolean useCodUps {
+  }
+  number codAmountUps {
+  }
+  string codMethodUps {
+  }
+  string deliveryConfUps {
+  }
+}

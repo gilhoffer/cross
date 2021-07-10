@@ -1,0 +1,39 @@
+type netsuite.Currency {
+  annotations {
+    hidden_string source {
+    }
+  }
+  serviceid name {
+  }
+  string symbol {
+  }
+  boolean isBaseCurrency {
+  }
+  boolean isInactive {
+  }
+  boolean overrideCurrencyFormat {
+  }
+  string displaySymbol {
+  }
+  string symbolPlacement {
+  }
+  string locale {
+  }
+  string formatSample {
+  }
+  number exchangeRate {
+  }
+  string fxRateUpdateTimezone {
+  }
+  boolean inclInFxRateUpdates {
+  }
+  string currencyPrecision {
+  }
+  string internalId {
+    isAttribute = true
+    _hidden_value = true
+  }
+  string externalId {
+    isAttribute = true
+  }
+}

@@ -1,0 +1,8 @@
+type netsuite.SerializedInventoryItemNumbers {
+  annotations {
+    hidden_string source {
+    }
+  }
+  netsuite.RecordRef serialNumber {
+  }
+}

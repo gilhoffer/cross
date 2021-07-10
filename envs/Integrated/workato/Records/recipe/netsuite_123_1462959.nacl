@@ -1,0 +1,36 @@
+workato.recipe netsuite_123_1462959@su {
+  id = 1462959
+  user_id = 212128
+  name = "netsuite 123"
+  copy_count = 1
+  trigger_application = "netsuite"
+  action_applications = [
+    "salesforce",
+    "netsuite",
+  ]
+  applications = [
+    "netsuite",
+    "salesforce",
+  ]
+  description = "When there is a trigger event, do action"
+  folder_id = 318283
+  running = false
+  lifetime_task_count = 0
+  config = [
+    {
+      keyword = "application"
+      provider = "netsuite"
+      skip_validation = false
+      name = "netsuite"
+      account_id = workato.connection.instance.Test_NetSuite_account@s
+    },
+    {
+      keyword = "application"
+      provider = "salesforce"
+      skip_validation = false
+      name = "salesforce"
+      account_id = workato.connection.instance.Astar_s_sandbox@ts
+    },
+  ]
+  code = workato.recipe__code.instance.netsuite_123_1462959_su__updated_object@uumuuu
+}

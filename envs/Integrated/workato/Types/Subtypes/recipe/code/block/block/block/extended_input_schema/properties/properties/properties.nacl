@@ -1,0 +1,26 @@
+type workato.recipe__code__block__block__block__extended_input_schema__properties__properties__properties {
+  string name {
+  }
+  string type {
+  }
+  string of {
+  }
+  string label {
+  }
+  boolean optional {
+  }
+  string ns_ref_type {
+  }
+  string ns_content_type {
+  }
+  string ns_tag {
+  }
+  "List<workato.recipe__code__block__block__block__extended_input_schema__properties__properties__properties__properties>" properties {
+  }
+  string parse_output {
+  }
+  string parent {
+  }
+  string control_type {
+  }
+}

@@ -1,0 +1,26 @@
+netsuite.portlet customscript_flo_erdsrchform_flashl_2 {
+  scriptid = "customscript_flo_erdsrchform_flashl_2"
+  defaultfunction = "ERDSearchFormPortlet"
+  isinactive = false
+  name = "Strongpoint ERD Search Form (Flashlight)"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  portlettype = "FORM"
+  scriptfile = "[/SuiteBundles/Bundle 297487/FLOERDSearchFormPortlet-Flashlight.js]"
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy_flo_erdsrchform_flashlight"
+        allemployees = false
+        allpartners = false
+        allroles = false
+        audslctrole = "ADMINISTRATOR|[scriptid=customrole_flo_developer_role]|[scriptid=customrole_flo_flashlight]"
+        isdeployed = true
+        loglevel = "AUDIT"
+        status = "RELEASED"
+        title = "ERD Generator"
+      },
+    ]
+  }
+}

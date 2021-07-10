@@ -1,0 +1,141 @@
+    <!doctype html>
+    <html>
+
+    <head>
+
+<script src="JS/jquery-2.1.3.min.js"></script>
+         <script src="JS/Chart.bundle.js"></script>
+         <script src="JS/makeCharts.js"></script>
+         <link rel="stylesheet" type="text/css" href="CSS/bootstrap.min.css">
+         <link href="CSS/bootstrap-theme.css" rel="stylesheet" />
+<style>
+.bs-glyphicons {
+  margin-top: 3%;
+}
+div.uir-field-wrapper span.uir-label{
+display:grid!important;
+}
+li span.glyphicon{
+    float: left;
+    width: 100%;
+}
+
+.mylegend
+{
+    margin: 1% 0px;
+    float: left;
+    width: 100%;
+}
+ .mylegend ul li{
+               list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    text-align: left;
+    margin-right: 5%;
+   /* float: left;*/
+            }
+
+.mylegend li span {
+                display: block;
+                width: 14px;
+                height: 14px;
+                border-radius: 7px;
+                float: left;
+                margin-top: 4px;
+                margin-right: 8px;
+            }
+
+a.glyphicon-class{
+    float: left;
+    width: 100%;
+}
+
+.x-window-dlg .ext-mb-download {
+background:transparent url(c.TSTDRV1049933/suitebundle42711/FLODocs Enterprise/FLOChartPortlet/CSS/download.gif) no-repeat top left;height:46px;
+}
+
+
+
+.bs-glyphicons-list {
+  padding-left: 0;
+  list-style: none;
+}
+.bs-glyphicons li {
+  float: left;
+  width: 16%;
+  height: 115px;
+  padding: 10px;
+  font-size: 10px;
+  line-height: 1.4;
+  text-align: center;
+  border: 1px solid #fff;
+  list-style-type: none;
+}
+.bs-glyphicons .glyphicon {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  font-size: 34px;
+}
+/*.bs-glyphicons .glyphicon-class {
+  display: block;
+  text-align: center;
+  word-wrap: break-word; /* Help out IE10+ with class names */
+  font-size: 14px;
+}*/
+.bs-glyphicons li:hover {
+
+}
+canvas{
+position: relative;
+bottom: 0px;display: block;
+width: 204px!important;
+height: 184px!important;
+}
+.canvas_container{
+margin-left:10%;
+padding-left:20px;
+}
+.chart_big{
+position: relative;
+bottom: 0px;display: block;
+width: 284px!important;
+height: 284px!important;
+}
+</style>
+    </head>
+
+    <body>
+       <div class="row">
+         <div class="col-md-12"> 
+            <div id="canvas-place" style="width:100%">
+
+            </div>
+         </div>
+       </div>
+	   
+        <div class="row">
+         <div class="col-md-12" style="text-align: center;"> 
+              <div style="width: 100%">
+				Hover over charts for details.
+              </div>
+             </div>
+        </div>
+        <div class="row" style="margin-top: -25px;margin-bottom: 0px;">
+         <div class="col-md-12"> 
+              <div id="icons" class="bs-glyphicons" style="margin: 0px;"> 
+                 <ul class="bs-glyphicons-list" id="insert_icons"> 
+
+                    
+                  </ul>
+                </div>
+             </div>
+        </div>
+        
+
+</body>
+
+    </html>
+
+
+

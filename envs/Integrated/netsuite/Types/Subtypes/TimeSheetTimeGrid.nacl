@@ -1,0 +1,20 @@
+type netsuite.TimeSheetTimeGrid {
+  annotations {
+    hidden_string source {
+    }
+  }
+  netsuite.TimeEntry sunday {
+  }
+  netsuite.TimeEntry monday {
+  }
+  netsuite.TimeEntry tuesday {
+  }
+  netsuite.TimeEntry wednesday {
+  }
+  netsuite.TimeEntry thursday {
+  }
+  netsuite.TimeEntry friday {
+  }
+  netsuite.TimeEntry saturday {
+  }
+}

@@ -1,0 +1,33 @@
+netsuite.scheduledscript customscript_flashlight_reminder_adminss {
+  scriptid = "customscript_flashlight_reminder_adminss"
+  defaultfunction = "alertAdmins"
+  isinactive = false
+  name = "Strongpoint Reminder Admins SS"
+  notifyadmins = false
+  notifyowner = true
+  scriptfile = netsuite.file.instance.SuiteBundles_Bundle_297487_FLOAlertRemindersSS_js@dsdv.path
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy_flashlight_reminder_adminss"
+        isdeployed = true
+        loglevel = "AUDIT"
+        status = "NOTSCHEDULED"
+        title = "Strongpoint Reminder Admins SS"
+        recurrence = {
+          single = {
+            startdate = "2019-06-04"
+            starttime = "01:00:00Z"
+          }
+        }
+      },
+    ]
+  }
+  libraries = {
+    library = [
+      {
+        scriptfile = netsuite.file.instance.SuiteBundles_Bundle_297487_FlashlightPortlet_Library_js@dsduv.path
+      },
+    ]
+  }
+}

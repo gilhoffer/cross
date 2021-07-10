@@ -1,0 +1,111 @@
+type netsuite.VendorBill {
+  annotations {
+    hidden_string source {
+    }
+  }
+  string createdDate {
+  }
+  string lastModifiedDate {
+  }
+  netsuite.Nexus nexus {
+  }
+  netsuite.RecordRef subsidiaryTaxRegNum {
+  }
+  boolean taxRegOverride {
+  }
+  boolean taxDetailsOverride {
+  }
+  netsuite.RecordRef customForm {
+  }
+  netsuite.RecordRef billAddressList {
+  }
+  netsuite.Account account {
+  }
+  netsuite.RecordRef entity {
+  }
+  netsuite.Subsidiary subsidiary {
+  }
+  netsuite.RecordRef approvalStatus {
+  }
+  netsuite.RecordRef nextApprover {
+  }
+  string vatRegNum {
+  }
+  netsuite.RecordRef postingPeriod {
+  }
+  string tranDate {
+  }
+  string currencyName {
+  }
+  netsuite.Address billingAddress {
+  }
+  number exchangeRate {
+  }
+  netsuite.RecordRef entityTaxRegNum {
+  }
+  string taxPointDate {
+  }
+  netsuite.Term terms {
+  }
+  string dueDate {
+  }
+  string discountDate {
+  }
+  string tranId {
+  }
+  number userTotal {
+  }
+  number discountAmount {
+  }
+  number taxTotal {
+  }
+  boolean paymentHold {
+  }
+  string memo {
+  }
+  number tax2Total {
+  }
+  number creditLimit {
+  }
+  number availableVendorCredit {
+  }
+  netsuite.Currency currency {
+  }
+  netsuite.Classification class {
+  }
+  netsuite.Department department {
+  }
+  netsuite.Location location {
+  }
+  string status {
+  }
+  string landedCostMethod {
+  }
+  boolean landedCostPerLine {
+  }
+  string transactionNumber {
+  }
+  netsuite.VendorBillExpenseList expenseList {
+  }
+  netsuite.AccountingBookDetailList accountingBookDetailList {
+  }
+  netsuite.VendorBillItemList itemList {
+  }
+  netsuite.InstallmentList installmentList {
+  }
+  netsuite.PurchLandedCostList landedCostsList {
+  }
+  "List<netsuite.PurchaseOrder>" purchaseOrderList {
+  }
+  netsuite.TaxDetailsList taxDetailsList {
+  }
+  boolean overrideInstallments {
+  }
+  string internalId {
+    isAttribute = true
+    _hidden_value = true
+  }
+  string externalId {
+    isAttribute = true
+  }
+}

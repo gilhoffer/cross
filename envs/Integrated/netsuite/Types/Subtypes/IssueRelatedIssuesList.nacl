@@ -1,0 +1,11 @@
+type netsuite.IssueRelatedIssuesList {
+  annotations {
+    hidden_string source {
+    }
+  }
+  "List<netsuite.IssueRelatedIssues>" issueRelatedIssues {
+  }
+  boolean replaceAll {
+    isAttribute = true
+  }
+}

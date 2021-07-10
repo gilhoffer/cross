@@ -1,0 +1,249 @@
+type netsuite.CashRefund {
+  annotations {
+    hidden_string source {
+    }
+  }
+  string createdDate {
+  }
+  string lastModifiedDate {
+  }
+  netsuite.Nexus nexus {
+  }
+  netsuite.RecordRef subsidiaryTaxRegNum {
+  }
+  boolean taxRegOverride {
+  }
+  boolean taxDetailsOverride {
+  }
+  netsuite.RecordRef customForm {
+  }
+  netsuite.RecordRef entity {
+  }
+  string vatRegNum {
+  }
+  string tranDate {
+  }
+  string tranId {
+  }
+  netsuite.RecordRef entityTaxRegNum {
+  }
+  string taxPointDate {
+  }
+  string source {
+  }
+  netsuite.RecordRef createdFrom {
+  }
+  netsuite.RecordRef postingPeriod {
+  }
+  netsuite.Department department {
+  }
+  netsuite.Classification class {
+  }
+  netsuite.Location location {
+  }
+  netsuite.LeadSource leadSource {
+  }
+  netsuite.Subsidiary subsidiary {
+  }
+  netsuite.RecordRef salesRep {
+  }
+  netsuite.Partner partner {
+  }
+  string contribPct {
+  }
+  string otherRefNum {
+  }
+  string memo {
+  }
+  string salesEffectiveDate {
+  }
+  boolean refundCheck {
+  }
+  boolean toPrint2 {
+  }
+  boolean excludeCommission {
+  }
+  number totalCostEstimate {
+  }
+  number estGrossProfit {
+  }
+  number estGrossProfitPercent {
+  }
+  netsuite.Account account {
+  }
+  netsuite.Currency currency {
+  }
+  number exchangeRate {
+  }
+  string currencyName {
+  }
+  netsuite.RecordRef promoCode {
+  }
+  netsuite.DiscountItem discountItem {
+  }
+  string discountRate {
+  }
+  boolean isTaxable {
+  }
+  netsuite.RecordRef taxItem {
+  }
+  number taxRate {
+  }
+  boolean toBePrinted {
+  }
+  boolean toBeEmailed {
+  }
+  string email {
+  }
+  boolean toBeFaxed {
+  }
+  string fax {
+  }
+  netsuite.RecordRef messageSel {
+  }
+  string message {
+  }
+  netsuite.RecordRef paymentOption {
+  }
+  string inputAuthCode {
+  }
+  string inputReferenceCode {
+  }
+  string checkNumber {
+  }
+  string paymentCardCsc {
+  }
+  netsuite.RecordRef paymentProcessingProfile {
+  }
+  string handlingMode {
+  }
+  string outputAuthCode {
+  }
+  string outputReferenceCode {
+  }
+  string paymentOperation {
+  }
+  string dynamicDescriptor {
+  }
+  netsuite.Address billingAddress {
+  }
+  netsuite.RecordRef billAddressList {
+  }
+  netsuite.RecordRef shipMethod {
+  }
+  netsuite.RecordRef shippingTaxCode {
+  }
+  number shippingTax1Rate {
+  }
+  string shippingTax2Rate {
+  }
+  number shippingCost {
+  }
+  netsuite.RecordRef handlingTaxCode {
+  }
+  number handlingTax1Rate {
+  }
+  string handlingTax2Rate {
+  }
+  number handlingCost {
+  }
+  netsuite.RecordRef salesGroup {
+  }
+  boolean syncSalesTeams {
+  }
+  netsuite.PaymentMethod paymentMethod {
+  }
+  string revenueStatus {
+  }
+  number recognizedRevenue {
+  }
+  number deferredRevenue {
+  }
+  boolean revRecOnRevCommitment {
+  }
+  netsuite.RecordRef creditCard {
+  }
+  boolean chargeIt {
+  }
+  string ccNumber {
+  }
+  string ccExpireDate {
+  }
+  string ccName {
+  }
+  string ccStreet {
+  }
+  string ccZipCode {
+  }
+  boolean ccApproved {
+  }
+  netsuite.RecordRef creditCardProcessor {
+  }
+  string debitCardIssueNo {
+  }
+  string pnRefNum {
+  }
+  string validFrom {
+  }
+  string payPalTranId {
+  }
+  number subTotal {
+  }
+  boolean ccIsPurchaseCardBin {
+  }
+  number discountTotal {
+  }
+  boolean ccProcessAsPurchaseCard {
+  }
+  number taxTotal {
+  }
+  number tax2Total {
+  }
+  number altShippingCost {
+  }
+  string payPalStatus {
+  }
+  number altHandlingCost {
+  }
+  number total {
+  }
+  string payPalAuthId {
+  }
+  string status {
+  }
+  netsuite.Job job {
+  }
+  netsuite.RecordRef giftCert {
+  }
+  number giftCertTotal {
+  }
+  number giftCertApplied {
+  }
+  number giftCertAvailable {
+  }
+  boolean tranIsVsoeBundle {
+  }
+  boolean payPalProcess {
+  }
+  boolean vsoeAutoCalc {
+  }
+  boolean syncPartnerTeams {
+  }
+  netsuite.CashRefundItemList itemList {
+  }
+  netsuite.AccountingBookDetailList accountingBookDetailList {
+  }
+  netsuite.CashRefundSalesTeamList salesTeamList {
+  }
+  netsuite.CashRefundPartnersList partnersList {
+  }
+  netsuite.TaxDetailsList taxDetailsList {
+  }
+  string internalId {
+    isAttribute = true
+    _hidden_value = true
+  }
+  string externalId {
+    isAttribute = true
+  }
+}

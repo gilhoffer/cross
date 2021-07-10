@@ -1,0 +1,159 @@
+type netsuite.itemcustomfield_roleaccesses {
+  "List<netsuite.itemcustomfield_roleaccesses_roleaccess>" roleaccess {
+  }
+}
+type netsuite.itemcustomfield_roleaccesses_roleaccess {
+  string role {
+    _required = true
+  }
+  netsuite.generic_accesslevel_searchlevel accesslevel {
+    _required = true
+  }
+  netsuite.generic_accesslevel_searchlevel searchlevel {
+    _required = true
+  }
+}
+type netsuite.itemcustomfield_customfieldfilters {
+  "List<netsuite.itemcustomfield_customfieldfilters_customfieldfilter>" customfieldfilter {
+  }
+}
+type netsuite.itemcustomfield_customfieldfilters_customfieldfilter {
+  string fldfilter {
+    _required = true
+  }
+  boolean fldfilterchecked {
+  }
+  netsuite.generic_customfield_fldfiltercomparetype fldfiltercomparetype {
+  }
+  string fldfiltersel {
+  }
+  string fldfilterval {
+  }
+  boolean fldfilternotnull {
+  }
+  boolean fldfilternull {
+  }
+  string fldcomparefield {
+  }
+}
+type netsuite.itemcustomfield {
+  serviceid scriptid {
+    _required = true
+    isAttribute = true
+    _restriction = {
+      regex = "^custitem[0-9a-z_]+"
+    }
+  }
+  netsuite.generic_customfield_fieldtype fieldtype {
+    _required = true
+  }
+  string label {
+    _required = true
+    _restriction = {
+      max_length = 200
+    }
+  }
+  string selectrecordtype {
+  }
+  boolean applyformatting {
+  }
+  boolean defaultchecked {
+  }
+  string defaultselection {
+  }
+  string defaultvalue {
+  }
+  string description {
+  }
+  netsuite.generic_customfield_displaytype displaytype {
+  }
+  netsuite.generic_customfield_dynamicdefault dynamicdefault {
+  }
+  string help {
+  }
+  string linktext {
+  }
+  string minvalue {
+  }
+  string maxvalue {
+  }
+  boolean storevalue {
+  }
+  netsuite.generic_accesslevel_searchlevel accesslevel {
+  }
+  boolean checkspelling {
+  }
+  boolean encryptatrest {
+  }
+  number displayheight {
+  }
+  number displaywidth {
+  }
+  boolean globalsearch {
+  }
+  boolean isformula {
+  }
+  boolean ismandatory {
+  }
+  string maxlength {
+  }
+  netsuite.generic_customfield_onparentdelete onparentdelete {
+  }
+  netsuite.generic_standard_field searchcomparefield {
+  }
+  string searchdefault {
+  }
+  netsuite.generic_accesslevel_searchlevel searchlevel {
+  }
+  boolean showhierarchy {
+  }
+  boolean showinlist {
+  }
+  string sourcefilterby {
+  }
+  netsuite.generic_standard_field sourcefrom {
+  }
+  string sourcelist {
+  }
+  boolean isparent {
+  }
+  string parentsubtab {
+  }
+  string subtab {
+  }
+  boolean appliestogroup {
+  }
+  boolean appliestokit {
+  }
+  boolean appliestoinventory {
+  }
+  boolean appliestoitemassembly {
+  }
+  boolean appliestononinventory {
+  }
+  boolean appliestoothercharge {
+  }
+  boolean appliestopricelist {
+  }
+  boolean appliestoservice {
+  }
+  boolean appliestospecificitems {
+  }
+  boolean appliestosubplan {
+  }
+  boolean includechilditems {
+  }
+  boolean itemmatrix {
+  }
+  boolean ismhitemattribute {
+  }
+  netsuite.itemcustomfield_itemsubtype itemsubtype {
+  }
+  netsuite.itemcustomfield_customfieldfilters customfieldfilters {
+  }
+  netsuite.itemcustomfield_roleaccesses roleaccesses {
+  }
+  string _lastfetchtime {
+    _hidden_value = true
+  }
+}

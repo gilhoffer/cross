@@ -1,0 +1,13 @@
+netsuite.translationcollection custcollection_slt_language_collection {
+  scriptid = "custcollection_slt_language_collection"
+  defaultlanguage = "en-US"
+  name = "Language collection"
+  strings = {
+    string = [
+      {
+        scriptid = "eng"
+        defaulttranslation = "LANG"
+      },
+    ]
+  }
+}

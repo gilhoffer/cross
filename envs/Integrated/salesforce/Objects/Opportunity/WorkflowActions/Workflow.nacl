@@ -1,0 +1,12 @@
+salesforce.Workflow Opportunity {
+  fullName = "Opportunity"
+  alerts = [
+    salesforce.WorkflowAlert.instance.Opportunity_Opportunity_Health_Alert@vuu,
+  ]
+  rules = [
+    salesforce.WorkflowRule.instance.Opportunity_Opportunity_Health@vs,
+  ]
+  _parent = [
+    salesforce.Opportunity,
+  ]
+}

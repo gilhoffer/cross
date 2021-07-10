@@ -1,0 +1,11 @@
+type netsuite.EmployeeHrEducationList {
+  annotations {
+    hidden_string source {
+    }
+  }
+  "List<netsuite.EmployeeHrEducation>" employeeHrEducation {
+  }
+  boolean replaceAll {
+    isAttribute = true
+  }
+}

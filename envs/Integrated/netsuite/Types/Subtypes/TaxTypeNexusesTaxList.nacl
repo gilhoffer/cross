@@ -1,0 +1,11 @@
+type netsuite.TaxTypeNexusesTaxList {
+  annotations {
+    hidden_string source {
+    }
+  }
+  "List<netsuite.TaxTypeNexusesTax>" nexusesTax {
+  }
+  boolean replaceAll {
+    isAttribute = true
+  }
+}

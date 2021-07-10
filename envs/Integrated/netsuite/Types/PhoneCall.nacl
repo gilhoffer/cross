@@ -1,0 +1,63 @@
+type netsuite.PhoneCall {
+  annotations {
+    hidden_string source {
+    }
+  }
+  string message {
+  }
+  netsuite.RecordRef company {
+  }
+  netsuite.Contact contact {
+  }
+  netsuite.SupportCase supportCase {
+  }
+  netsuite.RecordRef transaction {
+  }
+  netsuite.RecordRef milestone {
+  }
+  netsuite.RecordRef customForm {
+  }
+  string title {
+  }
+  netsuite.RecordRef owner {
+  }
+  netsuite.RecordRef assigned {
+  }
+  boolean sendEmail {
+  }
+  string startDate {
+  }
+  string endDate {
+  }
+  boolean timedEvent {
+  }
+  string completedDate {
+  }
+  string phone {
+  }
+  string status {
+  }
+  string priority {
+  }
+  boolean accessLevel {
+  }
+  string reminderType {
+  }
+  string reminderMinutes {
+  }
+  string createdDate {
+  }
+  string lastModifiedDate {
+  }
+  netsuite.PhoneCallContactList contactList {
+  }
+  netsuite.PhoneCallTimeItemList timeItemList {
+  }
+  string internalId {
+    isAttribute = true
+    _hidden_value = true
+  }
+  string externalId {
+    isAttribute = true
+  }
+}

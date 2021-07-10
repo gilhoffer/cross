@@ -1,0 +1,11 @@
+type netsuite.OpportunityCompetitorsList {
+  annotations {
+    hidden_string source {
+    }
+  }
+  "List<netsuite.OpportunityCompetitors>" competitors {
+  }
+  boolean replaceAll {
+    isAttribute = true
+  }
+}

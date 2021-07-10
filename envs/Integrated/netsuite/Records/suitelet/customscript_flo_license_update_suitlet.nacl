@@ -1,0 +1,33 @@
+netsuite.suitelet customscript_flo_license_update_suitlet {
+  scriptid = "customscript_flo_license_update_suitlet"
+  defaultfunction = "FLOLicenseNumberUpdateSuitlet"
+  description = "Update the license number for a particular account."
+  isinactive = false
+  name = "Strongpoint License No. Update Suitelet"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = "[/SuiteBundles/Bundle 297487/FLOLicNumberUpdate.js]"
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy1"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        isdeployed = true
+        isonline = false
+        loglevel = "AUDIT"
+        status = "RELEASED"
+        title = "Strongpoint License Number Update Suitlet"
+      },
+    ]
+  }
+  libraries = {
+    library = [
+      {
+        scriptfile = "[/SuiteBundles/Bundle 297487/aes.js]"
+      },
+    ]
+  }
+}

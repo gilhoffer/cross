@@ -1,0 +1,12 @@
+netsuite.file SuiteBundles_Bundle_297487_FLODocs_Enterprise_FLO_Control_Folder_FLO_Employee_Global_Permission_Control_V2_0__Search__1516770253741_csv@dsdsdssdsssssvsjkuv {
+  bundleable = false
+  isinactive = false
+  availablewithoutlogin = false
+  generateurltimestamp = false
+  hideinbundle = false
+  path = "/SuiteBundles/Bundle 297487/FLODocs Enterprise/FLO Control Folder/FLO Employee Global Permission Control V2.0 (Search)_1516770253741.csv"
+  content = file("netsuite/FileCabinet/SuiteBundles/Bundle 297487/FLODocs Enterprise/FLO Control Folder/FLO Employee Global Permission Control V2.0 (Search)_1516770253741.csv")
+  _parent = [
+    netsuite.folder.instance.SuiteBundles_Bundle_297487_FLODocs_Enterprise_FLO_Control_Folder@dsdsdss,
+  ]
+}

@@ -1,0 +1,18 @@
+netsuite {
+  deployReferencedElements = false
+  skipList = {
+    types = {
+      dataset = [
+        ".*",
+      ]
+      savedsearch = [
+        ".*",
+      ]
+      workbook = [
+        ".*",
+      ]
+    }
+    filePaths = [
+    ]
+  }
+}

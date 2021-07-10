@@ -1,0 +1,35 @@
+netsuite.role customrole_flo_developer_role {
+  scriptid = "customrole_flo_developer_role"
+  centertype = "BASIC"
+  employeerestriction = "NONE"
+  employeeselectionunrestricted = false
+  isinactive = false
+  ispartnerrole = false
+  issalesrole = false
+  issinglesignononly = false
+  issupportrole = false
+  iswebserviceonlyrole = false
+  name = "Strongpoint Developer Role"
+  restrictbydevice = false
+  restricttimeandexpenses = false
+  subsidiaryoption = "OWN"
+  subsidiaryviewingallowed = false
+  tfaduration = "0"
+  tfarequired = "OFF"
+  permissions = {
+    permission = [
+      {
+        permkey = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.scriptid
+        permlevel = "FULL"
+      },
+      {
+        permkey = netsuite.customrecordtype.instance.customrecord_flo_customization.scriptid
+        permlevel = "FULL"
+      },
+      {
+        permkey = netsuite.customrecordtype.instance.customrecord_flo_spider_log.scriptid
+        permlevel = "VIEW"
+      },
+    ]
+  }
+}

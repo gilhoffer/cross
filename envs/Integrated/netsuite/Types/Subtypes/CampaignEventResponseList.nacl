@@ -1,0 +1,11 @@
+type netsuite.CampaignEventResponseList {
+  annotations {
+    hidden_string source {
+    }
+  }
+  "List<netsuite.CampaignEventResponse>" eventResponse {
+  }
+  boolean replaceAll {
+    isAttribute = true
+  }
+}

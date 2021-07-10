@@ -1,0 +1,26 @@
+netsuite.suitelet customscript_flo_report_spider {
+  scriptid = "customscript_flo_report_spider"
+  defaultfunction = "floSpiderReport"
+  isinactive = false
+  name = "Strongpoint Report Spider"
+  notifyadmins = false
+  notifyowner = false
+  notifyuser = false
+  scriptfile = netsuite.file.instance.SuiteBundles_Bundle_297487_reportSpider_js@dsdv.path
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy_flo_report_spider"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        isdeployed = true
+        isonline = false
+        loglevel = "AUDIT"
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+        title = "Strongpoint Report Spider"
+      },
+    ]
+  }
+}

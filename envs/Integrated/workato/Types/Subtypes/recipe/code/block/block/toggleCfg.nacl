@@ -1,0 +1,8 @@
+type workato.recipe__code__block__block__toggleCfg {
+  boolean itemList.item.isTaxable {
+  }
+  boolean isTaxable {
+  }
+  boolean StageName {
+  }
+}

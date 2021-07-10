@@ -1,0 +1,40 @@
+type workato.recipe__code__block__block__block__input {
+  string netsuite_object {
+  }
+  string displayName {
+  }
+  string storeDisplayName {
+  }
+  string external_id {
+  }
+  string itemId {
+  }
+  string sobject_name {
+  }
+  string id {
+  }
+  string Name {
+  }
+  workato.recipe__code__block__block__block__input__query_field query_field {
+  }
+  string ApexClassId {
+  }
+  string Outcome {
+  }
+  string Id {
+  }
+  string TestTimestamp {
+  }
+  string type {
+  }
+  string operand {
+  }
+  "List<workato.recipe__code__block__block__block__input__conditions>" conditions {
+  }
+  string DemoSaltoDate__c {
+  }
+  string Phone {
+  }
+  string Type {
+  }
+}

@@ -1,0 +1,36 @@
+workato.recipe Salesforce_Opportunity_triggers_Account_Billing_Address_update_from_Netsuite_Customer_1462956@sssssssssu {
+  id = 1462956
+  user_id = 212128
+  name = "Salesforce Opportunity triggers Account Billing Address update from Netsuite Customer"
+  copy_count = 1
+  trigger_application = "salesforce"
+  action_applications = [
+    "netsuite",
+    "salesforce",
+  ]
+  applications = [
+    "salesforce",
+    "netsuite",
+  ]
+  description = "Keep the Salesforce account synced with the Netsuite custom city"
+  folder_id = 318283
+  running = false
+  lifetime_task_count = 0
+  config = [
+    {
+      keyword = "application"
+      provider = "salesforce"
+      skip_validation = false
+      name = "salesforce"
+      account_id = workato.connection.instance.Astar_s_sandbox@ts
+    },
+    {
+      keyword = "application"
+      provider = "netsuite"
+      skip_validation = false
+      name = "netsuite"
+      account_id = workato.connection.instance.Test_NetSuite_account@s
+    },
+  ]
+  code = workato.recipe__code.instance.Salesforce_Opportunity_triggers_Account_Billing_Address_update_from_Netsuite_Customer_1462956_sssssssssu__updated_custom_object@uuuuuuuuuumuuuu
+}

@@ -1,0 +1,44 @@
+netsuite.scheduledscript customscript_flo_cleanup_recforms_wo_par {
+  scriptid = "customscript_flo_cleanup_recforms_wo_par"
+  defaultfunction = "setParentToEntryForms"
+  isinactive = false
+  name = "Strongpoint Cleanup Rec Forms w/o Parent"
+  notifyadmins = false
+  notifyowner = true
+  scriptfile = netsuite.file.instance.SuiteBundles_Bundle_297487_FLOCleanUpRecordFormsWithoutParent_js@dsdv.path
+  scriptcustomfields = {
+    scriptcustomfield = [
+      {
+        scriptid = "custscript_flo_last_eform_recid"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "TEXT"
+        isformula = false
+        ismandatory = false
+        label = "Last Rec Id"
+        searchlevel = "2"
+        storevalue = true
+      },
+    ]
+  }
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy_flo_cleanup_recforms_wo_par"
+        isdeployed = true
+        loglevel = "AUDIT"
+        status = "NOTSCHEDULED"
+        title = "Strongpoint Cleanup Rec Forms w/o Parent"
+        recurrence = {
+          single = {
+            startdate = "2017-07-21"
+            starttime = "01:00:00Z"
+          }
+        }
+      },
+    ]
+  }
+}

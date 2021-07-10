@@ -1,0 +1,58 @@
+netsuite.scheduledscript customscript_flo_fix_stdrecord_names {
+  scriptid = "customscript_flo_fix_stdrecord_names"
+  defaultfunction = "cleanStandardRecordNames"
+  isinactive = false
+  name = "Strongpoint Fix Standard Record Names"
+  notifyadmins = false
+  notifyowner = true
+  scriptfile = netsuite.file.instance.SuiteBundles_Bundle_297487_CleanStandardRecordNames_js@dsdv.path
+  scriptcustomfields = {
+    scriptcustomfield = [
+      {
+        scriptid = "custscript_flo_stdrecord_id"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        displaywidth = 40
+        fieldtype = "TEXT"
+        isformula = false
+        ismandatory = false
+        label = "Last Rec ID"
+        searchlevel = "2"
+        storevalue = true
+      },
+    ]
+  }
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy_flo_clean_stdnames1"
+        isdeployed = true
+        loglevel = "DEBUG"
+        status = "NOTSCHEDULED"
+        title = "Strongpoint Fix Standard Record Names"
+        recurrence = {
+          single = {
+            startdate = "2017-11-13"
+            starttime = "02:00:00Z"
+          }
+        }
+      },
+      {
+        scriptid = "customdeploy_flo_clean_stdnames2"
+        isdeployed = true
+        loglevel = "DEBUG"
+        status = "NOTSCHEDULED"
+        title = "Strongpoint Handle Duplicate Standard Records"
+        recurrence = {
+          single = {
+            startdate = "2017-11-13"
+            starttime = "02:00:00Z"
+          }
+        }
+      },
+    ]
+  }
+}

@@ -1,0 +1,45 @@
+netsuite.suitelet customscript_flo_enterprise_suitelet_sch {
+  scriptid = "customscript_flo_enterprise_suitelet_sch"
+  defaultfunction = "FLOProcessAsst"
+  isinactive = false
+  name = "Strongpoint Enterprise Suitelet Fm Srch"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = "[/SuiteBundles/Bundle 297487/FLODocsSuitelet_fromsearchform.js]"
+  scriptcustomfields = {
+    scriptcustomfield = [
+      {
+        scriptid = "custscript_flo_entry_stage2"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        displaywidth = 40
+        fieldtype = "TEXT"
+        isformula = false
+        ismandatory = false
+        label = "FLO Entry Stage"
+        searchlevel = "2"
+        storevalue = true
+      },
+    ]
+  }
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy_flo_erd_entry_search"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        isdeployed = true
+        isonline = false
+        loglevel = "DEBUG"
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+        title = "Strongpoint Enterprise Suitelet From Search"
+      },
+    ]
+  }
+}

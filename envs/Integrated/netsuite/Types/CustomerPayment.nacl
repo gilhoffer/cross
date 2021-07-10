@@ -1,0 +1,143 @@
+type netsuite.CustomerPayment {
+  annotations {
+    hidden_string source {
+    }
+  }
+  string createdDate {
+  }
+  string lastModifiedDate {
+  }
+  netsuite.RecordRef customForm {
+  }
+  netsuite.Account arAcct {
+  }
+  netsuite.Customer customer {
+  }
+  number balance {
+  }
+  number pending {
+  }
+  netsuite.Currency currency {
+  }
+  number payment {
+  }
+  boolean autoApply {
+  }
+  string tranDate {
+  }
+  string tranId {
+  }
+  netsuite.RecordRef postingPeriod {
+  }
+  netsuite.PaymentMethod paymentMethod {
+  }
+  boolean ccIsPurchaseCardBin {
+  }
+  string memo {
+  }
+  boolean ccProcessAsPurchaseCard {
+  }
+  string checkNum {
+  }
+  string currencyName {
+  }
+  number exchangeRate {
+  }
+  netsuite.RecordRef creditCard {
+  }
+  boolean chargeIt {
+  }
+  string ccNumber {
+  }
+  string ccExpireDate {
+  }
+  string ccName {
+  }
+  string ccStreet {
+  }
+  string ccZipCode {
+  }
+  boolean ccApproved {
+  }
+  string authCode {
+  }
+  string ccAvsStreetMatch {
+  }
+  string ccAvsZipMatch {
+  }
+  boolean isRecurringPayment {
+  }
+  string ccSecurityCode {
+  }
+  boolean ignoreAvs {
+  }
+  string ccSecurityCodeMatch {
+  }
+  string threeDStatusCode {
+  }
+  string pnRefNum {
+  }
+  netsuite.RecordRef creditCardProcessor {
+  }
+  string debitCardIssueNo {
+  }
+  string validFrom {
+  }
+  boolean undepFunds {
+  }
+  netsuite.Account account {
+  }
+  number total {
+  }
+  netsuite.Subsidiary subsidiary {
+  }
+  number applied {
+  }
+  number unapplied {
+  }
+  netsuite.Classification class {
+  }
+  netsuite.Department department {
+  }
+  netsuite.Location location {
+  }
+  netsuite.RecordRef paymentOption {
+  }
+  string inputAuthCode {
+  }
+  string inputReferenceCode {
+  }
+  string checkNumber {
+  }
+  string paymentCardCsc {
+  }
+  netsuite.RecordRef paymentProcessingProfile {
+  }
+  string handlingMode {
+  }
+  string outputAuthCode {
+  }
+  string outputReferenceCode {
+  }
+  string paymentOperation {
+  }
+  string dynamicDescriptor {
+  }
+  string status {
+  }
+  netsuite.CustomerPaymentApplyList applyList {
+  }
+  netsuite.CustomerPaymentCreditList creditList {
+  }
+  netsuite.CustomerPaymentDepositList depositList {
+  }
+  netsuite.AccountingBookDetailList accountingBookDetailList {
+  }
+  string internalId {
+    isAttribute = true
+    _hidden_value = true
+  }
+  string externalId {
+    isAttribute = true
+  }
+}

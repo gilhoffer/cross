@@ -1,0 +1,43 @@
+netsuite.workflow customworkflow_flo_init_lic_rec {
+  scriptid = "customworkflow_flo_init_lic_rec"
+  description = "Initializes the License Record during Install/Update Bundle."
+  initoncreate = false
+  initonvieworupdate = false
+  isinactive = false
+  islogenabled = false
+  keephistory = "ONLYWHENTESTING"
+  name = "Strongpoint Initialize License Record"
+  recordtypes = "[scriptid=customrecord_flo_license]"
+  releasestatus = "NOTINITIATING"
+  runasadmin = true
+  initcondition = {
+    type = "VISUAL_BUILDER"
+  }
+  workflowstates = {
+    workflowstate = [
+      {
+        scriptid = "workflowstate415"
+        donotexitworkflow = false
+        name = "Get License From Production"
+        positionx = 243
+        positiony = 133
+        workflowactions = [
+          {
+            triggertype = "ONENTRY"
+            customaction = [
+              {
+                scriptid = "workflowaction1235"
+                isinactive = false
+                schedulemode = "DELAY"
+                scripttype = netsuite.workflowactionscript.instance.customscript_flo_get_lic_from_prod.scriptid
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+              },
+            ]
+          },
+        ]
+      },
+    ]
+  }
+}

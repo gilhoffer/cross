@@ -1,0 +1,35 @@
+workato.recipe Netsuite_new_address_info_record_triggers_Salesforce_account_update_1462953@ssssssssu {
+  id = 1462953
+  user_id = 212128
+  name = "Netsuite new address info record triggers Salesforce account update"
+  copy_count = 1
+  trigger_application = "netsuite"
+  action_applications = [
+    "salesforce",
+  ]
+  applications = [
+    "netsuite",
+    "salesforce",
+  ]
+  description = "When there is a trigger event, do action"
+  folder_id = 318283
+  running = false
+  lifetime_task_count = 0
+  config = [
+    {
+      keyword = "application"
+      provider = "netsuite"
+      skip_validation = false
+      name = "netsuite"
+      account_id = workato.connection.instance.Test_NetSuite_account@s
+    },
+    {
+      keyword = "application"
+      provider = "salesforce"
+      skip_validation = false
+      name = "salesforce"
+      account_id = workato.connection.instance.Astar_s_sandbox@ts
+    },
+  ]
+  code = workato.recipe__code.instance.Netsuite_new_address_info_record_triggers_Salesforce_account_update_1462953_ssssssssu__new_custom_object@uuuuuuuuumuuuu
+}

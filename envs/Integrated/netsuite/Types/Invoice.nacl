@@ -1,0 +1,299 @@
+type netsuite.Invoice {
+  annotations {
+    hidden_string source {
+    }
+  }
+  string createdDate {
+  }
+  string lastModifiedDate {
+  }
+  netsuite.Nexus nexus {
+  }
+  netsuite.RecordRef subsidiaryTaxRegNum {
+  }
+  boolean taxRegOverride {
+  }
+  boolean taxDetailsOverride {
+  }
+  netsuite.RecordRef customForm {
+  }
+  netsuite.RecordRef nextApprover {
+  }
+  netsuite.RecordRef entity {
+  }
+  netsuite.BillingAccount billingAccount {
+  }
+  boolean recurringBill {
+  }
+  string tranDate {
+  }
+  string tranId {
+  }
+  netsuite.RecordRef entityTaxRegNum {
+  }
+  string taxPointDate {
+  }
+  string source {
+  }
+  netsuite.RecordRef createdFrom {
+  }
+  netsuite.RecordRef postingPeriod {
+  }
+  netsuite.Opportunity opportunity {
+  }
+  netsuite.Department department {
+  }
+  netsuite.Classification class {
+  }
+  netsuite.Term terms {
+  }
+  netsuite.Location location {
+  }
+  netsuite.Subsidiary subsidiary {
+  }
+  netsuite.Currency currency {
+  }
+  string dueDate {
+  }
+  string discountDate {
+  }
+  number discountAmount {
+  }
+  netsuite.RecordRef salesRep {
+  }
+  string contribPct {
+  }
+  netsuite.Partner partner {
+  }
+  netsuite.LeadSource leadSource {
+  }
+  string startDate {
+  }
+  string endDate {
+  }
+  string otherRefNum {
+  }
+  string memo {
+  }
+  string salesEffectiveDate {
+  }
+  boolean excludeCommission {
+  }
+  number totalCostEstimate {
+  }
+  number estGrossProfit {
+  }
+  number estGrossProfitPercent {
+  }
+  netsuite.RecordRef revRecSchedule {
+  }
+  string revRecStartDate {
+  }
+  string revRecEndDate {
+  }
+  number amountPaid {
+  }
+  number amountRemaining {
+  }
+  number balance {
+  }
+  netsuite.Account account {
+  }
+  string onCreditHold {
+  }
+  number exchangeRate {
+  }
+  string currencyName {
+  }
+  netsuite.RecordRef promoCode {
+  }
+  netsuite.DiscountItem discountItem {
+  }
+  string discountRate {
+  }
+  boolean isTaxable {
+  }
+  netsuite.RecordRef taxItem {
+  }
+  number taxRate {
+  }
+  boolean toBePrinted {
+  }
+  boolean toBeEmailed {
+  }
+  boolean toBeFaxed {
+  }
+  string fax {
+  }
+  netsuite.RecordRef messageSel {
+  }
+  string message {
+  }
+  netsuite.Address billingAddress {
+  }
+  netsuite.RecordRef billAddressList {
+  }
+  netsuite.Address shippingAddress {
+  }
+  boolean shipIsResidential {
+  }
+  netsuite.RecordRef shipAddressList {
+  }
+  string fob {
+  }
+  string shipDate {
+  }
+  netsuite.RecordRef shipMethod {
+  }
+  number shippingCost {
+  }
+  number shippingTax1Rate {
+  }
+  string shippingTax2Rate {
+  }
+  netsuite.RecordRef shippingTaxCode {
+  }
+  netsuite.RecordRef handlingTaxCode {
+  }
+  number handlingTax1Rate {
+  }
+  number handlingCost {
+  }
+  string handlingTax2Rate {
+  }
+  string trackingNumbers {
+  }
+  string linkedTrackingNumbers {
+  }
+  netsuite.RecordRef salesGroup {
+  }
+  number subTotal {
+  }
+  boolean canHaveStackable {
+  }
+  string revenueStatus {
+  }
+  number recognizedRevenue {
+  }
+  number deferredRevenue {
+  }
+  boolean revRecOnRevCommitment {
+  }
+  boolean syncSalesTeams {
+  }
+  number discountTotal {
+  }
+  number taxTotal {
+  }
+  number altShippingCost {
+  }
+  number altHandlingCost {
+  }
+  number total {
+  }
+  string status {
+  }
+  netsuite.Job job {
+  }
+  netsuite.RecordRef billingSchedule {
+  }
+  string email {
+  }
+  number tax2Total {
+  }
+  string vatRegNum {
+  }
+  netsuite.RecordRef expCostDiscount {
+  }
+  netsuite.RecordRef itemCostDiscount {
+  }
+  netsuite.RecordRef timeDiscount {
+  }
+  string expCostDiscRate {
+  }
+  string itemCostDiscRate {
+  }
+  string timeDiscRate {
+  }
+  number expCostDiscAmount {
+  }
+  number expCostTaxRate1 {
+  }
+  number expCostTaxRate2 {
+  }
+  number itemCostDiscAmount {
+  }
+  netsuite.RecordRef expCostTaxCode {
+  }
+  number expCostDiscTax1Amt {
+  }
+  number itemCostTaxRate1 {
+  }
+  number timeDiscAmount {
+  }
+  netsuite.RecordRef itemCostTaxCode {
+  }
+  boolean expCostDiscTaxable {
+  }
+  boolean itemCostDiscTaxable {
+  }
+  number itemCostTaxRate2 {
+  }
+  number itemCostDiscTax1Amt {
+  }
+  boolean itemCostDiscPrint {
+  }
+  boolean timeDiscTaxable {
+  }
+  number timeTaxRate1 {
+  }
+  boolean expCostDiscPrint {
+  }
+  netsuite.RecordRef timeTaxCode {
+  }
+  boolean timeDiscPrint {
+  }
+  number giftCertApplied {
+  }
+  number timeDiscTax1Amt {
+  }
+  boolean tranIsVsoeBundle {
+  }
+  number timeTaxRate2 {
+  }
+  boolean vsoeAutoCalc {
+  }
+  boolean syncPartnerTeams {
+  }
+  netsuite.InvoiceSalesTeamList salesTeamList {
+  }
+  netsuite.InvoicePartnersList partnersList {
+  }
+  netsuite.InvoiceItemList itemList {
+  }
+  netsuite.InvoiceItemCostList itemCostList {
+  }
+  netsuite.GiftCertRedemptionList giftCertRedemptionList {
+  }
+  netsuite.PromotionsList promotionsList {
+  }
+  netsuite.InvoiceExpCostList expCostList {
+  }
+  netsuite.InvoiceTimeList timeList {
+  }
+  netsuite.InvoiceShipGroupList shipGroupList {
+  }
+  netsuite.RecordRef approvalStatus {
+  }
+  netsuite.AccountingBookDetailList accountingBookDetailList {
+  }
+  netsuite.TaxDetailsList taxDetailsList {
+  }
+  string internalId {
+    isAttribute = true
+    _hidden_value = true
+  }
+  string externalId {
+    isAttribute = true
+  }
+}

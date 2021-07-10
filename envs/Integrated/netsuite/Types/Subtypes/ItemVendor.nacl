@@ -1,0 +1,22 @@
+type netsuite.ItemVendor {
+  annotations {
+    hidden_string source {
+    }
+  }
+  netsuite.Vendor vendor {
+  }
+  string vendorCode {
+  }
+  string vendorCurrencyName {
+  }
+  netsuite.Currency vendorCurrency {
+  }
+  number purchasePrice {
+  }
+  boolean preferredVendor {
+  }
+  netsuite.RecordRef schedule {
+  }
+  netsuite.Subsidiary subsidiary {
+  }
+}

@@ -1,0 +1,10 @@
+type netsuite.TopicSolution {
+  annotations {
+    hidden_string source {
+    }
+  }
+  netsuite.Solution solution {
+  }
+  string message {
+  }
+}

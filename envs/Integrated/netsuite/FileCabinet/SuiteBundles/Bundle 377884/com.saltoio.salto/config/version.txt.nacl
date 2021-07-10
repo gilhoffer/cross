@@ -1,0 +1,12 @@
+netsuite.file SuiteBundles_Bundle_377884_com_saltoio_salto_config_version_txt@dsdvvddv {
+  bundleable = false
+  isinactive = false
+  availablewithoutlogin = false
+  generateurltimestamp = false
+  hideinbundle = false
+  path = "/SuiteBundles/Bundle 377884/com.saltoio.salto/config/version.txt"
+  content = file("netsuite/FileCabinet/SuiteBundles/Bundle 377884/com.saltoio.salto/config/version.txt")
+  _parent = [
+    netsuite.folder.instance.SuiteBundles_Bundle_377884_com_saltoio_salto_config@dsdvvd,
+  ]
+}

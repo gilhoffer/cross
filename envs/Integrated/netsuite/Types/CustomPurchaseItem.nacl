@@ -1,0 +1,58 @@
+type netsuite.CustomPurchaseItem {
+  annotations {
+    hidden_string source {
+    }
+  }
+  netsuite.RecordRef item {
+  }
+  string vendorName {
+  }
+  number line {
+  }
+  number quantity {
+  }
+  netsuite.RecordRef units {
+  }
+  netsuite.InventoryDetail inventoryDetail {
+  }
+  string description {
+  }
+  string serialNumbers {
+  }
+  string binNumbers {
+  }
+  number grossAmt {
+  }
+  string rate {
+  }
+  number amount {
+  }
+  netsuite.Department department {
+  }
+  netsuite.Classification class {
+  }
+  netsuite.Location location {
+  }
+  netsuite.RecordRef landedCostCategory {
+  }
+  netsuite.Customer customer {
+  }
+  boolean isBillable {
+  }
+  string billVarianceStatus {
+  }
+  netsuite.RecordRef amortizationSched {
+  }
+  string amortizStartDate {
+  }
+  string amortizationEndDate {
+  }
+  string amortizationResidual {
+  }
+  number taxAmount {
+  }
+  string taxDetailsReference {
+  }
+  netsuite.LandedCost landedCost {
+  }
+}

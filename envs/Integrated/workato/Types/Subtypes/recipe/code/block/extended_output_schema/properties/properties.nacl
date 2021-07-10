@@ -1,0 +1,40 @@
+type workato.recipe__code__block__extended_output_schema__properties__properties {
+  string control_type {
+  }
+  string label {
+  }
+  boolean optional {
+  }
+  string ns_content_type {
+  }
+  string ns_tag {
+  }
+  string type {
+  }
+  string name {
+  }
+  string of {
+  }
+  string ns_ref_type {
+  }
+  "List<workato.recipe__code__block__extended_output_schema__properties__properties__properties>" properties {
+  }
+  unknown parse_output {
+  }
+  unknown render_input {
+  }
+  string toggle_hint {
+  }
+  workato.recipe__code__block__extended_output_schema__properties__properties__toggle_field toggle_field {
+  }
+  string ns_custom_type {
+  }
+  string ns_search_type {
+  }
+  boolean custom {
+  }
+  boolean sticky {
+  }
+  "List<List<string>>" pick_list {
+  }
+}

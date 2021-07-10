@@ -1,0 +1,11 @@
+type netsuite.CustomerDownloadList {
+  annotations {
+    hidden_string source {
+    }
+  }
+  "List<netsuite.CustomerDownload>" download {
+  }
+  boolean replaceAll {
+    isAttribute = true
+  }
+}

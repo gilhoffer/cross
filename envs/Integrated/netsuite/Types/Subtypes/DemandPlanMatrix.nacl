@@ -1,0 +1,11 @@
+type netsuite.DemandPlanMatrix {
+  annotations {
+    hidden_string source {
+    }
+  }
+  "List<netsuite.DemandPlan>" demandPlan {
+  }
+  boolean replaceAll {
+    isAttribute = true
+  }
+}

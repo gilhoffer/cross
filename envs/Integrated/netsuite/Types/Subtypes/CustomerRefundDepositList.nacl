@@ -1,0 +1,11 @@
+type netsuite.CustomerRefundDepositList {
+  annotations {
+    hidden_string source {
+    }
+  }
+  "List<netsuite.CustomerRefundDeposit>" customerRefundDeposit {
+  }
+  boolean replaceAll {
+    isAttribute = true
+  }
+}

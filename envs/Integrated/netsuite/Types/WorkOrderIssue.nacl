@@ -1,0 +1,49 @@
+type netsuite.WorkOrderIssue {
+  annotations {
+    hidden_string source {
+    }
+  }
+  string createdDate {
+  }
+  string lastModifiedDate {
+  }
+  netsuite.RecordRef customForm {
+  }
+  string tranId {
+  }
+  netsuite.RecordRef item {
+  }
+  netsuite.RecordRef createdFrom {
+  }
+  string tranDate {
+  }
+  netsuite.RecordRef postingPeriod {
+  }
+  string memo {
+  }
+  netsuite.Subsidiary subsidiary {
+  }
+  netsuite.Department department {
+  }
+  netsuite.Classification class {
+  }
+  netsuite.Location location {
+  }
+  netsuite.RecordRef revision {
+  }
+  netsuite.ManufacturingRouting manufacturingRouting {
+  }
+  netsuite.RecordRef startOperation {
+  }
+  netsuite.RecordRef endOperation {
+  }
+  netsuite.WorkOrderIssueComponentList componentList {
+  }
+  string internalId {
+    isAttribute = true
+    _hidden_value = true
+  }
+  string externalId {
+    isAttribute = true
+  }
+}

@@ -1,0 +1,49 @@
+netsuite.usereventscript customscript_flo_license_number_setup {
+  scriptid = "customscript_flo_license_number_setup"
+  beforesubmitfunction = "FLOLicenseNumberUpdate"
+  description = "set the license number in the license record after a new number is issue."
+  isinactive = true
+  name = "Strongpoint License Number setup"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = "[/SuiteBundles/Bundle 297487/FLOLicNumberUpdate.js]"
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy1"
+        allemployees = false
+        alllocalizationcontexts = true
+        allpartners = false
+        allroles = true
+        executioncontext = "ACTION|ADVANCEDREVREC|BANKCONNECTIVITY|BANKSTATEMENTPARSER|BUNDLEINSTALLATION|CLIENT|CONSOLRATEADJUSTOR|CSVIMPORT|CUSTOMGLLINES|CUSTOMMASSUPDATE|DATASETBUILDER|DEBUGGER|EMAILCAPTURE|FICONNECTIVITY|FIPARSER|MAPREDUCE|OTHER|PAYMENTGATEWAY|PAYMENTPOSTBACK|PLATFORMEXTENSION|PORTLET|PROMOTIONS|RECORDACTION|RESTLET|SCHEDULED|SDFINSTALLATION|SHIPPINGPARTNERS|SUITELET|TAXCALCULATION|USEREVENT|USERINTERFACE|WEBAPPLICATION|WEBSERVICES|WORKBOOKBUILDER|WORKFLOW"
+        isdeployed = false
+        loglevel = "AUDIT"
+        recordtype = "[scriptid=customrecord_flo_license]"
+        status = "RELEASED"
+      },
+    ]
+  }
+  libraries = {
+    library = [
+      {
+        scriptfile = "[/SuiteBundles/Bundle 297487/aes.js]"
+      },
+      {
+        scriptfile = "[/SuiteBundles/Bundle 297487/aesprng.js]"
+      },
+      {
+        scriptfile = "[/SuiteBundles/Bundle 297487/md5.js]"
+      },
+      {
+        scriptfile = "[/SuiteBundles/Bundle 297487/entropy.js]"
+      },
+      {
+        scriptfile = "[/SuiteBundles/Bundle 297487/rijndael.js]"
+      },
+      {
+        scriptfile = "[/SuiteBundles/Bundle 297487/jsEncryp.js]"
+      },
+    ]
+  }
+}

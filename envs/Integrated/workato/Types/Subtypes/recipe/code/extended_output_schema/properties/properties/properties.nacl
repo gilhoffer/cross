@@ -1,0 +1,26 @@
+type workato.recipe__code__extended_output_schema__properties__properties__properties {
+  string control_type {
+  }
+  string label {
+  }
+  boolean optional {
+  }
+  string ns_content_type {
+  }
+  string ns_tag {
+  }
+  string type {
+  }
+  string name {
+  }
+  "List<List<string>>" pick_list {
+  }
+  string toggle_hint {
+  }
+  workato.recipe__code__extended_output_schema__properties__properties__properties__toggle_field toggle_field {
+  }
+  string render_input {
+  }
+  string parse_output {
+  }
+}

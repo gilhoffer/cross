@@ -1,0 +1,36 @@
+type netsuite.CheckExpense {
+  annotations {
+    hidden_string source {
+    }
+  }
+  number line {
+  }
+  netsuite.RecordRef category {
+  }
+  netsuite.Account account {
+  }
+  number amount {
+  }
+  string memo {
+  }
+  netsuite.Department department {
+  }
+  netsuite.Classification class {
+  }
+  netsuite.Location location {
+  }
+  netsuite.Customer customer {
+  }
+  boolean isBillable {
+  }
+  netsuite.RecordRef taxCode {
+  }
+  number taxRate1 {
+  }
+  number tax1Amt {
+  }
+  number taxRate2 {
+  }
+  number grossAmt {
+  }
+}

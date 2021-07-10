@@ -1,0 +1,27 @@
+type netsuite.ItemSupplyPlan {
+  annotations {
+    hidden_string source {
+    }
+  }
+  netsuite.RecordRef customForm {
+  }
+  netsuite.Subsidiary subsidiary {
+  }
+  netsuite.Location location {
+  }
+  netsuite.RecordRef item {
+  }
+  netsuite.RecordRef units {
+  }
+  string memo {
+  }
+  netsuite.ItemSupplyPlanOrderList orderList {
+  }
+  string internalId {
+    isAttribute = true
+    _hidden_value = true
+  }
+  string externalId {
+    isAttribute = true
+  }
+}

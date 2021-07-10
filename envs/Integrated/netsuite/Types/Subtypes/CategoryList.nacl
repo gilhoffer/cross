@@ -1,0 +1,8 @@
+type netsuite.CategoryList {
+  annotations {
+    hidden_string source {
+    }
+  }
+  "List<netsuite.RecordRef>" category {
+  }
+}

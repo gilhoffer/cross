@@ -1,0 +1,11 @@
+type netsuite.ProjectTaskAssigneeList {
+  annotations {
+    hidden_string source {
+    }
+  }
+  "List<netsuite.ProjectTaskAssignee>" projectTaskAssignee {
+  }
+  boolean replaceAll {
+    isAttribute = true
+  }
+}

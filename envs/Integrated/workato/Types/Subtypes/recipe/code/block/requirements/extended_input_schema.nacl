@@ -1,0 +1,20 @@
+type workato.recipe__code__block__requirements__extended_input_schema {
+  string type {
+  }
+  string name {
+  }
+  string control_type {
+  }
+  string label {
+  }
+  string hint {
+  }
+  "List<List<string>>" pick_list {
+  }
+  boolean optional {
+  }
+  boolean extends_schema {
+  }
+  "List<workato.recipe__code__block__requirements__extended_input_schema__properties>" properties {
+  }
+}

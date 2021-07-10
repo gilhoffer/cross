@@ -1,0 +1,11 @@
+type netsuite.InvoicePartnersList {
+  annotations {
+    hidden_string source {
+    }
+  }
+  "List<netsuite.Partners>" partners {
+  }
+  boolean replaceAll {
+    isAttribute = true
+  }
+}

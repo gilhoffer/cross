@@ -1,0 +1,125 @@
+<apex:page showHeader="true"  sidebar="false" controller="FLODocs.FloFinderController"  tabStyle="FLODocs__FLO_Customization__c">
+
+     <head>
+        <apex:includescript value="//code.jquery.com/jquery-1.11.1.min.js" / >
+        <apex:includescript value="//cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js" />
+        <apex:stylesheet value="//cdn.datatables.net/1.10.4/css/jquery.dataTables.css" />
+        <script>
+             function pressButton(){
+                  var allSelected = '';
+                      $(".selectColumns option:selected").each(function(){
+                    allSelected+=allSelected!='' ? ', '+this.value : this.value;
+                  });
+                  alert(allSelected);
+                  doSearchAF(allSelected);
+                  return false;
+              }
+
+              function searchTextJs(){
+                doSearchByTextAF();
+              }
+
+              function pdfExport(){
+
+              }
+
+              function excelExport(){
+
+              }
+
+        </script>
+    </head>
+    <body>
+        <apex:form id="searchForm">
+     
+
+            <apex:actionfunction name="doSearchByTextAF" action="{!doSearchByText}" rerender="custoTable,charts" status="statusC" />
+
+            
+
+            <apex:pageBlock title="Finder - FLO Customization records">
+                <apex:pageBlockButtons location="top">
+                    <apex:commandButton value="Find" onclick="searchTextJs();return false;" />
+                    <apex:commandLink styleClass="btn" value="PDF" target="_blank" action="{!createPdf}" />
+                    <!-- <apex:commandButton value="Excel" onclick="excelExport();return false;" /> -->
+                </apex:pageBlockButtons>
+                <apex:pageBlockSection title="Filters" columns="1">
+                    <apex:pageMessage strength="3" summary="This will search into all Customization Records" severity="INFO"/>
+                    <apex:inputText value="{!searchByText}" label="Search by text"/>
+                    <apex:selectList label="Select Metadata Type" value="{!metadataSelected}"  size="1" >
+                        <apex:selectOptions value="{!sfdcTypes}"/>
+                        <apex:actionSupport event="onchange" action="{!filterByType}" rerender="custoTable,charts" status="statusC"/>
+                    </apex:selectList>
+                    <!-- <apex:selectList styleClass="selectColumns" label="Select Columns to display" value="{!metadataSelected}" multiselect="true" style="height: 40px;overflow: auto;resize: both;">
+                        <apex:selectOptions value="{!custColumns}"/>
+                    </apex:selectList> -->
+                    <!-- <apex:commandButton value="Find" action="{!doSearch}"/> -->
+                </apex:pageBlockSection>  
+
+                <apex:outputPanel id="charts">
+                    <apex:chart data="{!custoGraphList}" width="800" height="300" theme="Salesforce" resizable="true">
+                        <apex:legend position="right" spacing="5"/>
+                        <apex:axis type="Category" position="left" fields="sfdcType" title="Salesforce Types" ></apex:axis>
+                        <apex:axis type="Numeric" position="bottom" fields="direct,dependency" title="# of Direct Match/Dependencies"></apex:axis>
+                        <apex:barSeries orientation="horizontal" stacked="true" axis="bottom" xField="direct,dependency" yField="sfdcType" title="Direct Match,Dependency" tips="true"></apex:barSeries>
+                    </apex:chart>
+                </apex:outputPanel>
+
+                <apex:outputPanel id="custoTable"  >
+                    <script>
+                        j$ = jQuery.noConflict();
+                        j$(document).ready( function () {
+                            var contactTable = j$('[id$="custable"]').DataTable({
+                            });
+                        });
+                    </script>
+                    <table id="custable" class="display">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>API Name</th>
+                                <th>Direct/Dependency</th>
+                                <th>Last Modified Date / DLU</th>
+                                <th>Created By</th>
+                                <th>Modified By</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <apex:repeat value="{!customizationLists}" var="listCus">
+                                <apex:repeat value="{!listCus}" var="cus">
+                                <tr>
+                                    <td><a href="/{!cus.custId}" target="_blank">{!cus.name}</a></td>
+                                    <td>{!cus.sfdcType}</td>
+                                    <td>{!cus.api_name}</td>
+                                    <td>{!cus.directMessage}</td>
+                                    <td><apex:outputText value="{0, date, MMMM d','  yyyy}">
+                                            <apex:param value="{!cus.lastMetadataModified}" /> 
+                                        </apex:outputText></td>
+                                    <td>{!cus.createdBy}</td>
+                                    <td>{!cus.lastModifiedBy}</td>
+                                </tr>
+                            </apex:repeat>
+                            </apex:repeat>
+                        </tbody>
+                    </table>
+                </apex:outputPanel>
+            </apex:pageBlock>
+        </apex:form>
+
+         <apex:actionStatus id="statusC">
+            <apex:facet name="start">
+              <div style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; opacity: 0.25; z-index: 1000; background-color: black;">
+                &nbsp;
+              </div>
+              <div style="position: fixed; left: 0; top: 0; bottom: 0; right: 0; z-index: 1001; margin: 15% 50%">
+                <div style="display: inline-block; padding: 2px; background-color: #fff; width: 125px;">
+                  <img src="/img/loading.gif" style="float: left; margin: 8px;" />
+                  <span style="display: inline-block; padding: 10px 0px;">Please Wait...</span>
+                </div>
+              </div>
+            </apex:facet>
+              <apex:facet name="stop"></apex:facet>
+          </apex:actionStatus>
+    </body>
+</apex:page>

@@ -1,0 +1,154 @@
+salesforce.Layout CollaborationGroup_Group_Layout@bs {
+  fullName = "CollaborationGroup-Group Layout"
+  layoutSections = [
+    {
+      customLabel = true
+      detailHeading = false
+      editHeading = true
+      label = "Group Details"
+      layoutColumns = [
+        {
+          layoutItems = [
+            {
+              behavior = "Required"
+              field = salesforce.CollaborationGroup.field.Name
+            },
+            {
+              behavior = "Edit"
+              field = salesforce.CollaborationGroup.field.Description
+            },
+            {
+              behavior = "Edit"
+              field = salesforce.CollaborationGroup.field.InformationBody
+            },
+            {
+              behavior = "Required"
+              field = salesforce.CollaborationGroup.field.OwnerId
+            },
+            {
+              behavior = "Required"
+              field = salesforce.CollaborationGroup.field.CollaborationType
+            },
+            {
+              behavior = "Readonly"
+              field = salesforce.CollaborationGroup.field.GroupEmail
+            },
+            {
+              behavior = "Edit"
+              field = salesforce.CollaborationGroup.field.IsArchived
+            },
+            {
+              behavior = "Edit"
+              field = salesforce.CollaborationGroup.field.IsAutoArchiveDisabled
+            },
+            {
+              behavior = "Edit"
+              field = salesforce.CollaborationGroup.field.IsBroadcast
+            },
+          ]
+        },
+      ]
+      style = "OneColumn"
+    },
+    {
+      customLabel = false
+      detailHeading = true
+      editHeading = false
+      label = "Custom Links"
+      style = "CustomLinks"
+    },
+  ]
+  platformActionList = {
+    actionListContext = "Record"
+    platformActionListItems = [
+      {
+        actionName = salesforce.QuickAction.instance.CollaborationGroup_NewGroupMember@v
+        actionType = "QuickAction"
+        sortOrder = 0
+      },
+      {
+        actionName = "FeedItem.TextPost"
+        actionType = "QuickAction"
+        sortOrder = 1
+      },
+      {
+        actionName = "FeedItem.AnnouncementPost"
+        actionType = "QuickAction"
+        sortOrder = 2
+      },
+      {
+        actionName = "FeedItem.ContentPost"
+        actionType = "QuickAction"
+        sortOrder = 3
+      },
+      {
+        actionName = "FeedItem.PollPost"
+        actionType = "QuickAction"
+        sortOrder = 4
+      },
+      {
+        actionName = "EditGroup"
+        actionType = "StandardButton"
+        sortOrder = 5
+      },
+      {
+        actionName = "DeleteGroup"
+        actionType = "StandardButton"
+        sortOrder = 6
+      },
+      {
+        actionName = "EditGroupNotificationSettings"
+        actionType = "StandardButton"
+        sortOrder = 7
+      },
+    ]
+  }
+  quickActionList = {
+    quickActionListItems = [
+      {
+        quickActionName = "FeedItem.ContentNote"
+      },
+      {
+        quickActionName = "FeedItem.ContentPost"
+      },
+      {
+        quickActionName = "FeedItem.LinkPost"
+      },
+      {
+        quickActionName = "FeedItem.MobileSmartActions"
+      },
+      {
+        quickActionName = "FeedItem.PollPost"
+      },
+      {
+        quickActionName = "FeedItem.QuestionPost"
+      },
+      {
+        quickActionName = "FeedItem.RypplePost"
+      },
+      {
+        quickActionName = "FeedItem.TextPost"
+      },
+    ]
+  }
+  relatedLists = [
+    {
+      relatedList = "RelatedGroupMemberRequestList"
+    },
+    {
+      relatedList = "RelatedGroupMemberList"
+    },
+    {
+      relatedList = "RelatedFileList"
+    },
+    {
+      relatedList = "RelatedGroupRecordList"
+    },
+  ]
+  showEmailCheckbox = false
+  showRunAssignmentRulesCheckbox = false
+  showSubmitAndAttachButton = false
+  _parent = [
+    salesforce.CollaborationGroup,
+  ]
+}

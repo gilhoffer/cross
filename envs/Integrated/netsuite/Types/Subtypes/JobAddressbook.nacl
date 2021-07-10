@@ -1,0 +1,19 @@
+type netsuite.JobAddressbook {
+  annotations {
+    hidden_string source {
+    }
+  }
+  boolean defaultShipping {
+  }
+  boolean defaultBilling {
+  }
+  boolean isResidential {
+  }
+  string label {
+  }
+  string internalId {
+    _hidden_value = true
+  }
+  netsuite.Address addressbookAddress {
+  }
+}

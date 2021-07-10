@@ -1,0 +1,60 @@
+type netsuite.ExpenseReportExpense {
+  annotations {
+    hidden_string source {
+    }
+  }
+  number line {
+  }
+  string expenseDate {
+  }
+  netsuite.RecordRef category {
+  }
+  number quantity {
+  }
+  number rate {
+  }
+  number foreignAmount {
+  }
+  netsuite.Currency currency {
+  }
+  number exchangeRate {
+  }
+  number amount {
+  }
+  netsuite.RecordRef taxCode {
+  }
+  string memo {
+  }
+  number taxRate1 {
+  }
+  number tax1Amt {
+  }
+  netsuite.Department department {
+  }
+  number grossAmt {
+  }
+  number taxRate2 {
+  }
+  netsuite.Classification class {
+  }
+  netsuite.Customer customer {
+  }
+  netsuite.Location location {
+  }
+  boolean isBillable {
+  }
+  netsuite.RecordRef expMediaItem {
+  }
+  boolean isNonReimbursable {
+  }
+  boolean corporateCreditCard {
+  }
+  boolean receipt {
+  }
+  number refNumber {
+  }
+  string taxDetailsReference {
+  }
+  netsuite.Account expenseAccount {
+  }
+}

@@ -1,0 +1,27 @@
+netsuite.suitelet customscript_flo_go_to_record {
+  scriptid = "customscript_flo_go_to_record"
+  defaultfunction = "goToCustomization"
+  description = "Open the status report in a new window"
+  isinactive = false
+  name = "Strongpoint GoToReport"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = "[/SuiteBundles/Bundle 297487/FLOGoToReport.js]"
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy_flo_go_record"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        isdeployed = true
+        isonline = false
+        loglevel = "AUDIT"
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+        title = "Strongpoint GoToReport Deployment"
+      },
+    ]
+  }
+}

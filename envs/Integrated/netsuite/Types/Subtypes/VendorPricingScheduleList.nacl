@@ -1,0 +1,11 @@
+type netsuite.VendorPricingScheduleList {
+  annotations {
+    hidden_string source {
+    }
+  }
+  "List<netsuite.VendorPricingSchedule>" pricingSchedule {
+  }
+  boolean replaceAll {
+    isAttribute = true
+  }
+}

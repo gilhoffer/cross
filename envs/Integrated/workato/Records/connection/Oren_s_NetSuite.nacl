@@ -1,0 +1,7 @@
+workato.connection Oren_s_NetSuite@ts {
+  application = "netsuite"
+  id = 445986
+  name = "Oren's NetSuite"
+  authorized_at = "2021-05-13T19:42:18.327-07:00"
+  authorization_status = "success"
+}

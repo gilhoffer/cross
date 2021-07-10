@@ -1,0 +1,36 @@
+netsuite.customlist customlist_flo_schedule_type {
+  scriptid = "customlist_flo_schedule_type"
+  isinactive = false
+  ismatrixoption = false
+  isordered = true
+  name = "Deployment Schedule Type"
+  customvalues = {
+    customvalue = [
+      {
+        scriptid = "value_1_t1049933_417"
+        isinactive = false
+        value = "Daily"
+      },
+      {
+        scriptid = "value_2_t1049933_417"
+        isinactive = false
+        value = "Monthly"
+      },
+      {
+        scriptid = "value_3_t1049933_417"
+        isinactive = false
+        value = "Weekly"
+      },
+      {
+        scriptid = "value_4_t1049933_417"
+        isinactive = false
+        value = "On Time"
+      },
+      {
+        scriptid = "val_144952_t1049933_463"
+        isinactive = false
+        value = "Yearly"
+      },
+    ]
+  }
+}

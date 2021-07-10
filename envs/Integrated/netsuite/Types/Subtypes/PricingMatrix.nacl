@@ -1,0 +1,11 @@
+type netsuite.PricingMatrix {
+  annotations {
+    hidden_string source {
+    }
+  }
+  "List<netsuite.Pricing>" pricing {
+  }
+  boolean replaceAll {
+    isAttribute = true
+  }
+}

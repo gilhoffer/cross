@@ -1,0 +1,18 @@
+type netsuite.DepositCashBack {
+  annotations {
+    hidden_string source {
+    }
+  }
+  number amount {
+  }
+  netsuite.Account account {
+  }
+  netsuite.Department department {
+  }
+  netsuite.Classification class {
+  }
+  netsuite.Location location {
+  }
+  string memo {
+  }
+}

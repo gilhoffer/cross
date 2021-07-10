@@ -1,0 +1,563 @@
+<html>
+<head>
+<!--<base href="http://code.stephenmorley.org/javascript/collapsible-lists/"></base>-->
+	    <script>
+	var runOnLoad=function(c,o,d,e){function x(){for(e=1;c.length;)c.shift()()}o[d]?(document[d]('DOMContentLoaded',x,0),o[d]('load',x,0)):o.attachEvent('onload',x);return function(t){e?o.setTimeout(t,0):c.push(t)}}([],window,'addEventListener');
+	var xmlhttp;
+	var data;
+	</script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+
+
+/*CollapsibleLists.js
+
+An object allowing lists to dynamically expand and collapse
+
+Created by Stephen Morley - http://code.stephenmorley.org/ - and released under
+the terms of the CC0 1.0 Universal legal code:
+
+http://creativecommons.org/publicdomain/zero/1.0/legalcode*/
+
+
+// create the CollapsibleLists object
+var CollapsibleLists =
+    new function(){
+
+      /* Makes all lists with the class 'collapsibleList' collapsible. The
+       * parameter is:
+       *
+       * doNotRecurse - true if sub-lists should not be made collapsible
+       */
+      this.apply = function(doNotRecurse){
+
+        // loop over the unordered lists
+        var uls = document.getElementsByTagName('ul');
+        for (var index = 0; index < uls.length; index ++){
+
+          // check whether this list should be made collapsible
+          if (uls[index].className.match(/(^| )collapsibleList( |$)/)){
+
+            // make this list collapsible
+            this.applyTo(uls[index], true);
+
+            // check whether sub-lists should also be made collapsible
+            if (!doNotRecurse){
+
+              // add the collapsibleList class to the sub-lists
+              var subUls = uls[index].getElementsByTagName('ul');
+              for (var subIndex = 0; subIndex < subUls.length; subIndex ++){
+                subUls[subIndex].className += ' collapsibleList';
+              }
+
+            }
+
+          }
+
+        }
+
+      };
+
+      /* Makes the specified list collapsible. The parameters are:
+       *
+       * node         - the list element
+       * doNotRecurse - true if sub-lists should not be made collapsible
+       */
+      this.applyTo = function(node, doNotRecurse){
+
+        // loop over the list items within this node
+        var lis = node.getElementsByTagName('li');
+        for (var index = 0; index < lis.length; index ++){
+
+          // check whether this list item should be collapsible
+          if (!doNotRecurse || node == lis[index].parentNode){
+
+            // prevent text from being selected unintentionally
+            if (lis[index].addEventListener){
+              lis[index].addEventListener(
+                  'mousedown', function (e){ e.preventDefault(); }, false);
+            }else{
+              lis[index].attachEvent(
+                  'onselectstart', function(){ event.returnValue = false; });
+            }
+
+            // add the click listener
+            if (lis[index].addEventListener){
+              lis[index].addEventListener(
+                  'click', createClickListener(lis[index]), false);
+            }else{
+              lis[index].attachEvent(
+                  'onclick', createClickListener(lis[index]));
+            }
+
+            // close the unordered lists within this list item
+            toggle(lis[index]);
+
+          }
+
+        }
+
+      };
+
+      /* Returns a function that toggles the display status of any unordered
+       * list elements within the specified node. The parameter is:
+       *
+       * node - the node containing the unordered list elements
+       */
+      function createClickListener(node){
+
+        // return the function
+        return function(e){
+
+          // ensure the event object is defined
+          if (!e) e = window.event;
+
+          // find the list item containing the target of the event
+          var li = (e.target ? e.target : e.srcElement);
+          while (li.nodeName != 'LI') li = li.parentNode;
+
+          // toggle the state of the node if it was the target of the event
+          if (li == node) toggle(node);
+
+        };
+
+      }
+
+      /* Opens or closes the unordered list elements directly within the
+       * specified node. The parameter is:
+       *
+       * node - the node containing the unordered list elements
+       */
+      function xtoggle(node){
+
+        // determine whether to open or close the unordered lists
+        var open = node.className.match(/(^| )collapsibleListClosed( |$)/);
+
+        // loop over the unordered list elements with the node
+        var uls = node.getElementsByTagName('ul');
+        for (var index = 0; index < uls.length; index ++){
+
+          // find the parent list item of this unordered list
+          var li = uls[index];
+          while (li.nodeName != 'LI') li = li.parentNode;
+
+          // style the unordered list if it is directly within this node
+          if (li == node) 
+		  {
+			uls[index].style.display = (open ? 'block' : 'none');
+			//alert($('.listing').length)
+			$('.listing').hide();
+			$('#'+li.id).find('.listing').show();
+			try
+			{
+				spanEls=uls[index].getElementsByTagName('span');
+				for(s=0;spanEls[s]!=null;s++)
+				{
+					spanEls[s].style.display = 'block';
+				}
+			}catch(e){}
+		  }
+
+        }
+
+        // remove the current class from the node
+        node.className =
+            node.className.replace(
+                /(^| )collapsibleList(Open|Closed)( |$)/, '');
+
+        // if the node contains unordered lists, set its class
+        if (uls.length > 0){
+          node.className += ' collapsibleList' + (open ? 'Open' : 'Closed');
+        }
+
+      }
+
+    }();
+
+    
+</script>
+
+
+	<style type="text/css">
+	  #treeview, #highlevelprocesses, .supporting-pro{float: left; width: 100%; height: auto; padding: 0;}
+	  .processtree{-moz-user-select:none; float: left; width: 97.5%;  height: auto; margin: 0 0 0 2.5%; padding: 0;}
+	
+	  .listlabel{font-weight: bold;}
+
+	  .processtree ul{
+	    margin:0;
+	    padding:0;
+	    float:left;
+	    width:100%;
+	    height:auto;
+	  }
+
+	  .processtree ul ul{
+	    /*background:url('list-item-contents.png') repeat-y left;*/
+	    float:left;
+	    width:100%;
+	    height:auto;
+	  }
+
+	  .processtree li.lastChild > ul{
+	    background-image:none;
+	  }
+
+	  .processtree li{
+	    margin:0;
+	    padding:10 0px;
+	    /*background:url('list-item-root.png') no-repeat top left;*/
+	    list-style-position:inside;
+	    list-style-image:url('button.png');
+	    cursor:auto;
+	    float:left;
+	    width:100%;
+	    height:auto;
+	  }
+
+	  .processtree li.collapsibleListOpen{
+	    list-style-image:url('button-open.png');
+	    cursor:pointer;
+	  }
+
+	.processtree li.collapsibleListOpen div{
+		display:block;
+	  float:left;
+	  width:100%;
+	  height:auto;
+	 }
+
+	 .processtree li.collapsibleListOpen div.listname{
+	  float:left;
+	  width:70%;
+	  height:auto;
+	  padding:10px 2.5%;
+	  text-align: left;
+	 }
+
+	 .processtree li.collapsibleListOpen div.listing{
+	  float:left;
+	  width:20%;
+	  height:auto;
+	  padding:10px 2.5%;
+	  text-align: left;
+	 }
+
+	  .processtree li.collapsibleListClosed{
+	    list-style-image:url('button-closed.png');
+	    cursor:pointer;
+	  }
+
+	  .processtree li li{
+	    /*background-image:url('list-item.png');*/
+	  }
+
+	  .processtree li.lastChild{
+	    /*background-image:url('list-item-last.png');*/
+	  }
+
+	  .processtree li.collapsibleListOpen{
+	    /*background-image:url('list-item-open.png');*/
+	  }
+
+	  .processtree li.collapsibleListOpen.lastChild{
+	    background-image:url('list-item-last-open.png');
+	  }
+	  #supportingprocesses li{padding:0}
+	</style>
+
+<body>
+<div id="treecontrols">
+	<div id="search">Search: By Name: <input type="textbox" name="byname" onchange="filterTree(this.name,this.value)"/>  By Number:  <input type="textbox" name="bynum" onchange="filterTree(this.name,this.value)"/></div>
+	</div>
+</div>
+<div id="treeview">
+<ul id="processtree" class="processtree">
+	<div id="highlevelprocesses"></div>
+	<div lass="supporting-pro"><li id="supportingprocesses">Supporting Processes</li></div>
+</ul>
+</div>
+<script>
+alert("tree")
+//loadData();
+//function loadData(id)
+//{
+    /*fields=["internalid","name","formulatext","custrecord_flo_cust_id","custrecord_flo_cust_type","custrecord_flo_data_type","custrecord_flo_description","custrecord_flo_dls","custrecord_flo_cust_forms","custrecord_flo_data_source","custrecord_flo_scripts","custrecord_flo_searches","custrecord_flo_list","custrecord_flo_list.name","custrecord_flo_list.custrecord_flo_cust_id","custrecord_flo_list.custrecord_flo_int_id","custrecord_flo_list.internalid"];
+recdata=top.nlapiLookupField("customrecord_flo_customization",id,fields);
+	var jsonstring="";
+	for(f=0;fields[f]!=null;f++)
+	{
+		if(jsonstring!=""){jsonstring+=","}
+		jsonstring+='"'+fields[f]+'":"'+eval("recdata."+fields[f])+'"';
+	}
+	jsonstring="{"+jsonstring+"}";
+	jsonstring.replace(/undefined/g,'');
+	jsonstring.replace(",}","}");*/
+	//request JSON
+	loadXMLDoc("https://system.na1.netsuite.com/app/site/hosting/scriptlet.nl?script=customscript_flo_process_tree_details&deploy=1");
+	
+    eval(xmlhttp.responseText);
+    //loop through data adding each object to object list
+
+    loadTree(data);
+    loadTree(data);
+    
+
+
+	
+	var runOnLoad=function(c,o,d,e){function x(){for(e=1;c.length;)c.shift()()}o[d]?(document[d]('DOMContentLoaded',x,0),o[d]('load',x,0)):o.attachEvent('onload',x);return function(t){e?o.setTimeout(t,0):c.push(t)}}([],window,'addEventListener');
+	//alert(lasttlp)
+	//alert(tlp[lasttlp-1].name)
+	
+	//return tlp[lasttlp-1];
+	
+
+
+	  runOnLoad(function(){ CollapsibleLists.apply(); 
+		// make the list with the ID 'newList' collapsible
+	CollapsibleLists.applyTo(document.getElementById('processtree'));
+	});
+
+
+//}
+
+function loadTree(data)
+{
+	for(d=0;data[d]!=null;d++)
+    {
+	    if($("#"+data[d].internalid).length==0)
+	    {
+			if(data[d].custrecord_flo_process_parent=="")
+			{
+				toptarget=$("#highlevelprocesses");
+				if(data[d].custrecord_flo_step_type==6)
+				{toptarget=$("#supportingprocesses")}
+				toptarget.append("<ul><li class='process' id='"+data[d].internalid+"'><div><div class='listname'>"+unescape(data[d].custrecord_flo_number)+" "+unescape(data[d].name)+"</div>"+createProcessListing(data[d])+"</div></li></ul");
+			}
+			if($("#"+data[d].internalid).length==0 && $("#"+data[d].custrecord_flo_process_parent).length!=0)
+			{
+				$("#"+data[d].custrecord_flo_process_parent).append("<ul><li class='process' id='"+data[d].internalid+"'><div><div class='listname'>"+unescape(data[d].custrecord_flo_number)+" "+unescape(data[d].name)+"</div>"+createProcessListing(data[d])+"</div></li></ul>");
+			}
+			else 
+			{
+			//alert($("#"+data[d].custrecord_flo_process_parent).attr("id"))
+				$("#"+data[d].custrecord_flo_process_parent).append("<ul><li class='process' id='what"+data[d].internalid+"'><div><div class='listname'>"+unescape(data[d].custrecord_flo_number)+" "+unescape(data[d].name)+"</div>"+createProcessListing(data[d])+"</div></li></ul>");
+			}
+		
+
+		}
+		
+		//log issues and controls
+		if(data[d].issue_internalid!="" && $("#issue_"+data[d].issue_internalid).length==0 && unescape(data[d].issue_altname).indexOf("None")<0)
+		{
+			var parentpath="issues";
+			var parentname="Issues:";
+			//check for controls
+			if(data[d].issue_custrecord_flo_severity=='7')
+			{
+				var parentpath="controls";
+				var parentname="Controls:";
+			}
+
+
+			if($("#"+data[d].internalid).find("#"+parentpath+"_"+data[d].internalid).length==0 && data[d].issue_custrecord_flo_parent_issue=="")
+			{
+				$("#"+data[d].internalid).append("<ul><li><div class='listname listlabel'>"+parentname+"</div><ul id='"+parentpath+"_"+data[d].internalid+"'><li id='issue_"+data[d].issue_internalid+"' class='issue'><div><div class='listname'>"+unescape(data[d].issue_altname)+"</div>"+createIssueListing(data[d])+"</div><ul id='subissues_"+data[d].issue_internalid+"'</li></ul></li></ul>");
+			}
+			else if(data[d].issue_custrecord_flo_parent_issue!="" && $("#"+data[d].internalid).find("#subissues_"+data[d].issue_custrecord_flo_parent_issue).length!=0)
+			{
+				$("#"+data[d].internalid).find("#subissues_"+data[d].issue_custrecord_flo_parent_issue).append("<li id='issue_"+data[d].issue_internalid+"' class='issue'><div><div class='listname'>"+unescape(data[d].issue_altname)+"</div>"+createIssueListing(data[d])+"</div></li>");
+			}
+			else 
+			{
+				$("#"+data[d].internalid).find("#"+parentpath+"_"+data[d].internalid).append("<li id='issue_"+data[d].issue_internalid+"' class='issue'><div><div class='listname'>"+unescape(data[d].issue_altname)+"</div>"+createIssueListing(data[d])+"</div></li>");
+			}
+			
+		}
+	}
+	
+	//Set handlers for each issue
+	//$(".issue").dblclick('goToIssue('+$(".issue").attr("id")+')');
+	
+	//Set handlers for each process
+	//$(".process").dblclick('function(){goToProcess(this)}');
+}
+
+function loadXMLDoc(url)
+{
+//xalert(url)
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+//xmlhttp.onreadystatechange=function(){  //xalert(xmlhttp.readyState+"=="+xmlhttp.status)}
+xmlhttp.open("GET",url,false);
+xmlhttp.send();
+}//end of loadXML function
+
+function goToIssue(id)
+{
+	//alert(issue)
+	//var issueid=issue.attr('id').split("_")[1];
+	window.open(top.nlapiResolveURL('RECORD',"customrecord_flo_process_issue",id))
+}
+
+function goToProcess(id)
+{
+	//var processid=issue.attr('id');
+	window.open(top.nlapiResolveURL('SUITELET',"customscript_flo_enterprise_suitelet",4)+"&pid="+id)
+}
+
+function createIssueListing(issueListing)
+{
+	listing="  <div class='listing' style='display:none'><a href='#' onclick='goToIssue("+issueListing.issue_internalid+",true)'>Edit</a> | <a href='#' onclick='goToIssue("+issueListing.issue_internalid+",false)'>View</a>  <a href='#' alt='Defer this issue to next quarter' onclick='deferIssue("+issueListing.issue_internalid+",true)'>Defer</a>  <a href='#' onclick='closeIssue("+issueListing.issue_internalid+",true)'>Close</a></div>";
+	return listing
+}
+
+function createProcessListing(processListing)
+{
+	listing="  <div class='listing' style='display:none'><a href='#' onclick='goToProcess("+processListing.internalid+",true)'>Diagram</a> | <a href='#' onclick='goToIssue("+processListing.internalid+",false)'>Assistant</a>  <a href='#' onclick='logIssue("+processListing.internalid+",true)'>Log Issue</a></div>";
+	return listing
+}
+
+function filterTree(type,value)
+{
+	if(value==""){return}
+	if(type=="byname")
+	{
+		containsFlag=false;
+		if(value.indexOf("%")>=0)
+		{containsFlag=true;}
+		
+		value=value.toLowerCase().replace("%","");
+		for(f=0;data[f]!=null;f++)
+		{
+			
+			index=unescape(data[f].name).toLowerCase().indexOf(value);
+			//if(index>=0){alert(index)}
+			if((!containsFlag && index==0) | (containsFlag && index>=0))
+			{
+				
+				try
+				{
+				nodelist=[];
+                targetnode=document.getElementById(data[f].internalid);
+                nodelist.push(targetnode);
+  				parent=targetnode.parentNode;
+                //Create parent array
+                while(parent.id!="processtree")
+				{
+					if(parent.nodeName == "LI")
+					{
+						nodelist.push(parent);
+					}
+					//alert(parent.id)
+					parent=parent.parentNode;
+				}
+				nodelist=nodelist.reverse();
+				for(nl=0;nodelist[nl]!=null;nl++)
+				{
+					if(nodelist[nl].className.match(/(^| )collapsibleListClosed( |$)/))
+					{toggle(nodelist[nl]);}
+				}
+				}catch(e){alert(e.message+"--"+data[f].name)}
+				
+			}
+		}
+		
+	}
+	
+	if(type=="bynum")
+	{
+		containsFlag=false;
+		if(value.indexOf("%")==0)
+		{containsFlag=true;}
+		value=value.toLowerCase();
+		for(f=0;data[f]!=null;f++)
+		{
+			
+			index=unescape(data[f].custrecord_flo_number).toLowerCase().indexOf(value);
+			if(containsFlag==false && index==0)
+			{
+				try
+				{
+				nodelist=[];
+                targetnode=document.getElementById(data[f].internalid);
+                nodelist.push(targetnode);
+  				parent=targetnode.parentNode;
+                //Create parent array
+                while(parent.id!="processtree")
+				{
+					if(parent.nodeName == "LI")
+					{
+						nodelist.push(parent);
+					}
+					//alert(parent.id)
+					parent=parent.parentNode;
+				}
+				nodelist=nodelist.reverse();
+				for(nl=0;nodelist[nl]!=null;nl++)
+				{
+					if(nodelist[nl].className.match(/(^| )collapsibleListClosed( |$)/))
+					{toggle(nodelist[nl]);}
+				}
+				}catch(e){alert(e.message+"--"+data[f].name)}
+				
+			}
+		}
+		
+	}
+}
+
+function toggle(node){
+
+   // determine whether to open or close the unordered lists
+   var open = node.className.match(/(^| )collapsibleListClosed( |$)/);
+
+   // loop over the unordered list elements with the node
+   var uls = node.getElementsByTagName('ul');
+   for (var index = 0; index < uls.length; index ++){
+
+     // find the parent list item of this unordered list
+     var li = uls[index];
+     while (li.nodeName != 'LI') li = li.parentNode;
+
+     // style the unordered list if it is directly within this node
+     if (li == node) 
+	  {
+		uls[index].style.display = (open ? 'block' : 'none');
+		//alert($('.listing').length)
+		$('.listing').hide();
+		$('#'+li.id).find('.listing').show();
+		try
+		{
+			spanEls=uls[index].getElementsByTagName('span');
+			for(s=0;spanEls[s]!=null;s++)
+			{
+				spanEls[s].style.display = 'block';
+			}
+		}catch(e){}
+	  }
+
+   }
+
+   // remove the current class from the node
+   node.className =
+       node.className.replace(
+           /(^| )collapsibleList(Open|Closed)( |$)/, '');
+
+   // if the node contains unordered lists, set its class
+   if (uls.length > 0){
+     node.className += ' collapsibleList' + (open ? 'Open' : 'Closed');
+   }
+}
+
+
+
+</script>
+
+</body>

@@ -1,0 +1,11 @@
+type netsuite.ItemFulfillmentItemList {
+  annotations {
+    hidden_string source {
+    }
+  }
+  "List<netsuite.ItemFulfillmentItem>" item {
+  }
+  boolean replaceAll {
+    isAttribute = true
+  }
+}

@@ -1,0 +1,26 @@
+netsuite.massupdatescript customscript_flo_scriptsearchfields_view {
+  scriptid = "customscript_flo_scriptsearchfields_view"
+  defaultfunction = "floScriptSearchFieldsView"
+  description = "Update search formula fields to make it readable."
+  isinactive = false
+  name = "StrongpointScriptSearchFieldsView"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = netsuite.file.instance.SuiteBundles_Bundle_297487_FLOScriptSearchFieldsView_js__2_@dsdvsjk.path
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy1"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        isdeployed = true
+        loglevel = "AUDIT"
+        recordtype = netsuite.customrecordtype.instance.customrecord_flo_customization.scriptid
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+      },
+    ]
+  }
+}

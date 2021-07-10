@@ -1,0 +1,49 @@
+body {
+	font-family: "Trebuchet MS", "Helvetica", "Arial",  "Verdana", "sans-serif";
+	font-size: 62.5%;
+}
+
+.ui-tabs .ui-tabs-panel {
+    padding: 2.2em 1.4em 1.4em 1.4em;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #ff6600;
+    border-color: #cc6600;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #cc6600;
+    border-color: #cc6600;
+}
+
+.date_content {
+	float: left;
+	width: 36%;
+	margin-right: 4px;
+}
+
+.time_content {
+	float: left;
+	width: 36%;
+}
+
+.schedule_button {
+	float: right;
+	width: 25%;
+}
+
+.schedule_button button {
+	margin-top: 23px;
+}
+.label_results {
+	font-weight: normal;
+	font-size: 1.1em;
+	color: grey;
+}
+
+.label_width {
+	width: 100%;
+}

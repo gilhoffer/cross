@@ -1,0 +1,39 @@
+type netsuite.Solution {
+  annotations {
+    hidden_string source {
+    }
+  }
+  netsuite.RecordRef customForm {
+  }
+  serviceid solutionCode {
+  }
+  string title {
+  }
+  string message {
+  }
+  string status {
+  }
+  boolean displayOnline {
+  }
+  netsuite.RecordRef assigned {
+  }
+  boolean isInactive {
+  }
+  string longDescription {
+  }
+  netsuite.SolutionTopicsList topicsList {
+  }
+  string createdDate {
+  }
+  string lastModifiedDate {
+  }
+  netsuite.SolutionsList solutionsList {
+  }
+  string internalId {
+    isAttribute = true
+    _hidden_value = true
+  }
+  string externalId {
+    isAttribute = true
+  }
+}

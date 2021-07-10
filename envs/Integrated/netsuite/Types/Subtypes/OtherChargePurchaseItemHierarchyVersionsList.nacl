@@ -1,0 +1,11 @@
+type netsuite.OtherChargePurchaseItemHierarchyVersionsList {
+  annotations {
+    hidden_string source {
+    }
+  }
+  "List<netsuite.OtherChargePurchaseItemHierarchyVersions>" otherChargePurchaseItemHierarchyVersions {
+  }
+  boolean replaceAll {
+    isAttribute = true
+  }
+}

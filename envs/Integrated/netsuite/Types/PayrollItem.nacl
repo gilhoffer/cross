@@ -1,0 +1,31 @@
+type netsuite.PayrollItem {
+  annotations {
+    hidden_string source {
+    }
+  }
+  netsuite.Subsidiary subsidiary {
+  }
+  netsuite.RecordRef itemType {
+  }
+  string name {
+  }
+  netsuite.Vendor vendor {
+  }
+  netsuite.Account expenseAccount {
+  }
+  netsuite.Account liabilityAccount {
+  }
+  boolean employeePaid {
+  }
+  string accountCategory {
+  }
+  boolean inactive {
+  }
+  string internalId {
+    isAttribute = true
+    _hidden_value = true
+  }
+  string externalId {
+    isAttribute = true
+  }
+}

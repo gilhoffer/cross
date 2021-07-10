@@ -1,0 +1,8 @@
+type netsuite.EmployeeCurrency {
+  annotations {
+    hidden_string source {
+    }
+  }
+  netsuite.Currency currency {
+  }
+}

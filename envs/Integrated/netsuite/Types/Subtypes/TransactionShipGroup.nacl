@@ -1,0 +1,52 @@
+type netsuite.TransactionShipGroup {
+  annotations {
+    hidden_string source {
+    }
+  }
+  number id {
+  }
+  boolean isFulfilled {
+  }
+  number weight {
+  }
+  netsuite.RecordRef sourceAddressRef {
+  }
+  string sourceAddress {
+  }
+  netsuite.RecordRef destinationAddressRef {
+  }
+  string destinationAddress {
+  }
+  netsuite.RecordRef shippingMethodRef {
+  }
+  string shippingMethod {
+  }
+  boolean isHandlingTaxable {
+  }
+  netsuite.RecordRef handlingTaxCode {
+  }
+  string handlingTaxRate {
+  }
+  string handlingTax2Rate {
+  }
+  number handlingRate {
+  }
+  number handlingTaxAmt {
+  }
+  number handlingTax2Amt {
+  }
+  boolean isShippingTaxable {
+  }
+  netsuite.RecordRef shippingTaxCode {
+  }
+  string shippingTaxRate {
+  }
+  string shippingTax2Rate {
+  }
+  number shippingRate {
+  }
+  number shippingTaxAmt {
+  }
+  number shippingTax2Amt {
+  }
+}

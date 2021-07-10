@@ -1,0 +1,82 @@
+type netsuite.EstimateItem {
+  annotations {
+    hidden_string source {
+    }
+  }
+  netsuite.Job job {
+  }
+  netsuite.RecordRef item {
+  }
+  number line {
+  }
+  boolean expandItemGroup {
+  }
+  number quantityAvailable {
+  }
+  number quantityOnHand {
+  }
+  number quantity {
+  }
+  netsuite.RecordRef units {
+  }
+  string description {
+  }
+  string serialNumbers {
+  }
+  netsuite.Price price {
+  }
+  string rate {
+  }
+  number amount {
+  }
+  number revRecTermInMonths {
+  }
+  netsuite.Department department {
+  }
+  netsuite.Classification class {
+  }
+  netsuite.Location location {
+  }
+  boolean isTaxable {
+  }
+  number altSalesAmt {
+  }
+  number taxAmount {
+  }
+  boolean fromJob {
+  }
+  number grossAmt {
+  }
+  boolean isEstimate {
+  }
+  netsuite.RecordRef subscription {
+  }
+  number tax1Amt {
+  }
+  netsuite.RecordRef taxCode {
+  }
+  string costEstimateType {
+  }
+  number costEstimate {
+  }
+  boolean excludeFromRateRequest {
+  }
+  string taxDetailsReference {
+  }
+  number taxRate1 {
+  }
+  number taxRate2 {
+  }
+  number shipGroup {
+  }
+  boolean itemIsFulfilled {
+  }
+  netsuite.RecordRef shipAddress {
+  }
+  netsuite.RecordRef shipMethod {
+  }
+  string expectedShipDate {
+  }
+  netsuite.RecordRef chargeType {
+  }
+}

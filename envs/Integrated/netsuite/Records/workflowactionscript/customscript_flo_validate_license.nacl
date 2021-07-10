@@ -1,0 +1,27 @@
+netsuite.workflowactionscript customscript_flo_validate_license {
+  scriptid = "customscript_flo_validate_license"
+  defaultfunction = "licenseManager"
+  description = "Validate that exist a valid license to access Strongpoint record or tool."
+  isinactive = false
+  name = "Strongpoint Validate License"
+  notifyadmins = false
+  notifyowner = false
+  notifyuser = false
+  returntype = "INTEGER"
+  scriptfile = "[/SuiteBundles/Bundle 297487/FLOValidateLicense.js]"
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy_flo_validate_license"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        isdeployed = true
+        loglevel = "AUDIT"
+        recordtype = "RECORD"
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+      },
+    ]
+  }
+}

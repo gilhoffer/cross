@@ -1,0 +1,49 @@
+netsuite.scheduledscript customscript_flo_cleanup_custs {
+  scriptid = "customscript_flo_cleanup_custs"
+  defaultfunction = "cleanupCustomizations"
+  description = "Deletes inactive Customization records"
+  isinactive = false
+  name = "Strongpoint Cleanup Inactive Custs SS"
+  notifyadmins = false
+  notifyemails = "nic.cano@flodocs.com"
+  notifyowner = false
+  scriptfile = "[/SuiteBundles/Bundle 297487/FLOCleanupCustomizations.js]"
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy_flo_cleanup_cu"
+        isdeployed = true
+        loglevel = "AUDIT"
+        status = "NOTSCHEDULED"
+        title = "Strongpoint Cleanup Customizations"
+        recurrence = {
+          single = {
+            startdate = "2016-01-16"
+            starttime = "02:00:00Z"
+          }
+        }
+      },
+      {
+        scriptid = "customdeploy_flo_cust_clean_customizatio"
+        isdeployed = true
+        loglevel = "AUDIT"
+        status = "SCHEDULED"
+        title = "Strongpoint Cleanup Inactive Customizations SS"
+        recurrence = {
+          daily = {
+            everyxdays = 1
+            startdate = "2016-01-18"
+            starttime = "10:00:00Z"
+          }
+        }
+      },
+    ]
+  }
+  libraries = {
+    library = [
+      {
+        scriptfile = netsuite.file.instance.SuiteBundles_Bundle_297487_FLOTimeWindow_js@dsdv.path
+      },
+    ]
+  }
+}

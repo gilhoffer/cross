@@ -1,0 +1,11 @@
+type netsuite.CampaignEmailList {
+  annotations {
+    hidden_string source {
+    }
+  }
+  "List<netsuite.CampaignEmail>" campaignEmail {
+  }
+  boolean replaceAll {
+    isAttribute = true
+  }
+}

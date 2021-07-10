@@ -1,0 +1,79 @@
+netsuite.workflow customworkflow_flo_getlic_btn {
+  scriptid = "customworkflow_flo_getlic_btn"
+  description = "Show Get Lic. Number Button."
+  initoncreate = true
+  initonvieworupdate = true
+  isinactive = false
+  islogenabled = true
+  keephistory = "ALWAYS"
+  name = "Strongpoint Get License Number"
+  recordtypes = "[scriptid=customrecord_flo_license]"
+  releasestatus = "RELEASED"
+  runasadmin = true
+  initcondition = {
+    type = "VISUAL_BUILDER"
+  }
+  workflowstates = {
+    workflowstate = [
+      {
+        scriptid = "workflowstate416"
+        donotexitworkflow = false
+        name = "Add Button"
+        positionx = 243
+        positiony = 133
+        workflowactions = [
+          {
+            triggertype = "BEFORELOAD"
+            addbuttonaction = [
+              {
+                scriptid = "workflowaction1236"
+                checkconditionbeforeexecution = true
+                isinactive = false
+                label = "Get Lic. Number"
+                saverecordfirst = false
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+              },
+            ]
+          },
+        ]
+        workflowtransitions = {
+          workflowtransition = [
+            {
+              scriptid = "workflowtransition530"
+              buttonaction = netsuite.workflow.instance.customworkflow_flo_getlic_btn.workflowstates.workflowstate.0.workflowactions.0.addbuttonaction.0.scriptid
+              tostate = netsuite.workflow.instance.customworkflow_flo_getlic_btn.workflowstates.workflowstate.1.scriptid
+              initcondition = {
+                type = "VISUAL_BUILDER"
+              }
+            },
+          ]
+        }
+      },
+      {
+        scriptid = "workflowstate417"
+        donotexitworkflow = false
+        name = "Get License From Production"
+        positionx = 243
+        positiony = 233
+        workflowactions = [
+          {
+            triggertype = "ONENTRY"
+            customaction = [
+              {
+                scriptid = "workflowaction1237"
+                isinactive = false
+                schedulemode = "DELAY"
+                scripttype = netsuite.workflowactionscript.instance.customscript_flo_get_lic_from_prod.scriptid
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+              },
+            ]
+          },
+        ]
+      },
+    ]
+  }
+}

@@ -1,0 +1,189 @@
+netsuite.customrecordtype customrecord_flo_spider_log {
+  scriptid = "customrecord_flo_spider_log"
+  accesstype = "CUSTRECORDENTRYPERM"
+  allowattachments = false
+  allowinlinedeleting = false
+  allowinlinedetaching = false
+  allowinlineediting = false
+  allowmobileaccess = false
+  allownumberingoverride = false
+  allowquickadd = false
+  allowquicksearch = false
+  allowuiaccess = true
+  description = "This record stores the logs of the spider activity for each record type.    A record is created for each type when the bundle is installed."
+  enabledle = false
+  enablekeywords = false
+  enablemailmerge = false
+  enablenametranslation = false
+  enablenumbering = false
+  enableoptimisticlocking = false
+  enablesystemnotes = true
+  hierarchical = false
+  iconbuiltin = true
+  includeinsearchmenu = true
+  includename = false
+  isinactive = false
+  isordered = false
+  recordname = "Spider Log"
+  showcreationdate = false
+  showcreationdateonlist = false
+  showid = false
+  showlastmodified = false
+  showlastmodifiedonlist = false
+  shownotes = false
+  showowner = false
+  showownerallowchange = false
+  showowneronlist = false
+  customrecordcustomfields = {
+    customrecordcustomfield = [
+      {
+        scriptid = "custrecord_flo_log_type"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the type of customization"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "SELECT"
+        globalsearch = false
+        help = "This is the type of customization"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Customization Type"
+        onparentdelete = "NO_ACTION"
+        rolerestrict = false
+        searchlevel = "2"
+        selectrecordtype = "[scriptid=customlist_type_cust]"
+        showinlist = true
+        storevalue = true
+      },
+      {
+        scriptid = "custrecord_flo_log_spider_count"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = true
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the number of records identified by the spider during data gathering.  It corresponds to the number of  items in each list."
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "INTEGER"
+        globalsearch = false
+        help = "This is the number of records identified by the spider during data gathering.  It corresponds to the number of  items in each list."
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Spider Count"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = true
+        storevalue = true
+      },
+      {
+        scriptid = "custrecord_flo_log_doc_rec_count"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = true
+        checkspelling = false
+        defaultchecked = false
+        description = "This is the number of customization records created by Strongpoint of this type"
+        displaytype = "NORMAL"
+        encryptatrest = false
+        fieldtype = "INTEGER"
+        globalsearch = false
+        help = "This is the number of customization records created by Strongpoint of this type"
+        isformula = false
+        ismandatory = false
+        isparent = false
+        label = "Documented Record Count"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = true
+        storevalue = true
+      },
+      {
+        scriptid = "custrecord_flo_config_stats_link"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        defaultselection = "[scriptid=customrecord_flo_spider_configuration.value_1_t1049933_417]"
+        description = "This is a fixed relationship to the main configuration and stats link."
+        displaytype = "HIDDEN"
+        encryptatrest = false
+        fieldtype = "SELECT"
+        globalsearch = false
+        help = "This is a fixed relationship to the main configuration and stats link."
+        isformula = false
+        ismandatory = false
+        isparent = true
+        label = "Configuration And Stats Link"
+        onparentdelete = "NO_ACTION"
+        rolerestrict = false
+        searchlevel = "2"
+        selectrecordtype = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.scriptid
+        showinlist = false
+        storevalue = true
+      },
+      {
+        scriptid = "custrecord_flo_log_status"
+        accesslevel = "2"
+        allowquickadd = false
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        defaultvalue = "CASE WHEN {custrecord_flo_log_spider_count} IS NULL THEN 'NOT SPIDERED' WHEN NVL({custrecord_flo_log_spider_count},0) &gt; 0 AND {custrecord_flo_log_doc_rec_count} IS NULL THEN 'SPIDERING NOT COMPLETE' WHEN (NVL({custrecord_flo_log_spider_count},0)-NVL({custrecord_flo_log_doc_rec_count},0)) &gt; 0 THEN 'RESPIDER THIS RECORD'  WHEN  (NVL({custrecord_flo_log_spider_count},0)-NVL({custrecord_flo_log_doc_rec_count},0)) &lt;0  THEN 'RUN DEDUPLICATE' ELSE 'VERIFIED' END"
+        description = '''
+This is the spider status of the record.
+
+VERIFIED: Means the counts match
+RESPIDER THIS RECORD':  Means the record type should be selected on the spider page and respidered in update mode.
+RUN DEDUPLICATE:  Means that the deduplicate tool should be run.
+SPIDERING NOT COMPLETE:  Means the spidering of this record is not complete.
+NOT DETECTED: Means that no records of that type have been located.
+'''
+        displaytype = "STATICTEXT"
+        encryptatrest = false
+        fieldtype = "TEXT"
+        globalsearch = false
+        help = '''
+This is the spider status of the record.
+
+VERIFIED: Means the counts match
+RESPIDER THIS RECORD:  Means the record type should be selected on the spider page and respidered in update mode.
+RUN DEDUPLICATE:  Means that the deduplicate tool should be run.
+SPIDERING NOT COMPLETE:  Means the spidering of this record is not complete.
+NOT DETECTED: Means that no records of that type have been located.
+'''
+        isformula = true
+        ismandatory = false
+        isparent = false
+        label = "Spider Status"
+        rolerestrict = false
+        searchlevel = "2"
+        showinlist = true
+        storevalue = false
+      },
+    ]
+  }
+  permissions = {
+    permission = [
+      {
+        permittedlevel = "FULL"
+        permittedrole = "ADMINISTRATOR"
+      },
+      {
+        permittedlevel = "VIEW"
+        permittedrole = netsuite.role.instance.customrole_flo_developer_role.scriptid
+      },
+      {
+        permittedlevel = "VIEW"
+        permittedrole = netsuite.role.instance.customrole_flo_flashlight.scriptid
+      },
+    ]
+  }
+}

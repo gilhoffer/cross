@@ -1,0 +1,11 @@
+type netsuite.ManufacturingCostDetailList {
+  annotations {
+    hidden_string source {
+    }
+  }
+  "List<netsuite.ManufacturingCostDetail>" manufacturingCostDetail {
+  }
+  boolean replaceAll {
+    isAttribute = true
+  }
+}

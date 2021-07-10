@@ -1,4 +1,8 @@
 envs {
   envsCloud = [
+    {
+      uuid = "5df18912-738c-4563-9763-92e375e97b08"
+      folderName = "Integrated"
+    },
   ]
 }

@@ -1,0 +1,11 @@
+type netsuite.EmployeeCurrencyList {
+  annotations {
+    hidden_string source {
+    }
+  }
+  "List<netsuite.EmployeeCurrency>" employeeCurrency {
+  }
+  boolean replaceAll {
+    isAttribute = true
+  }
+}

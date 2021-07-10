@@ -1,0 +1,11 @@
+type netsuite.InvoiceItemCostList {
+  annotations {
+    hidden_string source {
+    }
+  }
+  "List<netsuite.InvoiceItemCost>" itemCost {
+  }
+  boolean replaceAll {
+    isAttribute = true
+  }
+}

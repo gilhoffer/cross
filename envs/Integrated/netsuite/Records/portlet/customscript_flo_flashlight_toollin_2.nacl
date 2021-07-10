@@ -1,0 +1,26 @@
+netsuite.portlet customscript_flo_flashlight_toollin_2 {
+  scriptid = "customscript_flo_flashlight_toollin_2"
+  defaultfunction = "displayKeyToolsList"
+  isinactive = false
+  name = "Strongpoint Flashlight Tools Links"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  portlettype = "LINKS"
+  scriptfile = "[/SuiteBundles/Bundle 297487/FLOFlashLightLinksPortlet.js]"
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy_flo_flashlight_toollinks"
+        allemployees = false
+        allpartners = false
+        allroles = false
+        audslctrole = "ADMINISTRATOR|[scriptid=customrole_flo_developer_role]|[scriptid=customrole_flo_flashlight]"
+        isdeployed = true
+        loglevel = "DEBUG"
+        status = "RELEASED"
+        title = "Strongpoint Flashlight Tools Links"
+      },
+    ]
+  }
+}

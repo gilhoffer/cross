@@ -1,0 +1,12 @@
+netsuite.file SuiteBundles_Bundle_297487_FLOSetBundleLink_BeforeSubmit_js@dsdbv {
+  bundleable = false
+  isinactive = false
+  availablewithoutlogin = false
+  generateurltimestamp = false
+  hideinbundle = false
+  path = "/SuiteBundles/Bundle 297487/FLOSetBundleLink-BeforeSubmit.js"
+  content = file("netsuite/FileCabinet/SuiteBundles/Bundle 297487/FLOSetBundleLink-BeforeSubmit.js")
+  _parent = [
+    netsuite.folder.instance.SuiteBundles_Bundle_297487@ds,
+  ]
+}

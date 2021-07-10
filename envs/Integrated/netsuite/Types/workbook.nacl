@@ -1,0 +1,64 @@
+type netsuite.workbook_tables {
+  "List<netsuite.workbook_tables_table>" table {
+  }
+}
+type netsuite.workbook_tables_table {
+  serviceid scriptid {
+    _required = true
+    isAttribute = true
+  }
+}
+type netsuite.workbook_pivots {
+  "List<netsuite.workbook_pivots_pivot>" pivot {
+  }
+}
+type netsuite.workbook_pivots_pivot {
+  serviceid scriptid {
+    _required = true
+    isAttribute = true
+  }
+}
+type netsuite.workbook_dependencies {
+  string dependency {
+    _required = true
+  }
+}
+type netsuite.workbook_charts {
+  "List<netsuite.workbook_charts_chart>" chart {
+  }
+}
+type netsuite.workbook_charts_chart {
+  serviceid scriptid {
+    _required = true
+    isAttribute = true
+  }
+}
+type netsuite.workbook {
+  serviceid scriptid {
+    _required = true
+    isAttribute = true
+    _restriction = {
+      regex = "^custworkbook[0-9a-z_]+"
+    }
+  }
+  string name {
+    _required = true
+    _restriction = {
+      max_length = 50
+    }
+  }
+  netsuite.cdata definition {
+    _required = true
+  }
+  netsuite.workbook_charts charts {
+  }
+  netsuite.workbook_dependencies dependencies {
+  }
+  netsuite.workbook_pivots pivots {
+  }
+  netsuite.workbook_tables tables {
+  }
+  string _lastfetchtime {
+    _hidden_value = true
+  }
+}

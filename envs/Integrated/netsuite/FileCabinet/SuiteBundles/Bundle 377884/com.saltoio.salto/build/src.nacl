@@ -1,0 +1,9 @@
+netsuite.folder SuiteBundles_Bundle_377884_com_saltoio_salto_build_src@dsdvvdd {
+  bundleable = false
+  isinactive = false
+  isprivate = false
+  path = "/SuiteBundles/Bundle 377884/com.saltoio.salto/build/src"
+  _parent = [
+    netsuite.folder.instance.SuiteBundles_Bundle_377884_com_saltoio_salto_build@dsdvvd,
+  ]
+}

@@ -1,0 +1,21 @@
+type netsuite.Bin {
+  annotations {
+    hidden_string source {
+    }
+  }
+  string binNumber {
+  }
+  netsuite.Location location {
+  }
+  string memo {
+  }
+  boolean isInactive {
+  }
+  string internalId {
+    isAttribute = true
+    _hidden_value = true
+  }
+  string externalId {
+    isAttribute = true
+  }
+}

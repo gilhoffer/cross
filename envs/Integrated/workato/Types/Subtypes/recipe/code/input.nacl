@@ -1,0 +1,26 @@
+type workato.recipe__code__input {
+  string sobject_name {
+  }
+  string since_offset {
+  }
+  string object {
+  }
+  string field_list {
+  }
+  string table_list {
+  }
+  string service_name {
+  }
+  string request_schema_json {
+  }
+  string reply_schema_json {
+  }
+  string topic_id {
+  }
+  string netsuite_object {
+  }
+  string custom_list {
+  }
+  string since {
+  }
+}

@@ -1,0 +1,11 @@
+type netsuite.EstimateItemList {
+  annotations {
+    hidden_string source {
+    }
+  }
+  "List<netsuite.EstimateItem>" item {
+  }
+  boolean replaceAll {
+    isAttribute = true
+  }
+}

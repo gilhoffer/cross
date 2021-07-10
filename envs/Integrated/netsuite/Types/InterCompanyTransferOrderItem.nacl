@@ -1,0 +1,44 @@
+type netsuite.InterCompanyTransferOrderItem {
+  annotations {
+    hidden_string source {
+    }
+  }
+  netsuite.RecordRef item {
+  }
+  number line {
+  }
+  number quantityAvailable {
+  }
+  number quantityOnHand {
+  }
+  number quantityBackOrdered {
+  }
+  number quantityCommitted {
+  }
+  number quantityFulfilled {
+  }
+  number quantityReceived {
+  }
+  number quantity {
+  }
+  number rate {
+  }
+  netsuite.RecordRef units {
+  }
+  number amount {
+  }
+  string description {
+  }
+  netsuite.InventoryDetail inventoryDetail {
+  }
+  string commitInventory {
+  }
+  netsuite.Department department {
+  }
+  netsuite.Classification class {
+  }
+  number lastPurchasePrice {
+  }
+  number averageCost {
+  }
+}

@@ -1,0 +1,10 @@
+type workato.recipe__code__block__block__input__list_item__data {
+  string item_name {
+  }
+  string quantity {
+  }
+  string price {
+  }
+  string description {
+  }
+}

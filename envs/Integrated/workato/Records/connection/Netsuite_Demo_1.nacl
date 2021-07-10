@@ -1,0 +1,8 @@
+workato.connection Netsuite_Demo_1@s {
+  application = "netsuite"
+  id = 446537
+  name = "Netsuite Demo 1"
+  authorized_at = "2021-05-12T11:49:42.144-07:00"
+  authorization_status = "exception"
+  authorization_error = "(soapenv:Server.userException) Invalid login attempt."
+}

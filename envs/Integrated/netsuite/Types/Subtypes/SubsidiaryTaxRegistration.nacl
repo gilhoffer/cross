@@ -1,0 +1,22 @@
+type netsuite.SubsidiaryTaxRegistration {
+  annotations {
+    hidden_string source {
+    }
+  }
+  number id {
+  }
+  string nexusCountry {
+  }
+  netsuite.Nexus nexus {
+  }
+  netsuite.RecordRef taxAgency {
+  }
+  string taxRegistrationNumber {
+  }
+  netsuite.RecordRef taxEngine {
+  }
+  string effectiveFrom {
+  }
+  string validUntil {
+  }
+}

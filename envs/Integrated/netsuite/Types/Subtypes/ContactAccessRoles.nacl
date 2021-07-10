@@ -1,0 +1,20 @@
+type netsuite.ContactAccessRoles {
+  annotations {
+    hidden_string source {
+    }
+  }
+  boolean giveAccess {
+  }
+  netsuite.Contact contact {
+  }
+  string email {
+  }
+  netsuite.RecordRef role {
+  }
+  string password {
+  }
+  string password2 {
+  }
+  boolean sendEmail {
+  }
+}

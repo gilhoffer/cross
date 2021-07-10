@@ -1,0 +1,56 @@
+netsuite.workflowactionscript customscript_customizations_make_joinwf {
+  scriptid = "customscript_customizations_make_joinwf"
+  defaultfunction = "makeRecJoins"
+  isinactive = false
+  name = "Strongpoint Customization To Make JoinWF"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  returntype = "TEXT"
+  scriptfile = "[/SuiteBundles/Bundle 297487/FLOCustDetailsWF_realtime.js]"
+  scriptcustomfields = {
+    scriptcustomfield = [
+      {
+        scriptid = "custscript_flo_makejoin_param_custid"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        displaywidth = 40
+        fieldtype = "TEXT"
+        isformula = false
+        ismandatory = false
+        label = "FLO Cust IDs"
+        searchlevel = "2"
+        storevalue = true
+      },
+    ]
+  }
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy_customizations_make_joinwf"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        isdeployed = true
+        loglevel = "AUDIT"
+        recordtype = "[scriptid=customrecord_flo_spider_files]"
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+      },
+      {
+        scriptid = "customdeploy_flo_makejoinwf_ondemand"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        isdeployed = true
+        loglevel = "AUDIT"
+        recordtype = netsuite.customrecordtype.instance.customrecord_flo_customization.scriptid
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+      },
+    ]
+  }
+}

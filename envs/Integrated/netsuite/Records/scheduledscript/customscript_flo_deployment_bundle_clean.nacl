@@ -1,0 +1,27 @@
+netsuite.scheduledscript customscript_flo_deployment_bundle_clean {
+  scriptid = "customscript_flo_deployment_bundle_clean"
+  defaultfunction = "setBundleToDeployment"
+  isinactive = false
+  name = "Strongpoint Deployment Bundle Cleanup"
+  notifyadmins = false
+  notifyowner = true
+  scriptfile = "[/SuiteBundles/Bundle 297487/FLODeploymentWithoutBundleSS.js]"
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy_flo_deployment_bundle_clean"
+        isdeployed = true
+        loglevel = "AUDIT"
+        status = "SCHEDULED"
+        title = "Strongpoint Deployment Bundle Cleanup"
+        recurrence = {
+          daily = {
+            everyxdays = 1
+            startdate = "2017-10-05"
+            starttime = "08:00:00Z"
+          }
+        }
+      },
+    ]
+  }
+}

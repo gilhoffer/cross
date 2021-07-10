@@ -1,0 +1,11 @@
+type netsuite.SerializedInventoryItemLocationsList {
+  annotations {
+    hidden_string source {
+    }
+  }
+  "List<netsuite.SerializedInventoryItemLocations>" locations {
+  }
+  boolean replaceAll {
+    isAttribute = true
+  }
+}

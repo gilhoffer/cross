@@ -1,0 +1,16 @@
+type netsuite.ProjectTaskPredecessor {
+  annotations {
+    hidden_string source {
+    }
+  }
+  netsuite.Task task {
+  }
+  string type {
+  }
+  number lagDays {
+  }
+  string startDate {
+  }
+  string endDate {
+  }
+}

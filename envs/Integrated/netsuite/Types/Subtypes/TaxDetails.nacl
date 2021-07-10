@@ -1,0 +1,28 @@
+type netsuite.TaxDetails {
+  annotations {
+    hidden_string source {
+    }
+  }
+  string taxDetailsReference {
+  }
+  string lineType {
+  }
+  string lineName {
+  }
+  number netAmount {
+  }
+  number grossAmount {
+  }
+  netsuite.TaxType taxType {
+  }
+  netsuite.RecordRef taxCode {
+  }
+  number taxBasis {
+  }
+  number taxRate {
+  }
+  number taxAmount {
+  }
+  string calcDetail {
+  }
+}

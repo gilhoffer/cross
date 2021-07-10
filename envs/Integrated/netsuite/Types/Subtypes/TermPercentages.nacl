@@ -1,0 +1,8 @@
+type netsuite.TermPercentages {
+  annotations {
+    hidden_string source {
+    }
+  }
+  number percentage {
+  }
+}

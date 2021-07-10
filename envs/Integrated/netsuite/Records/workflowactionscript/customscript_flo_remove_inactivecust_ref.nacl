@@ -1,0 +1,25 @@
+netsuite.workflowactionscript customscript_flo_remove_inactivecust_ref {
+  scriptid = "customscript_flo_remove_inactivecust_ref"
+  defaultfunction = "removeInactiveReferences"
+  isinactive = false
+  name = "Strongpoint Remove Inactive Cust Refs"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = netsuite.file.instance.SuiteBundles_Bundle_297487_FLORemoveInactiveCustReferences_js@dsdv.path
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy_flo_remove_inactivecust_ref"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        isdeployed = true
+        loglevel = "AUDIT"
+        recordtype = netsuite.customrecordtype.instance.customrecord_flo_customization.scriptid
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+      },
+    ]
+  }
+}

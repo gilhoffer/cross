@@ -1,0 +1,24 @@
+netsuite.customlist customlistcustomer_tiers {
+  scriptid = "customlistcustomer_tiers"
+  description = "List of Tiers for customers"
+  isinactive = false
+  ismatrixoption = false
+  isordered = true
+  name = "Customer Tiers"
+  customvalues = {
+    customvalue = [
+      {
+        scriptid = "val_51689_t2257815_143"
+        abbreviation = "E"
+        isinactive = false
+        value = "Enterprise"
+      },
+      {
+        scriptid = "val_51690_t2257815_166"
+        abbreviation = "S"
+        isinactive = false
+        value = "Small Business"
+      },
+    ]
+  }
+}

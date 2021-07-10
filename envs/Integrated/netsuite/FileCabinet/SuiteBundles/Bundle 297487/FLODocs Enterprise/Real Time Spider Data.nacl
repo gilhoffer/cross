@@ -1,0 +1,9 @@
+netsuite.folder SuiteBundles_Bundle_297487_FLODocs_Enterprise_Real_Time_Spider_Data@dsdsdsss {
+  bundleable = false
+  isinactive = false
+  isprivate = false
+  path = "/SuiteBundles/Bundle 297487/FLODocs Enterprise/Real Time Spider Data"
+  _parent = [
+    netsuite.folder.instance.SuiteBundles_Bundle_297487_FLODocs_Enterprise@dsds,
+  ]
+}

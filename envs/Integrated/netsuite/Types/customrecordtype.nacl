@@ -1,0 +1,321 @@
+type netsuite.customrecordtype_subtabs {
+  "List<netsuite.customrecordtype_subtabs_subtab>" subtab {
+  }
+}
+type netsuite.customrecordtype_subtabs_subtab {
+  serviceid scriptid {
+    _required = true
+    isAttribute = true
+  }
+  string tabtitle {
+    _required = true
+  }
+  string tabparent {
+  }
+}
+type netsuite.customrecordtype_recordsublists {
+  "List<netsuite.customrecordtype_recordsublists_recordsublist>" recordsublist {
+  }
+}
+type netsuite.customrecordtype_recordsublists_recordsublist {
+  serviceid scriptid {
+    _required = true
+    isAttribute = true
+  }
+  string recordsearch {
+    _required = true
+  }
+  string recorddescr {
+    _required = true
+  }
+  string recordtab {
+  }
+  string recordfield {
+  }
+}
+type netsuite.customrecordtype_permissions {
+  "List<netsuite.customrecordtype_permissions_permission>" permission {
+  }
+}
+type netsuite.customrecordtype_permissions_permission {
+  string permittedrole {
+    _required = true
+  }
+  netsuite.generic_permission_level permittedlevel {
+    _required = true
+  }
+  netsuite.role_restrict restriction {
+  }
+}
+type netsuite.customrecordtype_links {
+  "List<netsuite.customrecordtype_links_link>" link {
+  }
+}
+type netsuite.customrecordtype_links_link {
+  netsuite.generic_centercategory linkcategory {
+    _required = true
+  }
+  netsuite.customrecordtype_tasktype linktasktype {
+    _required = true
+  }
+  string linklabel {
+  }
+}
+type netsuite.customrecordtype_instances {
+  "List<netsuite.customrecordtype_instances_instance>" instance {
+  }
+}
+type netsuite.customrecordtype_instances_instance {
+  serviceid scriptid {
+    _required = true
+    isAttribute = true
+  }
+  string altname {
+  }
+  string name {
+  }
+  boolean isinactive {
+  }
+  string parent {
+  }
+}
+type netsuite.customrecordtype_customrecordcustomfields {
+  "List<netsuite.customrecordtype_customrecordcustomfields_customrecordcustomfield>" customrecordcustomfield {
+  }
+}
+type netsuite.customrecordtype_customrecordcustomfields_customrecordcustomfield {
+  serviceid scriptid {
+    _required = true
+    isAttribute = true
+  }
+  netsuite.generic_customfield_fieldtype fieldtype {
+    _required = true
+  }
+  string label {
+    _required = true
+    _restriction = {
+      max_length = 200
+    }
+  }
+  string selectrecordtype {
+  }
+  boolean applyformatting {
+  }
+  boolean defaultchecked {
+  }
+  string defaultselection {
+  }
+  string defaultvalue {
+  }
+  string description {
+  }
+  netsuite.generic_customfield_displaytype displaytype {
+  }
+  netsuite.generic_customfield_dynamicdefault dynamicdefault {
+  }
+  string help {
+  }
+  string linktext {
+  }
+  string minvalue {
+  }
+  string maxvalue {
+  }
+  boolean storevalue {
+  }
+  netsuite.generic_accesslevel_searchlevel accesslevel {
+  }
+  boolean checkspelling {
+  }
+  boolean encryptatrest {
+  }
+  number displayheight {
+  }
+  number displaywidth {
+  }
+  boolean globalsearch {
+  }
+  boolean isformula {
+  }
+  boolean ismandatory {
+  }
+  string maxlength {
+  }
+  netsuite.generic_customfield_onparentdelete onparentdelete {
+  }
+  netsuite.generic_standard_field searchcomparefield {
+  }
+  string searchdefault {
+  }
+  netsuite.generic_accesslevel_searchlevel searchlevel {
+  }
+  boolean showinlist {
+  }
+  string sourcefilterby {
+  }
+  netsuite.generic_standard_field sourcefrom {
+  }
+  string sourcelist {
+  }
+  boolean isparent {
+  }
+  string parentsubtab {
+  }
+  string subtab {
+  }
+  boolean allowquickadd {
+  }
+  boolean rolerestrict {
+  }
+  netsuite.customrecordtype_customrecordcustomfields_customrecordcustomfield_customfieldfilters customfieldfilters {
+  }
+  netsuite.customrecordtype_customrecordcustomfields_customrecordcustomfield_roleaccesses roleaccesses {
+  }
+}
+type netsuite.customrecordtype_customrecordcustomfields_customrecordcustomfield_roleaccesses {
+  "List<netsuite.customrecordtype_customrecordcustomfields_customrecordcustomfield_roleaccesses_roleaccess>" roleaccess {
+  }
+}
+type netsuite.customrecordtype_customrecordcustomfields_customrecordcustomfield_roleaccesses_roleaccess {
+  string role {
+    _required = true
+  }
+  netsuite.generic_accesslevel_searchlevel accesslevel {
+    _required = true
+  }
+  netsuite.generic_accesslevel_searchlevel searchlevel {
+    _required = true
+  }
+}
+type netsuite.customrecordtype_customrecordcustomfields_customrecordcustomfield_customfieldfilters {
+  "List<netsuite.customrecordtype_customrecordcustomfields_customrecordcustomfield_customfieldfilters_customfieldfilter>" customfieldfilter {
+  }
+}
+type netsuite.customrecordtype_customrecordcustomfields_customrecordcustomfield_customfieldfilters_customfieldfilter {
+  string fldfilter {
+    _required = true
+  }
+  boolean fldfilterchecked {
+  }
+  netsuite.generic_customfield_fldfiltercomparetype fldfiltercomparetype {
+  }
+  string fldfiltersel {
+  }
+  string fldfilterval {
+  }
+  boolean fldfilternotnull {
+  }
+  boolean fldfilternull {
+  }
+  string fldcomparefield {
+  }
+}
+type netsuite.customrecordtype {
+  serviceid scriptid {
+    _required = true
+    isAttribute = true
+    _restriction = {
+      regex = "^customrecord[0-9a-z_]+"
+    }
+  }
+  string recordname {
+    _restriction = {
+      max_length = 40
+    }
+  }
+  string customsegment {
+  }
+  netsuite.customrecordtype_accesstype accesstype {
+  }
+  boolean allowattachments {
+  }
+  boolean allowinlineediting {
+  }
+  boolean allowinlinedeleting {
+  }
+  boolean allowinlinedetaching {
+  }
+  boolean allowmobileaccess {
+  }
+  boolean allownumberingoverride {
+  }
+  boolean allowquickadd {
+  }
+  boolean allowquicksearch {
+  }
+  boolean allowuiaccess {
+  }
+  string description {
+  }
+  boolean enabledle {
+  }
+  boolean enablekeywords {
+  }
+  boolean enablemailmerge {
+  }
+  boolean enablenametranslation {
+  }
+  boolean enablenumbering {
+  }
+  boolean enableoptimisticlocking {
+  }
+  boolean enablesystemnotes {
+  }
+  boolean hierarchical {
+  }
+  string numberingprefix {
+  }
+  string numberingsuffix {
+  }
+  string numberingmindigits {
+  }
+  string numberinginit {
+  }
+  string icon {
+  }
+  boolean iconbuiltin {
+  }
+  netsuite.generic_custom_record_icon iconindex {
+  }
+  boolean includeinsearchmenu {
+  }
+  boolean includename {
+  }
+  boolean isinactive {
+  }
+  boolean isordered {
+  }
+  boolean showcreationdate {
+  }
+  boolean showcreationdateonlist {
+  }
+  boolean showid {
+  }
+  boolean showlastmodified {
+  }
+  boolean showlastmodifiedonlist {
+  }
+  boolean shownotes {
+  }
+  boolean showowner {
+  }
+  boolean showownerallowchange {
+  }
+  boolean showowneronlist {
+  }
+  netsuite.customrecordtype_customrecordcustomfields customrecordcustomfields {
+  }
+  netsuite.customrecordtype_instances instances {
+  }
+  netsuite.customrecordtype_links links {
+  }
+  netsuite.customrecordtype_permissions permissions {
+  }
+  netsuite.customrecordtype_recordsublists recordsublists {
+  }
+  netsuite.customrecordtype_subtabs subtabs {
+  }
+  string _lastfetchtime {
+    _hidden_value = true
+  }
+}

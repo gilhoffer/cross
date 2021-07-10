@@ -1,0 +1,49 @@
+type netsuite.translationcollection_strings {
+  "List<netsuite.translationcollection_strings_string>" string {
+  }
+}
+type netsuite.translationcollection_strings_string {
+  serviceid scriptid {
+    _required = true
+    isAttribute = true
+  }
+  string defaulttranslation {
+    _required = true
+    _restriction = {
+      max_length = 1000
+    }
+  }
+  string description {
+    _restriction = {
+      max_length = 1000
+    }
+  }
+}
+type netsuite.translationcollection {
+  serviceid scriptid {
+    _required = true
+    isAttribute = true
+    _restriction = {
+      regex = "^custcollection[0-9a-z_]+"
+    }
+  }
+  string name {
+    _required = true
+    _restriction = {
+      max_length = 100
+    }
+  }
+  netsuite.translationcollection_defaultlanguage defaultlanguage {
+    _required = true
+  }
+  string description {
+    _restriction = {
+      max_length = 1000
+    }
+  }
+  netsuite.translationcollection_strings strings {
+  }
+  string _lastfetchtime {
+    _hidden_value = true
+  }
+}

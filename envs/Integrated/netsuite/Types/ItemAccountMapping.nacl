@@ -1,0 +1,37 @@
+type netsuite.ItemAccountMapping {
+  annotations {
+    hidden_string source {
+    }
+  }
+  netsuite.RecordRef customForm {
+  }
+  string effectiveDate {
+  }
+  string endDate {
+  }
+  netsuite.RecordRef accountingBook {
+  }
+  netsuite.Subsidiary subsidiary {
+  }
+  string itemAccount {
+  }
+  netsuite.Account sourceAccount {
+  }
+  netsuite.Classification class {
+  }
+  netsuite.Department department {
+  }
+  netsuite.Location location {
+  }
+  netsuite.Account destinationAccount {
+  }
+  netsuite.BaseRef customDimension {
+  }
+  string internalId {
+    isAttribute = true
+    _hidden_value = true
+  }
+  string externalId {
+    isAttribute = true
+  }
+}

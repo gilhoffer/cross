@@ -1,0 +1,7 @@
+workato.connection secondary_Neta_sfdev1@s {
+  application = "salesforce_secondary"
+  id = 423162
+  name = "secondary Neta sfdev1"
+  authorized_at = "2021-03-16T15:10:09.442-07:00"
+  authorization_status = "success"
+}

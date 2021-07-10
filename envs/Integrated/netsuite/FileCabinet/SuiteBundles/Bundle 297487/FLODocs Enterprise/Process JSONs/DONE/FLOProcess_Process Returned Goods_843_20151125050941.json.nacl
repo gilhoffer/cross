@@ -1,0 +1,12 @@
+netsuite.file SuiteBundles_Bundle_297487_FLODocs_Enterprise_Process_JSONs_DONE_FLOProcess_Process_Returned_Goods_843_20151125050941_json@dsdsdsddussuuv {
+  bundleable = false
+  isinactive = false
+  availablewithoutlogin = false
+  generateurltimestamp = false
+  hideinbundle = false
+  path = "/SuiteBundles/Bundle 297487/FLODocs Enterprise/Process JSONs/DONE/FLOProcess_Process Returned Goods_843_20151125050941.json"
+  content = file("netsuite/FileCabinet/SuiteBundles/Bundle 297487/FLODocs Enterprise/Process JSONs/DONE/FLOProcess_Process Returned Goods_843_20151125050941.json")
+  _parent = [
+    netsuite.folder.instance.SuiteBundles_Bundle_297487_FLODocs_Enterprise_Process_JSONs_DONE@dsdsdsd,
+  ]
+}

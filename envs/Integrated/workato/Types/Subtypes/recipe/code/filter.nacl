@@ -1,0 +1,8 @@
+type workato.recipe__code__filter {
+  "List<workato.recipe__code__filter__conditions>" conditions {
+  }
+  string operand {
+  }
+  string type {
+  }
+}

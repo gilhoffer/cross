@@ -1,0 +1,58 @@
+type workato.recipe__code__block__block__input {
+  string sobject_name {
+  }
+  string Id {
+  }
+  string limit {
+  }
+  string netsuite_object {
+  }
+  string displayName {
+  }
+  workato.recipe__code__block__block__input__search_settings search_settings {
+  }
+  string type {
+  }
+  string operand {
+  }
+  "List<workato.recipe__code__block__block__input__conditions>" conditions {
+  }
+  string name {
+  }
+  workato.recipe__code__block__block__input__list_item list_item {
+  }
+  string isTaxable {
+  }
+  string entity {
+  }
+  workato.recipe__code__block__block__input__itemList itemList {
+  }
+  string external_id {
+  }
+  string id {
+  }
+  string Description {
+  }
+  string Netsuite_URL__c {
+  }
+  string Sea__c {
+  }
+  string Name {
+  }
+  string dsafdsfa__c {
+  }
+  string StageName {
+  }
+  string team_drives {
+  }
+  string spreadsheet_id {
+  }
+  string sheet_name {
+  }
+  string column_headers {
+  }
+  workato.recipe__code__block__block__input__columns columns {
+  }
+  string Netsuite_city__c {
+  }
+}

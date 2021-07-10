@@ -1,0 +1,5 @@
+netsuite.centerlink custlink_1_t2257815_271 {
+  scriptid = "custlink_1_t2257815_271"
+  label = "Report a Bug"
+  url = "https://strongpoint.io/support"
+}

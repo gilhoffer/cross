@@ -1,0 +1,12 @@
+netsuite.file SuiteBundles_Bundle_297487_FLODocs_Enterprise_Field_Spider_Files_TSTDRV1267182_itemcustomfield_1_txt@dsdsdssdbvv {
+  bundleable = false
+  isinactive = false
+  availablewithoutlogin = false
+  generateurltimestamp = false
+  hideinbundle = false
+  path = "/SuiteBundles/Bundle 297487/FLODocs Enterprise/Field Spider Files/TSTDRV1267182-itemcustomfield.1.txt"
+  content = file("netsuite/FileCabinet/SuiteBundles/Bundle 297487/FLODocs Enterprise/Field Spider Files/TSTDRV1267182-itemcustomfield.1.txt")
+  _parent = [
+    netsuite.folder.instance.SuiteBundles_Bundle_297487_FLODocs_Enterprise_Field_Spider_Files@dsdsdss,
+  ]
+}

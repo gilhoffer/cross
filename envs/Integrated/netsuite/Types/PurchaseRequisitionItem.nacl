@@ -1,0 +1,58 @@
+type netsuite.PurchaseRequisitionItem {
+  annotations {
+    hidden_string source {
+    }
+  }
+  number line {
+  }
+  netsuite.RecordRef item {
+  }
+  string vendorName {
+  }
+  netsuite.Vendor poVendor {
+  }
+  number quantity {
+  }
+  netsuite.RecordRef units {
+  }
+  string serialNumbers {
+  }
+  netsuite.InventoryDetail inventoryDetail {
+  }
+  string description {
+  }
+  number estimatedRate {
+  }
+  number estimatedAmount {
+  }
+  string rate {
+  }
+  number amount {
+  }
+  netsuite.RecordRef taxCode {
+  }
+  number taxRate1 {
+  }
+  number taxRate2 {
+  }
+  number grossAmt {
+  }
+  netsuite.Department department {
+  }
+  netsuite.Classification class {
+  }
+  netsuite.Customer customer {
+  }
+  boolean isBillable {
+  }
+  netsuite.RecordRefList linkedOrderList {
+  }
+  string linkedOrderStatus {
+  }
+  string expectedReceiptDate {
+  }
+  boolean isClosed {
+  }
+  boolean expandItemGroup {
+  }
+}

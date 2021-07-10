@@ -1,0 +1,12 @@
+netsuite.file SuiteBundles_Bundle_297487_FLODocs_Enterprise_FLOChartPortlet_CSS_bootstrap_theme_css@dsdsdddbv {
+  bundleable = true
+  isinactive = false
+  availablewithoutlogin = true
+  generateurltimestamp = false
+  hideinbundle = false
+  path = "/SuiteBundles/Bundle 297487/FLODocs Enterprise/FLOChartPortlet/CSS/bootstrap-theme.css"
+  content = file("netsuite/FileCabinet/SuiteBundles/Bundle 297487/FLODocs Enterprise/FLOChartPortlet/CSS/bootstrap-theme.css")
+  _parent = [
+    netsuite.folder.instance.SuiteBundles_Bundle_297487_FLODocs_Enterprise_FLOChartPortlet_CSS@dsdsdd,
+  ]
+}

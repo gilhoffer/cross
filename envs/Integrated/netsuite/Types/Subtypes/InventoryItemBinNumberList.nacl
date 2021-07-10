@@ -1,0 +1,11 @@
+type netsuite.InventoryItemBinNumberList {
+  annotations {
+    hidden_string source {
+    }
+  }
+  "List<netsuite.InventoryItemBinNumber>" binNumber {
+  }
+  boolean replaceAll {
+    isAttribute = true
+  }
+}

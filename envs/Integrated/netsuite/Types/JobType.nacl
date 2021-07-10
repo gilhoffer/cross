@@ -1,0 +1,19 @@
+type netsuite.JobType {
+  annotations {
+    hidden_string source {
+    }
+  }
+  string name {
+  }
+  netsuite.JobType parent {
+  }
+  boolean isInactive {
+  }
+  string internalId {
+    isAttribute = true
+    _hidden_value = true
+  }
+  string externalId {
+    isAttribute = true
+  }
+}

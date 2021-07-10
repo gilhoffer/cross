@@ -1,0 +1,25 @@
+netsuite.suitelet customscript_flo_displaynoaccess {
+  scriptid = "customscript_flo_displaynoaccess"
+  defaultfunction = "displayErrorMessage"
+  isinactive = false
+  name = "Strongpoint Lite Display No Access"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = "[/SuiteBundles/Bundle 297487/FLOStrongpointLiteRecordAccess.js]"
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy_flo_displaynoaccess"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        isdeployed = true
+        isonline = false
+        loglevel = "AUDIT"
+        status = "RELEASED"
+        title = "Strongpoint Lite Display No Access"
+      },
+    ]
+  }
+}

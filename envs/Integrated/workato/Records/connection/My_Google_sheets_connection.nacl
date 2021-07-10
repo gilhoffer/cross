@@ -1,0 +1,5 @@
+workato.connection My_Google_sheets_connection@s {
+  application = "google_sheets"
+  id = 422890
+  name = "My Google sheets connection"
+}

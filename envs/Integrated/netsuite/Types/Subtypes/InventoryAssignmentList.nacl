@@ -1,0 +1,11 @@
+type netsuite.InventoryAssignmentList {
+  annotations {
+    hidden_string source {
+    }
+  }
+  "List<netsuite.InventoryAssignment>" inventoryAssignment {
+  }
+  boolean replaceAll {
+    isAttribute = true
+  }
+}

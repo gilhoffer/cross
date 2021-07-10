@@ -1,0 +1,11 @@
+netsuite.usereventscript customscript_flo_validate_license_ue {
+  scriptid = "customscript_flo_validate_license_ue"
+  beforeloadfunction = "FLOValidateLicense"
+  description = "Validate if there is a valid license before display the record"
+  isinactive = false
+  name = "StrongpointValidateLicense"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = "[/SuiteBundles/Bundle 297487/FLOValidateLicense.js]"
+}

@@ -1,0 +1,14 @@
+type workato.recipe__code__block__requirements__extended_input_schema__properties {
+  string control_type {
+  }
+  string label {
+  }
+  boolean optional {
+  }
+  string type {
+  }
+  string name {
+  }
+  string parent {
+  }
+}

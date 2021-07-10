@@ -1,0 +1,48 @@
+netsuite.scheduledscript customscript_flo_deduplicate {
+  scriptid = "customscript_flo_deduplicate"
+  defaultfunction = "clearDuplicates"
+  description = "consolidate duplicated customization, leaving the oldest one."
+  isinactive = false
+  name = "Strongpoint DeDuplicate"
+  notifyadmins = false
+  notifyowner = false
+  scriptfile = "[/SuiteBundles/Bundle 297487/FLODeDuplicateSS.js]"
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy_flo_deduplicate"
+        isdeployed = true
+        loglevel = "AUDIT"
+        status = "NOTSCHEDULED"
+        title = "Strongpoint DeDuplicate"
+        recurrence = {
+          weekly = {
+            everyxweeks = 1
+            friday = false
+            monday = false
+            saturday = true
+            startdate = "2015-03-01"
+            starttime = "06:00:00Z"
+            sunday = true
+            thursday = false
+            tuesday = false
+            wednesday = false
+          }
+        }
+      },
+      {
+        scriptid = "customdeploy_flo_deduplicate_od"
+        isdeployed = true
+        loglevel = "AUDIT"
+        status = "NOTSCHEDULED"
+        title = "Strongpoint DeDuplicate - OD"
+        recurrence = {
+          single = {
+            startdate = "2015-02-26"
+            starttime = "02:00:00Z"
+          }
+        }
+      },
+    ]
+  }
+}

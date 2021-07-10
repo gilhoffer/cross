@@ -1,0 +1,55 @@
+netsuite.suitelet customscript_getfields_server_side {
+  scriptid = "customscript_getfields_server_side"
+  defaultfunction = "spiderRecords"
+  description = "grab all the customizations in an account and create a file that represent them."
+  isinactive = false
+  name = "Strongpoint Spider Record Server Side"
+  notifyadmins = false
+  notifyowner = false
+  notifyuser = false
+  scriptfile = netsuite.file.instance.SuiteBundles_Bundle_297487_FLOSpiderRecordsServerSide_js@dsdv.path
+  scriptcustomfields = {
+    scriptcustomfield = [
+      {
+        scriptid = "custscript_auto_spider_enabled"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "CHECKBOX"
+        isformula = false
+        ismandatory = false
+        label = "Auto Spider Enabled"
+        searchlevel = "2"
+        storevalue = true
+      },
+    ]
+  }
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy1"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        isdeployed = true
+        isonline = false
+        loglevel = "DEBUG"
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+        title = "Strongpoint Spider Record Server Side"
+      },
+    ]
+  }
+  libraries = {
+    library = [
+      {
+        scriptfile = "[/SuiteBundles/Bundle 297487/FloParseRecordListingServerSide.js]"
+      },
+      {
+        scriptfile = netsuite.file.instance.SuiteBundles_Bundle_297487_FLOTranslationLib_js@dsdv.path
+      },
+    ]
+  }
+}

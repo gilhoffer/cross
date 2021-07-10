@@ -1,0 +1,11 @@
+type netsuite.ProjectTaskPredecessorList {
+  annotations {
+    hidden_string source {
+    }
+  }
+  "List<netsuite.ProjectTaskPredecessor>" projectTaskPredecessor {
+  }
+  boolean replaceAll {
+    isAttribute = true
+  }
+}

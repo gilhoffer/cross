@@ -1,0 +1,44 @@
+netsuite.scheduledscript customscript_flo_repair_cust_schedule {
+  scriptid = "customscript_flo_repair_cust_schedule"
+  defaultfunction = "repairCusts"
+  isinactive = false
+  name = "Strongpoint Repair Custs SLT Schedule"
+  notifyadmins = false
+  notifyowner = true
+  scriptfile = netsuite.file.instance.SuiteBundles_Bundle_297487_FLOrepairCustsSchedule_js@dsdv.path
+  scriptcustomfields = {
+    scriptcustomfield = [
+      {
+        scriptid = "custscript_last_id_processed"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "TEXT"
+        isformula = false
+        ismandatory = false
+        label = "Last ID Processed"
+        searchlevel = "2"
+        storevalue = true
+      },
+    ]
+  }
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy_flo_repair_cust_schedule"
+        isdeployed = true
+        loglevel = "AUDIT"
+        status = "NOTSCHEDULED"
+        title = "Strongpoint Repair Custs SLT Schedule"
+        recurrence = {
+          single = {
+            startdate = "2016-02-23"
+            starttime = "02:00:00Z"
+          }
+        }
+      },
+    ]
+  }
+}

@@ -1,0 +1,42 @@
+type netsuite.AccountingPeriod {
+  annotations {
+    hidden_string source {
+    }
+  }
+  serviceid periodName {
+  }
+  netsuite.AccountingPeriod parent {
+  }
+  string startDate {
+  }
+  string endDate {
+  }
+  netsuite.RecordRef fiscalCalendar {
+  }
+  string closedOnDate {
+  }
+  boolean isAdjust {
+  }
+  netsuite.AccountingPeriodFiscalCalendarsList fiscalCalendarsList {
+  }
+  boolean isQuarter {
+  }
+  boolean isYear {
+  }
+  boolean closed {
+  }
+  boolean apLocked {
+  }
+  boolean arLocked {
+  }
+  boolean payrollLocked {
+  }
+  boolean allLocked {
+  }
+  boolean allowNonGLChanges {
+  }
+  string internalId {
+    isAttribute = true
+    _hidden_value = true
+  }
+}

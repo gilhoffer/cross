@@ -1,0 +1,26 @@
+netsuite.workflowactionscript customscript_fl_validate_full_license {
+  scriptid = "customscript_fl_validate_full_license"
+  defaultfunction = "validateFullLicense"
+  description = "Validate if the user created can have a full access license"
+  isinactive = false
+  name = "Strongpoint Validate Full License"
+  notifyadmins = false
+  notifyowner = false
+  notifyuser = false
+  returntype = "INTEGER"
+  scriptfile = "[/SuiteBundles/Bundle 297487/FLOValidateLicense.js]"
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy1"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        isdeployed = true
+        loglevel = "AUDIT"
+        recordtype = "RECORD"
+        status = "RELEASED"
+      },
+    ]
+  }
+}

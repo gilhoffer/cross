@@ -1,0 +1,20 @@
+type netsuite.ItemSupplyPlanOrder {
+  annotations {
+    hidden_string source {
+    }
+  }
+  number orderLineId {
+  }
+  string orderDate {
+  }
+  string receiptDate {
+  }
+  netsuite.Location sourceLocation {
+  }
+  number quantity {
+  }
+  boolean orderCreated {
+  }
+  string orderType {
+  }
+}

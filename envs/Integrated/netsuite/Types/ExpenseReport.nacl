@@ -1,0 +1,83 @@
+type netsuite.ExpenseReport {
+  annotations {
+    hidden_string source {
+    }
+  }
+  string createdDate {
+  }
+  string lastModifiedDate {
+  }
+  string status {
+  }
+  netsuite.RecordRef customForm {
+  }
+  netsuite.Account account {
+  }
+  netsuite.RecordRef entity {
+  }
+  netsuite.Currency expenseReportCurrency {
+  }
+  number expenseReportExchangeRate {
+  }
+  netsuite.Subsidiary subsidiary {
+  }
+  string taxPointDate {
+  }
+  string tranId {
+  }
+  netsuite.RecordRef acctCorpCardExp {
+  }
+  netsuite.RecordRef postingPeriod {
+  }
+  string tranDate {
+  }
+  string dueDate {
+  }
+  netsuite.RecordRef approvalStatus {
+  }
+  number total {
+  }
+  netsuite.RecordRef nextApprover {
+  }
+  number advance {
+  }
+  number tax1Amt {
+  }
+  number amount {
+  }
+  string memo {
+  }
+  boolean complete {
+  }
+  boolean supervisorApproval {
+  }
+  boolean accountingApproval {
+  }
+  boolean useMultiCurrency {
+  }
+  number tax2Amt {
+  }
+  netsuite.Department department {
+  }
+  netsuite.Classification class {
+  }
+  netsuite.Location location {
+  }
+  netsuite.ExpenseReportExpenseList expenseList {
+  }
+  netsuite.AccountingBookDetailList accountingBookDetailList {
+  }
+  netsuite.TaxDetailsList taxDetailsList {
+  }
+  netsuite.Nexus nexus {
+  }
+  netsuite.RecordRef subsidiaryTaxRegNum {
+  }
+  string internalId {
+    isAttribute = true
+    _hidden_value = true
+  }
+  string externalId {
+    isAttribute = true
+  }
+}

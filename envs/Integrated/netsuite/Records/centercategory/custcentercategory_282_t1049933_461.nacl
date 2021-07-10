@@ -1,0 +1,34 @@
+netsuite.centercategory custcentercategory_282_t1049933_461 {
+  scriptid = "custcentercategory_282_t1049933_461"
+  center = "BASIC"
+  centertab = netsuite.centertab.instance.custcentertab_flo_strongpoint_lite.scriptid
+  label = "User Management"
+  links = {
+    link = [
+      {
+        linklabel = "Employees Granted Access in the Past Week"
+        linkobject = "[scriptid=customsearch_flo_newusers_2]"
+        linktasktype = "SRCH_RSLT"
+        shortlist = false
+      },
+      {
+        linklabel = "Inactive Users"
+        linkobject = "[scriptid=customsearch_flo_inactiveusers_2]"
+        linktasktype = "SRCH_RSLT"
+        shortlist = false
+      },
+      {
+        linklabel = "Employees with Unused Logins"
+        linkobject = "[scriptid=customsearch_flo_unused_logins]"
+        linktasktype = "SRCH_RSLT"
+        shortlist = false
+      },
+      {
+        linklabel = "Employees with Standard Roles"
+        linkobject = "[scriptid=customsearch_employees_standard_roles]"
+        linktasktype = "SRCH_RSLT"
+        shortlist = false
+      },
+    ]
+  }
+}

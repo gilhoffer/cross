@@ -1,0 +1,12 @@
+type netsuite.Subscriptions {
+  annotations {
+    hidden_string source {
+    }
+  }
+  boolean subscribed {
+  }
+  netsuite.RecordRef subscription {
+  }
+  string lastModifiedDate {
+  }
+}

@@ -1,0 +1,11 @@
+type netsuite.VendorCreditApplyList {
+  annotations {
+    hidden_string source {
+    }
+  }
+  "List<netsuite.VendorCreditApply>" apply {
+  }
+  boolean replaceAll {
+    isAttribute = true
+  }
+}

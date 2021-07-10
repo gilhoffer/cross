@@ -1,0 +1,8 @@
+type netsuite.PeriodDemandPlanList {
+  annotations {
+    hidden_string source {
+    }
+  }
+  "List<netsuite.PeriodDemandPlan>" periodDemandPlan {
+  }
+}

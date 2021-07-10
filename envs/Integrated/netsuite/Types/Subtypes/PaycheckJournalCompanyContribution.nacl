@@ -1,0 +1,18 @@
+type netsuite.PaycheckJournalCompanyContribution {
+  annotations {
+    hidden_string source {
+    }
+  }
+  number id {
+  }
+  netsuite.PayrollItem payrollItem {
+  }
+  number amount {
+  }
+  netsuite.Department department {
+  }
+  netsuite.Classification class {
+  }
+  netsuite.Location location {
+  }
+}

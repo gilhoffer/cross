@@ -1,0 +1,16 @@
+type netsuite.PresentationItem {
+  annotations {
+    hidden_string source {
+    }
+  }
+  netsuite.RecordRef item {
+  }
+  string itemType {
+  }
+  string description {
+  }
+  number onlinePrice {
+  }
+  number basePrice {
+  }
+}

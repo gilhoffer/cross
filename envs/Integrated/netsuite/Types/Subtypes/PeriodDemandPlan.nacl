@@ -1,0 +1,10 @@
+type netsuite.PeriodDemandPlan {
+  annotations {
+    hidden_string source {
+    }
+  }
+  number quantity {
+  }
+  string dayOfTheWeek {
+  }
+}

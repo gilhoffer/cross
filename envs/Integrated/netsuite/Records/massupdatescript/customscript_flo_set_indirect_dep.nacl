@@ -1,0 +1,25 @@
+netsuite.massupdatescript customscript_flo_set_indirect_dep {
+  scriptid = "customscript_flo_set_indirect_dep"
+  defaultfunction = "setIndirectDependencies"
+  isinactive = false
+  name = "Strongpoint Set Indirect Dependencies"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = "[/SuiteBundles/Bundle 297487/FLOSetIndirectDependencies_MU.js]"
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy_flo_set_indirect_dep"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        isdeployed = true
+        loglevel = "AUDIT"
+        recordtype = netsuite.customrecordtype.instance.customrecord_flo_customization.scriptid
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+      },
+    ]
+  }
+}

@@ -1,0 +1,77 @@
+type netsuite.Check {
+  annotations {
+    hidden_string source {
+    }
+  }
+  string createdDate {
+  }
+  string lastModifiedDate {
+  }
+  string status {
+  }
+  netsuite.RecordRef customForm {
+  }
+  netsuite.Account account {
+  }
+  number balance {
+  }
+  netsuite.RecordRef entity {
+  }
+  netsuite.Subsidiary subsidiary {
+  }
+  netsuite.RecordRef postingPeriod {
+  }
+  string tranDate {
+  }
+  netsuite.Currency currency {
+  }
+  netsuite.RecordRef voidJournal {
+  }
+  number exchangeRate {
+  }
+  boolean toBePrinted {
+  }
+  string tranId {
+  }
+  string memo {
+  }
+  netsuite.Department department {
+  }
+  number taxTotal {
+  }
+  netsuite.Classification class {
+  }
+  number tax2Total {
+  }
+  netsuite.Location location {
+  }
+  number userTotal {
+  }
+  string landedCostMethod {
+  }
+  boolean landedCostPerLine {
+  }
+  string transactionNumber {
+  }
+  netsuite.CheckExpenseList expenseList {
+  }
+  netsuite.CheckItemList itemList {
+  }
+  netsuite.AccountingBookDetailList accountingBookDetailList {
+  }
+  netsuite.CheckLandedCostList landedCostsList {
+  }
+  boolean billPay {
+  }
+  netsuite.RecordRef payeeAddressList {
+  }
+  netsuite.Address payeeAddress {
+  }
+  string internalId {
+    isAttribute = true
+    _hidden_value = true
+  }
+  string externalId {
+    isAttribute = true
+  }
+}

@@ -1,0 +1,60 @@
+type netsuite.pluginimplementation_libraries {
+  "List<netsuite.pluginimplementation_libraries_library>" library {
+  }
+}
+type netsuite.pluginimplementation_libraries_library {
+  string scriptfile {
+    _required = true
+  }
+}
+type netsuite.pluginimplementation {
+  serviceid scriptid {
+    _required = true
+    isAttribute = true
+    _restriction = {
+      regex = "^customscript[0-9a-z_]+"
+    }
+  }
+  string name {
+    _required = true
+    _restriction = {
+      max_length = 40
+    }
+  }
+  string scriptfile {
+    _required = true
+  }
+  string customplugintype {
+    _required = true
+  }
+  netsuite.plugintype_status status {
+    _required = true
+  }
+  string description {
+    _restriction = {
+      max_length = 999
+    }
+  }
+  boolean isinactive {
+  }
+  boolean notifyadmins {
+  }
+  string notifyemails {
+    _restriction = {
+      max_length = 999
+    }
+  }
+  string notifygroup {
+  }
+  boolean notifyowner {
+  }
+  boolean notifyuser {
+  }
+  netsuite.plugintype_loglevel loglevel {
+  }
+  netsuite.pluginimplementation_libraries libraries {
+  }
+  string _lastfetchtime {
+    _hidden_value = true
+  }
+}

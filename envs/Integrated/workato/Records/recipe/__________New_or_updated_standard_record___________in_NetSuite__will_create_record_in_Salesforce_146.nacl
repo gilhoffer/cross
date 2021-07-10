@@ -1,0 +1,41 @@
+workato.recipe __________New_or_updated_standard_record___________in_NetSuite__will_create_record_in_Salesforce_1462951@ssssssssssssss_00010sssssssssss_00010sssssu {
+  id = 1462951
+  user_id = 212128
+  name = '''
+          New or updated standard record
+          in NetSuite
+ will create record in Salesforce
+'''
+  copy_count = 1
+  trigger_application = "netsuite"
+  action_applications = [
+    "salesforce",
+  ]
+  applications = [
+    "netsuite",
+    "salesforce",
+  ]
+  description = '''
+When there is a           New or updated standard record
+          in NetSuite
+, create record in Salesforce
+'''
+  folder_id = 318283
+  running = false
+  lifetime_task_count = 0
+  config = [
+    {
+      keyword = "application"
+      provider = "netsuite"
+      name = "netsuite"
+      account_id = workato.connection.instance.Test_NetSuite_account@s
+    },
+    {
+      keyword = "application"
+      provider = "salesforce"
+      name = "salesforce"
+      account_id = workato.connection.instance.Gil_s_dev2_sfdc_account@tsss
+    },
+  ]
+  code = workato.recipe__code.instance.__________New_or_updated_standard_record___________in_NetSuite__will_create_record_in_Salesforce_1462951_ssssssssssssss_00010sssssssssss_00010sssssu__updated_object@uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuumuuuuu
+}

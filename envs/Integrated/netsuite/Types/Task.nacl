@@ -1,0 +1,80 @@
+type netsuite.Task {
+  annotations {
+    hidden_string source {
+    }
+  }
+  netsuite.RecordRef company {
+  }
+  netsuite.Contact contact {
+  }
+  netsuite.SupportCase supportCase {
+  }
+  netsuite.RecordRef transaction {
+  }
+  netsuite.RecordRef milestone {
+  }
+  netsuite.RecordRef customForm {
+  }
+  string title {
+  }
+  netsuite.RecordRef assigned {
+  }
+  boolean sendEmail {
+  }
+  boolean timedEvent {
+  }
+  netsuite.Duration estimatedTime {
+  }
+  netsuite.Duration estimatedTimeOverride {
+  }
+  netsuite.Duration actualTime {
+  }
+  netsuite.Duration timeRemaining {
+  }
+  number percentTimeComplete {
+  }
+  number percentComplete {
+  }
+  netsuite.Task parent {
+  }
+  string startDate {
+  }
+  string endDate {
+  }
+  string dueDate {
+  }
+  string completedDate {
+  }
+  string priority {
+  }
+  string status {
+  }
+  string message {
+  }
+  boolean accessLevel {
+  }
+  string reminderType {
+  }
+  string reminderMinutes {
+  }
+  string createdDate {
+  }
+  string lastModifiedDate {
+  }
+  netsuite.RecordRef owner {
+  }
+  netsuite.TaskContactList contactList {
+  }
+  netsuite.TaskTimeItemList timeItemList {
+  }
+  string internalId {
+    isAttribute = true
+    _hidden_value = true
+  }
+  string externalId {
+    isAttribute = true
+  }
+  boolean custevent_slt_severity {
+    field_instance = netsuite.crmcustomfield.instance.custevent_slt_severity.scriptid
+  }
+}

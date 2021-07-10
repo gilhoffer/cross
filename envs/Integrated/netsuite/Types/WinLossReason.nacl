@@ -1,0 +1,17 @@
+type netsuite.WinLossReason {
+  annotations {
+    hidden_string source {
+    }
+  }
+  string name {
+  }
+  boolean isInactive {
+  }
+  string internalId {
+    isAttribute = true
+    _hidden_value = true
+  }
+  string externalId {
+    isAttribute = true
+  }
+}

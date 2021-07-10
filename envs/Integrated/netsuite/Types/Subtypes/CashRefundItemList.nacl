@@ -1,0 +1,11 @@
+type netsuite.CashRefundItemList {
+  annotations {
+    hidden_string source {
+    }
+  }
+  "List<netsuite.CashRefundItem>" item {
+  }
+  boolean replaceAll {
+    isAttribute = true
+  }
+}

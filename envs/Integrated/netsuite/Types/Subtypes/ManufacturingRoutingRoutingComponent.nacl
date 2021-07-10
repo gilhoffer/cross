@@ -1,0 +1,28 @@
+type netsuite.ManufacturingRoutingRoutingComponent {
+  annotations {
+    hidden_string source {
+    }
+  }
+  string itemName {
+  }
+  string revision {
+  }
+  string description {
+  }
+  number yield {
+  }
+  number bomQuantity {
+  }
+  number quantity {
+  }
+  string units {
+  }
+  netsuite.RecordRef operationDisplayText {
+  }
+  number operationSequenceNumber {
+  }
+  string component {
+  }
+  string item {
+  }
+}

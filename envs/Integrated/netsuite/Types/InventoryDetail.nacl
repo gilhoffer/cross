@@ -1,0 +1,10 @@
+type netsuite.InventoryDetail {
+  annotations {
+    hidden_string source {
+    }
+  }
+  netsuite.InventoryAssignmentList inventoryAssignmentList {
+  }
+  netsuite.RecordRef customForm {
+  }
+}

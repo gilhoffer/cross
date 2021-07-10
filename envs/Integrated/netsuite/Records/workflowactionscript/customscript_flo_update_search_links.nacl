@@ -1,0 +1,25 @@
+netsuite.workflowactionscript customscript_flo_update_search_links {
+  scriptid = "customscript_flo_update_search_links"
+  defaultfunction = "updateSearchLinks"
+  isinactive = false
+  name = "Strongpoint Update Search Links"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = netsuite.file.instance.SuiteBundles_Bundle_297487_FLOUpdateSearchLink_js@dsdv.path
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy_flo_update_search_links"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        isdeployed = true
+        loglevel = "AUDIT"
+        recordtype = netsuite.customrecordtype.instance.customrecord_flo_customization.scriptid
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+      },
+    ]
+  }
+}

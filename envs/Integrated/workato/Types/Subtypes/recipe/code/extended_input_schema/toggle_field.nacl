@@ -1,0 +1,20 @@
+type workato.recipe__code__extended_input_schema__toggle_field {
+  string control_type {
+  }
+  string label {
+  }
+  string render_input {
+  }
+  string parse_output {
+  }
+  string toggle_hint {
+  }
+  boolean since_field {
+  }
+  string hint {
+  }
+  string type {
+  }
+  string name {
+  }
+}

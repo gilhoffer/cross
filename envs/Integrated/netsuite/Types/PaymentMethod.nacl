@@ -1,0 +1,37 @@
+type netsuite.PaymentMethod {
+  annotations {
+    hidden_string source {
+    }
+  }
+  string name {
+  }
+  boolean creditCard {
+  }
+  boolean undepFunds {
+  }
+  netsuite.Account account {
+  }
+  boolean isInactive {
+  }
+  boolean isOnline {
+  }
+  netsuite.PaymentMethodVisualsList visualsList {
+  }
+  boolean isDebitCard {
+  }
+  "List<netsuite.Account>" merchantAccountsList {
+  }
+  string payPalEmailAddress {
+  }
+  string expressCheckoutArrangement {
+  }
+  boolean useExpressCheckout {
+  }
+  string internalId {
+    isAttribute = true
+    _hidden_value = true
+  }
+  string externalId {
+    isAttribute = true
+  }
+}

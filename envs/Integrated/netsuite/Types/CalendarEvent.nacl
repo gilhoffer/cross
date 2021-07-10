@@ -1,0 +1,81 @@
+type netsuite.CalendarEvent {
+  annotations {
+    hidden_string source {
+    }
+  }
+  netsuite.RecordRef company {
+  }
+  netsuite.Contact contact {
+  }
+  netsuite.SupportCase supportCase {
+  }
+  netsuite.RecordRef transaction {
+  }
+  number period {
+  }
+  string frequency {
+  }
+  netsuite.RecurrenceDowMaskList recurrenceDowMaskList {
+  }
+  string recurrenceDow {
+  }
+  string recurrenceDowim {
+  }
+  string seriesStartDate {
+  }
+  string endByDate {
+  }
+  boolean noEndDate {
+  }
+  boolean sendEmail {
+  }
+  netsuite.RecordRef customForm {
+  }
+  string title {
+  }
+  string recurrence {
+  }
+  string location {
+  }
+  string startDate {
+  }
+  boolean allDayEvent {
+  }
+  boolean timedEvent {
+  }
+  string reminderType {
+  }
+  string reminderMinutes {
+  }
+  string status {
+  }
+  string accessLevel {
+  }
+  netsuite.RecordRef organizer {
+  }
+  string message {
+  }
+  string createdDate {
+  }
+  string endDate {
+  }
+  netsuite.ExclusionDateList exclusionDateList {
+  }
+  string lastModifiedDate {
+  }
+  netsuite.RecordRef owner {
+  }
+  netsuite.CalendarEventAttendeeList attendeeList {
+  }
+  netsuite.CalendarEventResourceList resourceList {
+  }
+  netsuite.CalendarEventTimeItemList timeItemList {
+  }
+  string internalId {
+    isAttribute = true
+    _hidden_value = true
+  }
+  string externalId {
+    isAttribute = true
+  }
+}

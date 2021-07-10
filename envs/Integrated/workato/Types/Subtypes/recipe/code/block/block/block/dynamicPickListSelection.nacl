@@ -1,0 +1,12 @@
+type workato.recipe__code__block__block__block__dynamicPickListSelection {
+  string netsuite_object {
+  }
+  string sobject_name {
+  }
+  "List<workato.recipe__code__block__block__block__dynamicPickListSelection__primary_key>" primary_key {
+  }
+  string Outcome {
+  }
+  string Type {
+  }
+}

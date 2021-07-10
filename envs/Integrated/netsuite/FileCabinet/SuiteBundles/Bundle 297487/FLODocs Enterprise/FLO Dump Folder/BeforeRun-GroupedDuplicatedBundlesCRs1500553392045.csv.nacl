@@ -1,0 +1,12 @@
+netsuite.file SuiteBundles_Bundle_297487_FLODocs_Enterprise_FLO_Dump_Folder_BeforeRun_GroupedDuplicatedBundlesCRs1500553392045_csv@dsdsdssdbv {
+  bundleable = false
+  isinactive = false
+  availablewithoutlogin = false
+  generateurltimestamp = false
+  hideinbundle = false
+  path = "/SuiteBundles/Bundle 297487/FLODocs Enterprise/FLO Dump Folder/BeforeRun-GroupedDuplicatedBundlesCRs1500553392045.csv"
+  content = file("netsuite/FileCabinet/SuiteBundles/Bundle 297487/FLODocs Enterprise/FLO Dump Folder/BeforeRun-GroupedDuplicatedBundlesCRs1500553392045.csv")
+  _parent = [
+    netsuite.folder.instance.SuiteBundles_Bundle_297487_FLODocs_Enterprise_FLO_Dump_Folder@dsdsdss,
+  ]
+}

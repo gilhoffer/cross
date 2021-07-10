@@ -1,0 +1,108 @@
+type netsuite.ReturnAuthorizationItem {
+  annotations {
+    hidden_string source {
+    }
+  }
+  netsuite.Job job {
+  }
+  netsuite.RecordRef item {
+  }
+  number orderLine {
+  }
+  number line {
+  }
+  number quantity {
+  }
+  number quantityReceived {
+  }
+  number quantityBilled {
+  }
+  netsuite.RecordRef units {
+  }
+  netsuite.InventoryDetail inventoryDetail {
+  }
+  string description {
+  }
+  string serialNumbers {
+  }
+  netsuite.Price price {
+  }
+  string rate {
+  }
+  number amount {
+  }
+  number revRecTermInMonths {
+  }
+  boolean deferRevRec {
+  }
+  boolean isClosed {
+  }
+  boolean isDropShipment {
+  }
+  netsuite.Location inventoryLocation {
+  }
+  netsuite.Subsidiary inventorySubsidiary {
+  }
+  netsuite.RecordRef catchUpPeriod {
+  }
+  netsuite.Department department {
+  }
+  string costEstimateType {
+  }
+  number costEstimate {
+  }
+  string taxDetailsReference {
+  }
+  netsuite.Classification class {
+  }
+  netsuite.Location location {
+  }
+  netsuite.RecordRef revRecSchedule {
+  }
+  string revRecStartDate {
+  }
+  string revRecEndDate {
+  }
+  netsuite.RecordRef taxCode {
+  }
+  number taxRate1 {
+  }
+  number taxRate2 {
+  }
+  number tax1Amt {
+  }
+  number grossAmt {
+  }
+  boolean isTaxable {
+  }
+  string giftCertFrom {
+  }
+  string giftCertRecipientName {
+  }
+  string giftCertRecipientEmail {
+  }
+  string giftCertMessage {
+  }
+  string giftCertNumber {
+  }
+  string vsoeSopGroup {
+  }
+  boolean vsoeIsEstimate {
+  }
+  number vsoePrice {
+  }
+  number vsoeAmount {
+  }
+  number altSalesAmt {
+  }
+  number taxAmount {
+  }
+  number vsoeAllocation {
+  }
+  string vsoeDeferral {
+  }
+  string vsoePermitDiscount {
+  }
+  boolean vsoeDelivered {
+  }
+}

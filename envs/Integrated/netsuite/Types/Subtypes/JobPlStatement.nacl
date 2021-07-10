@@ -1,0 +1,16 @@
+type netsuite.JobPlStatement {
+  annotations {
+    hidden_string source {
+    }
+  }
+  string costCategory {
+  }
+  number revenue {
+  }
+  number cost {
+  }
+  number profit {
+  }
+  number margin {
+  }
+}

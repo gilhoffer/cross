@@ -1,0 +1,26 @@
+netsuite.scheduledscript customscript_flo_list_custom_fields {
+  scriptid = "customscript_flo_list_custom_fields"
+  description = "Creates text file(s) that contains list of Standard Record custom field ids"
+  isinactive = false
+  name = "Strongpoint List Cust Flds - Std Rec 2.0"
+  notifyadmins = false
+  notifyowner = true
+  scriptfile = "[/SuiteBundles/Bundle 297487/FLOListCustomFields.js]"
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy_flo_list_custom_fields"
+        isdeployed = true
+        loglevel = "AUDIT"
+        status = "NOTSCHEDULED"
+        title = "Strongpoint List Custom Fields"
+        recurrence = {
+          single = {
+            startdate = "2017-04-14"
+            starttime = "01:00:00Z"
+          }
+        }
+      },
+    ]
+  }
+}

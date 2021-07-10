@@ -1,0 +1,14 @@
+type netsuite.InterCompanyJournalEntryAccountingBookDetail {
+  annotations {
+    hidden_string source {
+    }
+  }
+  netsuite.RecordRef accountingBook {
+  }
+  netsuite.Currency currency {
+  }
+  netsuite.Subsidiary subsidiary {
+  }
+  number exchangeRate {
+  }
+}

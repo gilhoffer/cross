@@ -1,0 +1,8 @@
+type workato.recipe__code__filter__conditions {
+  string operand {
+  }
+  string lhs {
+  }
+  string rhs {
+  }
+}

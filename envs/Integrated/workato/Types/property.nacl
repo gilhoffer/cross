@@ -1,0 +1,4 @@
+type workato.property {
+  "Map<string>" value {
+  }
+}

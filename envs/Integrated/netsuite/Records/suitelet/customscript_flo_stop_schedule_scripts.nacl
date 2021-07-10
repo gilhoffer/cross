@@ -1,0 +1,56 @@
+netsuite.suitelet customscript_flo_stop_schedule_scripts {
+  scriptid = "customscript_flo_stop_schedule_scripts"
+  defaultfunction = "stopSchedule"
+  isinactive = false
+  name = "Strongpoint Stop Schedule Scripts"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = netsuite.file.instance.SuiteBundles_Bundle_297487_FLOStopSchedule_js@dsdv.path
+  scriptcustomfields = {
+    scriptcustomfield = [
+      {
+        scriptid = "custscript_flo_start"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "CHECKBOX"
+        isformula = false
+        ismandatory = false
+        label = "Start"
+        searchlevel = "2"
+        storevalue = true
+      },
+    ]
+  }
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy_flo_stop_schedule_scpts_s"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        isdeployed = true
+        isonline = false
+        loglevel = "ERROR"
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+        title = "Strongpoint Stop Schedule Scripts (start)"
+      },
+      {
+        scriptid = "customdeploy_flo_stop_schedule_scripts"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        isdeployed = true
+        isonline = false
+        loglevel = "ERROR"
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+        title = "Strongpoint Stop Schedule Scripts (Stop)"
+      },
+    ]
+  }
+}

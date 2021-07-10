@@ -1,0 +1,159 @@
+type netsuite.Opportunity {
+  annotations {
+    hidden_string source {
+    }
+  }
+  netsuite.RecordRef customForm {
+  }
+  netsuite.Currency currency {
+  }
+  number estimatedBudget {
+  }
+  netsuite.RecordRef entity {
+  }
+  netsuite.Job job {
+  }
+  string title {
+  }
+  string tranId {
+  }
+  netsuite.RecordRef entityTaxRegNum {
+  }
+  string taxPointDate {
+  }
+  number oneTime {
+  }
+  number recurWeekly {
+  }
+  number recurMonthly {
+  }
+  number recurQuarterly {
+  }
+  number recurAnnually {
+  }
+  string source {
+  }
+  netsuite.RecordRef salesRep {
+  }
+  string contribPct {
+  }
+  netsuite.Partner partner {
+  }
+  netsuite.RecordRef salesGroup {
+  }
+  boolean syncSalesTeams {
+  }
+  netsuite.LeadSource leadSource {
+  }
+  netsuite.RecordRef entityStatus {
+  }
+  number probability {
+  }
+  string tranDate {
+  }
+  string expectedCloseDate {
+  }
+  number daysOpen {
+  }
+  netsuite.RecordRef forecastType {
+  }
+  string currencyName {
+  }
+  number exchangeRate {
+  }
+  number projectedTotal {
+  }
+  number rangeLow {
+  }
+  number rangeHigh {
+  }
+  number projAltSalesAmt {
+  }
+  number altSalesRangeLow {
+  }
+  number altSalesRangeHigh {
+  }
+  number weightedTotal {
+  }
+  string actionItem {
+  }
+  netsuite.WinLossReason winLossReason {
+  }
+  string memo {
+  }
+  number taxTotal {
+  }
+  boolean isBudgetApproved {
+  }
+  number tax2Total {
+  }
+  netsuite.RecordRef salesReadiness {
+  }
+  number totalCostEstimate {
+  }
+  netsuite.RecordRef buyingTimeFrame {
+  }
+  number estGrossProfit {
+  }
+  netsuite.RecordRef buyingReason {
+  }
+  number estGrossProfitPercent {
+  }
+  netsuite.Address billingAddress {
+  }
+  netsuite.RecordRef billAddressList {
+  }
+  netsuite.Address shippingAddress {
+  }
+  boolean shipIsResidential {
+  }
+  netsuite.RecordRef shipAddressList {
+  }
+  netsuite.Classification class {
+  }
+  string closeDate {
+  }
+  string createdDate {
+  }
+  string lastModifiedDate {
+  }
+  netsuite.Nexus nexus {
+  }
+  netsuite.RecordRef subsidiaryTaxRegNum {
+  }
+  boolean taxRegOverride {
+  }
+  boolean taxDetailsOverride {
+  }
+  netsuite.Department department {
+  }
+  netsuite.Location location {
+  }
+  netsuite.Subsidiary subsidiary {
+  }
+  string status {
+  }
+  string vatRegNum {
+  }
+  boolean syncPartnerTeams {
+  }
+  netsuite.OpportunitySalesTeamList salesTeamList {
+  }
+  netsuite.OpportunityPartnersList partnersList {
+  }
+  netsuite.OpportunityItemList itemList {
+  }
+  netsuite.OpportunityCompetitorsList competitorsList {
+  }
+  netsuite.AccountingBookDetailList accountingBookDetailList {
+  }
+  netsuite.TaxDetailsList taxDetailsList {
+  }
+  string internalId {
+    isAttribute = true
+    _hidden_value = true
+  }
+  string externalId {
+    isAttribute = true
+  }
+}

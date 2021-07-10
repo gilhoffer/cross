@@ -1,0 +1,24 @@
+netsuite.workflowactionscript customscript_flo_spider_log_cnt_mismatch {
+  scriptid = "customscript_flo_spider_log_cnt_mismatch"
+  isinactive = false
+  name = "Strongpoint Sp Log Count Mismatch Update"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = "[/SuiteBundles/Bundle 297487/FLOSpiderLogMismatchedCountUpdate.js]"
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy_flo_spider_log_mismatch_upd"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        isdeployed = true
+        loglevel = "AUDIT"
+        recordtype = netsuite.customrecordtype.instance.customrecord_flo_spider_log.scriptid
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+      },
+    ]
+  }
+}

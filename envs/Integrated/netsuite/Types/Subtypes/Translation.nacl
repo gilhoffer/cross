@@ -1,0 +1,32 @@
+type netsuite.Translation {
+  annotations {
+    hidden_string source {
+    }
+  }
+  string locale {
+  }
+  string language {
+  }
+  string displayName {
+  }
+  string description {
+  }
+  string salesDescription {
+  }
+  string storeDisplayName {
+  }
+  string storeDescription {
+  }
+  string storeDetailedDescription {
+  }
+  string featuredDescription {
+  }
+  string specialsDescription {
+  }
+  string pageTitle {
+  }
+  string noPriceMessage {
+  }
+  string outOfStockMessage {
+  }
+}

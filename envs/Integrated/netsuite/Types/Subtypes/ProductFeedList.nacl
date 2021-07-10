@@ -1,0 +1,8 @@
+type netsuite.ProductFeedList {
+  annotations {
+    hidden_string source {
+    }
+  }
+  "List<string>" productFeed {
+  }
+}

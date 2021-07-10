@@ -1,0 +1,12 @@
+type netsuite.IssueRelatedIssues {
+  annotations {
+    hidden_string source {
+    }
+  }
+  string relationship {
+  }
+  netsuite.RecordRef issueNumber {
+  }
+  string relationshipComment {
+  }
+}

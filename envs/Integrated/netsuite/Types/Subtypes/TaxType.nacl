@@ -1,0 +1,33 @@
+type netsuite.TaxType {
+  annotations {
+    hidden_string source {
+    }
+  }
+  string name {
+  }
+  string description {
+  }
+  boolean doesNotAddToTotal {
+  }
+  boolean postToItemCost {
+  }
+  boolean taxInNetAmount {
+  }
+  boolean reverseCharge {
+  }
+  boolean isInactive {
+  }
+  netsuite.TaxTypeNexusAccountsList nexusAccountsList {
+  }
+  netsuite.TaxTypeNexusesTaxList nexusesTaxList {
+  }
+  string country {
+  }
+  string internalId {
+    isAttribute = true
+    _hidden_value = true
+  }
+  string externalId {
+    isAttribute = true
+  }
+}

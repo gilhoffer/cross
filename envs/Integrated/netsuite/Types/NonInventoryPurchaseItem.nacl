@@ -1,0 +1,119 @@
+type netsuite.NonInventoryPurchaseItem {
+  annotations {
+    hidden_string source {
+    }
+  }
+  string createdDate {
+  }
+  string lastModifiedDate {
+  }
+  string purchaseDescription {
+  }
+  number cost {
+  }
+  string costUnits {
+  }
+  netsuite.Account expenseAccount {
+  }
+  netsuite.RecordRef issueProduct {
+  }
+  boolean isTaxable {
+  }
+  string matrixType {
+  }
+  netsuite.UnitsType unitsType {
+  }
+  netsuite.RecordRef purchaseUnit {
+  }
+  netsuite.RecordRef customForm {
+  }
+  serviceid itemId {
+  }
+  string upcCode {
+  }
+  string displayName {
+  }
+  boolean includeChildren {
+  }
+  string vendorName {
+  }
+  netsuite.NonInventoryPurchaseItem parent {
+  }
+  boolean isInactive {
+  }
+  string matrixItemNameTemplate {
+  }
+  boolean availableToPartners {
+  }
+  netsuite.Department department {
+  }
+  netsuite.Classification class {
+  }
+  netsuite.Location location {
+  }
+  "List<netsuite.Subsidiary>" subsidiaryList {
+  }
+  netsuite.RecordRef taxSchedule {
+  }
+  netsuite.RecordRef deferralAccount {
+  }
+  netsuite.RecordRef amortizationTemplate {
+  }
+  string residual {
+  }
+  number amortizationPeriod {
+  }
+  boolean isFulfillable {
+  }
+  boolean generateAccruals {
+  }
+  netsuite.ItemAccountingBookDetailList accountingBookDetailList {
+  }
+  netsuite.CostCategory costCategory {
+  }
+  number purchaseOrderQuantity {
+  }
+  number purchaseOrderAmount {
+  }
+  number purchaseOrderQuantityDiff {
+  }
+  number receiptQuantity {
+  }
+  number receiptAmount {
+  }
+  number receiptQuantityDiff {
+  }
+  string currency {
+  }
+  netsuite.ItemOptionsList itemOptionsList {
+  }
+  netsuite.MatrixOptionList matrixOptionList {
+  }
+  netsuite.ItemVendorList itemVendorList {
+  }
+  netsuite.RecordRef purchaseTaxCode {
+  }
+  netsuite.RecordRef salesTaxCode {
+  }
+  netsuite.TranslationList translationsList {
+  }
+  netsuite.Vendor vendor {
+  }
+  netsuite.NonInventoryPurchaseItemHierarchyVersionsList hierarchyVersionsList {
+  }
+  netsuite.RecordRef consumptionUnit {
+  }
+  string internalId {
+    isAttribute = true
+    _hidden_value = true
+  }
+  string externalId {
+    isAttribute = true
+  }
+  string custitemhq_clone_itemfield01 {
+    field_instance = netsuite.itemcustomfield.instance.custitemhq_clone_itemfield01.scriptid
+  }
+  string custitemhqcuitemfield02 {
+    field_instance = netsuite.itemcustomfield.instance.custitemhqcuitemfield02.scriptid
+  }
+}

@@ -1,0 +1,26 @@
+netsuite.suitelet customscript_flo_cust_data {
+  scriptid = "customscript_flo_cust_data"
+  defaultfunction = "getCustData"
+  description = "This script retrieves data for one or more customization records for use in the ERD."
+  isinactive = false
+  name = "Strongpoint Customization Data"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = "[/SuiteBundles/Bundle 297487/FLOCustomizationSuite.js]"
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy_flo_cust_data"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        isdeployed = true
+        isonline = false
+        loglevel = "AUDIT"
+        status = "RELEASED"
+        title = "Strongpoint Customization Data"
+      },
+    ]
+  }
+}

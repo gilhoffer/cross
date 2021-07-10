@@ -1,0 +1,14 @@
+type netsuite.ManufacturingCostDetail {
+  annotations {
+    hidden_string source {
+    }
+  }
+  netsuite.CostCategory costCategory {
+  }
+  netsuite.RecordRef item {
+  }
+  number fixedRate {
+  }
+  number runRate {
+  }
+}

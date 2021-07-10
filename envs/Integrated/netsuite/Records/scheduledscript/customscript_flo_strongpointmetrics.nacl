@@ -1,0 +1,47 @@
+netsuite.scheduledscript customscript_flo_strongpointmetrics {
+  scriptid = "customscript_flo_strongpointmetrics"
+  defaultfunction = "getStrongpointMetrics"
+  isinactive = false
+  name = "Strongpoint Metrics"
+  notifyadmins = false
+  notifyowner = true
+  scriptfile = "[/SuiteBundles/Bundle 297487/StrongpointMetrics.js]"
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy_flo_metrics_od"
+        isdeployed = true
+        loglevel = "AUDIT"
+        status = "NOTSCHEDULED"
+        title = "Strongpoint Metrics OD"
+        recurrence = {
+          single = {
+            startdate = "2018-01-12"
+            starttime = "02:00:00Z"
+          }
+        }
+      },
+      {
+        scriptid = "customdeploy_flo_strongpointmetrics"
+        isdeployed = true
+        loglevel = "AUDIT"
+        status = "SCHEDULED"
+        title = "Strongpoint Metrics"
+        recurrence = {
+          weekly = {
+            everyxweeks = 1
+            friday = false
+            monday = false
+            saturday = true
+            startdate = "2018-01-07"
+            starttime = "04:00:00Z"
+            sunday = false
+            thursday = false
+            tuesday = false
+            wednesday = false
+          }
+        }
+      },
+    ]
+  }
+}

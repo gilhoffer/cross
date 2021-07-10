@@ -1,0 +1,19 @@
+salesforce.CustomLabels CustomLabels {
+  fullName = "CustomLabels"
+  labels = [
+    {
+      fullName = "TestCustomLabel"
+      language = "en_US"
+      protected = false
+      shortDescription = "TestCustomLabel"
+      value = "This is a custom label"
+    },
+    {
+      fullName = "TestCustomLabel2"
+      language = "en_US"
+      protected = false
+      shortDescription = "TestCustomLabel2"
+      value = "This is another custom label  22"
+    },
+  ]
+}

@@ -1,0 +1,62 @@
+type netsuite.JournalEntryLine {
+  annotations {
+    hidden_string source {
+    }
+  }
+  netsuite.Account account {
+  }
+  number line {
+  }
+  number debit {
+  }
+  number credit {
+  }
+  netsuite.Account taxAccount {
+  }
+  netsuite.RecordRef lineTaxCode {
+  }
+  number lineTaxRate {
+  }
+  number debitTax {
+  }
+  number creditTax {
+  }
+  number taxBasis {
+  }
+  number totalAmount {
+  }
+  netsuite.RecordRef taxCode {
+  }
+  string memo {
+  }
+  number taxRate1 {
+  }
+  netsuite.RecordRef entity {
+  }
+  number grossAmt {
+  }
+  netsuite.Department department {
+  }
+  netsuite.Classification class {
+  }
+  netsuite.Location location {
+  }
+  netsuite.RecordRef revenueRecognitionRule {
+  }
+  boolean eliminate {
+  }
+  netsuite.RecordRef schedule {
+  }
+  string startDate {
+  }
+  string endDate {
+  }
+  string residual {
+  }
+  netsuite.RecordRef scheduleNum {
+  }
+  number tax1Amt {
+  }
+  netsuite.RecordRef tax1Acct {
+  }
+}

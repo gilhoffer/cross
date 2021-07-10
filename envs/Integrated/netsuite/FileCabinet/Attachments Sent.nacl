@@ -1,0 +1,7 @@
+netsuite.folder Attachments_Sent@s {
+  description = "Attachments Sent Folder"
+  bundleable = false
+  isinactive = false
+  isprivate = false
+  path = "/Attachments Sent"
+}

@@ -1,0 +1,105 @@
+type netsuite.Contact {
+  annotations {
+    hidden_string source {
+    }
+  }
+  netsuite.RecordRef customForm {
+  }
+  string entityId {
+  }
+  netsuite.RecordRef contactSource {
+  }
+  netsuite.RecordRef company {
+  }
+  string salutation {
+  }
+  string firstName {
+  }
+  string middleName {
+  }
+  string lastName {
+  }
+  string title {
+  }
+  string phone {
+  }
+  string fax {
+  }
+  string email {
+  }
+  string defaultAddress {
+  }
+  boolean isPrivate {
+  }
+  boolean isInactive {
+  }
+  netsuite.Subsidiary subsidiary {
+  }
+  string phoneticName {
+  }
+  netsuite.CategoryList categoryList {
+  }
+  string altEmail {
+  }
+  string officePhone {
+  }
+  string homePhone {
+  }
+  string mobilePhone {
+  }
+  netsuite.Employee supervisor {
+  }
+  string supervisorPhone {
+  }
+  netsuite.RecordRef assistant {
+  }
+  string assistantPhone {
+  }
+  string comments {
+  }
+  string globalSubscriptionStatus {
+  }
+  netsuite.file image {
+  }
+  boolean billPay {
+  }
+  string dateCreated {
+  }
+  string lastModifiedDate {
+  }
+  netsuite.ContactAddressbookList addressbookList {
+  }
+  netsuite.SubscriptionsList subscriptionsList {
+  }
+  string internalId {
+    isAttribute = true
+    _hidden_value = true
+  }
+  string externalId {
+    isAttribute = true
+  }
+  string custentity1 {
+    field_instance = netsuite.entitycustomfield.instance.custentity1.scriptid
+  }
+  boolean custentity10 {
+    field_instance = netsuite.entitycustomfield.instance.custentity10.scriptid
+  }
+  number custentity13 {
+    field_instance = netsuite.entitycustomfield.instance.custentity13.scriptid
+  }
+  boolean custentity_14 {
+    field_instance = netsuite.entitycustomfield.instance.custentity_14.scriptid
+  }
+  boolean custentity_15 {
+    field_instance = netsuite.entitycustomfield.instance.custentity_15.scriptid
+  }
+  string custentity_created {
+    field_instance = netsuite.entitycustomfield.instance.custentity_created.scriptid
+  }
+  boolean custentity_slt_e2e_test {
+    field_instance = netsuite.entitycustomfield.instance.custentity_slt_e2e_test.scriptid
+  }
+  string custentityscript_id_2 {
+    field_instance = netsuite.entitycustomfield.instance.custentityscript_id_2.scriptid
+  }
+}

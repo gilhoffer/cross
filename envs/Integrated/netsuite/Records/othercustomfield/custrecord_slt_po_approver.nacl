@@ -1,0 +1,29 @@
+netsuite.othercustomfield custrecord_slt_po_approver {
+  scriptid = "custrecord_slt_po_approver"
+  accesslevel = "1"
+  applyformatting = false
+  checkspelling = false
+  defaultchecked = false
+  displaytype = "NORMAL"
+  encryptatrest = false
+  fieldtype = "SELECT"
+  isformula = false
+  ismandatory = false
+  label = "PO Approver"
+  onparentdelete = "SET_NULL"
+  rectype = "-102"
+  searchlevel = "1"
+  selectrecordtype = "-4"
+  showhierarchy = false
+  showinlist = false
+  storevalue = true
+  roleaccesses = {
+    roleaccess = [
+      {
+        accesslevel = "2"
+        role = "CEO"
+        searchlevel = "2"
+      },
+    ]
+  }
+}

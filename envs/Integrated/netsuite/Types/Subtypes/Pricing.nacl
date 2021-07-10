@@ -1,0 +1,14 @@
+type netsuite.Pricing {
+  annotations {
+    hidden_string source {
+    }
+  }
+  netsuite.Currency currency {
+  }
+  netsuite.PriceLevel priceLevel {
+  }
+  number discount {
+  }
+  netsuite.PriceList priceList {
+  }
+}

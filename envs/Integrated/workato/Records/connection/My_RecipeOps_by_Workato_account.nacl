@@ -1,0 +1,7 @@
+workato.connection My_RecipeOps_by_Workato_account@s {
+  application = "workato_app"
+  id = 423156
+  name = "My RecipeOps by Workato account"
+  authorized_at = "2021-03-16T14:57:15.653-07:00"
+  authorization_status = "success"
+}

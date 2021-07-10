@@ -1,0 +1,64 @@
+netsuite.workflowactionscript customscript_flo_script_parserwf {
+  scriptid = "customscript_flo_script_parserwf"
+  defaultfunction = "spiderScriptFilesSS"
+  isinactive = false
+  name = "Strongpoint Script File Parser WF"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  returntype = "TEXT"
+  scriptfile = netsuite.file.instance.SuiteBundles_Bundle_297487_FLOScriptfileParserWF_js@dsdv.path
+  scriptcustomfields = {
+    scriptcustomfield = [
+      {
+        scriptid = "custscript_flo_parser_param_custid"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        displaywidth = 40
+        fieldtype = "TEXT"
+        isformula = false
+        ismandatory = false
+        label = "FLO Cust IDs"
+        searchlevel = "2"
+        storevalue = true
+      },
+    ]
+  }
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy_flo_script_parserwf"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        isdeployed = true
+        loglevel = "DEBUG"
+        recordtype = "[scriptid=customrecord_flo_spider_files]"
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+      },
+    ]
+  }
+  libraries = {
+    library = [
+      {
+        scriptfile = "[/SuiteBundles/Bundle 297487/FLOValidateLicense.js]"
+      },
+      {
+        scriptfile = netsuite.file.instance.SuiteBundles_Bundle_297487_sha1_js@dsdv.path
+      },
+      {
+        scriptfile = netsuite.file.instance.SuiteBundles_Bundle_297487_supportedrecords_js@dsdv.path
+      },
+      {
+        scriptfile = netsuite.file.instance.SuiteBundles_Bundle_297487_esprima_js@dsdv.path
+      },
+      {
+        scriptfile = netsuite.file.instance.SuiteBundles_Bundle_297487_estraverse_browser_js@dsdvv.path
+      },
+    ]
+  }
+}

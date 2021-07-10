@@ -1,0 +1,131 @@
+type netsuite.Partner {
+  annotations {
+    hidden_string source {
+    }
+  }
+  netsuite.RecordRef customForm {
+  }
+  string entityId {
+  }
+  string altName {
+  }
+  serviceid partnerCode {
+  }
+  boolean isPerson {
+  }
+  string phoneticName {
+  }
+  string salutation {
+  }
+  string firstName {
+  }
+  string middleName {
+  }
+  string lastName {
+  }
+  string companyName {
+  }
+  netsuite.Partner parent {
+  }
+  string phone {
+  }
+  string fax {
+  }
+  string email {
+  }
+  string url {
+  }
+  string defaultAddress {
+  }
+  boolean isInactive {
+  }
+  string lastModifiedDate {
+  }
+  string dateCreated {
+  }
+  netsuite.PartnerTaxRegistrationList taxRegistrationList {
+  }
+  string globalSubscriptionStatus {
+  }
+  string referringUrl {
+  }
+  netsuite.RecordRefList roleList {
+  }
+  netsuite.CategoryList categoryList {
+  }
+  string title {
+  }
+  string printOnCheckAs {
+  }
+  string taxIdNum {
+  }
+  string vatRegNumber {
+  }
+  string comments {
+  }
+  string bcn {
+  }
+  netsuite.file image {
+  }
+  string taxFractionUnit {
+  }
+  string emailPreference {
+  }
+  netsuite.RecordRef defaultTaxReg {
+  }
+  string taxRounding {
+  }
+  netsuite.Department department {
+  }
+  netsuite.Location location {
+  }
+  netsuite.Classification class {
+  }
+  netsuite.Subsidiary subsidiary {
+  }
+  string homePhone {
+  }
+  string mobilePhone {
+  }
+  string altEmail {
+  }
+  boolean giveAccess {
+  }
+  netsuite.RecordRef accessRole {
+  }
+  boolean sendEmail {
+  }
+  string password {
+  }
+  string password2 {
+  }
+  boolean requirePwdChange {
+  }
+  boolean subPartnerLogin {
+  }
+  string loginAs {
+  }
+  boolean eligibleForCommission {
+  }
+  netsuite.ContactAccessRolesList contactRolesList {
+  }
+  netsuite.PartnerPromoCodeList promoCodeList {
+  }
+  netsuite.PartnerAddressbookList addressbookList {
+  }
+  netsuite.SubscriptionsList subscriptionsList {
+  }
+  string internalId {
+    isAttribute = true
+    _hidden_value = true
+  }
+  string externalId {
+    isAttribute = true
+  }
+  number custentity_slt_tax_reg {
+    field_instance = netsuite.entitycustomfield.instance.custentity_slt_tax_reg.scriptid
+  }
+  string custentityproduct_type {
+    field_instance = netsuite.entitycustomfield.instance.custentityproduct_type.scriptid
+  }
+}

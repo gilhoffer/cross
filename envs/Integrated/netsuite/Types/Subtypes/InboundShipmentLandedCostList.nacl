@@ -1,0 +1,11 @@
+type netsuite.InboundShipmentLandedCostList {
+  annotations {
+    hidden_string source {
+    }
+  }
+  "List<netsuite.InboundShipmentLandedCost>" inboundShipmentLandedCost {
+  }
+  boolean replaceAll {
+    isAttribute = true
+  }
+}

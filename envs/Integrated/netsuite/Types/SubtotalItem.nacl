@@ -1,0 +1,43 @@
+type netsuite.SubtotalItem {
+  annotations {
+    hidden_string source {
+    }
+  }
+  string createdDate {
+  }
+  string lastModifiedDate {
+  }
+  string displayName {
+  }
+  netsuite.RecordRef issueProduct {
+  }
+  string description {
+  }
+  boolean includeChildren {
+  }
+  netsuite.RecordRef customForm {
+  }
+  serviceid itemId {
+  }
+  boolean isInactive {
+  }
+  boolean availableToPartners {
+  }
+  netsuite.Department department {
+  }
+  netsuite.Classification class {
+  }
+  netsuite.Location location {
+  }
+  "List<netsuite.Subsidiary>" subsidiaryList {
+  }
+  netsuite.TranslationList translationsList {
+  }
+  string internalId {
+    isAttribute = true
+    _hidden_value = true
+  }
+  string externalId {
+    isAttribute = true
+  }
+}

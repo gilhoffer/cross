@@ -1,0 +1,51 @@
+type netsuite.PaycheckJournal {
+  annotations {
+    hidden_string source {
+    }
+  }
+  netsuite.Subsidiary subsidiary {
+  }
+  netsuite.Currency currency {
+  }
+  number exchangeRate {
+  }
+  string createdDate {
+  }
+  string lastModifiedDate {
+  }
+  netsuite.RecordRef customForm {
+  }
+  string tranId {
+  }
+  netsuite.Employee employee {
+  }
+  string tranDate {
+  }
+  netsuite.RecordRef postingPeriod {
+  }
+  netsuite.Account account {
+  }
+  netsuite.Department department {
+  }
+  netsuite.Classification class {
+  }
+  netsuite.Location location {
+  }
+  netsuite.PaycheckJournalCompanyContributionList companyContributionList {
+  }
+  netsuite.PaycheckJournalDeductionList deductionList {
+  }
+  netsuite.PaycheckJournalEmployeeTaxList employeeTaxList {
+  }
+  netsuite.PaycheckJournalCompanyTaxList companyTaxList {
+  }
+  netsuite.PaycheckJournalEarningList earningList {
+  }
+  string internalId {
+    isAttribute = true
+    _hidden_value = true
+  }
+  string externalId {
+    isAttribute = true
+  }
+}

@@ -1,0 +1,11 @@
+type netsuite.SubsidiaryAccountingBookDetailList {
+  annotations {
+    hidden_string source {
+    }
+  }
+  "List<netsuite.SubsidiaryAccountingBookDetail>" subsidiaryAccountingBookDetail {
+  }
+  boolean replaceAll {
+    isAttribute = true
+  }
+}

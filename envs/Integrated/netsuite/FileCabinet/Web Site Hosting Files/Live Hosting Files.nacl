@@ -1,0 +1,10 @@
+netsuite.folder Web_Site_Hosting_Files_Live_Hosting_Files@sssdss {
+  description = "Hosted live site root"
+  bundleable = false
+  isinactive = false
+  isprivate = false
+  path = "/Web Site Hosting Files/Live Hosting Files"
+  _parent = [
+    netsuite.folder.instance.Web_Site_Hosting_Files@s,
+  ]
+}

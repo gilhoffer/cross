@@ -1,0 +1,11 @@
+type netsuite.TimeSheetTimeGridList {
+  annotations {
+    hidden_string source {
+    }
+  }
+  "List<netsuite.TimeSheetTimeGrid>" timeSheetTimeGrid {
+  }
+  boolean replaceAll {
+    isAttribute = true
+  }
+}

@@ -1,0 +1,11 @@
+type netsuite.UnitsTypeUomList {
+  annotations {
+    hidden_string source {
+    }
+  }
+  "List<netsuite.UnitsTypeUom>" uom {
+  }
+  boolean replaceAll {
+    isAttribute = true
+  }
+}

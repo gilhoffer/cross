@@ -1,0 +1,5 @@
+netsuite.centerlink custlink_2_t2257815_830 {
+  scriptid = "custlink_2_t2257815_830"
+  label = "User Guide"
+  url = "https://help.strongpoint.io/Flashlight_by_Strongpoint_for_NetSuite/index.htm"
+}

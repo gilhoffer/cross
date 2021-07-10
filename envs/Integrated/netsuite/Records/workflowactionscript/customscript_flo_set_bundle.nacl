@@ -1,0 +1,26 @@
+netsuite.workflowactionscript customscript_flo_set_bundle {
+  scriptid = "customscript_flo_set_bundle"
+  defaultfunction = "setBundleToCust"
+  description = "Set the customization Bundle IDs"
+  isinactive = false
+  name = "Strongpoint Set Cust Bundle"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = netsuite.file.instance.SuiteBundles_Bundle_297487_FLOSetBundle_js@dsdv.path
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy_flo_set_bundle"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        isdeployed = true
+        loglevel = "AUDIT"
+        recordtype = netsuite.customrecordtype.instance.customrecord_flo_customization.scriptid
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+      },
+    ]
+  }
+}

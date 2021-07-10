@@ -1,0 +1,1167 @@
+netsuite.entryForm custform_15_t1049933_143 {
+  scriptid = "custform_15_t1049933_143"
+  standard = "STANDARDCUSTOMRECORD_FLO_SPIDER_CONFIGURATIONFORM"
+  name = "Configuration and Stats Form"
+  recordType = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.scriptid
+  inactive = false
+  preferred = false
+  storedWithRecord = false
+  mainFields = {
+    defaultFieldGroup = {
+      fields = [
+        {
+          position = "TOP"
+          field = [
+            {
+              id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.4.scriptid
+              visible = true
+              mandatory = false
+              displayType = "INLINETEXT"
+              columnBreak = false
+              sameRowAsPrevious = false
+              quickAdd = false
+            },
+            {
+              id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.0.scriptid
+              label = "Report CSS"
+              visible = true
+              mandatory = false
+              displayType = "INLINETEXT"
+              columnBreak = false
+              sameRowAsPrevious = false
+              quickAdd = false
+            },
+          ]
+        },
+        {
+          position = "MIDDLE"
+          field = [
+            {
+              id = "CUSTOMFORM"
+              label = "Custom Form"
+              visible = false
+              mandatory = true
+              displayType = "NORMAL"
+              columnBreak = false
+              sameRowAsPrevious = false
+              quickAdd = false
+            },
+            {
+              id = "NAME"
+              label = "Name"
+              visible = true
+              mandatory = true
+              displayType = "INLINETEXT"
+              columnBreak = false
+              sameRowAsPrevious = false
+              quickAdd = true
+            },
+            {
+              id = "RECORDID"
+              label = "ID"
+              visible = true
+              mandatory = true
+              displayType = "INLINETEXT"
+              columnBreak = false
+              sameRowAsPrevious = false
+              quickAdd = false
+            },
+            {
+              id = "OWNER"
+              label = "Owner"
+              visible = false
+              mandatory = true
+              displayType = "INLINETEXT"
+              columnBreak = false
+              sameRowAsPrevious = false
+              quickAdd = false
+            },
+            {
+              id = "CREATED"
+              label = "Date Created"
+              visible = false
+              mandatory = true
+              displayType = "INLINETEXT"
+              columnBreak = false
+              sameRowAsPrevious = false
+              quickAdd = false
+            },
+            {
+              id = "LASTMODIFIED"
+              label = "Last Modified"
+              visible = false
+              mandatory = true
+              displayType = "INLINETEXT"
+              columnBreak = false
+              sameRowAsPrevious = false
+              quickAdd = false
+            },
+            {
+              id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.6.scriptid
+              label = "Main Administrator"
+              visible = false
+              mandatory = false
+              displayType = "NORMAL"
+              columnBreak = false
+              sameRowAsPrevious = false
+              quickAdd = false
+            },
+            {
+              id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.24.scriptid
+              label = "Date Installed"
+              visible = true
+              mandatory = false
+              displayType = "INLINETEXT"
+              columnBreak = false
+              sameRowAsPrevious = false
+              quickAdd = false
+            },
+            {
+              id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.25.scriptid
+              label = "Last Updated"
+              visible = true
+              mandatory = false
+              displayType = "INLINETEXT"
+              columnBreak = false
+              sameRowAsPrevious = false
+              quickAdd = false
+            },
+            {
+              id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.9.scriptid
+              label = "Schedule Script Queues set"
+              visible = true
+              mandatory = false
+              displayType = "INLINETEXT"
+              columnBreak = false
+              sameRowAsPrevious = false
+              quickAdd = false
+            },
+            {
+              id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.11.scriptid
+              label = "Row in List Segments Sets"
+              visible = true
+              mandatory = false
+              displayType = "INLINETEXT"
+              columnBreak = false
+              sameRowAsPrevious = false
+              quickAdd = false
+            },
+            {
+              id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.10.scriptid
+              label = "Administrators"
+              visible = false
+              mandatory = false
+              displayType = "NORMAL"
+              columnBreak = false
+              sameRowAsPrevious = false
+              quickAdd = false
+            },
+            {
+              id = "PARENT"
+              label = "Parent"
+              visible = false
+              mandatory = false
+              displayType = "NORMAL"
+              columnBreak = false
+              sameRowAsPrevious = false
+              quickAdd = false
+            },
+            {
+              id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.8.scriptid
+              label = "Number of Queues"
+              visible = true
+              mandatory = false
+              displayType = "INLINETEXT"
+              columnBreak = true
+              sameRowAsPrevious = false
+              quickAdd = false
+            },
+            {
+              id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.7.scriptid
+              label = "Avg. Five days Number of Schedule Script running (excluding Strongpoint)"
+              visible = true
+              mandatory = false
+              displayType = "INLINETEXT"
+              columnBreak = false
+              sameRowAsPrevious = false
+              quickAdd = false
+            },
+            {
+              id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.12.scriptid
+              label = "Bundle Version"
+              visible = true
+              mandatory = false
+              displayType = "INLINETEXT"
+              columnBreak = false
+              sameRowAsPrevious = false
+              quickAdd = false
+            },
+            {
+              id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.15.scriptid
+              label = "Installed From"
+              visible = true
+              mandatory = false
+              displayType = "INLINETEXT"
+              columnBreak = false
+              sameRowAsPrevious = false
+              quickAdd = false
+            },
+            {
+              id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.16.scriptid
+              label = "Jira User"
+              visible = true
+              mandatory = false
+              displayType = "NORMAL"
+              columnBreak = false
+              sameRowAsPrevious = false
+              quickAdd = false
+            },
+            {
+              id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.17.scriptid
+              label = "Jira Pass"
+              visible = true
+              mandatory = false
+              displayType = "NORMAL"
+              columnBreak = false
+              sameRowAsPrevious = false
+              quickAdd = false
+            },
+            {
+              id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.19.scriptid
+              label = "Jira inline HTML hide credentials"
+              visible = true
+              mandatory = false
+              displayType = "INLINETEXT"
+              columnBreak = false
+              sameRowAsPrevious = false
+              quickAdd = false
+            },
+            {
+              id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.22.scriptid
+              label = "Autospider Portlet Initiate Date"
+              visible = true
+              mandatory = false
+              displayType = "NORMAL"
+              columnBreak = false
+              sameRowAsPrevious = false
+              quickAdd = false
+            },
+          ]
+        },
+      ]
+    }
+  }
+  tabs = {
+    tab = [
+      {
+        id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.1.scriptid
+        label = "Spider Status"
+        visible = true
+        fieldGroups = {
+          defaultFieldGroup = {
+            fields = [
+              {
+                position = "TOP"
+                field = [
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.5.scriptid
+                    label = "Spider Status Intro"
+                    visible = true
+                    mandatory = false
+                    displayType = "INLINETEXT"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                ]
+              },
+              {
+                position = "MIDDLE"
+                field = [
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.49.scriptid
+                    label = "Auto Spider Enabled"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.50.scriptid
+                    label = "Auto Spider Last Run Date"
+                    visible = true
+                    mandatory = false
+                    displayType = "INLINETEXT"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.51.scriptid
+                    label = "Bundle(s) To Ignore"
+                    visible = false
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.60.scriptid
+                    label = "Last Completed Spider"
+                    visible = true
+                    mandatory = false
+                    displayType = "INLINETEXT"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.58.scriptid
+                    label = "Last Manual Spider Trigger by:"
+                    visible = true
+                    mandatory = false
+                    displayType = "INLINETEXT"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.59.scriptid
+                    label = "Last Manual Spider Trigger date:"
+                    visible = true
+                    mandatory = false
+                    displayType = "INLINETEXT"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.57.scriptid
+                    label = "Sessions Lost"
+                    visible = true
+                    mandatory = false
+                    displayType = "INLINETEXT"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.52.scriptid
+                    label = "Spider - Front End"
+                    visible = true
+                    mandatory = false
+                    displayType = "INLINETEXT"
+                    columnBreak = true
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.53.scriptid
+                    label = "Spider - Back End"
+                    visible = true
+                    mandatory = false
+                    displayType = "INLINETEXT"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.54.scriptid
+                    label = "Spider - Script Parser"
+                    visible = true
+                    mandatory = false
+                    displayType = "INLINETEXT"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.55.scriptid
+                    label = "Spider - Make Joins"
+                    visible = true
+                    mandatory = false
+                    displayType = "INLINETEXT"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.56.scriptid
+                    label = "Spider - Gather Utilization Metadata"
+                    visible = true
+                    mandatory = false
+                    displayType = "INLINETEXT"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.62.scriptid
+                    label = "Spider - Front End Date"
+                    visible = false
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = true
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.63.scriptid
+                    label = "Spider - Back End Date"
+                    visible = false
+                    mandatory = false
+                    displayType = "INLINETEXT"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.64.scriptid
+                    label = "Spider - Script Parser Date"
+                    visible = false
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.65.scriptid
+                    label = "Spider - Make Joins Date"
+                    visible = false
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.66.scriptid
+                    label = "Spider -  Gather Utilization Date"
+                    visible = false
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.71.scriptid
+                    label = "Spider - Front End Date  Last Record"
+                    visible = false
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = true
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.70.scriptid
+                    label = "Spider - Back End  Last Record"
+                    visible = false
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.68.scriptid
+                    label = "Spider - Make Joins Last Record"
+                    visible = false
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.69.scriptid
+                    label = "Spider - Script Parser  Last Record"
+                    visible = false
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.67.scriptid
+                    label = "Spider - Gather Utilization Last Record"
+                    visible = false
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.73.scriptid
+                    label = "Record Types with Unfinished Indexing"
+                    visible = true
+                    mandatory = false
+                    displayType = "INLINETEXT"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.61.scriptid
+                    label = "Files Pending to process"
+                    visible = true
+                    mandatory = false
+                    displayType = "INLINETEXT"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.72.scriptid
+                    label = "Remaining Objects to Join"
+                    visible = true
+                    mandatory = false
+                    displayType = "INLINETEXT"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                ]
+              },
+              {
+                position = "BOTTOM"
+                field = [
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.86.scriptid
+                    label = "Documented Records Overview"
+                    visible = true
+                    mandatory = false
+                    displayType = "INLINETEXT"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                ]
+              },
+            ]
+          }
+        }
+        subItems = {
+          subList = [
+            {
+              id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.recordsublists.recordsublist.0.scriptid
+              label = "Spider Log"
+              visible = true
+              neverEmpty = false
+            },
+          ]
+        }
+      },
+      {
+        id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.4.scriptid
+        label = "Documentation"
+        visible = true
+        fieldGroups = {
+          defaultFieldGroup = {
+            fields = [
+              {
+                position = "TOP"
+                field = [
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.3.scriptid
+                    label = "Documentation Stats"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                ]
+              },
+              {
+                position = "MIDDLE"
+                field = [
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.26.scriptid
+                    label = "Total Customizations"
+                    visible = true
+                    mandatory = false
+                    displayType = "INLINETEXT"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.27.scriptid
+                    label = "Total Joins"
+                    visible = true
+                    mandatory = false
+                    displayType = "INLINETEXT"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.28.scriptid
+                    label = "List Joins"
+                    visible = true
+                    mandatory = false
+                    displayType = "INLINETEXT"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.29.scriptid
+                    label = "Sourcing Join"
+                    visible = true
+                    mandatory = false
+                    displayType = "INLINETEXT"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.30.scriptid
+                    label = "Script Joins"
+                    visible = true
+                    mandatory = false
+                    displayType = "INLINETEXT"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.31.scriptid
+                    label = "Search Join"
+                    visible = true
+                    mandatory = false
+                    displayType = "INLINETEXT"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.32.scriptid
+                    label = "Workflow Joins"
+                    visible = true
+                    mandatory = false
+                    displayType = "INLINETEXT"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.33.scriptid
+                    label = "Form Join"
+                    visible = true
+                    mandatory = false
+                    displayType = "INLINETEXT"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                ]
+              },
+            ]
+          }
+        }
+      },
+      {
+        id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.2.scriptid
+        label = "Statistics"
+        visible = true
+      },
+      {
+        id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.3.scriptid
+        label = "Clean-Up"
+        visible = true
+        fieldGroups = {
+          defaultFieldGroup = {
+            fields = [
+              {
+                position = "TOP"
+                field = [
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.2.scriptid
+                    label = "Clean-up Overview"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                ]
+              },
+              {
+                position = "MIDDLE"
+                field = [
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.74.scriptid
+                    label = "Unused Fields"
+                    visible = true
+                    mandatory = false
+                    displayType = "INLINETEXT"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.75.scriptid
+                    label = "Unused Searches"
+                    visible = true
+                    mandatory = false
+                    displayType = "INLINETEXT"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.76.scriptid
+                    label = "Customizations with Default Script Ids"
+                    visible = true
+                    mandatory = false
+                    displayType = "INLINETEXT"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.77.scriptid
+                    label = "Customizations with No Active Owner"
+                    visible = true
+                    mandatory = false
+                    displayType = "INLINETEXT"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.78.scriptid
+                    label = "Unused Records"
+                    visible = true
+                    mandatory = false
+                    displayType = "INLINETEXT"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.79.scriptid
+                    label = "Fields With No Parent"
+                    visible = true
+                    mandatory = false
+                    displayType = "INLINETEXT"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.80.scriptid
+                    label = "Custom Fields with No Help"
+                    visible = true
+                    mandatory = false
+                    displayType = "INLINETEXT"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.81.scriptid
+                    label = "Customizations with No Description"
+                    visible = true
+                    mandatory = false
+                    displayType = "INLINETEXT"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                ]
+              },
+            ]
+          }
+        }
+      },
+      {
+        id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.5.scriptid
+        label = "Script Management"
+        visible = true
+        fieldGroups = {
+          defaultFieldGroup = {
+            fields = [
+              {
+                position = "TOP"
+                field = [
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.1.scriptid
+                    label = "Script Management Stats"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                ]
+              },
+              {
+                position = "MIDDLE"
+                field = [
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.82.scriptid
+                    label = "Potentially Unused Scripts"
+                    visible = true
+                    mandatory = false
+                    displayType = "INLINETEXT"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.83.scriptid
+                    label = "Scripts with FLOStart Tags"
+                    visible = true
+                    mandatory = false
+                    displayType = "INLINETEXT"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.84.scriptid
+                    label = "Scripts with FLOEnd Tags"
+                    visible = true
+                    mandatory = false
+                    displayType = "INLINETEXT"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.85.scriptid
+                    label = "Scripts with No Audit Tags"
+                    visible = true
+                    mandatory = false
+                    displayType = "INLINETEXT"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                ]
+              },
+            ]
+          }
+        }
+      },
+      {
+        id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.6.scriptid
+        label = "User Management"
+        visible = true
+      },
+      {
+        id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.7.scriptid
+        label = "Processes"
+        visible = true
+      },
+      {
+        id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.0.scriptid
+        label = "Installation"
+        visible = true
+        fieldGroups = {
+          defaultFieldGroup = {
+            fields = [
+              {
+                position = "MIDDLE"
+                field = [
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.34.scriptid
+                    label = "Start Time"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.35.scriptid
+                    label = "End Time"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.36.scriptid
+                    label = "Enable Auto Archive"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.37.scriptid
+                    label = "Auto Archive Folder"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.39.scriptid
+                    label = "Enable Auto Process Issue"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.40.scriptid
+                    label = "Process Issue Assigned"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.41.scriptid
+                    label = "Process Issue Approver"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.42.scriptid
+                    label = "Disable Spider Last Use Report"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.43.scriptid
+                    label = "Saved Searches Spider Time Limit"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.44.scriptid
+                    label = "Enable Remote Status Report"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.45.scriptid
+                    label = "Total Change Requests"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.46.scriptid
+                    label = "Total Process Issue"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                  {
+                    id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.customrecordcustomfields.customrecordcustomfield.47.scriptid
+                    label = "Total Policies"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                ]
+              },
+            ]
+          }
+        }
+      },
+      {
+        id = "RECORDTRANSLATION"
+        label = "Translation"
+        visible = true
+        subItems = {
+          subList = [
+            {
+              id = "RECORDTRANSLATIONS"
+              label = "Translation"
+              visible = true
+              neverEmpty = false
+            },
+          ]
+        }
+      },
+      {
+        id = "RECORDCUSTOM"
+        label = "Custom"
+        visible = true
+        subItems = {
+          subList = [
+            {
+              id = netsuite.customrecordtype.instance.customrecord_flo_spider_log.customrecordcustomfields.customrecordcustomfield.3.scriptid
+              label = "Spider Log"
+              visible = false
+              neverEmpty = false
+            },
+          ]
+        }
+      },
+      {
+        id = "RECORDNOTES"
+        label = "Notes"
+        visible = true
+        fieldGroups = {
+          defaultFieldGroup = {
+            fields = [
+              {
+                position = "MIDDLE"
+                field = [
+                  {
+                    id = "ISINACTIVE"
+                    label = "Inactive"
+                    visible = false
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                  },
+                ]
+              },
+            ]
+          }
+        }
+        subItems = {
+          subList = [
+            {
+              id = "RECORDUSERNOTES"
+              label = "User Notes"
+              visible = true
+              neverEmpty = false
+            },
+            {
+              id = "RECORDSYSTEMNOTES"
+              label = "System Notes"
+              visible = true
+              neverEmpty = false
+            },
+          ]
+        }
+      },
+      {
+        id = "RECORDWORKFLOW"
+        label = "Workflow"
+        visible = false
+        subItems = {
+          subList = [
+            {
+              id = "RECORDACTIVEWORKFLOWS"
+              label = "Active Workflows"
+              visible = false
+              neverEmpty = false
+            },
+            {
+              id = "RECORDWORKFLOWHISTORY"
+              label = "Workflow History"
+              visible = false
+              neverEmpty = false
+            },
+          ]
+        }
+      },
+      {
+        id = netsuite.customrecordtype.instance.customrecord_flo_spider_configuration.subtabs.subtab.8.scriptid
+        label = "Jira Integration"
+        visible = true
+      },
+    ]
+  }
+  actionbar = {
+    buttons = {
+      button = [
+        {
+          id = "PRINT"
+          label = "Print"
+          visible = true
+        },
+      ]
+    }
+    menu = {
+      menuitem = [
+        {
+          id = "DELETE"
+          label = "Delete"
+          visible = false
+        },
+        {
+          id = "MAKECOPY"
+          label = "Make Copy"
+          visible = false
+        },
+        {
+          id = "NEW"
+          label = "New"
+          visible = false
+        },
+        {
+          id = "SUBMITCOPY"
+          label = "Save & Copy"
+          visible = false
+        },
+        {
+          id = "SUBMITNEW"
+          label = "Save & New"
+          visible = false
+        },
+        {
+          id = "SUBMITNEXT"
+          label = "Save & Next"
+          visible = false
+        },
+        {
+          id = "SUBMITAS"
+          label = "Save As"
+          visible = false
+        },
+      ]
+    }
+  }
+  editingInList = false
+}

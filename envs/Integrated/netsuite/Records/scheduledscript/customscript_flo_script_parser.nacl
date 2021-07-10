@@ -1,0 +1,169 @@
+netsuite.scheduledscript customscript_flo_script_parser {
+  scriptid = "customscript_flo_script_parser"
+  defaultfunction = "spiderScriptFilesSS"
+  description = "This scheduled script checks for new and updated scripts and gathers metadata about them."
+  isinactive = false
+  name = "Strongpoint Script File Parser SS"
+  notifyadmins = false
+  notifyemails = "nic.cano@flodocs.com"
+  notifyowner = false
+  scriptfile = "[/SuiteBundles/Bundle 297487/FLOScriptfileParserSS.js]"
+  scriptcustomfields = {
+    scriptcustomfield = [
+      {
+        scriptid = "custscript_flo_script_archive_folderss"
+        accesslevel = "2"
+        applyformatting = true
+        checkspelling = false
+        defaultchecked = false
+        defaultvalue = "1060"
+        description = "This is the internalid of the folder used to store archives of script versions detected during spidering.  If not set, no scripts are archived."
+        displaytype = "NORMAL"
+        fieldtype = "INTEGER"
+        help = "This is the internalid of the folder used to store archives of script versions detected during spidering.  If not set, no scripts are archived."
+        isformula = false
+        ismandatory = false
+        label = "Script Archive Folder"
+        searchlevel = "2"
+        storevalue = true
+      },
+      {
+        scriptid = "custscript_flo_script_parser_search"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "TEXT"
+        isformula = false
+        ismandatory = false
+        label = "Saved Search ID"
+        searchlevel = "2"
+        storevalue = true
+      },
+      {
+        scriptid = "custscript_last_script_process"
+        accesslevel = "2"
+        applyformatting = true
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "INTEGER"
+        isformula = false
+        ismandatory = false
+        label = "Last Script Process"
+        searchlevel = "2"
+        storevalue = true
+      },
+      {
+        scriptid = "custscript_flo_script_parser_starttime"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "TIMEOFDAY"
+        isformula = false
+        ismandatory = false
+        label = "Start Time"
+        searchlevel = "2"
+        storevalue = true
+      },
+      {
+        scriptid = "custscript_flo_script_parser_endtime"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "TIMEOFDAY"
+        isformula = false
+        ismandatory = false
+        label = "End Time"
+        searchlevel = "2"
+        storevalue = true
+      },
+      {
+        scriptid = "custscript_flo_parser_lastlib_index"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "TEXT"
+        isformula = false
+        ismandatory = false
+        label = "Last Lib Processed"
+        searchlevel = "2"
+        storevalue = true
+      },
+    ]
+  }
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy_flo_script_file_parser_rs"
+        isdeployed = true
+        loglevel = "AUDIT"
+        status = "NOTSCHEDULED"
+        title = "Strongpoint Script File Parser SS Respider"
+        recurrence = {
+          single = {
+            startdate = "2015-12-11"
+            starttime = "02:00:00Z"
+          }
+        }
+      },
+      {
+        scriptid = "customdeploy_flo_script_parser"
+        isdeployed = true
+        loglevel = "AUDIT"
+        status = "NOTSCHEDULED"
+        title = "Strongpoint Script File Parser"
+        recurrence = {
+          daily = {
+            everyxdays = 1
+            repeat = "PT12H"
+            startdate = "2014-12-12"
+            starttime = "02:00:00Z"
+          }
+        }
+      },
+      {
+        scriptid = "customdeploy_flo_script_parser_od"
+        isdeployed = true
+        loglevel = "AUDIT"
+        status = "NOTSCHEDULED"
+        title = "Strongpoint Script File Parser SS - OD"
+        recurrence = {
+          single = {
+            startdate = "2014-06-24"
+            starttime = "01:00:00Z"
+          }
+        }
+      },
+    ]
+  }
+  libraries = {
+    library = [
+      {
+        scriptfile = "[/SuiteBundles/Bundle 297487/FLOValidateLicense.js]"
+      },
+      {
+        scriptfile = netsuite.file.instance.SuiteBundles_Bundle_297487_FLOTimeWindow_js@dsdv.path
+      },
+      {
+        scriptfile = netsuite.file.instance.SuiteBundles_Bundle_297487_sha1_js@dsdv.path
+      },
+      {
+        scriptfile = netsuite.file.instance.SuiteBundles_Bundle_297487_supportedrecords_js@dsdv.path
+      },
+      {
+        scriptfile = netsuite.file.instance.SuiteBundles_Bundle_297487_esprima_js@dsdv.path
+      },
+      {
+        scriptfile = netsuite.file.instance.SuiteBundles_Bundle_297487_estraverse_browser_js@dsdvv.path
+      },
+    ]
+  }
+}

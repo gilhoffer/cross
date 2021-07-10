@@ -1,0 +1,11 @@
+type netsuite.WorkOrderItemList {
+  annotations {
+    hidden_string source {
+    }
+  }
+  "List<netsuite.WorkOrderItem>" item {
+  }
+  boolean replaceAll {
+    isAttribute = true
+  }
+}

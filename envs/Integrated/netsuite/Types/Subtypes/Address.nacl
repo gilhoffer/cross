@@ -1,0 +1,33 @@
+type netsuite.Address {
+  annotations {
+    hidden_string source {
+    }
+  }
+  string internalId {
+    _hidden_value = true
+  }
+  string country {
+  }
+  string attention {
+  }
+  string addressee {
+  }
+  string addrPhone {
+  }
+  string addr1 {
+  }
+  string addr2 {
+  }
+  string addr3 {
+  }
+  string city {
+  }
+  string state {
+  }
+  string zip {
+  }
+  string addrText {
+  }
+  boolean override {
+  }
+}

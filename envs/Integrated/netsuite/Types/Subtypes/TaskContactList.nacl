@@ -1,0 +1,11 @@
+type netsuite.TaskContactList {
+  annotations {
+    hidden_string source {
+    }
+  }
+  "List<netsuite.TaskContact>" contact {
+  }
+  boolean replaceAll {
+    isAttribute = true
+  }
+}

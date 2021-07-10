@@ -1,0 +1,10 @@
+type netsuite.EmployeeRates {
+  annotations {
+    hidden_string source {
+    }
+  }
+  netsuite.Currency entityCurrency {
+  }
+  number rate {
+  }
+}

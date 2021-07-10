@@ -1,0 +1,34 @@
+type workato.recipe__code__extended_output_schema__properties__toggle_field {
+  string label {
+  }
+  string control_type {
+  }
+  string toggle_hint {
+  }
+  boolean optional {
+  }
+  string ns_content_type {
+  }
+  string ns_tag {
+  }
+  string type {
+  }
+  string name {
+  }
+  string ns_custom_type {
+  }
+  string ns_search_type {
+  }
+  boolean custom {
+  }
+  boolean sticky {
+  }
+  boolean sfdc_createable {
+  }
+  boolean sfdc_updateable {
+  }
+  string toggle_to_primary_hint {
+  }
+  string toggle_to_secondary_hint {
+  }
+}

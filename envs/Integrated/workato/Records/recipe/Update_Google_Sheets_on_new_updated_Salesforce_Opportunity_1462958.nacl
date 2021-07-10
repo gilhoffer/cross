@@ -1,0 +1,35 @@
+workato.recipe Update_Google_Sheets_on_new_updated_Salesforce_Opportunity_1462958@ssssdssu {
+  id = 1462958
+  user_id = 212128
+  name = "Update Google Sheets on new/updated Salesforce Opportunity"
+  copy_count = 1
+  trigger_application = "salesforce"
+  action_applications = [
+    "google_sheets",
+  ]
+  applications = [
+    "salesforce",
+    "google_sheets",
+  ]
+  description = "When there is a new/updated record in Salesforce, add a new row in a sheet in Google Sheets"
+  folder_id = 318283
+  running = false
+  lifetime_task_count = 0
+  config = [
+    {
+      keyword = "application"
+      provider = "salesforce"
+      skip_validation = false
+      name = "salesforce"
+      account_id = workato.connection.instance.Astar_s_sandbox@ts
+    },
+    {
+      keyword = "application"
+      provider = "google_sheets"
+      skip_validation = false
+      name = "google_sheets"
+      account_id = workato.connection.instance.My_Google_sheets_connection@s
+    },
+  ]
+  code = workato.recipe__code.instance.Update_Google_Sheets_on_new_updated_Salesforce_Opportunity_1462958_ssssdssu__updated_custom_object@uuuuuuuumuuuu
+}

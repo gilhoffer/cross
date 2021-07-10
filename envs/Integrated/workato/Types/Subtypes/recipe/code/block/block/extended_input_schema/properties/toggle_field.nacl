@@ -1,0 +1,30 @@
+type workato.recipe__code__block__block__extended_input_schema__properties__toggle_field {
+  string label {
+  }
+  string control_type {
+  }
+  string toggle_hint {
+  }
+  boolean optional {
+  }
+  string ns_content_type {
+  }
+  string ns_tag {
+  }
+  string type {
+  }
+  string name {
+  }
+  string toggle_to_primary_hint {
+  }
+  string toggle_to_secondary_hint {
+  }
+  boolean custom {
+  }
+  boolean sticky {
+  }
+  "List<List<string>>" pick_list {
+  }
+  string parent {
+  }
+}

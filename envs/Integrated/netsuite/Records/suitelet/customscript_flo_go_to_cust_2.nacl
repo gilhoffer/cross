@@ -1,0 +1,26 @@
+netsuite.suitelet customscript_flo_go_to_cust_2 {
+  scriptid = "customscript_flo_go_to_cust_2"
+  defaultfunction = "goToCustomization"
+  description = "This script resolves the link to a specific customization"
+  isinactive = false
+  name = "Strongpoint Go To Customization"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = netsuite.file.instance.SuiteBundles_Bundle_297487_goToCustomization_js@dsdv.path
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy_flo_go_to_cust"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        isdeployed = true
+        isonline = false
+        loglevel = "AUDIT"
+        status = "RELEASED"
+        title = "Strongpoint Go To Customization"
+      },
+    ]
+  }
+}

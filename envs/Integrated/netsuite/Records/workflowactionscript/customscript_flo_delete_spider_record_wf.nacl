@@ -1,0 +1,25 @@
+netsuite.workflowactionscript customscript_flo_delete_spider_record_wf {
+  scriptid = "customscript_flo_delete_spider_record_wf"
+  defaultfunction = "deleteRec"
+  isinactive = false
+  name = "Strongpoint Delete Spider Files WF"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = "[/SuiteBundles/Bundle 297487/FLODeleteSpiderFileWF.js]"
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy_flo_delete_spider_record_wf"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        isdeployed = true
+        loglevel = "AUDIT"
+        recordtype = "[scriptid=customrecord_flo_spider_files]"
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+      },
+    ]
+  }
+}

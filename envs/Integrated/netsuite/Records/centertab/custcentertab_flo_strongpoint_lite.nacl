@@ -1,0 +1,93 @@
+netsuite.centertab custcentertab_flo_strongpoint_lite {
+  scriptid = "custcentertab_flo_strongpoint_lite"
+  allcustomers = false
+  allemployees = false
+  allpartners = false
+  allroles = false
+  allvendors = false
+  audslctrole = "ADMINISTRATOR|[scriptid=customrole_flo_developer_role]|[scriptid=customrole_flo_flashlight]"
+  center = "BASIC"
+  label = "Flashlight"
+  portlets = {
+    portlet = [
+      {
+        scriptid = "portlet_1371_t1049933_187"
+        isportletshown = true
+        portlet = "REMINDERS"
+        portletcolumn = "1"
+      },
+      {
+        scriptid = "portlet_1383_t1049933_650"
+        isportletshown = true
+        portlet = "SCRIPTPORTLET"
+        portletcolumn = "1"
+      },
+      {
+        scriptid = "portlet_1372_t1049933_238"
+        isportletshown = true
+        portlet = "SCRIPTPORTLET"
+        portletcolumn = "1"
+      },
+      {
+        scriptid = "portlet_1373_t1049933_646"
+        isportletshown = true
+        portlet = "SEARCHFORM"
+        portletcolumn = "1"
+      },
+      {
+        scriptid = "portlet_1384_t1049933_305"
+        isportletshown = true
+        portlet = "SCRIPTPORTLET"
+        portletcolumn = "1"
+      },
+      {
+        scriptid = "portlet_1385_t1049933_548"
+        isportletshown = true
+        portlet = "SCRIPTPORTLET"
+        portletcolumn = "1"
+      },
+      {
+        scriptid = "portlet_1386_t1049933_746"
+        isportletshown = true
+        portlet = "SEARCHFORM"
+        portletcolumn = "1"
+      },
+      {
+        scriptid = "portlet_1387_t1049933_243"
+        isportletshown = true
+        portlet = "SCRIPTPORTLET"
+        portletcolumn = "2"
+      },
+      {
+        scriptid = "portlet_1375_t1049933_368"
+        isportletshown = true
+        portlet = "SCRIPTPORTLET"
+        portletcolumn = "2"
+      },
+      {
+        scriptid = "portlet_1382_t1049933_644"
+        isportletshown = true
+        portlet = "SCRIPTPORTLET"
+        portletcolumn = "2"
+      },
+      {
+        scriptid = "portlet_1379_t1049933_384"
+        isportletshown = true
+        portlet = "SNAPSHOTS"
+        portletcolumn = "2"
+      },
+      {
+        scriptid = "portlet_1378_t1049933_285"
+        isportletshown = true
+        portlet = "SEARCHRESULTS"
+        portletcolumn = "2"
+      },
+      {
+        scriptid = "portlet_1381_t1049933_921"
+        isportletshown = true
+        portlet = "SEARCHRESULTS"
+        portletcolumn = "2"
+      },
+    ]
+  }
+}

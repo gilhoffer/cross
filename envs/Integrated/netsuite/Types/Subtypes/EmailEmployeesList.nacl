@@ -1,0 +1,8 @@
+type netsuite.EmailEmployeesList {
+  annotations {
+    hidden_string source {
+    }
+  }
+  "List<netsuite.RecordRef>" emailEmployees {
+  }
+}

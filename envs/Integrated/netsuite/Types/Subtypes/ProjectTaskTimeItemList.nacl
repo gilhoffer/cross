@@ -1,0 +1,11 @@
+type netsuite.ProjectTaskTimeItemList {
+  annotations {
+    hidden_string source {
+    }
+  }
+  "List<netsuite.TimeItem>" timeItem {
+  }
+  boolean replaceAll {
+    isAttribute = true
+  }
+}

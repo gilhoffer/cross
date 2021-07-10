@@ -1,0 +1,126 @@
+netsuite.customlist customlist_flo_event_type {
+  scriptid = "customlist_flo_event_type"
+  isinactive = false
+  ismatrixoption = false
+  isordered = true
+  name = "Event Type"
+  customvalues = {
+    customvalue = [
+      {
+        scriptid = "value_1_t1049933_417"
+        isinactive = false
+        value = "Approve"
+      },
+      {
+        scriptid = "value_2_t1049933_417"
+        isinactive = false
+        value = "Cancel"
+      },
+      {
+        scriptid = "value_3_t1049933_417"
+        isinactive = false
+        value = "Change Password"
+      },
+      {
+        scriptid = "value_4_t1049933_417"
+        isinactive = false
+        value = "Copy"
+      },
+      {
+        scriptid = "value_5_t1049933_417"
+        isinactive = false
+        value = "Create"
+      },
+      {
+        scriptid = "value_6_t1049933_417"
+        isinactive = false
+        value = "Delete"
+      },
+      {
+        scriptid = "value_7_t1049933_417"
+        isinactive = false
+        value = "Direct List Edit"
+      },
+      {
+        scriptid = "value_8_t1049933_417"
+        isinactive = false
+        value = "Drop Ship"
+      },
+      {
+        scriptid = "value_9_t1049933_417"
+        isinactive = false
+        value = "Edit"
+      },
+      {
+        scriptid = "value_10_t1049933_417"
+        isinactive = false
+        value = "Edit Forecast"
+      },
+      {
+        scriptid = "value_11_t1049933_417"
+        isinactive = false
+        value = "Email"
+      },
+      {
+        scriptid = "value_12_t1049933_417"
+        isinactive = false
+        value = "Mark Complete"
+      },
+      {
+        scriptid = "value_13_t1049933_417"
+        isinactive = false
+        value = "Order Items"
+      },
+      {
+        scriptid = "value_14_t1049933_417"
+        isinactive = false
+        value = "Pack"
+      },
+      {
+        scriptid = "value_15_t1049933_417"
+        isinactive = false
+        value = "Pay Bills"
+      },
+      {
+        scriptid = "value_16_t1049933_417"
+        isinactive = false
+        value = "Print"
+      },
+      {
+        scriptid = "value_17_t1049933_417"
+        isinactive = false
+        value = "QuickView"
+      },
+      {
+        scriptid = "value_18_t1049933_417"
+        isinactive = false
+        value = "Reassign"
+      },
+      {
+        scriptid = "value_19_t1049933_417"
+        isinactive = false
+        value = "Reject"
+      },
+      {
+        scriptid = "value_20_t1049933_417"
+        isinactive = false
+        value = "Ship"
+      },
+      {
+        scriptid = "value_21_t1049933_417"
+        isinactive = false
+        value = "Special Order"
+      },
+      {
+        scriptid = "value_22_t1049933_417"
+        isinactive = false
+        value = "Tranform"
+      },
+      {
+        scriptid = "value_23_t1049933_417"
+        isinactive = false
+        value = "View"
+      },
+    ]
+  }
+}

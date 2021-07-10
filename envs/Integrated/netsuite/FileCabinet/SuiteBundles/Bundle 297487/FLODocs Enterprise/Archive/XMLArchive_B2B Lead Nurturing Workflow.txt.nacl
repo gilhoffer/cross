@@ -1,0 +1,12 @@
+netsuite.file SuiteBundles_Bundle_297487_FLODocs_Enterprise_Archive_XMLArchive_B2B_Lead_Nurturing_Workflow_txt@dsdsddusssv {
+  bundleable = false
+  isinactive = false
+  availablewithoutlogin = false
+  generateurltimestamp = false
+  hideinbundle = false
+  path = "/SuiteBundles/Bundle 297487/FLODocs Enterprise/Archive/XMLArchive_B2B Lead Nurturing Workflow.txt"
+  content = file("netsuite/FileCabinet/SuiteBundles/Bundle 297487/FLODocs Enterprise/Archive/XMLArchive_B2B Lead Nurturing Workflow.txt")
+  _parent = [
+    netsuite.folder.instance.SuiteBundles_Bundle_297487_FLODocs_Enterprise_Archive@dsdsd,
+  ]
+}

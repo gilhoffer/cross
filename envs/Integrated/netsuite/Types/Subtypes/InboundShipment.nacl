@@ -1,0 +1,41 @@
+type netsuite.InboundShipment {
+  annotations {
+    hidden_string source {
+    }
+  }
+  netsuite.RecordRef customForm {
+  }
+  string shipmentNumber {
+  }
+  string externalDocumentNumber {
+  }
+  string shipmentStatus {
+  }
+  string expectedShippingDate {
+  }
+  string actualShippingDate {
+  }
+  string expectedDeliveryDate {
+  }
+  string actualDeliveryDate {
+  }
+  string shipmentMemo {
+  }
+  string vesselNumber {
+  }
+  string billOfLading {
+  }
+  netsuite.InboundShipmentLandedCostList landedCostList {
+  }
+  netsuite.InboundShipmentItemsList itemsList {
+  }
+  netsuite.RecordRef shipmentBaseCurrency {
+  }
+  string internalId {
+    isAttribute = true
+    _hidden_value = true
+  }
+  string externalId {
+    isAttribute = true
+  }
+}

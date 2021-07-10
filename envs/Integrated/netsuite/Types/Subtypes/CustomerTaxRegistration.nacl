@@ -1,0 +1,16 @@
+type netsuite.CustomerTaxRegistration {
+  annotations {
+    hidden_string source {
+    }
+  }
+  string nexusCountry {
+  }
+  netsuite.Nexus nexus {
+  }
+  netsuite.Address address {
+  }
+  string taxRegistrationNumber {
+  }
+  number id {
+  }
+}

@@ -1,0 +1,27 @@
+netsuite.portlet customscript_flo_account_summary_li_2 {
+  scriptid = "customscript_flo_account_summary_li_2"
+  defaultfunction = "showAccountSummary"
+  isinactive = false
+  name = "Strongpoint Flashlight Account Summary"
+  notifyadmins = false
+  notifyemails = "leo.lacava@strongpoint.io"
+  notifyowner = false
+  notifyuser = false
+  portlettype = "HTML"
+  scriptfile = netsuite.file.instance.SuiteBundles_Bundle_297487_StrongpointLightWelcomePortlet_js@dsdv.path
+  scriptdeployments = {
+    scriptdeployment = [
+      {
+        scriptid = "customdeploy_flo_account_summary_light"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        isdeployed = true
+        loglevel = "AUDIT"
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+        title = "Strongpoint Account Summary"
+      },
+    ]
+  }
+}

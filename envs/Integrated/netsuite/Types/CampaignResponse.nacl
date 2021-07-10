@@ -1,0 +1,29 @@
+type netsuite.CampaignResponse {
+  annotations {
+    hidden_string source {
+    }
+  }
+  netsuite.RecordRef entity {
+  }
+  netsuite.LeadSource leadSource {
+  }
+  netsuite.CampaignEvent campaignEvent {
+  }
+  string campaignResponseDate {
+  }
+  string channel {
+  }
+  string response {
+  }
+  string note {
+  }
+  netsuite.CampaignResponseResponsesList responsesList {
+  }
+  string internalId {
+    isAttribute = true
+    _hidden_value = true
+  }
+  string externalId {
+    isAttribute = true
+  }
+}

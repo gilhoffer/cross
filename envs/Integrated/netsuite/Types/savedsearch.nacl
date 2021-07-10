@@ -1,0 +1,22 @@
+type netsuite.savedsearch_dependencies {
+  "List<string>" dependency {
+    _required = true
+  }
+}
+type netsuite.savedsearch {
+  serviceid scriptid {
+    _required = true
+    isAttribute = true
+    _restriction = {
+      regex = "^customsearch[0-9a-z_]+"
+    }
+  }
+  string definition {
+    _required = true
+  }
+  netsuite.savedsearch_dependencies dependencies {
+  }
+  string _lastfetchtime {
+    _hidden_value = true
+  }
+}

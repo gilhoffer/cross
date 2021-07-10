@@ -1,0 +1,7 @@
+workato.connection Astar_s_sandbox@ts {
+  application = "salesforce"
+  id = 422887
+  name = "Astar's sandbox"
+  authorized_at = "2021-03-16T14:53:58.809-07:00"
+  authorization_status = "success"
+}
